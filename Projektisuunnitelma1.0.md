@@ -46,7 +46,7 @@ GDD|Game Design Document
 Viittaus|Materiaali 
 -------|--------------- 
 GDD | 
-Coding guidelines | https://optima.jamk.fi/shibboleth/shiblogin?ns=0&prevuri=aHR0cHM6Ly9vcHRpbWEuamFtay5maS9sZWFybmluZy9pZDIvYmluL2RpcmVjdFVSTF91c2U/ZHZh bD0zZmZkN2I1NzlhZjYzMTY2ZWEzY2ZlYTlhMTdiYTRlZTAyZjhkMjBhJmFtcDtpZD01NjA2OTQ3 JmFtcDt3cz01NjA2NTY0JmFtcDtucz0wJmFtcDtvcHRpbWFzdGFydD1vbiZhbXA7YmFja3Rvc3Rh cnQ9b24= 
+Coding guidelines | https://optima.jamk.fi/shibboleth/shiblogin?ns=0&prevuri=aHR0cHM6Ly9vcHRpbWEuamFtay5maS9sZWFybmluZy9pZDIvYmluL2RpcmVjdFVSTF91c2U/ZHZhbD0zZmZkN2I1NzlhZjYzMTY2ZWEzY2ZlYTlhMTdiYTRlZTAyZjhkMjBhJmFtcDtpZD01NjA2OTQ3JmFtcDt3cz01NjA2NTY0JmFtcDtucz0wJmFtcDtvcHRpbWFzdGFydD1vbiZhbXA7YmFja3Rvc3RhcnQ9b24= 
 
 ## Projektin sisältö 
 
