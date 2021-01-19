@@ -16,7 +16,7 @@ Yleensä puolipisteen jälkeen tulee rivinvaihto eli Enter. Lauseiden väliin vo
 
 Ainakin metodit kannattaa kommentoida yleisesti, eli mitä kyseinen metodi tekee. Yksittäisiä muuttujia ei ole pakko kommentoida, mutta myös metodin osia voi kommentoida, jos sen kokee tarpeelliseksi. Myös kokonaisten luokkien kommentointi on vapaavalintaista, kunhan ainakin metodit kommentoi. Kommentointimerkintä kannattaa tehdä lisäämällä esim. metodin viereen kaksi vinoviivaa //. 
 
-Esimerkki 
+## Esimerkki 
 
     public class CoinScript : MonoBehaviour 
     { 
