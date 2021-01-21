@@ -77,7 +77,7 @@ Esituotanto alkaa 18.1. ja kestää viikot 3 ja 4. Esituotannon aikana luodaan G
 ### Projektin toteuttamisesta 
 Tuotanto aloitetaan 1.2. ja Sprintit suoritetaan kahden viikon sykleissä. Sprintteihin valitaan Product Backlogista sopiva määrä työtaakkaa.  
 
-Ensimmäinen demo pidetään 25.2. klo: 9:00-13:00 ja seuraavat 8.4. & 12.5. klo: 9:00-13:00. Demotilanteissa projektit saavat palautetta ja kehitysehdotuksia.  
+Ensimmäinen demo pidetään 18.3. klo: 9:00-13:00 ja seuraavat 15.4. & 12.5. klo: 9:00-13:00. Demotilanteissa projektit saavat palautetta ja kehitysehdotuksia.  
 
 Tuotantojakson aikana on tarkoitus toteuttaa projektia tehokkaasti ja suunnitellusti. Tuotantojaksoille asetetaan saavutettavat tavoitteet, joita aina verrataan jakson lopussa tuotettuun lopputulokseen. 
 
@@ -131,8 +131,8 @@ Tapahtuma | Päivämäärä | muut tiedot/osanottajat
 ------|-----------|---------- 
 Esituotanto alkaa| 18.1 |  
 Projektin luonti alkaa | 1.2 | 
-Ensimmäinen demo |25.2 | 
-Toinen demo valmis |8.4 | 
+Ensimmäinen demo |18.1 | 
+Toinen demo valmis |15.4 | 
 Viimeinen demo | 12.5| 
 
 ## Raportointi ja kommunikointi 
