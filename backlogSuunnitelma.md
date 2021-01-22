@@ -31,17 +31,27 @@
 * kontakti info
 * linkki demoon, omalle sivulle
 
-
-
 ### !!tiimissä päätös tarkemmin et mikä vastustaja
-
 
 
 ## pienempi prioriteetti
 * ekan vastustajan ai
+* tasogeneraatio
+* shaderit
 
 ## misc
 -dodgedash-implementointi riippuu ohjelmoijista.
 
-# Product backlog
+# myöhemmäksi
 * 
+
+# Product backlog
+* ääni efektejä+ ?soundbox?
+* pelaajan perus liikkuminen hyväksi
+* ensimmäisen vastustajan
+    * slime
+* Perus elementti spellit
+* hudi
+* nettisivu
+* pelaajan hahmon aseen/staffin modelointi/animointi
+* tekstuurit
