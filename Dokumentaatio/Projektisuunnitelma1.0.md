@@ -101,7 +101,8 @@ Eetu Pitkänen | Scrum Master, Sisällöntuotanto | N3165@student.jamk.fi
 Niko Hokkanen | Testaaja, Tekniikka | N3177@student.jamk.fi 
 Ville-Veikko Taskinen | Sisällöntuotanto | N2991@student.jamk.fi 
 Arttu Rintamäki | TikoBiz, Liiketoiminta | N4169@student.jamk.fi  
-
+Riku Juvonen | Tekniikka | 
+Arttu Pylkkö | Tekniikka |
  
 
 ### ohjausryhmä 
@@ -116,7 +117,7 @@ Juha-Tapio Teno | Tuotekoutsausta – softa | juha-tapio.teno@jamk.fi
 Ilari Miikkulainen | narratiivi, audio, markkinointivideo | Ilari.Miikkulainen@jamk.fi 
 
 ### Työkalut 
-* Unity 
+* Unity 2019.4.18f1
 * Blender 
 * Vector kuvanmuokkaustyökalu, Photoshop 
 * Visual studio 
