@@ -28,9 +28,11 @@
 * Big enemy (trolli?)
 * range enemy (W/elemental arrows/attacks)
 * fauna props (forest taso)
-* fireball (löydettävä spelli)
-* lightning bolt (löydettävä spelli)
-* tornado (löydettävä spelli)
+* löydettävät spellit
+   * Fireball (löydettävä spelli) 
+   * öljy 
+   * lightning bolt (löydettävä spelli)
+   * tornado (löydettävä spelli)
 * Löydettävä spelli (tiimin kanssa esittää idean ja luo)
 * Itemien droppaus (kun tappaa kaikki vastustajat huoneessa)
 * eri staffeja (itemi, eri spell slotit, base damage)
@@ -48,3 +50,5 @@
 * skybox
 * item interaktio (e to open)
 * passive item
+* shader (cel shade)
+* interactive props (räjähtävä tynnyri)
