@@ -3,6 +3,7 @@
 * tasogeneraatio
     * https://forum.unity.com/threads/roguelike-dungeon-generation-resources.531948/
 * shaderit
+* lisää spellejä
 
 ## misc
 -dodgedash-implementointi riippuu ohjelmoijista.
@@ -31,6 +32,7 @@
 * löydettävät spellit
    * Fireball (löydettävä spelli) 
    * öljy 
+   * jää seinä
    * lightning bolt (löydettävä spelli)
    * tornado (löydettävä spelli)
 * Löydettävä spelli (tiimin kanssa esittää idean ja luo)
@@ -52,3 +54,4 @@
 * passive item
 * shader (cel shade)
 * interactive props (räjähtävä tynnyri)
+* traps
