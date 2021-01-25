@@ -7,8 +7,6 @@
 ## misc
 -dodgedash-implementointi riippuu ohjelmoijista.
 
-
-
 # Product backlog- eka sprintti varmasti
 * ääni efektejä+ ?soundbox?
 * pelaajan perus liikkuminen hyväksi
@@ -40,3 +38,10 @@
 * Tasogeneraatio
 * Dodgedash/roll
 * Bossi huone
+* Main menu
+* pause ikkuna
+* Taistelumusiikki
+* Ei-taistelumusiikki
+* musiikin muuttuminen
+* Journaly entry
+* itemlog
