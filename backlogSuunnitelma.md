@@ -47,3 +47,4 @@
 * itemlog
 * skybox
 * item interaktio (e to open)
+* passive item
