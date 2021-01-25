@@ -43,7 +43,7 @@
 * Taistelumusiikki
 * Ei-taistelumusiikki
 * musiikin muuttuminen
-* Journaly entry
+* Journal entry
 * itemlog
 * skybox
-
+* item interaktio (e to open)
