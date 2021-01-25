@@ -15,10 +15,13 @@
 * ensimmäisen vastustajan
     * slime
 * Perus elementti spellit
+    * tuuli pusku spelli
+    * liekinheitin spelli
+    * sähkö spelli
+    * vesi spelli
 * hudi
 * nettisivu
 * pelaajan hahmon aseen/staffin modelointi/animointi
-* tekstuurit
 
 # product backlog
 * treasure room
@@ -33,4 +36,7 @@
 * Löydettävä spelli (tiimin kanssa esittää idean ja luo)
 * Itemien droppaus (kun tappaa kaikki vastustajat huoneessa)
 * eri staffeja (itemi, eri spell slotit, base damage)
+* Erilaisia perushuoneita
+* Tasogeneraatio
+* Dodgedash/roll
 * 
