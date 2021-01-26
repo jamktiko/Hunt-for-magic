@@ -50,6 +50,19 @@ Tämän dokumentin tarkoitus on kertoa, mitä pelissä pitää testata ja millä
 *	Kriittisen bugin löytyessä testaus keskeytetään, ja jatketaan kun se on korjattu.
 *	Jos Unity-scene tai .exe kaatuu, testaus keskeytetään, ja jatketaan kun virhe on paikallistettu ja korjattu
 
+## Virheiden hallinta
+
+### Virheiden raportointi
+Testatut ja vahvistetut virheet raportoidaan sprinteittäin testiraporttiin, joka palautetaan Githubiin. Mukana pitää olla jonkinlainen selitys siitä, miten bugi/virhe laukeaa, sekä virheen vakavuusaste.
+
+### Virheiden vakavuusasteet
+
+* Kosmeettinen virhe - lievä graafinen bugi tai kirjoitusvirhe, ei vaikuta pelin toimintaan.
+* Matalan tason virhe - jokin asia pelissä toimii hieman eri lailla kuin pitäisi, voi vaikuttaa hieman pelin toimintaan.
+* Keskitason virhe - jokin asia pelissä ei toimi täysin suunnitellusti, vaikuttaa pelin toimintaan jonkin verran.
+* Korkean tason virhe - jokin olennainen asia pelissä ei toimi niin kuin pitäisi, vaikuttaa paljon pelin toimintaan.
+* Kriittinen virhe - peli kaatuu tai hyytyy paikalleen, voi vaikuttaa järjestelmän vakauteen.
+
 ## Tuotokset
 *	Hyväksymiskriteerit
 *	Testisuunnitelma
