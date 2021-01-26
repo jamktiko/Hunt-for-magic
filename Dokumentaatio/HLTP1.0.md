@@ -14,7 +14,7 @@ Tekijät: Niko Hokkanen
 ## Intro
 
 ### Projekti lyhyesti
-Projekti on ensimmäisestä persoonasta kuvattu 3D-peli. Pelissä pelaaja toimii vel-hona, jonka tarkoituksena on estää nekromantikkoa kutsumasta suurta pahuutta maailmaan. Pelissä pelaajan ohjaama velho voi tutkia kenttiä ja taistella vihollisia vastaan erilaisilla loitsuilla.
+Projekti on ensimmäisestä persoonasta kuvattu 3D-peli. Pelissä pelaaja toimii velhona, jonka tarkoituksena on estää nekromantikkoa kutsumasta suurta pahuutta maailmaan. Pelissä pelaajan ohjaama velho voi tutkia kenttiä ja taistella vihollisia vastaan erilaisilla loitsuilla.
 
 ### Tarkoitus
 Tämän dokumentin tarkoitus on kertoa, mitä pelissä pitää testata ja millä tavoin. Dokumentti sisältää kaiken käytännön tiedon projektissa tarvittavasta testauksesta.
@@ -44,7 +44,7 @@ Tämän dokumentin tarkoitus on kertoa, mitä pelissä pitää testata ja millä
 
 ###	Hyväksymiskriteerit
 *	Kontrollit, mekaniikat ja interaktiot todetaan toimivaksi, kun näppäimen painallus tms. tekee pelissä halutun asian kohtuullisessa ajassa
-*	Suorituskyky on riittävä, kun pelissä tai scenessä pystytään tekemään tarvittavat asiat ilman, että suorituskyky tai sen puute häiritsee työskentelyä ajallisesti
+*	Suorituskyky on riittävä, kun pelissä pystytään tekemään tarvittavat asiat ilman, että suorituskyky tai sen puute häiritsee työskentelyä ajallisesti
 
 ###	Testauksen keskeytys ja jatkaminen
 *	Kriittisen bugin löytyessä testaus keskeytetään, ja jatketaan kun se on korjattu.
