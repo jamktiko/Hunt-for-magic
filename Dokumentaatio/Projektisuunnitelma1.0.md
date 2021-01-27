@@ -47,6 +47,7 @@ Viittaus|Materiaali
 -------|--------------- 
 GDD | [linkki](https://github.com/jamktiko/Hunt-for-magic/blob/main/Dokumentaatio/H4MDemo-GDD1.0.md)
 Coding guidelines | [linkki](https://github.com/jamktiko/Hunt-for-magic/blob/main/Dokumentaatio/CodingGuidelines1.0.md)
+High level testing plan | [linkki](https://github.com/jamktiko/Hunt-for-magic/blob/main/Dokumentaatio/HLTP1.0.md)
 
 ## Projektin sisältö 
 
