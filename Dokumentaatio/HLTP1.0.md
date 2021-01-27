@@ -10,11 +10,12 @@ Tekijät: Niko Hokkanen
 |---------------------|------------|
 | Projektisuunnitelma | [linkki](https://github.com/jamktiko/Hunt-for-magic/blob/main/Dokumentaatio/Projektisuunnitelma1.0.md)     |
 | GDD                 | [linkki](https://github.com/jamktiko/Hunt-for-magic/blob/main/Dokumentaatio/H4MDemo-GDD1.0.md)     |
+| Coding guidelines   | [linkki](https://github.com/jamktiko/Hunt-for-magic/blob/main/Dokumentaatio/CodingGuidelines1.0.md)     |
 
 ## Intro
 
 ### Projekti lyhyesti
-Projekti on ensimmäisestä persoonasta kuvattu 3D-peli. Pelissä pelaaja toimii velhona, jonka tarkoituksena on estää nekromantikkoa kutsumasta suurta pahuutta maailmaan. Pelissä pelaajan ohjaama velho voi tutkia kenttiä ja taistella vihollisia vastaan erilaisilla loitsuilla.
+Projekti on ensimmäisestä persoonasta kuvattu 3D-peli PC:lle. Peliä käytetään näppäimistöllä ja hiirellä. Pelissä pelaaja toimii velhona, jonka tarkoituksena on estää nekromantikkoa kutsumasta suurta pahuutta maailmaan. Pelissä pelaajan ohjaama velho voi tutkia kenttiä ja taistella vihollisia vastaan erilaisilla loitsuilla, joita voidaan yhdistellä eri lopputulosten saamiseksi.
 
 ### Tarkoitus
 Tämän dokumentin tarkoitus on kertoa, mitä pelissä pitää testata ja millä tavoin. Dokumentti sisältää kaiken käytännön tiedon projektissa tarvittavasta testauksesta.
@@ -22,33 +23,42 @@ Tämän dokumentin tarkoitus on kertoa, mitä pelissä pitää testata ja millä
 ##	Testistrategia
 
 ###	Testattavat yksiköt
-*	Unity-executablet - Testataan tarkasti pelin buildit, jotka ovat Unityn .exe -tiedostoja
+*	Unity-executablet - Testataan pelin buildit, jotka ovat Unityn .exe -tiedostoja. Buildeista testataan:
+    * Valikot pääpiirteittäin
+    * Unity-Scenet testattavien ominaisuuksien osalta
 
 ###	Testitoimenpiteet
 *	Tehdään testisuunnitelma ja asetetaan testikohtaiset hyväksymiskriteerit
-*	Testataan kaikki tarvittavat ominaisuudet
+*	Testataan peliä viikoittain peli- ja konseptitestauksen kautta
 *	Kirjoitetaan testiraportti
 
 ###	Testattavat ominaisuudet
-*	Kontrollien ja näppäinkomentojen yleinen toimivuus
-*	Mekaniikkojen ja interaktioiden toimivuus ja luotettavuus
+*	Kontrollien ja näppäinkomentojen yleinen toimivuus:
+    * Pelihahmon liikkuminen
+    * Näppäinkomennot tekevät halutut asiat
+*	Mekaniikkojen ja interaktioiden toimivuus ja luotettavuus:
+    * Taikojen ja niiden yhdistelmien toimivuus 
+    * Vihollisten ja taistelujen toimivuus ja luotettavuus 
+    * Käyttöliittymän toimivuus ja luotettavuus
 *	Tarvittavan scenen / kenttien testaus toimivuuden ja suorituskyvyn kannalta
 
 ###	Ei testattavat ominaisuudet
-*	Erillisissä sovelluksissa oleva peligrafiikka
+*	Muut peliohjaimet
 *	Muut ulkoiset komponentit
 
 ###	Lähestymistapa
-*	Käytetään Unity-executableja
+*	Testataan manuaalisesti käyttämällä Unity-executableja
 *	Ei käytetä testiautomaatiota
 
 ###	Hyväksymiskriteerit
-*	Kontrollit, mekaniikat ja interaktiot todetaan toimivaksi, kun näppäimen painallus tms. tekee pelissä halutun asian kohtuullisessa ajassa
-*	Suorituskyky on riittävä, kun pelissä pystytään tekemään tarvittavat asiat ilman, että suorituskyky tai sen puute häiritsee työskentelyä ajallisesti
+*	Kontrollit, mekaniikat ja interaktiot todetaan toimivaksi, kun näppäimen painallus tms. tekee pelissä halutun asian.
+*	Suorituskyky on riittävä, kun pelissä pystytään tekemään tarvittavat asiat ilman, että suorituskyky selvästi vaikuttaa pelikokemukseen ajallisesti
+    * Pelin on pyörittävä vähintään 30 kuvaa sekunnissa 1080p -resoluutiolla testaajan tietokoneella.
 
 ###	Testauksen keskeytys ja jatkaminen
-*	Kriittisen bugin löytyessä testaus keskeytetään, ja jatketaan kun se on korjattu.
+*	Kriittisen bugin löytyessä testaus keskeytetään, ja jatketaan kun se on korjattu
 *	Jos Unity-scene tai .exe kaatuu, testaus keskeytetään, ja jatketaan kun virhe on paikallistettu ja korjattu
+* Jos peli ei pyöri testaajan tietokoneella, testaus keskeytetään sen päätteen osalta
 
 ## Virheiden hallinta
 
@@ -67,6 +77,8 @@ Testatut ja vahvistetut virheet raportoidaan sprinteittäin testiraporttiin, jok
 *	Hyväksymiskriteerit
 *	Testisuunnitelma
 *	Testiraportti
+* Konseptitestisuunnitelma
+* Konseptitestiraportti
 
 ## Ympäristö
 *	Tietokone ja näyttö (vähintään 1080p)
@@ -76,10 +88,11 @@ Testatut ja vahvistetut virheet raportoidaan sprinteittäin testiraporttiin, jok
 
 ## Velvollisuudet/vastuut
 *	Testaustiimi on vastuussa siitä, että pelistä löytyvät virheet ja bugit kirjataan ylös korjaamista varten
-*	Kehitystiimi on vastuussa mahdollisten virheiden ja bugien korjaamisesta
+*	Kehitystiimi on vastuussa mahdollisten virheiden ja bugien korjaamisesta, sekä buildien toimittamisesta testattavaksi
 
 ## Osaaminen ja sen hankinta
-*	Tiimiltä vaaditaan perusosaaminen testauksesta teoriassa
+*	Tiimiltä vaaditaan perusosaaminen testauksesta teoriassa. 
+* Tiimi myös kehittää osaamistaan jatkuvasti, hankkien käytännön kokemusta testaamalla.
 
 ## Aikataulut
 *	Demo #1 valmis 18.3.2021
@@ -92,7 +105,9 @@ Testatut ja vahvistetut virheet raportoidaan sprinteittäin testiraporttiin, jok
 
 | Riski            | Ratkaisu |
 |---------------------|------------|
-|Tiimissä on vain yksi testaaja: Testaajalle saattaa tulla liikaa töitä.|Annetaan testaajalle riittävästi aikaa testaamiseen|
+|Tiimissä on vain yksi testaaja - Testaajalle saattaa tulla liikaa töitä.|Annetaan testaajalle riittävästi aikaa testaamiseen|
+|Motivaation puute - voi vaikuttaa tehokkuuteen|Yritetään pitää yllä hyvää ja motivoivaa ilmapiiriä|
 
 ## Oletukset ja riippuvuudet
 *	Projekti suoritetaan projektisuunnitelman mukaisesti
+* Unity ja käyttöjärjestelmä toimivat asianmukaisesti
