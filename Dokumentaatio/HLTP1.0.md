@@ -48,17 +48,17 @@ Tämän dokumentin tarkoitus on kertoa, mitä pelissä pitää testata ja millä
 
 ###	Lähestymistapa
 *	Testataan manuaalisesti käyttämällä Unity-executableja
-*	Ei käytetä testiautomaatiota
+*	Ei käytetä testiautomaatiota ainakaan alussa, voidaan kuitenkin käyttää sitäkin tarvittaessa, jos aikaa jää
 
 ###	Hyväksymiskriteerit
 *	Kontrollit, mekaniikat ja interaktiot todetaan toimivaksi, kun näppäimen painallus tms. tekee pelissä halutun asian.
 *	Suorituskyky on riittävä, kun pelissä pystytään tekemään tarvittavat asiat ilman, että suorituskyky selvästi vaikuttaa pelikokemukseen ajallisesti
-    * Pelin on pyörittävä vähintään 30 kuvaa sekunnissa 1080p -resoluutiolla testaajan tietokoneella.
+    * Pelin on pyörittävä vähintään 30 kuvaa sekunnissa 1080p -resoluutiolla testaajan tietokoneella
 
 ###	Testauksen keskeytys ja jatkaminen
 *	Kriittisen bugin löytyessä testaus keskeytetään, ja jatketaan kun se on korjattu
 *	Jos Unity-scene tai .exe kaatuu, testaus keskeytetään, ja jatketaan kun virhe on paikallistettu ja korjattu
-* Jos peli ei pyöri testaajan tietokoneella, testaus keskeytetään sen päätteen osalta
+*  Jos peli ei pyöri testaajan tietokoneella, testaus keskeytetään sen päätteen osalta
 
 ## Virheiden hallinta
 
@@ -67,18 +67,18 @@ Testatut ja vahvistetut virheet raportoidaan sprinteittäin testiraporttiin, jok
 
 ### Virheiden vakavuusasteet
 
-* Kosmeettinen virhe - lievä graafinen bugi tai kirjoitusvirhe, ei vaikuta pelin toimintaan.
-* Matalan tason virhe - jokin asia pelissä toimii hieman eri lailla kuin pitäisi, voi vaikuttaa hieman pelin toimintaan.
-* Keskitason virhe - jokin asia pelissä ei toimi täysin suunnitellusti, vaikuttaa pelin toimintaan jonkin verran.
-* Korkean tason virhe - jokin olennainen asia pelissä ei toimi niin kuin pitäisi, vaikuttaa paljon pelin toimintaan.
-* Kriittinen virhe - peli kaatuu tai hyytyy paikalleen, voi vaikuttaa järjestelmän vakauteen.
+* Kosmeettinen virhe - lievä graafinen bugi tai kirjoitusvirhe, ei vaikuta pelin toimintaan
+* Matalan tason virhe - jokin asia pelissä toimii hieman eri lailla kuin pitäisi, voi vaikuttaa hieman pelin toimintaan
+* Keskitason virhe - jokin asia pelissä ei toimi täysin suunnitellusti, vaikuttaa pelin toimintaan jonkin verran
+* Korkean tason virhe - jokin olennainen asia pelissä ei toimi niin kuin pitäisi, vaikuttaa paljon pelin toimintaan
+* Kriittinen virhe - peli kaatuu tai hyytyy paikalleen, voi vaikuttaa järjestelmän vakauteen
 
 ## Tuotokset
 *	Hyväksymiskriteerit
 *	Testisuunnitelma
 *	Testiraportti
-* Konseptitestisuunnitelma
-* Konseptitestiraportti
+*  Konseptitestisuunnitelma
+*  Konseptitestiraportti
 
 ## Ympäristö
 *	Tietokone ja näyttö (vähintään 1080p)
@@ -91,14 +91,14 @@ Testatut ja vahvistetut virheet raportoidaan sprinteittäin testiraporttiin, jok
 *	Kehitystiimi on vastuussa mahdollisten virheiden ja bugien korjaamisesta, sekä buildien toimittamisesta testattavaksi
 
 ## Osaaminen ja sen hankinta
-*	Tiimiltä vaaditaan perusosaaminen testauksesta teoriassa. 
-* Tiimi myös kehittää osaamistaan jatkuvasti, hankkien käytännön kokemusta testaamalla.
+*	Tiimiltä vaaditaan perusosaaminen testauksesta teoriassa
+*  Tiimi myös kehittää osaamistaan jatkuvasti, hankkien käytännön kokemusta testaamalla
 
 ## Aikataulut
 *	Demo #1 valmis 18.3.2021
 *	Demo #2 valmis 15.4.2021
 *	Demo #3 valmis 12.5.2021
-*	Komponentit testataan sitä mukaa kun ne ovat valmiita testattavaksi.
+*	Komponentit testataan sitä mukaa kun ne ovat valmiita testattavaksi
 *	Testidokumentit toimitetaan 24h sisällä testauksesta
 
 ## Riskit
@@ -110,4 +110,4 @@ Testatut ja vahvistetut virheet raportoidaan sprinteittäin testiraporttiin, jok
 
 ## Oletukset ja riippuvuudet
 *	Projekti suoritetaan projektisuunnitelman mukaisesti
-* Unity ja käyttöjärjestelmä toimivat asianmukaisesti
+*  Unity ja käyttöjärjestelmä toimivat asianmukaisesti
