@@ -5,8 +5,8 @@ using UnityEngine;
 public class PlayerCharacterMovement : MonoBehaviour
 {
     private Rigidbody playerRB;
-    private float speed = 5;
-    private float jump = 20;
+    public float speed = 2;
+    public float jump = 5;
 
     // Start is called before the first frame update
     void Start()
@@ -20,15 +20,15 @@ public class PlayerCharacterMovement : MonoBehaviour
     {
         //Key input list
         if (Input.GetKey(KeyCode.A))
-            playerRB.AddForce(Vector3.left * speed, ForceMode.Impulse);
+            playerRB.transform.Translate(Vector3.left * speed * Time.deltaTime);
         if (Input.GetKey(KeyCode.D))
-            playerRB.AddForce(Vector3.right * speed, ForceMode.Impulse);
+            playerRB.transform.Translate(Vector3.right * speed * Time.deltaTime);
         if (Input.GetKey(KeyCode.W))
-            playerRB.AddForce(Vector3.forward * speed, ForceMode.Impulse);
+            playerRB.transform.Translate(transform.forward * speed * Time.deltaTime);
         if (Input.GetKey(KeyCode.S))
-            playerRB.AddForce(0, 0, -1 * speed, ForceMode.Impulse);
+            transform.Translate(-playerRB.transform.forward * speed * Time.deltaTime);
         if (Input.GetKeyDown(KeyCode.Space))
-            playerRB.AddForce(Vector3.up * jump, ForceMode.Impulse);
+            playerRB.AddForce(transform.up * jump, ForceMode.Impulse);
 
     }
 }
