@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpellCasting : MonoBehaviour
+public class SpellCasting : MonoBehaviour  // Tämä scripti liitetään pelaajaan
 {
     [SerializeField]
     private GameObject _spellPrefab;

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WindSpell : MonoBehaviour
+public class WindSpell : MonoBehaviour  //Tämä scripti liitetään Tuulispellin prefabiin
 {
 
     // Start is called before the first frame update
