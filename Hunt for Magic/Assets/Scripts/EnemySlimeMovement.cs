@@ -5,9 +5,11 @@ using UnityEngine;
 public class EnemySlimeMovement : MonoBehaviour
 {
     private float jump = 3;
+
     private float speed = 3;
     private float attackDamage = 5;
     private Rigidbody enemyRB;
+    
     private GameObject player;
     public bool touchGround = true;
     public bool attackTrigger1 = true;
@@ -25,6 +27,7 @@ public class EnemySlimeMovement : MonoBehaviour
         enemyRB = GetComponent<Rigidbody>(); // make slime rigid
         player = GameObject.Find("PlayerCharacter"); // find player character
         
+
     }
 
     // Update is called once per frame
