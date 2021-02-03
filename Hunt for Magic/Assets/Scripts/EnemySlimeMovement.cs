@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class EnemySlimeMovement : MonoBehaviour
 {
+
     private float jump = 25f;
     private float speed = 3;
     private Rigidbody enemyRB;
+    
     private GameObject player;
     public bool touchGround = true;
 
@@ -15,7 +17,7 @@ public class EnemySlimeMovement : MonoBehaviour
     {
         touchGround = false;
         enemyRB = GetComponent<Rigidbody>();
-        player = GameObject.Find("PlayerCharacter");
+        player = GameObject.Find("Player");
         //make slime rigid
     }
 
