@@ -6,14 +6,14 @@ public class EnemySlimeMovement : MonoBehaviour
 {
     private float jump = 10;
     private float speed = 10;
-    private Rigidbody enemyRB;
+    public Rigidbody enemyRB;
     private GameObject player;
 
     // Start is called before the first frame update
     void Start()
     {
         enemyRB = GetComponent<Rigidbody>();
-        player = GameObject.Find("PlayerCharacter");
+        player = GameObject.Find("Player");
         //make slime rigid
     }
 
