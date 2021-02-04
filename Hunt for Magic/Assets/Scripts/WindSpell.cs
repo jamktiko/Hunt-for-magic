@@ -24,7 +24,7 @@ public class WindSpell : MonoBehaviour  //Tämä scripti liitetään Tuulispelli
 
         if (enemy != null)
         {
-            enemy.AddForce(0, 0.5f, 1f, ForceMode.Impulse);
+            enemy.AddForce(0, 1f, 2f, ForceMode.Impulse);
             Destroy(gameObject);
         }
     }

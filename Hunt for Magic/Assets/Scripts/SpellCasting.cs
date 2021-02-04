@@ -7,7 +7,6 @@ public class SpellCasting : MonoBehaviour  // Tämä scripti liitetään pelaaja
     [SerializeField]
     private GameObject _spellPrefab;
 
-    [SerializeField]
     private Transform _castingPoint;
 
     [SerializeField]
@@ -21,7 +20,7 @@ public class SpellCasting : MonoBehaviour  // Tämä scripti liitetään pelaaja
     // Start is called before the first frame update
     void Start()
     {
-        
+        _castingPoint = GameObject.Find("CastingPoint").GetComponent<Transform>();
     }
 
     // Update is called once per frame
