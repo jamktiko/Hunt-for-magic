@@ -5,10 +5,11 @@ using UnityEngine;
 public class PlayerCharacterMovement : MonoBehaviour
 {
     public Rigidbody playerRB;
-    public Camera cam; 
+    public Camera cam;
     public Transform playerBody;
     public float speed = 10;
     public float jump = 5;
+    public bool touchGround = true;
     private Vector3 moveInput;
 
     public float mouseSensitivity = 100f;
@@ -35,10 +36,9 @@ public class PlayerCharacterMovement : MonoBehaviour
 
         //Move the player in accordance of player view
         playerRB.transform.Translate(moveInput * Time.deltaTime * speed);
-        
-        if (Input.GetKeyDown(KeyCode.Space))
-        { playerRB.AddForce(transform.up * jump, ForceMode.Impulse); }
 
+        if (Input.GetKeyDown(KeyCode.Space) && touchGround)
+        { playerRB.AddForce(transform.up * jump, ForceMode.Impulse); touchGround = false; }
         xRotation -= mouseY;
         xRotation = Mathf.Clamp(xRotation, rotationLimitNegative, rotationLimitPositive);
         yRotation -= mouseX;
@@ -46,5 +46,12 @@ public class PlayerCharacterMovement : MonoBehaviour
         cam.transform.eulerAngles = new Vector3(xRotation, -yRotation, 0f);
 
         playerBody.Rotate(Vector3.up * mouseX);
+    }
+    void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Ground"))
+        {
+            touchGround = true; //jump checker
+        }
     }
 }
