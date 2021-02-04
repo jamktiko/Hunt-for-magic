@@ -88,6 +88,8 @@ public class EnemySlimeMovement : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             attackTrigger2 = true; // impact checker
+            var enemyHealth = collision.gameObject.GetComponent<HealthSystem>();
+            enemyHealth.AddDamage(5f);
         }
     }
 
