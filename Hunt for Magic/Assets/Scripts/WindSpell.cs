@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class WindSpell : MonoBehaviour  //Tämä scripti liitetään Tuulispellin prefabiin
 {
-    [SerializeField]
-    private float _damageAmount = 10f;
 
     // Start is called before the first frame update
     void Start()
@@ -16,7 +14,7 @@ public class WindSpell : MonoBehaviour  //Tämä scripti liitetään Tuulispelli
     // Update is called once per frame
     void Update()
     {
-        Object.Destroy(gameObject, 1.0f);
+        Object.Destroy(gameObject, 2.0f);
     }
 
 
@@ -24,12 +22,9 @@ public class WindSpell : MonoBehaviour  //Tämä scripti liitetään Tuulispelli
     {
         var enemy = other.gameObject.GetComponent<Rigidbody>();
 
-        var enemyHealth = other.gameObject.GetComponent<HealthSystem>();
-
         if (enemy != null)
         {
-            enemy.AddForce(0, 1f, 5f, ForceMode.Impulse);
-            enemyHealth.AddDamage(_damageAmount);
+            enemy.AddForce(0, 0.5f, 1f, ForceMode.Impulse);
             Destroy(gameObject);
         }
     }

@@ -7,6 +7,7 @@ public class SpellCasting : MonoBehaviour  // Tämä scripti liitetään pelaaja
     [SerializeField]
     private GameObject _spellPrefab;
 
+    [SerializeField]
     private Transform _castingPoint;
 
     [SerializeField]
@@ -17,47 +18,29 @@ public class SpellCasting : MonoBehaviour  // Tämä scripti liitetään pelaaja
     [SerializeField]
     private float _spellInterval = 1f;
 
-    private GameObject _player;
-
     // Start is called before the first frame update
     void Start()
     {
-        _castingPoint = GameObject.Find("CastingPoint").GetComponent<Transform>();
-        _player = GameObject.Find("PlayerCharacter");
+        
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
         if (Input.GetButton("Fire1"))
         {
-            if (_spellPrefab.name == "WindSpellPrefab")
+
+            if (_spellCooldown)
             {
-                if (_spellCooldown)
-                {
-                    return;
-                }
-
-                GameObject spell = Instantiate(_spellPrefab, _castingPoint.position, _castingPoint.rotation);
-
-                spell.GetComponent<Rigidbody>().AddForce(_castingPoint.forward * _throwForce, ForceMode.Impulse);
-
-                _spellCooldown = true;
-
-                Invoke("EndCooldown", _spellInterval);
+                return;
             }
 
-            if (_spellPrefab.name == "Flamethrower_particle")
-            {
-                _player.GetComponent<EnergySystem>().ReduceEnergy(1f);
+            GameObject spell = Instantiate(_spellPrefab, _castingPoint.position, _castingPoint.rotation);
+            spell.GetComponent<Rigidbody>().AddForce(_castingPoint.forward * _throwForce, ForceMode.Impulse);
 
-                if (_player.GetComponent<EnergySystem>()._currentEnergy < 5)
-                {
-                    return;
-                }
+            _spellCooldown = true;
 
-                Instantiate(_spellPrefab, _castingPoint.position, _castingPoint.rotation);
-            }
+            Invoke("EndCooldown", _spellInterval);
         }
     }
 
