@@ -256,6 +256,7 @@ MonoBehaviour:
   playerBody: {fileID: 1676825826}
   speed: 5
   jump: 20
+  touchGround: 1
   mouseSensitivity: 100
 --- !u!65 &1676825823
 BoxCollider:
@@ -508,7 +509,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 484b19bfe0130eb4994b968e437956db, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
