@@ -24,7 +24,11 @@ public class PlayerCharacterController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
+
+
         HealthBar.SetHealthBarValue(1);
+
         Cursor.lockState = CursorLockMode.Locked;
         characterController = GetComponent<CharacterController>();
     }
@@ -32,8 +36,11 @@ public class PlayerCharacterController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+
         //You can modify health with this function
         //HealthBar.SetHealthBarValue(HealthBar.GetHealthBarValue() - 0.01f);
+
         isGrounded = characterController.isGrounded;
         //Recalculate movement direction based on axes
         Vector3 forward = transform.TransformDirection(Vector3.forward);
