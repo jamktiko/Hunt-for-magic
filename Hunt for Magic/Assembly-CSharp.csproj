@@ -65,8 +65,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\EnemySlimeMovement.cs" />
+    <Compile Include="Assets\Scripts\HealthBar.cs" />
     <Compile Include="Assets\Scripts\HealthSystem.cs" />
-    <Compile Include="Assets\Scripts\PlayerCharacterMovement.cs" />
+    <Compile Include="Assets\Scripts\PlayerCharacterController.cs" />
     <Compile Include="Assets\Scripts\SpellCasting.cs" />
     <Compile Include="Assets\Scripts\WindSpell.cs" />
     <Reference Include="UnityEngine">
