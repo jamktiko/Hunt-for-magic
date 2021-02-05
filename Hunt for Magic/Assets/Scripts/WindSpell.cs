@@ -16,7 +16,7 @@ public class WindSpell : MonoBehaviour  //Tämä scripti liitetään Tuulispelli
     // Update is called once per frame
     void Update()
     {
-        Object.Destroy(gameObject, 2.0f);
+        Object.Destroy(gameObject, 1.0f);
     }
 
 
