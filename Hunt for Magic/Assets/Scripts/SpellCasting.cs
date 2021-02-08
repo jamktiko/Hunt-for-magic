@@ -17,29 +17,47 @@ public class SpellCasting : MonoBehaviour  // Tämä scripti liitetään pelaaja
     [SerializeField]
     private float _spellInterval = 1f;
 
+    private GameObject _player;
+
     // Start is called before the first frame update
     void Start()
     {
         _castingPoint = GameObject.Find("CastingPoint").GetComponent<Transform>();
+        _player = GameObject.Find("PlayerCharacter");
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         if (Input.GetButton("Fire1"))
         {
-
-            if (_spellCooldown)
+            if (_spellPrefab.name == "WindSpellPrefab")
             {
-                return;
+                if (_spellCooldown)
+                {
+                    return;
+                }
+
+                GameObject spell = Instantiate(_spellPrefab, _castingPoint.position, _castingPoint.rotation);
+
+                spell.GetComponent<Rigidbody>().AddForce(_castingPoint.forward * _throwForce, ForceMode.Impulse);
+
+                _spellCooldown = true;
+
+                Invoke("EndCooldown", _spellInterval);
             }
 
-            GameObject spell = Instantiate(_spellPrefab, _castingPoint.position, _castingPoint.rotation);
-            spell.GetComponent<Rigidbody>().AddForce(_castingPoint.forward * _throwForce, ForceMode.Impulse);
+            if (_spellPrefab.name == "Flamethrower_particle")
+            {
+                _player.GetComponent<EnergySystem>().ReduceEnergy(1f);
 
-            _spellCooldown = true;
+                if (_player.GetComponent<EnergySystem>()._currentEnergy < 5)
+                {
+                    return;
+                }
 
-            Invoke("EndCooldown", _spellInterval);
+                Instantiate(_spellPrefab, _castingPoint.position, _castingPoint.rotation);
+            }
         }
     }
 
