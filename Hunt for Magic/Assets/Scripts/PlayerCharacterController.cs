@@ -24,7 +24,11 @@ public class PlayerCharacterController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
+
+
         HealthBar.SetHealthBarValue(1);
+
         Cursor.lockState = CursorLockMode.Locked;
         characterController = GetComponent<CharacterController>();
     }
@@ -32,12 +36,12 @@ public class PlayerCharacterController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+
         //You can modify health with this function
         //HealthBar.SetHealthBarValue(HealthBar.GetHealthBarValue() - 0.01f);
-        
-        //Used to detect if the character is on the ground
-        isGrounded = characterController.isGrounded;
 
+        isGrounded = characterController.isGrounded;
         //Recalculate movement direction based on axes
         Vector3 forward = transform.TransformDirection(Vector3.forward);
         Vector3 right = transform.TransformDirection(Vector3.right);
@@ -50,8 +54,10 @@ public class PlayerCharacterController : MonoBehaviour
         float movementDirectionY = moveDirection.y;
         moveDirection = (forward * curSpeedX) + (right * curSpeedY);
 
+
+
         //Jump controls
-        if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
+        if (Input.GetKeyDown(KeyCode.Space) && characterController.isGrounded)
         { 
             moveDirection.y = jump;
         }
@@ -60,7 +66,7 @@ public class PlayerCharacterController : MonoBehaviour
             moveDirection.y = movementDirectionY;
         }
         //Add gravity when player is in the air
-        if (!isGrounded)
+        if (!characterController.isGrounded)
         {
             moveDirection.y -= gravity * Time.deltaTime;
         }
