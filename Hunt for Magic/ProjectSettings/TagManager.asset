@@ -6,6 +6,10 @@ TagManager:
   tags:
   - ground
   - Ground
+  - Camera
+  - Obstacle
+  - Monster
+  - Hazard
   layers:
   - Default
   - TransparentFX
@@ -15,10 +19,10 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
-  - 
-  - 
+  - PlayerLayer
+  - ObstacleLayer
+  - HazardLayer
+  - MonsterLayer
   - 
   - 
   - 
