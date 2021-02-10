@@ -5,9 +5,8 @@ using UnityEngine;
 public class EnemySlimeMovement : MonoBehaviour
 {
     private float jump = 3;
-
     private float speed = 3;
-    private float attackDamage = 5;
+    private float attackDamage = 5f;
     private Rigidbody enemyRB;
     private GameObject lookDirectionNode;
     private bool inRange;
@@ -50,20 +49,21 @@ public class EnemySlimeMovement : MonoBehaviour
         }
         else
         {
-            
+
             if (touchGround && !inRange) //jump command
             {
-                StartCoroutine(jumpPhaser());               
-                Vector3 lookDirection = (lookDirectionNode.transform.position - transform.position).normalized; // randomized movement
+                StartCoroutine(jumpPhaser());
+                transform.LookAt(lookDirectionNode.transform.position);
+                Vector3 lookDirection = (lookDirectionNode.transform.position - transform.position).normalized; // patrol movement
                 enemyRB.AddForce(Vector3.up * jump, ForceMode.Impulse); // upward motion command
                 enemyRB.AddForce(lookDirection * speed, ForceMode.Impulse); // forward motion command
                 touchGround = false;
                 attackTrigger1 = false;
                 attackTrigger2 = false;
-                LD1 = Random.Range(-1, 1);
-                LD2 = Random.Range(-1, 1);
+                LD1 = Random.Range(-1f, 1f);
+                LD2 = Random.Range(-1f, 1f);
                 lookDirectionNode.transform.localPosition = new Vector3(LD1,0,LD2);
-                transform.LookAt(lookDirectionNode.transform.position);
+                
             }
             else if (inRange && touchGround)
             {
@@ -97,11 +97,11 @@ public class EnemySlimeMovement : MonoBehaviour
             attackTrigger1 = true; // splash checker
             chargeAttackRoller = Random.Range(0, 11); // charge attact randomizer
 
-            if (chargeAttackRoller <= 9)
+            if (chargeAttackRoller <= 9 || !inRange)
             {
 
             }
-            else
+            else if (chargeAttackRoller == 10 && inRange)
             {
                 attackTrigger1 = false;
                 attackTrigger2 = false;
@@ -114,7 +114,7 @@ public class EnemySlimeMovement : MonoBehaviour
         {
             attackTrigger2 = true; // impact checker
             var enemyHealth = collision.gameObject.GetComponent<HealthSystem>();
-            enemyHealth.AddDamage(5f);
+            enemyHealth.AddDamage(attackDamage);
         }
     }
 
