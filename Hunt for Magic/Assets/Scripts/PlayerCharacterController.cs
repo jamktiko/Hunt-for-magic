@@ -8,7 +8,7 @@ public class PlayerCharacterController : MonoBehaviour
     public Camera cam;
     public Transform playerBody;
     public float gravity = 20;
-    public float speed = 10;
+    public float speed = 5;
     public float jump = 5;
     private Vector3 moveDirection = Vector3.zero;
     public CharacterController characterController;
