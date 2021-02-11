@@ -9,9 +9,6 @@ public class SpellCasting : MonoBehaviour  // Tämä scripti liitetään pelaaja
 
     private Transform _castingPoint;
 
-    [SerializeField]
-    private float _throwForce = 20.0f;
-
     private bool _spellCooldown;
 
     [SerializeField]
@@ -31,16 +28,14 @@ public class SpellCasting : MonoBehaviour  // Tämä scripti liitetään pelaaja
     {
         if (Input.GetButton("Fire1"))
         {
-            if (_spellPrefab.name == "WindSpellPrefab")
+            if (_spellPrefab.name == "WindEffect")
             {
                 if (_spellCooldown)
                 {
                     return;
                 }
 
-                GameObject spell = Instantiate(_spellPrefab, _castingPoint.position, _castingPoint.rotation);
-
-                spell.GetComponent<Rigidbody>().AddForce(_castingPoint.forward * _throwForce, ForceMode.Impulse);
+                Instantiate(_spellPrefab, _castingPoint.position, _castingPoint.rotation);
 
                 _spellCooldown = true;
 

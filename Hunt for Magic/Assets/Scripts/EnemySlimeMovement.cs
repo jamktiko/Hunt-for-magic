@@ -5,11 +5,13 @@ using UnityEngine;
 public class EnemySlimeMovement : MonoBehaviour
 {
     private float jump = 3;
-
     private float speed = 3;
-    private float attackDamage = 5;
+    private float attackDamage = 5f;
     private Rigidbody enemyRB;
-    
+    private GameObject lookDirectionNode;
+    private bool inRange;
+    private float LD1;
+    private float LD2;
     private GameObject player;
     public bool touchGround = true;
     public bool attackTrigger1 = true;
@@ -26,23 +28,46 @@ public class EnemySlimeMovement : MonoBehaviour
         chargeTrigger = false;
         enemyRB = GetComponent<Rigidbody>(); // make slime rigid
         player = GameObject.Find("PlayerCharacter"); // find player character
-        
+        lookDirectionNode = GameObject.Find("LookDirectionNode");
+        transform.LookAt(lookDirectionNode.transform.position);
+
 
     }
 
     // Update is called once per frame
     void Update()
     {
+        if(Vector3.Distance(player.transform.position, enemyRB.transform.position) < 15)
+        { 
+            inRange = true; 
+        }
+        else inRange = false;
+
         if (chargeTrigger)
         {
             StartCoroutine(chargeTimer());
         }
         else
         {
-            
-            if (touchGround) //jump command
+
+            if (touchGround && !inRange) //jump command
             {
-                StartCoroutine(jumpPhaser());               
+                StartCoroutine(jumpPhaser());
+                transform.LookAt(lookDirectionNode.transform.position);
+                Vector3 lookDirection = (lookDirectionNode.transform.position - transform.position).normalized; // patrol movement
+                enemyRB.AddForce(Vector3.up * jump, ForceMode.Impulse); // upward motion command
+                enemyRB.AddForce(lookDirection * speed, ForceMode.Impulse); // forward motion command
+                touchGround = false;
+                attackTrigger1 = false;
+                attackTrigger2 = false;
+                LD1 = Random.Range(-1f, 1f);
+                LD2 = Random.Range(-1f, 1f);
+                lookDirectionNode.transform.localPosition = new Vector3(LD1,0,LD2);
+                
+            }
+            else if (inRange && touchGround)
+            {
+                StartCoroutine(jumpPhaser());
                 Vector3 lookDirection = (player.transform.position - transform.position).normalized; // search for player
                 enemyRB.AddForce(Vector3.up * jump, ForceMode.Impulse); // upward motion command
                 enemyRB.AddForce(lookDirection * speed, ForceMode.Impulse); // forward motion command
@@ -72,11 +97,11 @@ public class EnemySlimeMovement : MonoBehaviour
             attackTrigger1 = true; // splash checker
             chargeAttackRoller = Random.Range(0, 11); // charge attact randomizer
 
-            if (chargeAttackRoller <= 9)
+            if (chargeAttackRoller <= 9 || !inRange)
             {
 
             }
-            else
+            else if (chargeAttackRoller == 10 && inRange)
             {
                 attackTrigger1 = false;
                 attackTrigger2 = false;
@@ -89,20 +114,20 @@ public class EnemySlimeMovement : MonoBehaviour
         {
             attackTrigger2 = true; // impact checker
             var enemyHealth = collision.gameObject.GetComponent<HealthSystem>();
-            enemyHealth.AddDamage(5f);
+            enemyHealth.AddDamage(attackDamage);
         }
     }
 
     IEnumerator chargeTimer()
     {
         enemyRB.velocity = Vector3.zero;
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(2f);
         chargeTrigger = false;
     }
 
     IEnumerator jumpPhaser()
     {
         enemyRB.velocity = Vector3.zero;
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(1f);
     }
 }

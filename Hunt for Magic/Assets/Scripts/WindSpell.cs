@@ -2,23 +2,28 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WindSpell : MonoBehaviour  //Tämä scripti liitetään Tuulispellin prefabiin
+public class WindSpell : MonoBehaviour  //Tämä scripti liitetään WindEffect-prefabin SphereCollideriin
 {
     [SerializeField]
-    private float _damageAmount = 10f;
+    private float _damageAmount = 5f;
+
+    [SerializeField]
+    private float _speed = 10f;
+
+    private Transform _castingPoint;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        _castingPoint = GameObject.Find("CastingPoint").GetComponent<Transform>();
+        gameObject.GetComponent<Rigidbody>().AddForce(_castingPoint.forward * _speed, ForceMode.Impulse);
     }
 
     // Update is called once per frame
     void Update()
     {
-        Object.Destroy(gameObject, 1.0f);
+        Destroy(gameObject, 0.5f);
     }
-
 
     private void OnTriggerEnter(Collider other)
     {
@@ -30,7 +35,6 @@ public class WindSpell : MonoBehaviour  //Tämä scripti liitetään Tuulispelli
         {
             enemy.AddForce(0, 1f, 5f, ForceMode.Impulse);
             enemyHealth.AddDamage(_damageAmount);
-            Destroy(gameObject);
         }
     }
 }
