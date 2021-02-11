@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WindSpell : MonoBehaviour  //Tämä scripti liitetään Tuulispellin prefabiin
+public class WindSpell : MonoBehaviour  //Tämä scripti liitetään WindEffect-prefabin SphereCollideriin
 {
     [SerializeField]
     private float _damageAmount = 5f;
