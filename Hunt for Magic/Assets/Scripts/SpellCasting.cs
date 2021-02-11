@@ -54,6 +54,31 @@ public class SpellCasting : MonoBehaviour  // Tämä scripti liitetään pelaaja
                 Instantiate(_spellPrefab, _castingPoint.position, _castingPoint.rotation);
             }
         }
+
+        if (Input.GetButton("Fire1"))
+        {
+            if (_spellPrefab.name == "Electricity")
+            {
+                if (_spellCooldown)
+                {
+                    return;
+                }
+
+                Instantiate(_spellPrefab, _castingPoint.position, _castingPoint.rotation);
+
+                _spellCooldown = true;
+
+                Invoke("EndCooldown", _spellInterval);
+            }
+        }
+        if (_spellPrefab.name == "WaterWavePrefab")
+        {
+            WaterSpell.SpawnSpell(_spellPrefab, _castingPoint, 2);
+
+            _spellCooldown = true;
+
+            Invoke("Endcooldown", _spellInterval);
+        }
     }
 
     public void EndCooldown()

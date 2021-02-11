@@ -13,9 +13,10 @@ GameObject:
   - component: {fileID: 6893892525520940799}
   - component: {fileID: 6893892525520940792}
   - component: {fileID: 6893892525520940793}
+  - component: {fileID: 2261954844955577238}
   - component: {fileID: 6893892525520940796}
   m_Layer: 0
-  m_Name: EnemySlime
+  m_Name: EnemySlimePrefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -113,6 +114,20 @@ MonoBehaviour:
   attackTrigger2: 1
   chargeTrigger: 1
   chargeAttackRoller: 0
+--- !u!114 &2261954844955577238
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6893892525520940794}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e67eb16e545b2841a9f62c260e63a17, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _health: 100
+  _maxHealth: 100
 --- !u!54 &6893892525520940796
 Rigidbody:
   m_ObjectHideFlags: 0
