@@ -22,7 +22,7 @@ public class WindSpell : MonoBehaviour  //Tämä scripti liitetään WindEffect-
     // Update is called once per frame
     void Update()
     {
-        Destroy(gameObject, 0.5f);
+        
     }
 
     private void OnTriggerEnter(Collider other)
