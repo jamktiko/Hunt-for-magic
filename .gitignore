@@ -1,6 +1,3 @@
 *.meta
 library/
 temp/
-obj/
-projectsettings/
-packages/
