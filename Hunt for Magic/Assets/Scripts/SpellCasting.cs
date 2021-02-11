@@ -16,6 +16,9 @@ public class SpellCasting : MonoBehaviour  // Tämä scripti liitetään pelaaja
 
     private GameObject _player;
 
+    [SerializeField]
+    private float _throwForce = 20f;
+
     // Start is called before the first frame update
     void Start()
     {
