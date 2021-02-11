@@ -1017,7 +1017,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfcfd8dbd6ace0143ad88edd473295c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _spellPrefab: {fileID: 5189080076824686935, guid: bfbd852cbee95214f9dae3735ff769e7,
+  _spellPrefab: {fileID: 968852685152142373, guid: 38ef3fff18a8d4849b5277a7fddb240a,
     type: 3}
   _throwForce: 20
   _spellInterval: 1

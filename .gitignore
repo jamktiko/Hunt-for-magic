@@ -2,3 +2,5 @@
 library/
 temp/
 obj/
+projectsettings/
+packages/
