@@ -18,6 +18,7 @@ public class FireSpell : MonoBehaviour
     void Update()
     {
         Destroy(gameObject, 7f);
+
     }
 
     private void OnParticleCollision(GameObject other)

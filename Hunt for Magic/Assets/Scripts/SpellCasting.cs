@@ -16,6 +16,9 @@ public class SpellCasting : MonoBehaviour  // Tämä scripti liitetään pelaaja
 
     private GameObject _player;
 
+    [SerializeField]
+    private float _throwForce = 20f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -53,6 +56,16 @@ public class SpellCasting : MonoBehaviour  // Tämä scripti liitetään pelaaja
 
                 Instantiate(_spellPrefab, _castingPoint.position, _castingPoint.rotation);
             }
+
+            if (_spellPrefab.name == "WaterWavePrefab")
+            {
+                WaterSpell.SpawnSpell(_spellPrefab, _castingPoint, _throwForce);
+
+                _spellCooldown = true;
+
+                Invoke("Endcooldown", _spellInterval);
+            }
+
         }
 
         if (Input.GetButton("Fire1"))
