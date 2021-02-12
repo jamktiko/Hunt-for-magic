@@ -66,10 +66,7 @@ public class SpellCasting : MonoBehaviour  // Tämä scripti liitetään pelaaja
                 Invoke("Endcooldown", _spellInterval);
             }
 
-        }
 
-        if (Input.GetButton("Fire1"))
-        {
             if (_spellPrefab.name == "Electricity")
             {
                 if (_spellCooldown)
@@ -83,19 +80,20 @@ public class SpellCasting : MonoBehaviour  // Tämä scripti liitetään pelaaja
 
                 Invoke("EndCooldown", _spellInterval);
             }
+
+            if (_spellPrefab.name == "WaterWavePrefab")
+            {
+                WaterSpell.SpawnSpell(_spellPrefab, _castingPoint, 2);
+
+                _spellCooldown = true;
+
+                Invoke("Endcooldown", _spellInterval);
+            }
         }
-        if (_spellPrefab.name == "WaterWavePrefab")
+    }
+
+        public void EndCooldown()
         {
-            WaterSpell.SpawnSpell(_spellPrefab, _castingPoint, 2);
-
-            _spellCooldown = true;
-
-            Invoke("Endcooldown", _spellInterval);
+            _spellCooldown = false;
         }
     }
-
-    public void EndCooldown()
-    {
-        _spellCooldown = false;
-    }
-}
