@@ -59,11 +59,11 @@ public class SpellCasting : MonoBehaviour  // Tämä scripti liitetään pelaaja
 
             if (_spellPrefab.name == "WaterWavePrefab")
             {
-                WaterSpell.SpawnSpell(_spellPrefab, _castingPoint, _throwForce);
+                WaterSpell.SpawnSpell(_spellPrefab, _castingPoint);
 
                 _spellCooldown = true;
 
-                Invoke("Endcooldown", _spellInterval);
+                Invoke("EndCooldown", _spellInterval);
             }
 
 
@@ -83,7 +83,7 @@ public class SpellCasting : MonoBehaviour  // Tämä scripti liitetään pelaaja
 
             if (_spellPrefab.name == "WaterWavePrefab")
             {
-                WaterSpell.SpawnSpell(_spellPrefab, _castingPoint, 2);
+                WaterSpell.SpawnSpell(_spellPrefab, _castingPoint);
 
                 _spellCooldown = true;
 

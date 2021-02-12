@@ -47,7 +47,7 @@ public class LightingSpell : MonoBehaviour
             }
         }
     }
-    private void OnCollisionEnter(Collider other)
+    private void OnCollision(Collider other)
     {
         var enemy = other.gameObject.GetComponent<Rigidbody>();
 
