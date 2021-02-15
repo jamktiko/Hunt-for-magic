@@ -5,9 +5,10 @@ using UnityEngine;
 public class WaterSpell : MonoBehaviour
 {
     [SerializeField]
-    private float _damageAmount = 15f;
+    private static float _damageAmount = 15f;
     public float _spellRange = 5f;
     public float _spellInterval = 1.0f;
+    public static float _throwForce = 15f;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,12 +21,12 @@ public class WaterSpell : MonoBehaviour
         DamageFizzle();
         Object.Destroy(gameObject, 15.0f);
     }
-    public static void SpawnSpell(GameObject _spellPrefab,Transform _castingPoint, float _throwForce)
+    public static void SpawnSpell(GameObject _spellPrefab,Transform _castingPoint)
     {
         GameObject spell = Instantiate(_spellPrefab, _castingPoint.position, _castingPoint.rotation);
 
         spell.GetComponent<Rigidbody>().AddForce(_castingPoint.forward * _throwForce, ForceMode.Impulse);
-
+        DamageFizzle();
     }
     private void OnCollisionEnter(Collision collision)
     {
@@ -37,10 +38,9 @@ public class WaterSpell : MonoBehaviour
         {
             enemy.AddForce(0, 1f, 5f, ForceMode.Impulse);
             enemyHealth.AddDamage(_damageAmount);
-            Destroy(gameObject);
         }
     }
-    IEnumerator DamageFizzle()
+    static IEnumerator DamageFizzle()
     {
         yield return new WaitForSeconds(1);
         if (_damageAmount > 0)
