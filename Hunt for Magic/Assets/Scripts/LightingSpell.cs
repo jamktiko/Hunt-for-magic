@@ -25,6 +25,7 @@ public class LightingSpell : MonoBehaviour
     }
 
     private void OnTriggerEnter(Collider other)
+
     {
         var enemy = other.gameObject.GetComponent<Rigidbody>();
 
