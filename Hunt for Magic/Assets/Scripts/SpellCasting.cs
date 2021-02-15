@@ -36,7 +36,7 @@ public class SpellCasting : MonoBehaviour  // Tämä scripti liitetään pelaaja
     void FixedUpdate()
     {
         if (!ammoChangerCooldown)
-        {            
+        {
             if (ammoCount < maxAmmo)
             {
                 canCharge = true;
@@ -88,7 +88,7 @@ public class SpellCasting : MonoBehaviour  // Tämä scripti liitetään pelaaja
                     return;
                 }
 
-                if (ammoCount >= 1) 
+                if (ammoCount >= 1)
                 {
                     ammoCount = ammoCount - ammoChanger;
                     Instantiate(_spellPrefab, _castingPoint.position, _castingPoint.rotation);
@@ -98,28 +98,28 @@ public class SpellCasting : MonoBehaviour  // Tämä scripti liitetään pelaaja
 
                 Invoke("EndCooldown", _spellInterval);
             }
-
+        }
     }
 
         public void EndCooldown()
         {
             _spellCooldown = false;
         }
-    }
 
 
-    IEnumerator ammoChangerInitiate()
-    {
-        yield return new WaitForSeconds(3.5f);
-        if (canCharge)
+
+        IEnumerator ammoChangerInitiate()
         {
-            canCharge = false;
-            if (ammoChangerCooldown)
-            {            
-                ammoChangerCooldown = false;
-                if (ammoCount < maxAmmo)
-                ammoCount = ammoCount + ammoChanger;
+            yield return new WaitForSeconds(3.5f);
+            if (canCharge)
+            {
+                canCharge = false;
+                if (ammoChangerCooldown)
+                {
+                    ammoChangerCooldown = false;
+                    if (ammoCount < maxAmmo)
+                        ammoCount = ammoCount + ammoChanger;
+                }
             }
         }
     }
-}
