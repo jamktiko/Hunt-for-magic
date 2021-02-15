@@ -5,49 +5,26 @@ using UnityEngine;
 public class LightingSpell : MonoBehaviour
 {
     [SerializeField]
-    private float _damageAmount = 1f;
-    private float maxCount = 3;
-    private float ammoChanger = 1;
-    private float chargeCounter = 0;
-    private float chargeBoost = 1.3f;
-    private float currentAmmo;
-    private float actualDamage;
+    private float _damageAmount = 15f;
     private bool chargeHold = false;
+    private Transform _castingPoint;
+    private float speed = 15f;
+
     // Start is called before the first frame update
     void Start()
     {
-
+        _castingPoint = GameObject.Find("CastingPoint").GetComponent<Transform>();
+        gameObject.GetComponent<Rigidbody>().AddForce(_castingPoint.forward * speed, ForceMode.Impulse);
     }
 
     // Update is called once per frame
     void Update()
     {
-        Object.Destroy(gameObject, 0.5f);
-        if (Input.GetMouseButtonDown(0))
-        {
-            chargeHold = true;
-        }
-        else
-        {
-            chargeHold = false;
-            actualDamage = _damageAmount * chargeCounter * chargeBoost;
-            chargeCounter = 0;
-        }
+        spellCharger();
+        Destroy(gameObject, 0.7f);
     }
 
-    private void spellCharger()
-    {
-        
-        for (int i = 0; i <= currentAmmo; i++)
-        {
-            if (chargeHold)
-            {
-                chargeCounter = chargeCounter + 1;
-                chargeDelay(chargeCounter);
-            }
-        }
-    }
-    private void OnCollisionEnter(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
         var enemy = other.gameObject.GetComponent<Rigidbody>();
 
@@ -55,27 +32,24 @@ public class LightingSpell : MonoBehaviour
 
         if (enemy != null)
         {
-            currentAmmo = currentAmmo - ammoChanger;
-            _damageAmount = actualDamage;
             enemyHealth.AddDamage(_damageAmount);
             Destroy(gameObject);
         }
     }
 
-    IEnumerator chargeDelay(float chargeCounter)
+    private void spellCharger()
     {
-        yield return new WaitForSeconds(1.2f);
-        if (chargeCounter == currentAmmo)
-        {
-            currentAmmo = currentAmmo - chargeCounter;
-        }
-        else chargeCounter++;
+        chargeHold = true;
+            if (chargeHold)
+            {
+                Cooldown();
+                chargeHold = false;
+            }
+            else chargeHold = false;
     }
 
     IEnumerator Cooldown()
     {
         yield return new WaitForSeconds(2.4f);
-        currentAmmo = currentAmmo + ammoChanger;
-        yield return currentAmmo;
     }
 }
