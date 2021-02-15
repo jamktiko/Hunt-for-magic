@@ -543,7 +543,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 2e7ecec862dfa4c4e819789434472137, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ea5c93b7e61d85c42ac105002fc070b5, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -928,6 +928,7 @@ MonoBehaviour:
   jump: 5
   characterController: {fileID: 1676825829}
   isGrounded: 0
+  cursorOn: 0
   mouseSensitivity: 100
 --- !u!65 &1676825823
 BoxCollider:
@@ -1017,10 +1018,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfcfd8dbd6ace0143ad88edd473295c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _spellPrefab: {fileID: 968852685152142373, guid: 38ef3fff18a8d4849b5277a7fddb240a,
+  _spellPrefab: {fileID: 3317623580478994671, guid: 7a19836e48f045d4aab711a363871a87,
     type: 3}
-  _throwForce: 20
   _spellInterval: 1
+  _throwForce: 20
 --- !u!143 &1676825829
 CharacterController:
   m_ObjectHideFlags: 0
@@ -1586,7 +1587,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 7e445190c24a7f24e85dd2bf40825df6, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 161f91459aa755b4aa8862dd5a9b6ea5, type: 3}
   m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1

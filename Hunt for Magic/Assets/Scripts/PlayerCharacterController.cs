@@ -13,6 +13,7 @@ public class PlayerCharacterController : MonoBehaviour
     private Vector3 moveDirection = Vector3.zero;
     public CharacterController characterController;
     public bool isGrounded;
+    public bool cursorOn;
 
     public float mouseSensitivity = 100f;
     float xRotation = 0f;
@@ -36,7 +37,14 @@ public class PlayerCharacterController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if (cursorOn == true)
+        {
+            ShowCursor();
+        }
+        else if (cursorOn == false)
+        {
+            HideCursor();
+        }
 
         //You can modify health with this function
         //HealthBar.SetHealthBarValue(HealthBar.GetHealthBarValue() - 0.01f);
@@ -80,5 +88,16 @@ public class PlayerCharacterController : MonoBehaviour
         cam.transform.eulerAngles = new Vector3(xRotation, -yRotation, 0f);
 
         playerBody.Rotate(Vector3.up * mouseX);
+    }
+    void ShowCursor()
+    {
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
+    }
+
+    void HideCursor()
+    {
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 }
