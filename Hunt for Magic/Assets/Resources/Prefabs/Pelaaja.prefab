@@ -129,7 +129,7 @@ GameObject:
   - component: {fileID: 4252106629176813779}
   - component: {fileID: 4252106629176813800}
   m_Layer: 0
-  m_Name: PlayerCharacter
+  m_Name: Pelaaja
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -227,6 +227,11 @@ MonoBehaviour:
     type: 3}
   _spellInterval: 1
   _throwForce: 20
+  ammoCount: 1
+  ammoChanger: 1
+  maxAmmo: 3
+  ammoChangerCooldown: 0
+  canCharge: 0
 --- !u!143 &4252106629176813779
 CharacterController:
   m_ObjectHideFlags: 0
