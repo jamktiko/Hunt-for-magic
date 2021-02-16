@@ -98,6 +98,20 @@ public class SpellCasting : MonoBehaviour  // Tämä scripti liitetään pelaaja
 
                 Invoke("EndCooldown", _spellInterval);
             }
+
+            if (_spellPrefab.name == "Fireball")
+            {
+                if (_spellCooldown)
+                {
+                    return;
+                }
+
+                Instantiate(_spellPrefab, _castingPoint.position, _castingPoint.rotation);
+
+                _spellCooldown = true;
+
+                Invoke("EndCooldown", _spellInterval);
+            }
         }
     }
 

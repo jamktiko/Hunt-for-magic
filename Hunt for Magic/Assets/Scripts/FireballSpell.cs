@@ -9,10 +9,20 @@ public class FireballSpell : MonoBehaviour
 
     private GameObject _explosion;
 
+    private GameObject _groundFire;
+
+    private Transform _castingPoint;
+
+    private float _speed = 20f;
+
     // Start is called before the first frame update
     void Start()
     {
         _explosion = Resources.Load<GameObject>("Prefabs/Explosion");
+        _groundFire = Resources.Load<GameObject>("Prefabs/ground_on_fire");
+
+        _castingPoint = GameObject.Find("CastingPoint").GetComponent<Transform>();
+        gameObject.GetComponent<Rigidbody>().AddForce(_castingPoint.forward * _speed, ForceMode.Impulse);
     }
 
     // Update is called once per frame
@@ -21,7 +31,7 @@ public class FireballSpell : MonoBehaviour
         
     }
 
-    private void OnParticleCollision(GameObject other)
+    private void OnTriggerEnter(Collider other)
     {
         var enemy = other.gameObject.GetComponent<Rigidbody>();
 
@@ -32,5 +42,11 @@ public class FireballSpell : MonoBehaviour
             enemyHealth.AddDamage(_damageAmount);
             Instantiate(_explosion, transform.position, Quaternion.identity);
         }
+
+        if (other.gameObject.tag == "Ground")
+        {
+            Instantiate(_explosion, transform.position, Quaternion.identity);
+            Instantiate(_groundFire, transform.position, Quaternion.Euler(90, 0, 0));
+        }    
     }
 }
