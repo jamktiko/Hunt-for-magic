@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 1915323874815832256}
   - component: {fileID: 6065138736487529480}
   m_Layer: 0
-  m_Name: WaterSpellPrefab
+  m_Name: WaterWavePrefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -121,8 +121,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 968852685152142373}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d8fa691c6145d7242a20095127120d58, type: 3}
+  m_Script: {fileID: 11500000, guid: ecb27dcfcdb14e94a93e6814215514c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _damageAmount: 15
   _spellRange: 5
+  _spellInterval: 1

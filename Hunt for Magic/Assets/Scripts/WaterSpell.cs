@@ -6,20 +6,28 @@ public class WaterSpell : MonoBehaviour
 {
     [SerializeField]
     private float _damageAmount = 15f;
+<<<<<<< Updated upstream
     public float _spellRange = 5f;
     public float _spellInterval = 1.0f;
+=======
+    private float _speed = 5f;
+
+    private Transform _castingPoint;
+>>>>>>> Stashed changes
     // Start is called before the first frame update
     void Start()
     {
 
+        _castingPoint = GameObject.Find("CastingPoint").GetComponent<Transform>();
+        gameObject.GetComponent<Rigidbody>().AddForce(_castingPoint.forward * _speed, ForceMode.Impulse);
     }
 
     // Update is called once per frame
     void Update()
     {
-        DamageFizzle();
         Object.Destroy(gameObject, 15.0f);
     }
+<<<<<<< Updated upstream
     public static void SpawnSpell(GameObject _spellPrefab,Transform _castingPoint, float _throwForce)
     {
         GameObject spell = Instantiate(_spellPrefab, _castingPoint.position, _castingPoint.rotation);
@@ -41,24 +49,34 @@ public class WaterSpell : MonoBehaviour
         }
     }
     IEnumerator DamageFizzle()
+=======
+    private void OnTriggerEnter(Collider other)
+>>>>>>> Stashed changes
     {
-        yield return new WaitForSeconds(1);
-        if (_damageAmount > 0)
+        if (other.gameObject.tag != "Player")
         {
-            _damageAmount -= 1;
-        }
-    }
+            var enemy = other.gameObject.GetComponent<Rigidbody>();
 
-    IEnumerator WaveExpand()
-    {
-        yield return new WaitForSeconds(0.1f);
-        if (this != null)
-        {
-            Vector3 scale = transform.localScale;
-            scale.x += 1;
-            transform.localScale = scale;
+            var enemyHealth = other.gameObject.GetComponent<HealthSystem>();
+            if (enemy != null)
+            {
+                enemy.AddForce(0, 1f, 5f, ForceMode.Impulse);
+                enemyHealth.AddDamage(_damageAmount);
+            }
         }
 
+
+        
     }
+
+    //static IEnumerator DamageFizzle()
+    //{
+    //    yield return new WaitForSeconds(1);
+    //    if (_damageAmount > 0)
+    //    {
+    //        _damageAmount -= 1;
+    //    }
+    //}
+
 
 }

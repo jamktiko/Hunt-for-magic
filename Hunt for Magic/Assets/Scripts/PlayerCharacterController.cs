@@ -24,9 +24,6 @@ public class PlayerCharacterController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
-
-
         HealthBar.SetHealthBarValue(1);
 
         Cursor.lockState = CursorLockMode.Locked;
