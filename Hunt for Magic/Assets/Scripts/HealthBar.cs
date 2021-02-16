@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class HealthBar : MonoBehaviour
 {
-    public static Image HealthBarImage;
+    private static Image HealthBarImage;
 
     public static void SetHealthBarValue(float value)
     {
@@ -34,6 +34,7 @@ public class HealthBar : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        HealthBarImage.fillAmount = 1.0f;
         HealthBarImage = GetComponent<Image>();
     }
 
