@@ -8,6 +8,7 @@ public class SpellCasting : MonoBehaviour  // Tämä scripti liitetään pelaaja
     private GameObject _spellPrefab;
 
     private Transform _castingPoint;
+    private Transform _waterCastingPoint;
 
     private bool _spellCooldown;
 
@@ -28,6 +29,7 @@ public class SpellCasting : MonoBehaviour  // Tämä scripti liitetään pelaaja
     // Start is called before the first frame update
     void Start()
     {
+        _waterCastingPoint = GameObject.Find("WaterCastingPoint").GetComponent<Transform>();
         _castingPoint = GameObject.Find("CastingPoint").GetComponent<Transform>();
         _player = GameObject.Find("PlayerCharacter");
     }
@@ -78,7 +80,7 @@ public class SpellCasting : MonoBehaviour  // Tämä scripti liitetään pelaaja
                 {
                     return;
                 }
-                Instantiate(_spellPrefab, _castingPoint.position, _castingPoint.rotation);
+                Instantiate(_spellPrefab, _waterCastingPoint.position, _waterCastingPoint.rotation);
 
                 _spellCooldown = true;
 
