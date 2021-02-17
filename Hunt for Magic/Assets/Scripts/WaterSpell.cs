@@ -6,40 +6,41 @@ public class WaterSpell : MonoBehaviour
 {
     [SerializeField]
     private static float _damageAmount = 15f;
-    public float _spellRange = 5f;
-    public float _spellInterval = 1.0f;
-    public static float _throwForce = 15f;
-    // Start is called before the first frame update
+    private float _speed = 5f;
+
+    private Transform _waterCastingPoint;
     void Start()
     {
 
+        _waterCastingPoint = GameObject.Find("WaterCastingPoint").GetComponent<Transform>();
+        gameObject.GetComponent<Rigidbody>().AddForce(_waterCastingPoint.forward * _speed, ForceMode.Impulse);
+        StartCoroutine(DamageFizzle());
     }
 
     // Update is called once per frame
     void Update()
     {
-        DamageFizzle();
         Object.Destroy(gameObject, 15.0f);
     }
-    public static void SpawnSpell(GameObject _spellPrefab,Transform _castingPoint)
+    
+    private void OnTriggerEnter(Collider other)
     {
-        GameObject spell = Instantiate(_spellPrefab, _castingPoint.position, _castingPoint.rotation);
-
-        spell.GetComponent<Rigidbody>().AddForce(_castingPoint.forward * _throwForce, ForceMode.Impulse);
-        DamageFizzle();
-    }
-    private void OnCollisionEnter(Collision collision)
-    {
-        var enemy = this.gameObject.GetComponent<Rigidbody>();
-
-        var enemyHealth = this.gameObject.GetComponent<HealthSystem>();
-
-        if (enemy != null)
+        if (other.gameObject.tag != "Player")
         {
-            enemy.AddForce(0, 1f, 5f, ForceMode.Impulse);
-            enemyHealth.AddDamage(_damageAmount);
+            var enemy = other.gameObject.GetComponent<Rigidbody>();
+
+            var enemyHealth = other.gameObject.GetComponent<HealthSystem>();
+            if (enemy != null)
+            {
+                enemy.AddForce(0, 1f, 5f, ForceMode.Impulse);
+                enemyHealth.AddDamage(_damageAmount);
+            }
         }
+
+
+        
     }
+
     static IEnumerator DamageFizzle()
     {
         yield return new WaitForSeconds(1);
@@ -49,16 +50,5 @@ public class WaterSpell : MonoBehaviour
         }
     }
 
-    IEnumerator WaveExpand()
-    {
-        yield return new WaitForSeconds(0.1f);
-        if (this != null)
-        {
-            Vector3 scale = transform.localScale;
-            scale.x += 1;
-            transform.localScale = scale;
-        }
-
-    }
 
 }
