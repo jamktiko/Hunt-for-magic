@@ -64,15 +64,20 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\Buffs.cs" />
     <Compile Include="Assets\Scripts\AdvancedAI.cs" />
+    <Compile Include="Assets\Scripts\Buffs.cs" />
+    <Compile Include="Assets\Scripts\ChainLightingSpell.cs" />
     <Compile Include="Assets\Scripts\Editor(Visualizer)\FieldOfVisionEditor.cs" />
     <Compile Include="Assets\Scripts\EnemySlimeMovement.cs" />
     <Compile Include="Assets\Scripts\EnergySystem.cs" />
     <Compile Include="Assets\Scripts\FireDebuff.cs" />
     <Compile Include="Assets\Scripts\FireSpell.cs" />
+    <Compile Include="Assets\Scripts\FireballSpell.cs" />
+    <Compile Include="Assets\Scripts\GroundSlime.cs" />
     <Compile Include="Assets\Scripts\HealthBar.cs" />
     <Compile Include="Assets\Scripts\HealthSystem.cs" />
+    <Compile Include="Assets\Scripts\LightingSpell.cs" />
+    <Compile Include="Assets\Scripts\MeleeAttack.cs" />
     <Compile Include="Assets\Scripts\PlayerCharacterController.cs" />
     <Compile Include="Assets\Scripts\SpellCasting.cs" />
     <Compile Include="Assets\Scripts\WaterSpell.cs" />
