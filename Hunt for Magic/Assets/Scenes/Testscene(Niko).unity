@@ -316,10 +316,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfcfd8dbd6ace0143ad88edd473295c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _spellPrefab: {fileID: 4798670307819067638, guid: 32ae3c9330cc7e249957c0a8bbe6a515,
+  _spellPrefab: {fileID: 4925275757117196468, guid: 7cb522f091b07a041b2ba8906ceb07bd,
     type: 3}
   _spellInterval: 1
   _throwForce: 20
+  ammoCount: 1
+  ammoChanger: 1
+  maxAmmo: 3
+  ammoChangerCooldown: 0
+  canCharge: 0
 --- !u!65 &307884916
 BoxCollider:
   m_ObjectHideFlags: 0
