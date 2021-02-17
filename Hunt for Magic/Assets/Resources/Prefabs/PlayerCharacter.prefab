@@ -326,7 +326,7 @@ MonoBehaviour:
   cam: {fileID: 4252106628218637969}
   playerBody: {fileID: 4252106629176813780}
   gravity: 20
-  speed: 5
+  speed: 1.8
   jump: 5
   characterController: {fileID: 4252106629176813779}
   isGrounded: 0
