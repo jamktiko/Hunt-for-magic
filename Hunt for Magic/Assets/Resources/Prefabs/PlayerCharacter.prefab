@@ -129,7 +129,7 @@ GameObject:
   - component: {fileID: 4252106629176813779}
   - component: {fileID: 4252106629176813800}
   m_Layer: 0
-  m_Name: Pelaaja
+  m_Name: PlayerCharacter
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -265,7 +265,7 @@ MonoBehaviour:
   cam: {fileID: 4252106628218637969}
   playerBody: {fileID: 4252106629176813780}
   gravity: 20
-  speed: 5
+  speed: 1.8
   jump: 5
   characterController: {fileID: 4252106629176813779}
   isGrounded: 0
