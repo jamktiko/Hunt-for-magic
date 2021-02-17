@@ -12,7 +12,7 @@ public class PlayerCharacterController : MonoBehaviour
     public float jump = 5;
     private Vector3 moveDirection = Vector3.zero;
     public CharacterController characterController;
-    public bool isGrounded;
+    public static bool isGrounded;
     public bool cursorOn;
 
     public float mouseSensitivity = 100f;
@@ -25,11 +25,8 @@ public class PlayerCharacterController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
-
-
         HealthBar.SetHealthBarValue(1);
-
+        cursorOn = true;
         Cursor.lockState = CursorLockMode.Locked;
         characterController = GetComponent<CharacterController>();
     }

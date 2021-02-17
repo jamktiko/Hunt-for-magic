@@ -8,6 +8,7 @@
 # Wet
 * +fire= -dmg
 * +elec= +dmg
+* +wind= chilled (slow)
 
 # waterpool
 * +fire= -dmg
