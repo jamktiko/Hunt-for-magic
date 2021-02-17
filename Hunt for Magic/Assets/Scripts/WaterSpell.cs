@@ -8,12 +8,12 @@ public class WaterSpell : MonoBehaviour
     private static float _damageAmount = 15f;
     private float _speed = 5f;
 
-    private Transform _castingPoint;
+    private Transform _waterCastingPoint;
     void Start()
     {
 
-        _castingPoint = GameObject.Find("CastingPoint").GetComponent<Transform>();
-        gameObject.GetComponent<Rigidbody>().AddForce(_castingPoint.forward * _speed, ForceMode.Impulse);
+        _waterCastingPoint = GameObject.Find("WaterCastingPoint").GetComponent<Transform>();
+        gameObject.GetComponent<Rigidbody>().AddForce(_waterCastingPoint.forward * _speed, ForceMode.Impulse);
         StartCoroutine(DamageFizzle());
     }
 
