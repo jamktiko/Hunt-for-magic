@@ -30,16 +30,14 @@ public class WaterSpell : MonoBehaviour
             var enemy = other.gameObject.GetComponent<Rigidbody>();
 
             var enemyHealth = other.gameObject.GetComponent<HealthSystem>();
+
             if (enemy != null)
             {
-                enemy.AddForce(0, 1f, 5f, ForceMode.Impulse);
                 enemyHealth.AddDamage(_damageAmount);
                 other.GetComponent<WetDebuff>()._wet = true;
+                other.GetComponent<FireDebuff>()._onFire = false;
             }
         }
-
-
-        
     }
 
     static IEnumerator DamageFizzle()
@@ -50,6 +48,4 @@ public class WaterSpell : MonoBehaviour
             _damageAmount -= 1;
         }
     }
-
-
 }
