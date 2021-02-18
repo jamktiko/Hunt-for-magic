@@ -11,7 +11,6 @@ public class WaterSpell : MonoBehaviour
     private Transform _waterCastingPoint;
     void Start()
     {
-
         _waterCastingPoint = GameObject.Find("WaterCastingPoint").GetComponent<Transform>();
         gameObject.GetComponent<Rigidbody>().AddForce(_waterCastingPoint.forward * _speed, ForceMode.Impulse);
         StartCoroutine(DamageFizzle());
@@ -32,13 +31,9 @@ public class WaterSpell : MonoBehaviour
             var enemyHealth = other.gameObject.GetComponent<HealthSystem>();
             if (enemy != null)
             {
-                enemy.AddForce(0, 1f, 5f, ForceMode.Impulse);
                 enemyHealth.AddDamage(_damageAmount);
             }
         }
-
-
-        
     }
 
     static IEnumerator DamageFizzle()
@@ -49,6 +44,6 @@ public class WaterSpell : MonoBehaviour
             _damageAmount -= 1;
         }
     }
-
+    
 
 }
