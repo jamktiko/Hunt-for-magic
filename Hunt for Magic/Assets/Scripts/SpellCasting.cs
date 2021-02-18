@@ -52,6 +52,11 @@ public class SpellCasting : MonoBehaviour  // Tämä scripti liitetään pelaaja
             _spellPrefab = Resources.Load("Prefabs/Fireball");
         }
 
+        if (Input.GetKeyDown("4"))
+        {
+            _spellPrefab = Resources.Load("Prefabs/Electricity");
+        }
+
 
         if (!ammoChangerCooldown)
         {
@@ -63,7 +68,7 @@ public class SpellCasting : MonoBehaviour  // Tämä scripti liitetään pelaaja
             }
         }
 
-        if (Input.GetButtonDown("Fire1"))
+        if (Input.GetButton("Fire1"))
         {
             if (_spellPrefab.name == "WindEffect")
             {

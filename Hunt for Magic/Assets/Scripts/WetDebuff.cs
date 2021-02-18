@@ -12,7 +12,7 @@ public class WetDebuff : MonoBehaviour
     {
         if (_wet == true)
         {
-            Invoke("WaterStopper", 5f);
+            Invoke("WaterStopper", 10f);
         }
     }
 

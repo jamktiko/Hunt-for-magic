@@ -87,6 +87,7 @@ GameObject:
   - component: {fileID: 135058507269698838}
   - component: {fileID: 3298055590590067699}
   - component: {fileID: 660850423790900995}
+  - component: {fileID: 6387167145983580201}
   m_Layer: 0
   m_Name: WindEffect
   m_TagString: Untagged
@@ -3691,7 +3692,7 @@ ParticleSystem:
   CollisionModule:
     enabled: 0
     serializedVersion: 3
-    type: 0
+    type: 1
     collisionMode: 0
     colliderForce: 0
     multiplyColliderForceByParticleSize: 0
@@ -3876,15 +3877,16 @@ ParticleSystem:
     interiorCollisions: 0
   TriggerModule:
     enabled: 0
-    collisionShape0: {fileID: 0}
+    collisionShape0: {fileID: 2362643800816492327, guid: 3633f084681b46a41ad06e67cf8a4fcf,
+      type: 3}
     collisionShape1: {fileID: 0}
     collisionShape2: {fileID: 0}
     collisionShape3: {fileID: 0}
     collisionShape4: {fileID: 0}
     collisionShape5: {fileID: 0}
-    inside: 1
+    inside: 0
     outside: 0
-    enter: 0
+    enter: 2
     exit: 0
     radiusScale: 1
   SubModule:
@@ -4889,3 +4891,15 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
+--- !u!114 &6387167145983580201
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4798670307819067638}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c742cec52b147c246b44d6408a7fffa0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

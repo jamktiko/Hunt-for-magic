@@ -12,6 +12,7 @@ public class WindSpell : MonoBehaviour  //Tämä scripti liitetään WindEffect-
 
     private Transform _castingPoint;
 
+
     // Start is called before the first frame update
     void Start()
     {
