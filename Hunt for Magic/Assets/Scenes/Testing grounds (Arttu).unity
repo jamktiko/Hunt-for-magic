@@ -225,7 +225,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: ac07efd2ee2222e44a6464639dfaf893, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 02ca65e372be1f642901c599f5e4a49d, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -417,7 +417,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: ea5c93b7e61d85c42ac105002fc070b5, type: 3}
+  m_Sprite: {fileID: 21300000, guid: deec92dadd0c509478e8ba6261580788, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -506,7 +506,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: c08cda9b9e2bc0a4185ad8634398f42f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 919c77afb76a00e4aa626323ab862436, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -595,7 +595,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 67a8c959ab616004c9eeb649d5a54d8e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a2b58297f0177e94e8de1ac8afdda235, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -674,7 +674,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 2800000, guid: 9dae942ed70e59c4c8b67eb42b809110, type: 3}
+  m_Texture: {fileID: 2800000, guid: 5bd39f8bd759c3847929dfb0e14efad9, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -1008,7 +1008,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 2800000, guid: 317500faf0a72f04b8da7e24d8978f63, type: 3}
+  m_Texture: {fileID: 2800000, guid: a7282913ed724604eb7535c875301735, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: -5.77
@@ -1166,7 +1166,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: acd627cf74bfa43438a4d5f27f5174de, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 99efaffbc5e74df4e9320759963344d4, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1308,7 +1308,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 161f91459aa755b4aa8862dd5a9b6ea5, type: 3}
+  m_Sprite: {fileID: 21300000, guid: edac22f26ed95ea4f9dfbc2e5f8af127, type: 3}
   m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1335,7 +1335,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1976173738}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6c1ead9fed30b664e9c4ab8ee59e13d3, type: 3}
+  m_Script: {fileID: 11500000, guid: a15f3d37f9888a547b9ef7c584d45021, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &1976173743
@@ -1367,6 +1367,7 @@ GameObject:
   - component: {fileID: 2093525714}
   - component: {fileID: 2093525719}
   - component: {fileID: 2093525720}
+  - component: {fileID: 2093525721}
   m_Layer: 0
   m_Name: EnemySlime
   m_TagString: Untagged
@@ -1496,6 +1497,20 @@ Animation:
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
   m_CullingType: 0
+--- !u!114 &2093525721
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2093525713}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e67eb16e545b2841a9f62c260e63a17, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _health: 100
+  _maxHealth: 100
 --- !u!1 &2105061673
 GameObject:
   m_ObjectHideFlags: 0
@@ -1567,7 +1582,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 4764208c8ef2ffc46913a812e0eaed94, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5dee35bc184bf094b92e89058cbcb836, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1592,6 +1607,12 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4252106629176813778, guid: ec75e577617f7ac439604093d35c2dba,
+        type: 3}
+      propertyPath: _spellPrefab
+      value: 
+      objectReference: {fileID: 3317623580478994671, guid: 4f72462e66580164c8ebd98799fa4510,
+        type: 3}
     - target: {fileID: 4252106629176813780, guid: ec75e577617f7ac439604093d35c2dba,
         type: 3}
       propertyPath: m_RootOrder
