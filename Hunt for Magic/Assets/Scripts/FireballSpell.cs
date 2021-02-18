@@ -41,6 +41,7 @@ public class FireballSpell : MonoBehaviour
         {
             enemyHealth.AddDamage(_damageAmount);
             Instantiate(_explosion, transform.position, Quaternion.identity);
+            Instantiate(_groundFire, transform.position, Quaternion.Euler(90, 0, 0));
         }
 
         if (other.gameObject.tag == "Ground")

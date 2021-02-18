@@ -33,7 +33,7 @@ public class WindSpell : MonoBehaviour  //Tämä scripti liitetään WindEffect-
 
         if (enemy != null)
         {
-            enemy.AddForce(0, 1f, 5f, ForceMode.Impulse);
+            enemy.AddForce(0, 3f, 10f, ForceMode.Impulse);
             enemyHealth.AddDamage(_damageAmount);
         }
     }

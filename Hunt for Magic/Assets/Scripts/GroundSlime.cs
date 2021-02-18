@@ -7,7 +7,7 @@ public class GroundSlime : MonoBehaviour
     private bool _slowed;
 
     [SerializeField]
-    private float _playerSpeed = 5f;
+    private float _playerSpeed = 1.8f;
 
     private void OnTriggerEnter(Collider other)
     {
