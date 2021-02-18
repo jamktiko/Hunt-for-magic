@@ -34,6 +34,7 @@ public class WaterSpell : MonoBehaviour
             {
                 enemy.AddForce(0, 1f, 5f, ForceMode.Impulse);
                 enemyHealth.AddDamage(_damageAmount);
+                other.GetComponent<WetDebuff>()._wet = true;
             }
         }
 

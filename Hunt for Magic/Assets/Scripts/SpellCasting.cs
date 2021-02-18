@@ -5,7 +5,7 @@ using UnityEngine;
 public class SpellCasting : MonoBehaviour  // Tämä scripti liitetään pelaajaan
 {
     [SerializeField]
-    private GameObject _spellPrefab;
+    private Object _spellPrefab;
 
     private Transform _castingPoint;
     private Transform _waterCastingPoint;
@@ -37,6 +37,22 @@ public class SpellCasting : MonoBehaviour  // Tämä scripti liitetään pelaaja
     // Update is called once per frame
     void FixedUpdate()
     {
+        if (Input.GetKeyDown("1"))
+        {
+            _spellPrefab = Resources.Load("Prefabs/WindEffect");
+        }
+
+        if (Input.GetKeyDown("2"))
+        {
+            _spellPrefab = Resources.Load("Prefabs/Waterwave");
+        }
+
+        if (Input.GetKeyDown("3"))
+        {
+            _spellPrefab = Resources.Load("Prefabs/Fireball");
+        }
+
+
         if (!ammoChangerCooldown)
         {
             if (ammoCount < maxAmmo)
