@@ -65,11 +65,13 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\AdvancedAI.cs" />
     <Compile Include="Assets\Scripts\Buffs.cs" />
+    <Compile Include="Assets\Scripts\ChainLightingSpell.cs" />
     <Compile Include="Assets\Scripts\Editor(Visualizer)\FieldOfVisionEditor.cs" />
     <Compile Include="Assets\Scripts\EnemySlimeMovement.cs" />
     <Compile Include="Assets\Scripts\EnergySystem.cs" />
     <Compile Include="Assets\Scripts\FireDebuff.cs" />
     <Compile Include="Assets\Scripts\FireSpell.cs" />
+    <Compile Include="Assets\Scripts\FireballSpell.cs" />
     <Compile Include="Assets\Scripts\GroundSlime.cs" />
     <Compile Include="Assets\Scripts\HealthBar.cs" />
     <Compile Include="Assets\Scripts\HealthSystem.cs" />
@@ -78,6 +80,7 @@
     <Compile Include="Assets\Scripts\PlayerCharacterController.cs" />
     <Compile Include="Assets\Scripts\SpellCasting.cs" />
     <Compile Include="Assets\Scripts\WaterSpell.cs" />
+    <Compile Include="Assets\Scripts\WetDebuff.cs" />
     <Compile Include="Assets\Scripts\WindSpell.cs" />
     <Reference Include="UnityEngine">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.18f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
