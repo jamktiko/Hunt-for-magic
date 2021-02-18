@@ -80,6 +80,7 @@
     <Compile Include="Assets\Scripts\PlayerCharacterController.cs" />
     <Compile Include="Assets\Scripts\SpellCasting.cs" />
     <Compile Include="Assets\Scripts\WaterSpell.cs" />
+    <Compile Include="Assets\Scripts\WetDebuff.cs" />
     <Compile Include="Assets\Scripts\WindSpell.cs" />
     <Reference Include="UnityEngine">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.18f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
