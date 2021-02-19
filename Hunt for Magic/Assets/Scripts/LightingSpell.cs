@@ -31,6 +31,9 @@ public class LightingSpell : MonoBehaviour
 
         var enemyHealth = other.gameObject.GetComponent<HealthSystem>();
 
+        if (other.GetComponent<WetDebuff>()._wet == true)
+            _damageAmount *= 1.5f;
+
         if (enemy != null)
         {
             enemyHealth.AddDamage(_damageAmount);

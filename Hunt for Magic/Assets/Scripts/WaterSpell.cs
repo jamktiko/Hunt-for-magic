@@ -5,22 +5,30 @@ using UnityEngine;
 public class WaterSpell : MonoBehaviour
 {
     [SerializeField]
-    private static float _damageAmount = 15f;
+    private float _damageAmount = 15f;
     private float _speed = 5f;
 
     private Transform _waterCastingPoint;
+    private Vector3 scaleChange, positionChange;
+
+
     void Start()
     {
-
         _waterCastingPoint = GameObject.Find("WaterCastingPoint").GetComponent<Transform>();
         gameObject.GetComponent<Rigidbody>().AddForce(_waterCastingPoint.forward * _speed, ForceMode.Impulse);
-        StartCoroutine(DamageFizzle());
+        gameObject.GetComponent<SphereCollider>();
+        scaleChange = new Vector3(0.003f, -0.0008f, 0);
+        positionChange = new Vector3(0, -0.0001f, 0);
+        StartCoroutine("DamageFizzle");
     }
 
     // Update is called once per frame
     void Update()
     {
-        Object.Destroy(gameObject, 15.0f);
+        Object.Destroy(gameObject, 5.0f);
+        
+        gameObject.transform.localScale += scaleChange;
+        gameObject.transform.position += positionChange;
     }
     
     private void OnTriggerEnter(Collider other)
@@ -30,25 +38,22 @@ public class WaterSpell : MonoBehaviour
             var enemy = other.gameObject.GetComponent<Rigidbody>();
 
             var enemyHealth = other.gameObject.GetComponent<HealthSystem>();
+
             if (enemy != null)
             {
-                enemy.AddForce(0, 1f, 5f, ForceMode.Impulse);
                 enemyHealth.AddDamage(_damageAmount);
+                other.GetComponent<WetDebuff>()._wet = true;
+                other.GetComponent<FireDebuff>()._onFire = false;
             }
         }
-
-
-        
     }
 
-    static IEnumerator DamageFizzle()
+    IEnumerator DamageFizzle()
     {
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(0.1f);
         if (_damageAmount > 0)
         {
-            _damageAmount -= 1;
+            _damageAmount -= 0.1f;
         }
     }
-
-
 }
