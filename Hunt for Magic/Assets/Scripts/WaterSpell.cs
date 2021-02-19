@@ -30,7 +30,17 @@ public class WaterSpell : MonoBehaviour
         gameObject.transform.localScale += scaleChange;
         gameObject.transform.position += positionChange;
     }
-    
+
+    private void OnCollisionEnter(Collision other)
+    {
+        var enemy = other.gameObject.GetComponent<Rigidbody>();
+
+        if (enemy != null && enemy.tag == "Monster")
+        {
+            Destroy(gameObject);
+        }
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag != "Player")
@@ -38,10 +48,12 @@ public class WaterSpell : MonoBehaviour
             var enemy = other.gameObject.GetComponent<Rigidbody>();
 
             var enemyHealth = other.gameObject.GetComponent<HealthSystem>();
-            if (enemy != null)
+
+            if (enemy != null && enemy.tag == "Monster")
             {
                 enemyHealth.AddDamage(_damageAmount);
-                other.GetComponent<WetDebuff>()._wet = true;
+                other.gameObject.GetComponent<Debuffs>()._wet = true;
+                other.gameObject.GetComponent<Debuffs>()._onFire = false;
             }
         }
     }

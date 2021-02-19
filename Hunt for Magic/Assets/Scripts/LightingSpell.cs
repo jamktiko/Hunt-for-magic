@@ -33,7 +33,13 @@ public class LightingSpell : MonoBehaviour
 
         if (enemy != null)
         {
+            if (other.GetComponent<Debuffs>()._wet == true)
+            {
+                _damageAmount *= 1.5f;
+            }
+
             enemyHealth.AddDamage(_damageAmount);
+            other.GetComponent<Debuffs>()._shocked = true;
             Destroy(gameObject);
         }
     }
