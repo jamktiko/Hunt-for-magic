@@ -23,8 +23,11 @@ public class SpellCasting : MonoBehaviour  // Tämä scripti liitetään pelaaja
     public float ammoCount = 1;
     public float ammoChanger = 1;
     public float maxAmmo = 3;
+    public float chargeCounter = 0;
     public bool ammoChangerCooldown = false;
     public bool canCharge = false;
+    private bool canChargeSpell = false;
+    private bool chargeChancerCooldown = false;
 
     // Start is called before the first frame update
     void Start()
@@ -63,8 +66,21 @@ public class SpellCasting : MonoBehaviour  // Tämä scripti liitetään pelaaja
             }
         }
 
+        if (canChargeSpell)
+        {
+            if (!chargeChancerCooldown)
+            {
+                if (ammoCount > 0)
+                {
+                    chargeChancerCooldown = true;
+                    StartCoroutine(ChargeCooldown());
+                }
+            }
+        }
+
         if (Input.GetButtonDown("Fire1"))
         {
+
             if (_spellPrefab.name == "WindEffect")
             {
                 if (_spellCooldown)
@@ -134,6 +150,24 @@ public class SpellCasting : MonoBehaviour  // Tämä scripti liitetään pelaaja
 
                 Invoke("EndCooldown", _spellInterval);
             }
+
+            if (_spellPrefab.name == "ChainLightningPrefab")
+            {
+                canChargeSpell = true;
+
+                _spellCooldown = true;
+
+                Invoke("EndCooldown", _spellInterval);
+            }
+        }
+        if (Input.GetButtonUp("Fire1") || chargeCounter == 6)
+        {
+            if (_spellPrefab.name == "ChainLightningPrefab")
+            {
+                    canChargeSpell = false;
+                    Instantiate(_spellPrefab, _castingPoint.position, _castingPoint.rotation);
+                    chargeCounter = 0;
+            }
         }
     }
 
@@ -149,13 +183,30 @@ public class SpellCasting : MonoBehaviour  // Tämä scripti liitetään pelaaja
             yield return new WaitForSeconds(3.5f);
             if (canCharge)
             {
-                canCharge = false;
                 if (ammoChangerCooldown)
                 {
                     ammoChangerCooldown = false;
+
                     if (ammoCount < maxAmmo)
                         ammoCount = ammoCount + ammoChanger;
                 }
             }
         }
+
+    IEnumerator ChargeCooldown()
+    {
+        yield return new WaitForSeconds(2.2f);
+        if (canChargeSpell)
+        {
+            if (chargeChancerCooldown)
+
+                chargeChancerCooldown = false;
+
+                if(ammoCount < 6)
+                {
+                    chargeCounter++;
+                    ammoCount--;
+                }
+        }
     }
+}

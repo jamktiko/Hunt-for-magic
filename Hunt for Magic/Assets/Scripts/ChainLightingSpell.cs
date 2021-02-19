@@ -5,14 +5,15 @@ using UnityEngine;
 public class ChainLightingSpell : MonoBehaviour
 {
     [SerializeField]
-    private float _damageAmount = 15f;
+    private float _damageAmount = 25f;
     private bool chargeHold = false;
     private Transform _castingPoint;
-    private float speed = 15f;
+    private float speed = 25f;
 
     // Start is called before the first frame update
     void Start()
     {
+        
         _castingPoint = GameObject.Find("CastingPoint").GetComponent<Transform>();
         gameObject.GetComponent<Rigidbody>().AddForce(_castingPoint.forward * speed, ForceMode.Impulse);
     }
@@ -21,7 +22,7 @@ public class ChainLightingSpell : MonoBehaviour
     void Update()
     {
         spellCharger();
-        Destroy(gameObject, 0.7f);
+        Destroy(gameObject, 2.2f);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -34,23 +35,28 @@ public class ChainLightingSpell : MonoBehaviour
         if (enemy != null)
         {
             enemyHealth.AddDamage(_damageAmount);
-            Destroy(gameObject);
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        var enemy = other.gameObject.GetComponent<Rigidbody>();
+
+        var enemyHealth = other.gameObject.GetComponent<HealthSystem>();
+
+        if (enemy != null)
+        {
+            enemyHealth.AddDamage(_damageAmount);
         }
     }
 
     private void spellCharger()
     {
-        chargeHold = true;
-        if (chargeHold)
-        {
-            Cooldown();
-            chargeHold = false;
-        }
-        else chargeHold = false;
+
     }
 
     IEnumerator Cooldown()
     {
-        yield return new WaitForSeconds(2.4f);
+        yield return new WaitForSeconds(2f);
     }
 }
