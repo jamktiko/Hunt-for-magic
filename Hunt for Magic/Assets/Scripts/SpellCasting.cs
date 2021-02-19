@@ -55,6 +55,11 @@ public class SpellCasting : MonoBehaviour  // Tämä scripti liitetään pelaaja
             _spellPrefab = Resources.Load("Prefabs/Fireball");
         }
 
+        if (Input.GetKeyDown("4"))
+        {
+            _spellPrefab = Resources.Load("Prefabs/Electricity");
+        }
+
 
         if (!ammoChangerCooldown)
         {
