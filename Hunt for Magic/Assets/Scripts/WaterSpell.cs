@@ -17,7 +17,7 @@ public class WaterSpell : MonoBehaviour
         _waterCastingPoint = GameObject.Find("WaterCastingPoint").GetComponent<Transform>();
         gameObject.GetComponent<Rigidbody>().AddForce(_waterCastingPoint.forward * _speed, ForceMode.Impulse);
         gameObject.GetComponent<SphereCollider>();
-        scaleChange = new Vector3(0.004f, -0.0008f, 0);
+        scaleChange = new Vector3(0.003f, -0.0008f, 0);
         positionChange = new Vector3(0, -0.0001f, 0);
         StartCoroutine("DamageFizzle");
     }
@@ -26,6 +26,7 @@ public class WaterSpell : MonoBehaviour
     void Update()
     {
         Object.Destroy(gameObject, 5.0f);
+        
         gameObject.transform.localScale += scaleChange;
         gameObject.transform.position += positionChange;
     }
