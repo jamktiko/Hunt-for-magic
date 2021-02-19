@@ -26,14 +26,29 @@ public class WindSpell : MonoBehaviour  //Tämä scripti liitetään WindEffect-
         
     }
 
+    private void OnCollisionEnter(Collision other)
+    {
+        var enemy = other.gameObject.GetComponent<Rigidbody>();
+
+        if (enemy != null && enemy.tag == "Monster")
+        {
+            Destroy(gameObject);
+        }
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         var enemy = other.gameObject.GetComponent<Rigidbody>();
 
         var enemyHealth = other.gameObject.GetComponent<HealthSystem>();
 
-        if (enemy != null)
+        if (enemy != null && enemy.tag == "Monster")
         {
+            if (other.GetComponent<Debuffs>()._wet == true)
+            {
+                other.GetComponent<Debuffs>()._chilled = true;
+            }
+
             enemy.AddForce(0, 3f, 10f, ForceMode.Impulse);
             enemyHealth.AddDamage(_damageAmount);
         }

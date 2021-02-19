@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2362643800816492313}
   - component: {fileID: 2362643800816492326}
   - component: {fileID: 8820126894357412810}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: ground_on_fire
   m_TagString: Untagged
   m_Icon: {fileID: 0}
