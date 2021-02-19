@@ -8,7 +8,7 @@ public class FireDebuff : MonoBehaviour  //Tämä scripti liitetään vihollisii
     private float _debuffDamage = 0.01f;
 
     [SerializeField]
-    private bool _onFire;
+    public bool _onFire;
 
     private HealthSystem _healthSystem;
 
@@ -35,7 +35,7 @@ public class FireDebuff : MonoBehaviour  //Tämä scripti liitetään vihollisii
     {
         int i = 0;
 
-        while (i < 4)
+        while (i < 5 && _onFire == true)
         {
             yield return new WaitForSeconds(1f);
             Repeat();
@@ -43,14 +43,6 @@ public class FireDebuff : MonoBehaviour  //Tämä scripti liitetään vihollisii
         }
 
         _onFire = false;
-    }
-
-    private void OnParticleCollision(GameObject other)
-    {
-        if (_onFire != true && other.tag != "Player")
-        {
-            _onFire = true;
-        }
     }
 
     private void Repeat()
