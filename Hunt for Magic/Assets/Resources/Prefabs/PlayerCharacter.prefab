@@ -189,6 +189,7 @@ GameObject:
   - component: {fileID: 4252106629176813779}
   - component: {fileID: 4252106629176813800}
   - component: {fileID: 3725589401160941901}
+  - component: {fileID: 7575110303431485873}
   m_Layer: 0
   m_Name: PlayerCharacter
   m_TagString: Player
@@ -209,7 +210,6 @@ Transform:
   m_Children:
   - {fileID: 4252106628218637982}
   - {fileID: 4911933740945609048}
-  - {fileID: 4252106628391893091}
   - {fileID: 609388514317840430}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -347,6 +347,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _maxEnergy: 100
   _currentEnergy: 0
+--- !u!114 &7575110303431485873
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4252106629176813803}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e67eb16e545b2841a9f62c260e63a17, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _health: 100
+  _maxHealth: 100
 --- !u!1 &4590092344485926886
 GameObject:
   m_ObjectHideFlags: 0

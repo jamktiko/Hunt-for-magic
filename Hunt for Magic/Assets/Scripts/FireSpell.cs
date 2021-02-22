@@ -17,7 +17,7 @@ public class FireSpell : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Destroy(gameObject, 7f);
+        Destroy(gameObject, 3f);
 
     }
 
@@ -29,7 +29,13 @@ public class FireSpell : MonoBehaviour
 
         if (enemy != null && enemy.name != "PlayerCharacter")
         {
+            if (other.GetComponent<Debuffs>()._wet == true)
+            {
+                _damageAmount *= 0.5f;
+            }
+
             enemyHealth.AddDamage(_damageAmount);
+            other.GetComponent<Debuffs>()._onFire = true;
         }
     }
 }
