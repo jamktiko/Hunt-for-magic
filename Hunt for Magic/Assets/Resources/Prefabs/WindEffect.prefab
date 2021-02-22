@@ -87,7 +87,6 @@ GameObject:
   - component: {fileID: 135058507269698838}
   - component: {fileID: 3298055590590067699}
   - component: {fileID: 660850423790900995}
-  - component: {fileID: 6387167145983580201}
   m_Layer: 0
   m_Name: WindEffect
   m_TagString: Untagged
@@ -4891,15 +4890,3 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
---- !u!114 &6387167145983580201
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4798670307819067638}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c742cec52b147c246b44d6408a7fffa0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
