@@ -27,13 +27,15 @@ public class FireSpell : MonoBehaviour
 
         var enemyHealth = other.gameObject.GetComponent<HealthSystem>();
 
-        if (other.GetComponent<WetDebuff>()._wet == true)
-            _damageAmount *= 0.5f;
-
         if (enemy != null && enemy.name != "PlayerCharacter")
         {
+            if (other.GetComponent<Debuffs>()._wet == true)
+            {
+                _damageAmount *= 0.5f;
+            }
+
             enemyHealth.AddDamage(_damageAmount);
-            other.GetComponent<FireDebuff>()._onFire = true;
+            other.GetComponent<Debuffs>()._onFire = true;
         }
     }
 }
