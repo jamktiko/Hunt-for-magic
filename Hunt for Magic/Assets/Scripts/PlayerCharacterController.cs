@@ -26,7 +26,7 @@ public class PlayerCharacterController : MonoBehaviour
     void Start()
     {
         HealthBar.SetHealthBarValue(1);
-        cursorOn = true;
+        cursorOn = false;
         Cursor.lockState = CursorLockMode.Locked;
         characterController = GetComponent<CharacterController>();
     }
