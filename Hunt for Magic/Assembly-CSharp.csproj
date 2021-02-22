@@ -66,21 +66,22 @@
     <Compile Include="Assets\Scripts\AdvancedAI.cs" />
     <Compile Include="Assets\Scripts\Buffs.cs" />
     <Compile Include="Assets\Scripts\ChainLightingSpell.cs" />
+    <Compile Include="Assets\Scripts\Debuffs.cs" />
     <Compile Include="Assets\Scripts\Editor(Visualizer)\FieldOfVisionEditor.cs" />
     <Compile Include="Assets\Scripts\EnemySlimeMovement.cs" />
     <Compile Include="Assets\Scripts\EnergySystem.cs" />
-    <Compile Include="Assets\Scripts\FireDebuff.cs" />
     <Compile Include="Assets\Scripts\FireSpell.cs" />
     <Compile Include="Assets\Scripts\FireballSpell.cs" />
+    <Compile Include="Assets\Scripts\GroundFire.cs" />
     <Compile Include="Assets\Scripts\GroundSlime.cs" />
     <Compile Include="Assets\Scripts\HealthBar.cs" />
     <Compile Include="Assets\Scripts\HealthSystem.cs" />
     <Compile Include="Assets\Scripts\LightingSpell.cs" />
     <Compile Include="Assets\Scripts\MeleeAttack.cs" />
+    <Compile Include="Assets\Scripts\PlayerAnimation.cs" />
     <Compile Include="Assets\Scripts\PlayerCharacterController.cs" />
     <Compile Include="Assets\Scripts\SpellCasting.cs" />
     <Compile Include="Assets\Scripts\WaterSpell.cs" />
-    <Compile Include="Assets\Scripts\WetDebuff.cs" />
     <Compile Include="Assets\Scripts\WindSpell.cs" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
@@ -631,8 +632,14 @@
     <Reference Include="System.Xml.Serialization">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.18f1/Editor/Data/NetStandard/compat/2.0.0/shims/netfx/System.Xml.Serialization.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.RenderPipeline.Universal.ShaderLibrary">
+      <HintPath>C:/Users/tomsk/Desktop/koulutyö/TC8/Hunt-for-magic/Hunt for Magic/Library/ScriptAssemblies/Unity.RenderPipeline.Universal.ShaderLibrary.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>C:/Users/tomsk/Desktop/koulutyö/TC8/Hunt-for-magic/Hunt for Magic/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.RenderPipelines.Universal.Shaders">
+      <HintPath>C:/Users/tomsk/Desktop/koulutyö/TC8/Hunt-for-magic/Hunt for Magic/Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Shaders.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VSCode.Editor">
       <HintPath>C:/Users/tomsk/Desktop/koulutyö/TC8/Hunt-for-magic/Hunt for Magic/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
@@ -645,6 +652,12 @@
     </Reference>
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>C:/Users/tomsk/Desktop/koulutyö/TC8/Hunt-for-magic/Hunt for Magic/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.RenderPipelines.Universal.Runtime">
+      <HintPath>C:/Users/tomsk/Desktop/koulutyö/TC8/Hunt-for-magic/Hunt for Magic/Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.RenderPipelines.Universal.Editor">
+      <HintPath>C:/Users/tomsk/Desktop/koulutyö/TC8/Hunt-for-magic/Hunt for Magic/Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.UI">
       <HintPath>C:/Users/tomsk/Desktop/koulutyö/TC8/Hunt-for-magic/Hunt for Magic/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
