@@ -4,20 +4,33 @@ using UnityEngine;
 
 public class GroundSlime : MonoBehaviour
 {
+    private bool _slowed;
+
+    [SerializeField]
+    private float _playerSpeed = 1.8f;
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Player")
+        if (other.gameObject.tag == "Player" && _slowed == false)
         {
-            other.GetComponent<PlayerDebuffs>()._slowed = true;
+            other.GetComponent<PlayerCharacterController>().speed /= 2f;
+
+            _slowed = true;
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.tag == "Player")
+        if (other.gameObject.tag == "Player" && _slowed == true)
         {
-            other.GetComponent<PlayerDebuffs>()._slowEnding = true;
+            Invoke("MovementReturn", 2f);
         }
+    }
+
+    private void MovementReturn()
+    {
+        GameObject.FindWithTag("Player").GetComponent<PlayerCharacterController>().speed = _playerSpeed;
+
+        _slowed = false;
     }
 }
