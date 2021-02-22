@@ -16,11 +16,11 @@ public class PlayerAnimation : MonoBehaviour
     {
         if(Input.GetKeyDown("space"))
         {
-            anim.Play("PlayerJump", -1, 0f);
+            anim.Play("PlayerJumpTakeoff", -1, 0f);
         }
         if (Input.GetMouseButtonDown(0))
         {
-            anim.Play("PlayerCasting", -1, 0f);
+            anim.Play("PlayerCastingStart", -1, 0f);
         }
         if (Input.GetMouseButtonDown(1))
         {
