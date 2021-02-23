@@ -8,11 +8,13 @@ public class PlayerAnimation : MonoBehaviour
 
     private GameObject _player;
 
+    private Animation _takeoff;
+
     // Start is called before the first frame update
     void Start()
     {
         anim = GetComponent<Animator>();
-        _player = GameObject.Find("PlayerCharacter"); //Pelaaja
+        _player = GameObject.Find("PlayerCharacter");  //Pelaaja
     }
 
     // Update is called once per frame
@@ -21,6 +23,21 @@ public class PlayerAnimation : MonoBehaviour
         if(Input.GetKeyDown("space") && _player.GetComponent<CharacterController>().isGrounded)
         {
             anim.SetTrigger("Jump");  //Hyppää välilyönnillä, jos pelaaja on maassa
+        }
+
+        if (_player.GetComponent<CharacterController>().isGrounded == false)
+        {
+            if (!anim.GetCurrentAnimatorStateInfo(0).IsName("PlayerJumpTakeoff"))
+            {
+                anim.Play("PlayerJumpAirtime");
+            }
+
+            anim.SetBool("OnAir", true);
+        }
+
+        else
+        {
+            anim.SetBool("OnAir", false);
         }
 
         if (Input.GetMouseButtonDown(0))
@@ -52,5 +69,7 @@ public class PlayerAnimation : MonoBehaviour
         {
             anim.SetBool("Move", false); //Lopettaa kävelyanimaation tarvittaessa
         }
+
+
     }
 }
