@@ -27,11 +27,6 @@ public class PlayerAnimation : MonoBehaviour
 
         if (_player.GetComponent<CharacterController>().isGrounded == false)
         {
-            if (!anim.GetCurrentAnimatorStateInfo(0).IsName("PlayerJumpTakeoff"))
-            {
-                anim.Play("PlayerJumpAirtime");
-            }
-
             anim.SetBool("OnAir", true);
         }
 
