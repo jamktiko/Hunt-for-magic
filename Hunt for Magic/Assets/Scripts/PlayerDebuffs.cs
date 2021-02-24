@@ -20,7 +20,6 @@ public class PlayerDebuffs : MonoBehaviour
     [SerializeField]
     private bool _oilSlowed;
 
-    private PlayerCharacterController playerCC;
     private HealthSystem _playerHealth;
     private float _debuffDamage = 0.01f;
     public GameObject _fireDebuffImage;
@@ -34,7 +33,6 @@ public class PlayerDebuffs : MonoBehaviour
     void Start()
     {
         _onFire = false;
-        playerCC = GetComponent<PlayerCharacterController>();
         _playerHealth = GetComponent<HealthSystem>();
         _fireDebuffImage.SetActive(false);
     }
@@ -49,7 +47,6 @@ public class PlayerDebuffs : MonoBehaviour
         }
         if (_chilled)
         {
-            playerCC.speed *= 0.5f; 
             StartCoroutine("ChillStopper");
             _chilledDebuffImage.SetActive(true);
         }
@@ -90,7 +87,6 @@ public class PlayerDebuffs : MonoBehaviour
             yield return new WaitForSeconds(1f);
             i++;
         }
-        playerCC.speed *= 1.5f;
         _chilledDebuffImage.SetActive(false);
         _chilled = false;
     }
