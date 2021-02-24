@@ -5,26 +5,66 @@ using UnityEngine;
 public class PlayerAnimation : MonoBehaviour
 {
     public Animator anim;
+
+    private GameObject _player;
+
+    private Animation _takeoff;
+
     // Start is called before the first frame update
     void Start()
     {
         anim = GetComponent<Animator>();
+        _player = GameObject.Find("PlayerCharacter");  //Pelaaja
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown("space"))
+        if(Input.GetKeyDown("space") && _player.GetComponent<CharacterController>().isGrounded)
         {
-            anim.Play("PlayerJump", -1, 0f);
+            anim.SetTrigger("Jump");  //Hyppää välilyönnillä, jos pelaaja on maassa
         }
+
+        if (_player.GetComponent<CharacterController>().isGrounded == false)
+        {
+            anim.SetBool("OnAir", true);
+        }
+
+        else
+        {
+            anim.SetBool("OnAir", false);
+        }
+
         if (Input.GetMouseButtonDown(0))
         {
-            anim.Play("PlayerCasting", -1, 0f);
+            anim.SetTrigger("Casting");
+
+            if (Input.GetMouseButtonDown(0))
+            {
+                anim.SetBool("CastingOn", true); //Jatkaa casting-animaatiota, jos pelaaja pitää hiirtä pohjassa
+            }
         }
+
+        if (Input.GetMouseButtonUp(0))
+        {
+            anim.SetBool("CastingOn", false);
+        }
+
         if (Input.GetMouseButtonDown(1))
         {
-            anim.Play("PlayerMelee", -1, 0f);
+            anim.SetTrigger("Melee");
         }
+
+        if (Input.GetKeyDown("w") || Input.GetKeyDown("a") || Input.GetKeyDown("s") || Input.GetKeyDown("d"))
+        {
+            anim.SetBool("Move", true);
+        }
+
+        else if (Input.anyKey == false)
+        {
+            anim.SetBool("Move", false); //Lopettaa kävelyanimaation tarvittaessa
+        }
+
+
     }
 }

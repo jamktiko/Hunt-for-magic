@@ -1,45 +1,59 @@
 fileFormatVersion: 2
-guid: 18fa266559f9124409cf9e559e3e5bf5
+guid: e887913d6b76a394d9a1243e7b42728e
 ModelImporter:
   serializedVersion: 19301
   internalIDToNameTable:
   - first:
-      74: -623603649343465320
-    second: Scene
+      74: 4781951162920444690
+    second: PlayerAllAnimations
   - first:
-      74: 6734961036158436024
+      74: -1246731831762816583
     second: PlayerIdle
   - first:
-      74: -8508480600623505474
+      74: 4594303134292970328
     second: PlayerRunning
   - first:
-      74: 1682254696296095467
-    second: PlayerJump
+      74: 3696890337287820257
+    second: PlayerJumpTakeoff
+  - first:
+      74: 5401091116426756364
+    second: PlayerJumpAirtime
+  - first:
+      74: -6363362177140661055
+    second: PlayerJumpLanding
+  - first:
+      74: 1568538688366966894
+    second: PlayerCastingStart
   - first:
       74: 5942350688788672854
     second: PlayerCasting
   - first:
-      74: 5338085979168867157
-    second: PlayerMelee
-  - first:
-      74: -3495228045536963313
-    second: PlayerJumpTakeoff
-  - first:
-      74: -6488671071216981566
-    second: PlayerJumpAirtime
-  - first:
-      74: -2670100372908270154
-    second: PlayerJumpLanding
-  - first:
-      74: -3419839298476436765
-    second: PlayerCastingStart
-  - first:
       74: -758745539104742550
     second: PlayerCastingEnd
   - first:
-      74: 927206342324564401
-    second: PlayerCastingFull
-  externalObjects: {}
+      74: 5338085979168867157
+    second: PlayerMelee
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material
+    second: {fileID: 2100000, guid: a18206b85cb56e3499d31bf3e11daa78, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.001
+    second: {fileID: 2100000, guid: 4aed374e0ad2d684db6cbe810db01e97, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.002
+    second: {fileID: 2100000, guid: d9a97b978c996a04296ac4bcbe1d167d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: diamondo
+    second: {fileID: 2100000, guid: dfe65f66d92dfb14e81d6236e648d7ea, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0
@@ -68,11 +82,11 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Scene
-      takeName: Scene
+      name: PlayerAllAnimations
+      takeName: Armature|ArmatureAction
       internalID: 0
-      firstFrame: 1
-      lastFrame: 270
+      firstFrame: 0
+      lastFrame: 248
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -98,7 +112,7 @@ ModelImporter:
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
       name: PlayerIdle
-      takeName: Scene
+      takeName: Armature|ArmatureAction
       internalID: 0
       firstFrame: 1
       lastFrame: 60
@@ -124,10 +138,10 @@ ModelImporter:
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 1
+      additiveReferencePoseFrame: 0
     - serializedVersion: 16
       name: PlayerRunning
-      takeName: Scene
+      takeName: Armature|ArmatureAction
       internalID: 0
       firstFrame: 80
       lastFrame: 99
@@ -153,97 +167,10 @@ ModelImporter:
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 1
-    - serializedVersion: 16
-      name: PlayerJump
-      takeName: Scene
-      internalID: 0
-      firstFrame: 120
-      lastFrame: 148
-      wrapMode: 0
-      orientationOffsetY: 0
-      level: 0
-      cycleOffset: 0
-      loop: 0
-      hasAdditiveReferencePose: 0
-      loopTime: 0
-      loopBlend: 0
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
-      keepOriginalOrientation: 0
-      keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 0
-      heightFromFeet: 0
-      mirror: 0
-      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-      curves: []
-      events: []
-      transformMask: []
-      maskType: 3
-      maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 1
-    - serializedVersion: 16
-      name: PlayerCasting
-      takeName: Scene
-      internalID: 0
-      firstFrame: 179
-      lastFrame: 184
-      wrapMode: 0
-      orientationOffsetY: 0
-      level: 0
-      cycleOffset: 0
-      loop: 0
-      hasAdditiveReferencePose: 0
-      loopTime: 0
-      loopBlend: 0
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
-      keepOriginalOrientation: 0
-      keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 0
-      heightFromFeet: 0
-      mirror: 0
-      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-      curves: []
-      events: []
-      transformMask: []
-      maskType: 3
-      maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 1
-    - serializedVersion: 16
-      name: PlayerMelee
-      takeName: Scene
-      internalID: 0
-      firstFrame: 220
-      lastFrame: 248
-      wrapMode: 0
-      orientationOffsetY: 0
-      level: 0
-      cycleOffset: 0
-      loop: 0
-      hasAdditiveReferencePose: 0
-      loopTime: 0
-      loopBlend: 0
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
-      keepOriginalOrientation: 0
-      keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 0
-      heightFromFeet: 0
-      mirror: 0
-      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-      curves: []
-      events: []
-      transformMask: []
-      maskType: 3
-      maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 1
+      additiveReferencePoseFrame: 0
     - serializedVersion: 16
       name: PlayerJumpTakeoff
-      takeName: Scene
+      takeName: Armature|ArmatureAction
       internalID: 0
       firstFrame: 120
       lastFrame: 128
@@ -269,13 +196,13 @@ ModelImporter:
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 1
+      additiveReferencePoseFrame: 0
     - serializedVersion: 16
       name: PlayerJumpAirtime
-      takeName: Scene
+      takeName: Armature|ArmatureAction
       internalID: 0
       firstFrame: 129
-      lastFrame: 139
+      lastFrame: 137
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -298,12 +225,12 @@ ModelImporter:
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 1
+      additiveReferencePoseFrame: 7
     - serializedVersion: 16
       name: PlayerJumpLanding
-      takeName: Scene
+      takeName: Armature|ArmatureAction
       internalID: 0
-      firstFrame: 140
+      firstFrame: 138
       lastFrame: 148
       wrapMode: 0
       orientationOffsetY: 0
@@ -327,13 +254,13 @@ ModelImporter:
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 1
+      additiveReferencePoseFrame: 7
     - serializedVersion: 16
       name: PlayerCastingStart
-      takeName: Scene
+      takeName: Armature|ArmatureAction
       internalID: 0
       firstFrame: 170
-      lastFrame: 178
+      lastFrame: 179
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -356,13 +283,42 @@ ModelImporter:
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 1
+      additiveReferencePoseFrame: 7
+    - serializedVersion: 16
+      name: PlayerCasting
+      takeName: Armature|ArmatureAction
+      internalID: 0
+      firstFrame: 180
+      lastFrame: 181
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 7
     - serializedVersion: 16
       name: PlayerCastingEnd
-      takeName: Scene
+      takeName: Armature|ArmatureAction
       internalID: 0
-      firstFrame: 185
-      lastFrame: 193
+      firstFrame: 182
+      lastFrame: 194
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -385,13 +341,13 @@ ModelImporter:
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 1
+      additiveReferencePoseFrame: 7
     - serializedVersion: 16
-      name: PlayerCastingFull
-      takeName: Scene
+      name: PlayerMelee
+      takeName: Armature|ArmatureAction
       internalID: 0
-      firstFrame: 171
-      lastFrame: 193
+      firstFrame: 220
+      lastFrame: 248
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -414,7 +370,7 @@ ModelImporter:
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 1
+      additiveReferencePoseFrame: 7
     isReadable: 0
   meshes:
     lODScreenPercentages: []
@@ -446,7 +402,7 @@ ModelImporter:
     useFileScale: 1
   tangentSpace:
     normalSmoothAngle: 60
-    normalImportMode: 1
+    normalImportMode: 0
     tangentImportMode: 3
     normalCalculationMode: 4
     legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
