@@ -16,7 +16,7 @@ public class SlimeAnimation : MonoBehaviour
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    void LateUpdate()
     {
         if (_slime.GetComponent<Rigidbody>().velocity != Vector3.zero)
         {
