@@ -5,20 +5,11 @@ using UnityEngine.UI;
 
 public class PlayerDebuffs : MonoBehaviour
 {
-    [SerializeField]
-    private bool _isWet;
-
-    [SerializeField]
-    private bool _onFire;
-
-    [SerializeField]
-    private bool _chilled;
-
-    [SerializeField]
-    private bool _slowed;
-
-    [SerializeField]
-    private bool _oilSlowed;
+    public bool _isWet;
+    public bool _onFire;
+    public bool _chilled;
+    public bool _slowed;
+    public bool _oilSlowed;
 
     private HealthSystem _playerHealth;
     private float _debuffDamage = 0.01f;
