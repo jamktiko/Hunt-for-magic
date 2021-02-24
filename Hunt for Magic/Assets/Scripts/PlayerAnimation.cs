@@ -8,8 +8,6 @@ public class PlayerAnimation : MonoBehaviour
 
     private GameObject _player;
 
-    private Animation _takeoff;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -25,7 +23,7 @@ public class PlayerAnimation : MonoBehaviour
             anim.SetTrigger("Jump");  //Hyppää välilyönnillä, jos pelaaja on maassa
         }
 
-        if (_player.GetComponent<CharacterController>().isGrounded == false)
+        if (!_player.GetComponent<CharacterController>().isGrounded && !anim.GetCurrentAnimatorStateInfo(0).IsName("PlayerJumpTakeoff"))
         {
             anim.SetBool("OnAir", true);
         }

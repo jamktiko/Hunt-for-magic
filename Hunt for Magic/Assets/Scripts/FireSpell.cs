@@ -8,10 +8,12 @@ public class FireSpell : MonoBehaviour
     [SerializeField]
     private float _damageAmount = 0.01f;
 
+    private float _wetDamageAmount;
+
     // Start is called before the first frame update
     void Start()
     {
-
+        _wetDamageAmount = _damageAmount * 0.5f;
     }
 
     // Update is called once per frame
@@ -29,9 +31,9 @@ public class FireSpell : MonoBehaviour
 
         if (enemy != null && enemy.name != "PlayerCharacter")
         {
-            if (other.GetComponent<Debuffs>()._wet == true)
+            if (enemy.GetComponent<Debuffs>()._wet == true)
             {
-                _damageAmount *= 0.5f;
+                _damageAmount = _wetDamageAmount;
             }
 
             enemyHealth.AddDamage(_damageAmount);
