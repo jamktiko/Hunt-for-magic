@@ -25,20 +25,12 @@ public class GroundWater : MonoBehaviour
 
         if (enemy != null && enemy.name != "PlayerCharacter")
         {
+            other.gameObject.GetComponent<Debuffs>()._wet = true;
+
             if (other.name == "LightningSpellCollider")
             {
                 _electric = true;
             }
-        }
-    }
-
-    private void OnTriggerStay(Collider other)
-    {
-        var enemy = other.gameObject.GetComponent<Rigidbody>();
-
-        if (enemy != null && enemy.name != "PlayerCharacter")
-        {
-            other.gameObject.GetComponent<Debuffs>()._wet = true;
 
             if (_electric == true)
             {
