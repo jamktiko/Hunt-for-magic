@@ -9,6 +9,12 @@ public class GroundSlime : MonoBehaviour
     [SerializeField]
     private float _playerSpeed = 1.8f;
 
+    private void Update()
+    {
+        Invoke("MovementReturn", 5f);
+        Destroy(gameObject, 5f);
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Player" && _slowed == false)
@@ -23,7 +29,7 @@ public class GroundSlime : MonoBehaviour
     {
         if (other.gameObject.tag == "Player" && _slowed == true)
         {
-            Invoke("MovementReturn", 2f);
+            MovementReturn();
         }
     }
 

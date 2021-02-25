@@ -31,13 +31,14 @@ public class Debuffs : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (_chilled == true)
+        if (_chilled)
         {
             StartCoroutine("ChillStopper");
         }
 
-        if (_wet == true)
+        if (_wet)
         {
+            _onFire = false;
             StartCoroutine("WaterStopper");
         }
 

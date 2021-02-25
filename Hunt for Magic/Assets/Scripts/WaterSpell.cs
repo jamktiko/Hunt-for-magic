@@ -11,6 +11,8 @@ public class WaterSpell : MonoBehaviour
     private Transform _waterCastingPoint;
     private Vector3 scaleChange, positionChange;
 
+    private Object _waterPool;
+
 
     void Start()
     {
@@ -20,6 +22,7 @@ public class WaterSpell : MonoBehaviour
         scaleChange = new Vector3(0.003f, -0.0008f, 0);
         positionChange = new Vector3(0, -0.0001f, 0);
         StartCoroutine("DamageFizzle");
+        _waterPool = Resources.Load("Prefabs/GroundWater");
     }
 
     // Update is called once per frame
@@ -53,7 +56,9 @@ public class WaterSpell : MonoBehaviour
             {
                 enemyHealth.AddDamage(_damageAmount);
                 other.gameObject.GetComponent<Debuffs>()._wet = true;
-                other.gameObject.GetComponent<Debuffs>()._onFire = false;
+
+                Object groundWater = Instantiate(_waterPool, transform.TransformPoint(0, -1.28f, 0), Quaternion.identity);
+                Destroy(groundWater, 5f);
             }
         }
     }
