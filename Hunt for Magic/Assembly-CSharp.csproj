@@ -67,7 +67,6 @@
     <Compile Include="Assets\Scripts\Buffs.cs" />
     <Compile Include="Assets\Scripts\ChainLightingSpell.cs" />
     <Compile Include="Assets\Scripts\Debuffs.cs" />
-    <Compile Include="Assets\Scripts\Editor(Visualizer)\FieldOfVisionEditor.cs" />
     <Compile Include="Assets\Scripts\EnemySlimeMovement.cs" />
     <Compile Include="Assets\Scripts\EnergySystem.cs" />
     <Compile Include="Assets\Scripts\FireSpell.cs" />
