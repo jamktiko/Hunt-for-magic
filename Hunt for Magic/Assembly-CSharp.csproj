@@ -73,6 +73,7 @@
     <Compile Include="Assets\Scripts\FireballSpell.cs" />
     <Compile Include="Assets\Scripts\GroundFire.cs" />
     <Compile Include="Assets\Scripts\GroundSlime.cs" />
+    <Compile Include="Assets\Scripts\GroundWater.cs" />
     <Compile Include="Assets\Scripts\HealthBar.cs" />
     <Compile Include="Assets\Scripts\HealthSystem.cs" />
     <Compile Include="Assets\Scripts\LightingSpell.cs" />
@@ -81,6 +82,7 @@
     <Compile Include="Assets\Scripts\PlayerCharacterController.cs" />
     <Compile Include="Assets\Scripts\PlayerDebuffs.cs" />
     <Compile Include="Assets\Scripts\SlimeAnimation.cs" />
+    <Compile Include="Assets\Scripts\SlimeDrop.cs" />
     <Compile Include="Assets\Scripts\SpellCasting.cs" />
     <Compile Include="Assets\Scripts\WaterSpell.cs" />
     <Compile Include="Assets\Scripts\WindSpell.cs" />
