@@ -682,10 +682,10 @@ AnimatorStateMachine:
     m_Position: {x: 490, y: -60, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 7799851138409156787}
-    m_Position: {x: 230, y: -60, z: 0}
+    m_Position: {x: 200, y: -60, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -7798055096239197639}
-    m_Position: {x: 570, y: 200, z: 0}
+    m_Position: {x: 620, y: 180, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 370161623653954377}
     m_Position: {x: 70, y: 220, z: 0}
@@ -740,7 +740,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: PlayerJumpTakeoff
-  m_Speed: 1.5
+  m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 2782036611565880809}
