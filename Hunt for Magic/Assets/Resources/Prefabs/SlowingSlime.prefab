@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 649972085037915549}
   - component: {fileID: 649972085037915548}
   - component: {fileID: 649972085037915488}
+  - component: {fileID: 3653694747727559433}
   m_Layer: 0
   m_Name: SlowingSlime
   m_TagString: Untagged
@@ -90,10 +91,10 @@ SphereCollider:
   m_GameObject: {fileID: 649972085037915551}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Radius: 0.5038342
+  m_Center: {x: 0, y: 0.07668376, z: -0.029999971}
 --- !u!114 &649972085037915488
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -107,3 +108,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _playerSpeed: 1.8
+--- !u!64 &3653694747727559433
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 649972085037915551}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
