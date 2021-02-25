@@ -83,7 +83,7 @@ public class SpellCasting : MonoBehaviour  // Tämä scripti liitetään pelaaja
             }
         }
 
-        if (Input.GetButtonDown("Fire1"))
+        if (Input.GetButton("Fire1"))
         {
 
             if (_spellPrefab.name == "WindEffect")
@@ -156,22 +156,56 @@ public class SpellCasting : MonoBehaviour  // Tämä scripti liitetään pelaaja
                 Invoke("EndCooldown", _spellInterval);
             }
 
-            if (_spellPrefab.name == "ChainLightningPrefab")
+            if (_spellPrefab.name == "ChainLightning")
             {
-                canChargeSpell = true;
+                if (ammoCount > 0)
+                {
+                    if (_spellCooldown)
+                    {
+                        return;
+                    }
+                    canChargeSpell = true;
 
-                _spellCooldown = true;
+                    ammoCount--;
+                    chargeCounter++;
 
-                Invoke("EndCooldown", _spellInterval);
+                    _spellCooldown = true;
+                }
+            }
+
+            if (_spellPrefab.name == "LightningBolt")
+            {
+                if (ammoCount > 0)
+                {
+                    if (_spellCooldown)
+                    {
+                        return;
+                    }
+                    canChargeSpell = true;
+
+                    ammoCount--;
+                    chargeCounter++;
+
+                    _spellCooldown = true;
+                }
             }
         }
         if (Input.GetButtonUp("Fire1") || chargeCounter == 6)
         {
-            if (_spellPrefab.name == "ChainLightningPrefab")
+            if (_spellPrefab.name == "ChainLightning")
             {
-                    canChargeSpell = false;
-                    Instantiate(_spellPrefab, _castingPoint.position, _castingPoint.rotation);
-                    chargeCounter = 0;
+                canChargeSpell = false;
+                Instantiate(_spellPrefab, _castingPoint.position, _castingPoint.rotation);
+                chargeCounter = 0;
+                Invoke("EndCooldown", _spellInterval);
+            }
+
+            if (_spellPrefab.name == "LightningBolt")
+            {
+                canChargeSpell = false;
+                Instantiate(_spellPrefab, _castingPoint.position, _castingPoint.rotation);
+                chargeCounter = 0;
+                Invoke("EndCooldown", _spellInterval);
             }
         }
     }
@@ -193,7 +227,9 @@ public class SpellCasting : MonoBehaviour  // Tämä scripti liitetään pelaaja
                     ammoChangerCooldown = false;
 
                     if (ammoCount < maxAmmo)
-                        ammoCount = ammoCount + ammoChanger;
+                    {
+                    ammoCount = ammoCount + ammoChanger;
+                    }
                 }
             }
         }
@@ -204,14 +240,16 @@ public class SpellCasting : MonoBehaviour  // Tämä scripti liitetään pelaaja
         if (canChargeSpell)
         {
             if (chargeChancerCooldown)
+            {
 
                 chargeChancerCooldown = false;
 
-                if(ammoCount < 6)
+                if (chargeCounter < 6)
                 {
                     chargeCounter++;
                     ammoCount--;
                 }
+            }
         }
     }
 }

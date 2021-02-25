@@ -2,23 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ChainLightingSpell : MonoBehaviour
+public class LightingBoltSpell : MonoBehaviour
 {
     [SerializeField]
     private float _damageAmount = 25f;
     private Transform _castingPoint;
     private float speed = 20f;
     public float chargeCounter;
-    private bool targetFound = false;
-    private GameObject target;
-    private GameObject[] TargetList;
-
 
     // Start is called before the first frame update
     void Start()
     {
-        
-        GameObject player = GameObject.Find("PlayerCharacter");        
+
+        GameObject player = GameObject.Find("PlayerCharacter");
         chargeCounter = player.GetComponent<SpellCasting>().chargeCounter;
         _castingPoint = GameObject.Find("CastingPoint").GetComponent<Transform>();
         gameObject.GetComponent<Rigidbody>().AddForce(_castingPoint.forward * speed, ForceMode.Impulse);
@@ -36,7 +32,7 @@ public class ChainLightingSpell : MonoBehaviour
         var enemy = other.gameObject.GetComponent<Rigidbody>();
 
         var enemyHealth = other.gameObject.GetComponent<HealthSystem>();
-        if(chargeCounter > 1)
+        if (chargeCounter > 1)
         {
 
             if (enemy != null)
@@ -57,7 +53,7 @@ public class ChainLightingSpell : MonoBehaviour
         {
             enemyHealth.AddDamage(_damageAmount);
 
-            if(chargeCounter == 1)
+            if (chargeCounter == 1)
             {
                 Destroy(gameObject);
             }
@@ -66,7 +62,7 @@ public class ChainLightingSpell : MonoBehaviour
 
     private void spellCharger()
     {
-        
+
     }
 
     IEnumerator Cooldown()
