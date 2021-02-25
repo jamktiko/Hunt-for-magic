@@ -26,9 +26,7 @@ public class HealthSystem : MonoBehaviour
                 gameObject.GetComponent<EnemySlimeMovement>().enabled = false;
             }    
 
-            gameObject.GetComponentInChildren<Animator>().SetTrigger("Death");
-
-            Destroy(gameObject, 2f);
+            Destroy(gameObject, 2f);   //2 sekuntia aikaa kuolinanimaatiolle
         }
     }
 }
