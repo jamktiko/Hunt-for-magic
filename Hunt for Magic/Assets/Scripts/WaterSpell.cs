@@ -5,60 +5,65 @@ using UnityEngine;
 public class WaterSpell : MonoBehaviour
 {
     [SerializeField]
-    private static float _damageAmount = 15f;
-    public float _spellRange = 5f;
-    public float _spellInterval = 1.0f;
-    public static float _throwForce = 15f;
-    // Start is called before the first frame update
+    private float _damageAmount = 15f;
+    private float _speed = 5f;
+
+    private Transform _waterCastingPoint;
+    private Vector3 scaleChange, positionChange;
+
+
     void Start()
     {
-
+        _waterCastingPoint = GameObject.Find("WaterCastingPoint").GetComponent<Transform>();
+        gameObject.GetComponent<Rigidbody>().AddForce(_waterCastingPoint.forward * _speed, ForceMode.Impulse);
+        gameObject.GetComponent<SphereCollider>();
+        scaleChange = new Vector3(0.003f, -0.0008f, 0);
+        positionChange = new Vector3(0, -0.0001f, 0);
+        StartCoroutine("DamageFizzle");
     }
 
     // Update is called once per frame
     void Update()
     {
-        DamageFizzle();
-        Object.Destroy(gameObject, 15.0f);
+        Object.Destroy(gameObject, 5.0f);
+        
+        gameObject.transform.localScale += scaleChange;
+        gameObject.transform.position += positionChange;
     }
-    public static void SpawnSpell(GameObject _spellPrefab,Transform _castingPoint)
+
+    private void OnCollisionEnter(Collision other)
     {
-        GameObject spell = Instantiate(_spellPrefab, _castingPoint.position, _castingPoint.rotation);
+        var enemy = other.gameObject.GetComponent<Rigidbody>();
 
-        spell.GetComponent<Rigidbody>().AddForce(_castingPoint.forward * _throwForce, ForceMode.Impulse);
-        DamageFizzle();
-    }
-    private void OnCollisionEnter(Collision collision)
-    {
-        var enemy = this.gameObject.GetComponent<Rigidbody>();
-
-        var enemyHealth = this.gameObject.GetComponent<HealthSystem>();
-
-        if (enemy != null)
+        if (enemy != null && enemy.tag == "Monster")
         {
-            enemy.AddForce(0, 1f, 5f, ForceMode.Impulse);
-            enemyHealth.AddDamage(_damageAmount);
-        }
-    }
-    static IEnumerator DamageFizzle()
-    {
-        yield return new WaitForSeconds(1);
-        if (_damageAmount > 0)
-        {
-            _damageAmount -= 1;
+            Destroy(gameObject);
         }
     }
 
-    IEnumerator WaveExpand()
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag != "Player")
+        {
+            var enemy = other.gameObject.GetComponent<Rigidbody>();
+
+            var enemyHealth = other.gameObject.GetComponent<HealthSystem>();
+
+            if (enemy != null && enemy.tag == "Monster")
+            {
+                enemyHealth.AddDamage(_damageAmount);
+                other.gameObject.GetComponent<Debuffs>()._wet = true;
+                other.gameObject.GetComponent<Debuffs>()._onFire = false;
+            }
+        }
+    }
+
+    IEnumerator DamageFizzle()
     {
         yield return new WaitForSeconds(0.1f);
-        if (this != null)
+        if (_damageAmount > 0)
         {
-            Vector3 scale = transform.localScale;
-            scale.x += 1;
-            transform.localScale = scale;
+            _damageAmount -= 0.1f;
         }
-
     }
-
 }

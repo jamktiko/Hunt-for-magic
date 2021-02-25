@@ -12,9 +12,10 @@ public class PlayerCharacterController : MonoBehaviour
     public float jump = 5;
     private Vector3 moveDirection = Vector3.zero;
     public CharacterController characterController;
-    public bool isGrounded;
+    public static bool isGrounded;
     public bool cursorOn;
 
+    private PlayerDebuffs playerDebuff;
     public float mouseSensitivity = 100f;
     float xRotation = 0f;
     float yRotation = 0f;
@@ -25,11 +26,8 @@ public class PlayerCharacterController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
-
-
         HealthBar.SetHealthBarValue(1);
-
+        cursorOn = false;
         Cursor.lockState = CursorLockMode.Locked;
         characterController = GetComponent<CharacterController>();
     }
@@ -37,6 +35,7 @@ public class PlayerCharacterController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         if (cursorOn == true)
         {
             ShowCursor();
@@ -88,6 +87,11 @@ public class PlayerCharacterController : MonoBehaviour
         cam.transform.eulerAngles = new Vector3(xRotation, -yRotation, 0f);
 
         playerBody.Rotate(Vector3.up * mouseX);
+
+        if (playerDebuff._slowed || playerDebuff._chilled || playerDebuff._oilSlowed)
+        {
+            speed = 3;
+        }
     }
     void ShowCursor()
     {

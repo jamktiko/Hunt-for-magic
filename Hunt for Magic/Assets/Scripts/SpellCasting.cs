@@ -5,10 +5,12 @@ using UnityEngine;
 public class SpellCasting : MonoBehaviour  // Tämä scripti liitetään pelaajaan
 {
     [SerializeField]
-    private GameObject _spellPrefab;
+    private Object _spellPrefab;
 
     private Transform _castingPoint;
+    private Transform _waterCastingPoint;
 
+    [SerializeField]
     private bool _spellCooldown;
 
     [SerializeField]
@@ -19,9 +21,16 @@ public class SpellCasting : MonoBehaviour  // Tämä scripti liitetään pelaaja
     [SerializeField]
     private float _throwForce = 20f;
 
+    public float ammoCount = 1;
+    public float ammoChanger = 1;
+    public float maxAmmo = 3;
+    public bool ammoChangerCooldown = false;
+    public bool canCharge = false;
+
     // Start is called before the first frame update
     void Start()
     {
+        _waterCastingPoint = GameObject.Find("WaterCastingPoint").GetComponent<Transform>();
         _castingPoint = GameObject.Find("CastingPoint").GetComponent<Transform>();
         _player = GameObject.Find("PlayerCharacter");
     }
@@ -29,6 +38,46 @@ public class SpellCasting : MonoBehaviour  // Tämä scripti liitetään pelaaja
     // Update is called once per frame
     void FixedUpdate()
     {
+        if (Input.GetKeyDown("1"))
+        {
+            _spellPrefab = Resources.Load("Prefabs/Flamethrower_particle");
+        }
+
+        if (Input.GetKeyDown("2"))
+        {
+            _spellPrefab = Resources.Load("Prefabs/WindEffect");
+        }
+
+        if (Input.GetKeyDown("3"))
+        {
+            _spellPrefab = Resources.Load("Prefabs/Electricity");
+        }
+
+        if (Input.GetKeyDown("4"))
+        {
+            _spellPrefab = Resources.Load("Prefabs/Waterwave");
+        }
+
+        if (Input.GetKeyDown("5"))
+        {
+            _spellPrefab = Resources.Load("Prefabs/Fireball");
+        }
+
+        if (Input.GetKeyDown("6"))
+        {
+            _spellPrefab = Resources.Load("Prefabs/ChainLightning");
+        }
+
+        if (!ammoChangerCooldown)
+        {
+            if (ammoCount < maxAmmo)
+            {
+                canCharge = true;
+                ammoChangerCooldown = true;
+                StartCoroutine(ammoChangerInitiate());
+            }
+        }
+
         if (Input.GetButton("Fire1"))
         {
             if (_spellPrefab.name == "WindEffect")
@@ -37,7 +86,6 @@ public class SpellCasting : MonoBehaviour  // Tämä scripti liitetään pelaaja
                 {
                     return;
                 }
-
                 Instantiate(_spellPrefab, _castingPoint.position, _castingPoint.rotation);
 
                 _spellCooldown = true;
@@ -57,17 +105,38 @@ public class SpellCasting : MonoBehaviour  // Tämä scripti liitetään pelaaja
                 Instantiate(_spellPrefab, _castingPoint.position, _castingPoint.rotation);
             }
 
-            if (_spellPrefab.name == "WaterWavePrefab")
+            if (_spellPrefab.name == "Waterwave" && PlayerCharacterController.isGrounded)
             {
-                WaterSpell.SpawnSpell(_spellPrefab, _castingPoint);
+                if (_spellCooldown)
+                {
+                    return;
+                }
+                Instantiate(_spellPrefab, _waterCastingPoint.position, _waterCastingPoint.rotation);
 
                 _spellCooldown = true;
 
                 Invoke("EndCooldown", _spellInterval);
             }
 
-
             if (_spellPrefab.name == "Electricity")
+            {
+                if (_spellCooldown)
+                {
+                    return;
+                }
+
+                if (ammoCount >= 1)
+                {
+                    ammoCount = ammoCount - ammoChanger;
+                    Instantiate(_spellPrefab, _castingPoint.position, _castingPoint.rotation);
+                }
+
+                _spellCooldown = true;
+
+                Invoke("EndCooldown", _spellInterval);
+            }
+
+            if (_spellPrefab.name == "Fireball")
             {
                 if (_spellCooldown)
                 {
@@ -80,20 +149,28 @@ public class SpellCasting : MonoBehaviour  // Tämä scripti liitetään pelaaja
 
                 Invoke("EndCooldown", _spellInterval);
             }
-
-            if (_spellPrefab.name == "WaterWavePrefab")
-            {
-                WaterSpell.SpawnSpell(_spellPrefab, _castingPoint);
-
-                _spellCooldown = true;
-
-                Invoke("Endcooldown", _spellInterval);
-            }
         }
     }
 
         public void EndCooldown()
         {
             _spellCooldown = false;
+        }
+
+
+
+        IEnumerator ammoChangerInitiate()
+        {
+            yield return new WaitForSeconds(3.5f);
+            if (canCharge)
+            {
+                canCharge = false;
+                if (ammoChangerCooldown)
+                {
+                    ammoChangerCooldown = false;
+                    if (ammoCount < maxAmmo)
+                        ammoCount = ammoCount + ammoChanger;
+                }
+            }
         }
     }
