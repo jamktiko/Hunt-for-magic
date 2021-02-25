@@ -27,5 +27,10 @@ public class SlimeAnimation : MonoBehaviour
         {
             _anim.SetBool("Jump", false);
         }
+
+        if (_slime.GetComponent<HealthSystem>().health == 0)
+        {
+            _anim.Play("SlimeDeath");
+        }
     }
 }
