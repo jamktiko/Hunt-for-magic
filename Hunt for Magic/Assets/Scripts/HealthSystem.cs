@@ -12,6 +12,7 @@ public class HealthSystem : MonoBehaviour
 
     public float health => _health;
 
+
     public void AddDamage(float damage)
     {
         _health -= damage;
@@ -20,7 +21,12 @@ public class HealthSystem : MonoBehaviour
         {
             _health = 0;
 
-            Destroy(gameObject);
+            if (gameObject.name == "EnemySlimePrefab")
+            {
+                gameObject.GetComponent<EnemySlimeMovement>().enabled = false;
+            }    
+
+            Destroy(gameObject, 2f);   //2 sekuntia aikaa kuolinanimaatiolle
         }
     }
 }

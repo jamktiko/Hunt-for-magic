@@ -10,6 +10,7 @@ public class SpellCasting : MonoBehaviour  // Tämä scripti liitetään pelaaja
     private Transform _castingPoint;
     private Transform _waterCastingPoint;
 
+    [SerializeField]
     private bool _spellCooldown;
 
     [SerializeField]
@@ -42,24 +43,33 @@ public class SpellCasting : MonoBehaviour  // Tämä scripti liitetään pelaaja
     {
         if (Input.GetKeyDown("1"))
         {
-            _spellPrefab = Resources.Load("Prefabs/WindEffect");
+            _spellPrefab = Resources.Load("Prefabs/Flamethrower_particle");
         }
 
         if (Input.GetKeyDown("2"))
         {
-            _spellPrefab = Resources.Load("Prefabs/Waterwave");
+            _spellPrefab = Resources.Load("Prefabs/WindEffect");
         }
 
         if (Input.GetKeyDown("3"))
         {
-            _spellPrefab = Resources.Load("Prefabs/Fireball");
+            _spellPrefab = Resources.Load("Prefabs/Electricity");
         }
 
         if (Input.GetKeyDown("4"))
         {
-            _spellPrefab = Resources.Load("Prefabs/Electricity");
+            _spellPrefab = Resources.Load("Prefabs/Waterwave");
         }
 
+        if (Input.GetKeyDown("5"))
+        {
+            _spellPrefab = Resources.Load("Prefabs/Fireball");
+        }
+
+        if (Input.GetKeyDown("6"))
+        {
+            _spellPrefab = Resources.Load("Prefabs/ChainLightning");
+        }
 
         if (!ammoChangerCooldown)
         {
