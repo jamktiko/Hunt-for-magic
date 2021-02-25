@@ -5221,6 +5221,7 @@ MonoBehaviour:
   ammoCount: 1
   ammoChanger: 1
   maxAmmo: 3
+  chargeCounter: 0
   ammoChangerCooldown: 0
   canCharge: 0
 --- !u!143 &4252106629176813779
