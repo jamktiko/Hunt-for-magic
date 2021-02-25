@@ -220,9 +220,7 @@ MonoBehaviour:
 
     4-WaterWave
 
-    5-Fireball
-
-    6-ChainLightning'
+    5-Fireball'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -580,7 +578,7 @@ GameObject:
   - component: {fileID: 4632600067959564997}
   - component: {fileID: 4467300278237676651}
   m_Layer: 0
-  m_Name: Hud
+  m_Name: HUD
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

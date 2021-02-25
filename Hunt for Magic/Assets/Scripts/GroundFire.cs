@@ -37,7 +37,7 @@ public class GroundFire : MonoBehaviour
             else if (other.name == "WaterSphere")
             {
                 Destroy(gameObject);
-                GameObject fog = Instantiate(_fog, transform.position, Quaternion.identity);
+                GameObject fog = Instantiate(_fog, transform.position, Quaternion.Euler(270, 0, 0));
                 Destroy(fog, 7f);
             }
 
