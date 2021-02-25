@@ -48,6 +48,7 @@ GameObject:
   - component: {fileID: 2261954844955577238}
   - component: {fileID: 6893892525520940796}
   - component: {fileID: 6792895072263214268}
+  - component: {fileID: 1939671382}
   m_Layer: 0
   m_Name: EnemySlimePrefab
   m_TagString: Monster
@@ -196,6 +197,18 @@ MonoBehaviour:
   _chilled: 0
   _onFire: 0
   _shocked: 0
+--- !u!114 &1939671382
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6893892525520940794}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ffc18bb97e4c1bf498baed63040953f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8709272785903486886
 GameObject:
   m_ObjectHideFlags: 0
