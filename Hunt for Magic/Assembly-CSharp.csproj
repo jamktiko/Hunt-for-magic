@@ -81,6 +81,7 @@
     <Compile Include="Assets\Scripts\PlayerAnimation.cs" />
     <Compile Include="Assets\Scripts\PlayerCharacterController.cs" />
     <Compile Include="Assets\Scripts\PlayerDebuffs.cs" />
+    <Compile Include="Assets\Scripts\SlimeAnimation.cs" />
     <Compile Include="Assets\Scripts\SpellCasting.cs" />
     <Compile Include="Assets\Scripts\WaterSpell.cs" />
     <Compile Include="Assets\Scripts\WindSpell.cs" />
