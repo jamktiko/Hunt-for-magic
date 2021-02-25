@@ -5124,12 +5124,12 @@ GameObject:
   - component: {fileID: 4252106629176813780}
   - component: {fileID: 4252106629176813783}
   - component: {fileID: 4252106629176813782}
-  - component: {fileID: 4252106629176813801}
   - component: {fileID: 4252106629176813778}
   - component: {fileID: 4252106629176813779}
   - component: {fileID: 4252106629176813800}
   - component: {fileID: 3725589401160941901}
   - component: {fileID: 7575110303431485873}
+  - component: {fileID: 7370827034873486316}
   m_Layer: 0
   m_Name: PlayerCharacter
   m_TagString: Player
@@ -5201,19 +5201,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!65 &4252106629176813801
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4252106629176813803}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &4252106629176813778
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5273,7 +5260,7 @@ MonoBehaviour:
   jump: 5
   characterController: {fileID: 4252106629176813779}
   cursorOn: 0
-  mouseSensitivity: 1000
+  mouseSensitivity: 10
 --- !u!114 &3725589401160941901
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5302,6 +5289,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _health: 100
   _maxHealth: 100
+--- !u!136 &7370827034873486316
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4252106629176813803}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &4590092344485926886
 GameObject:
   m_ObjectHideFlags: 0

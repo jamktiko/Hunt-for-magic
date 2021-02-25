@@ -56,8 +56,8 @@ public class PlayerCharacterController : MonoBehaviour
         //Get input from player
         float curSpeedX = speed * Input.GetAxisRaw("Vertical");
         float curSpeedY = speed * Input.GetAxisRaw("Horizontal");
-        float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
-        float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
+        float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity;
+        float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity;
         float movementDirectionY = moveDirection.y;
         moveDirection = (forward * curSpeedX) + (right * curSpeedY);
 
@@ -87,11 +87,6 @@ public class PlayerCharacterController : MonoBehaviour
         cam.transform.eulerAngles = new Vector3(xRotation, -yRotation, 0f);
 
         playerBody.Rotate(Vector3.up * mouseX);
-
-        if (playerDebuff._slowed || playerDebuff._chilled || playerDebuff._oilSlowed)
-        {
-            speed = 3;
-        }
     }
     void ShowCursor()
     {
