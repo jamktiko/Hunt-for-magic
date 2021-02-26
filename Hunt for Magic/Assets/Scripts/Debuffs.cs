@@ -20,7 +20,8 @@ public class Debuffs : MonoBehaviour
 
     private HealthSystem _healthSystem;
 
-    private GameObject _onFirePrefab;
+    [HideInInspector]
+    public bool _stunned;
 
     private void Start()
     {
@@ -50,6 +51,11 @@ public class Debuffs : MonoBehaviour
         if (_shocked)
         {
             StartCoroutine("ShockStopper");
+        }
+
+        if (_stunned)
+        {
+            StartCoroutine("StunStopper");
         }
     }
 
@@ -109,5 +115,19 @@ public class Debuffs : MonoBehaviour
         }
 
         _shocked = false;
+    }
+
+    IEnumerator StunStopper()
+    {
+        if (GetComponent<EnemySlimeMovement>().enabled)
+        {
+            GetComponent<EnemySlimeMovement>().speed = 0;
+
+            yield return new WaitForSeconds(1f);
+
+            GetComponent<EnemySlimeMovement>().speed = 3;
+        }
+
+        _stunned = false;
     }
 }

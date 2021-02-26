@@ -7,34 +7,33 @@ public class GroundWater : MonoBehaviour
     [SerializeField]
     private bool _electric;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        _electric = false;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     private void OnTriggerEnter(Collider other)
     {
         var enemy = other.gameObject.GetComponent<Rigidbody>();
 
-        if (enemy != null && enemy.name != "PlayerCharacter")
+        if (other.gameObject.name == "LightingSpellCollider")
+        {
+            _electric = true;
+        }
+
+        else if (enemy != null && enemy.tag == "Monster")
         {
             other.gameObject.GetComponent<Debuffs>()._wet = true;
+        }
 
-            if (other.name == "LightningSpellCollider")
-            {
-                _electric = true;
-            }
 
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        var enemy = other.gameObject.GetComponent<Rigidbody>();
+
+        if (enemy != null && enemy.tag == "Monster")
+        {
             if (_electric == true)
             {
-                enemy.GetComponent<HealthSystem>().AddDamage(0.01f);
+                enemy.GetComponent<HealthSystem>().AddDamage(0.1f);
             }
         }
     }
