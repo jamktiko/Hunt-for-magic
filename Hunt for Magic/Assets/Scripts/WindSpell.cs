@@ -49,6 +49,10 @@ public class WindSpell : MonoBehaviour  //Tämä scripti liitetään WindEffect-
                 other.GetComponent<Debuffs>()._chilled = true;
             }
 
+            if (other.GetComponent<Debuffs>()._shocked == true)
+            {
+                other.GetComponent<Debuffs>()._stunned = true;
+            }
             enemy.AddForce(0, 3f, 10f, ForceMode.Impulse);
             enemyHealth.AddDamage(_damageAmount);
         }
