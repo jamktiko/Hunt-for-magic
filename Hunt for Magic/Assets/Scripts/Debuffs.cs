@@ -23,10 +23,17 @@ public class Debuffs : MonoBehaviour
     [HideInInspector]
     public bool _stunned;
 
+    [SerializeField]
+    private GameObject _wetEffect;
+
+    [SerializeField]
+    private GameObject _onFireEffect;
+
     private void Start()
     {
         _onFire = false;
         _healthSystem = gameObject.GetComponent<HealthSystem>();
+        
     }
 
     // Update is called once per frame
@@ -40,11 +47,13 @@ public class Debuffs : MonoBehaviour
         if (_wet)
         {
             _onFire = false;
+            _wetEffect.SetActive(true);
             StartCoroutine("WaterStopper");
         }
 
         if (_onFire)
         {
+            _onFireEffect.SetActive(true);
             StartCoroutine("FireDamage");
         }
 
@@ -71,6 +80,7 @@ public class Debuffs : MonoBehaviour
         }
 
         _onFire = false;
+        _onFireEffect.SetActive(false);
     }
 
     private void Repeat()
@@ -102,6 +112,7 @@ public class Debuffs : MonoBehaviour
         }
 
         _wet = false;
+        _wetEffect.SetActive(false);
     }
 
     IEnumerator ShockStopper()
