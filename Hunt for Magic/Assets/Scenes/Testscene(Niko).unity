@@ -662,6 +662,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9d596df91270fb244949a371da133a7c, type: 3}
+--- !u!1 &1608914219 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4252106629176813803, guid: ec75e577617f7ac439604093d35c2dba,
+    type: 3}
+  m_PrefabInstance: {fileID: 1921389487}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1608914229
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1608914219}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 153b88b2988e24c4a82544c43812ee77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _playerSpeed: 1.8
+  _dodgeDash: 0
+  _coolDown: 0
 --- !u!1001 &1703489246
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -792,6 +813,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4252106629176813800, guid: ec75e577617f7ac439604093d35c2dba,
+        type: 3}
+      propertyPath: mouseSensitivity
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4252106629176813803, guid: ec75e577617f7ac439604093d35c2dba,
         type: 3}
