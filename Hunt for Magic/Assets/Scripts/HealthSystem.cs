@@ -15,6 +15,11 @@ public class HealthSystem : MonoBehaviour
 
     public void AddDamage(float damage)
     {
+        if (gameObject.tag == "Player" && gameObject.GetComponent<Dodgedash>()._dodgeDash)
+        {
+            damage = 0;
+        }
+
         _health -= damage;
 
         if (_health <= 0)

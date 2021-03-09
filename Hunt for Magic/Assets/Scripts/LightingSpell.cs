@@ -8,7 +8,7 @@ public class LightingSpell : MonoBehaviour
     private float _damageAmount = 15f;
     private bool chargeHold = false;
     private Transform _castingPoint;
-    private float speed = 15f;
+    private float speed = 30f;
 
     // Start is called before the first frame update
     void Start()
