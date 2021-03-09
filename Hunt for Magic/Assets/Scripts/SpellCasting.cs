@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SpellCasting : MonoBehaviour  // Tämä scripti liitetään pelaajaan
 {
@@ -18,6 +19,8 @@ public class SpellCasting : MonoBehaviour  // Tämä scripti liitetään pelaaja
 
     private GameObject _player;
 
+    private Image _cooldownImage;
+
     [SerializeField]
     private float _throwForce = 20f;
 
@@ -33,9 +36,11 @@ public class SpellCasting : MonoBehaviour  // Tämä scripti liitetään pelaaja
     // Start is called before the first frame update
     void Start()
     {
+        _cooldownImage = GameObject.Find("Cooldown").GetComponent<Image>();
         _waterCastingPoint = GameObject.Find("WaterCastingPoint").GetComponent<Transform>();
         _castingPoint = GameObject.Find("CastingPoint").GetComponent<Transform>();
         _player = GameObject.Find("PlayerCharacter");
+        _cooldownImage.enabled = false;
     }
 
     // Update is called once per frame
@@ -93,6 +98,7 @@ public class SpellCasting : MonoBehaviour  // Tämä scripti liitetään pelaaja
             }
         }
 
+
         if (Input.GetButton("Fire1"))
         {
 
@@ -105,7 +111,7 @@ public class SpellCasting : MonoBehaviour  // Tämä scripti liitetään pelaaja
                 Instantiate(_spellPrefab, _castingPoint.position, _castingPoint.rotation);
 
                 _spellCooldown = true;
-
+                StartCoroutine("CoolDownImage");
                 Invoke("EndCooldown", _spellInterval);
             }
 
@@ -130,7 +136,7 @@ public class SpellCasting : MonoBehaviour  // Tämä scripti liitetään pelaaja
                 Instantiate(_spellPrefab, _waterCastingPoint.position, _waterCastingPoint.rotation);
 
                 _spellCooldown = true;
-
+                StartCoroutine("CoolDownImage");
                 Invoke("EndCooldown", _spellInterval);
             }
 
@@ -148,7 +154,7 @@ public class SpellCasting : MonoBehaviour  // Tämä scripti liitetään pelaaja
                 }
 
                 _spellCooldown = true;
-
+                StartCoroutine("CoolDownImage");
                 Invoke("EndCooldown", _spellInterval);
             }
 
@@ -162,7 +168,7 @@ public class SpellCasting : MonoBehaviour  // Tämä scripti liitetään pelaaja
                 Instantiate(_spellPrefab, _castingPoint.position, _castingPoint.rotation);
 
                 _spellCooldown = true;
-
+                StartCoroutine("CoolDownImage");
                 Invoke("EndCooldown", _spellInterval);
             }
 
@@ -225,7 +231,20 @@ public class SpellCasting : MonoBehaviour  // Tämä scripti liitetään pelaaja
             _spellCooldown = false;
         }
 
-
+        IEnumerator CoolDownImage()
+    {
+        yield return new WaitForSeconds(1);
+        float spellCooldown = 1.0f;
+        _cooldownImage.enabled = true;
+        _cooldownImage.fillAmount = 1.0f;
+        while (spellCooldown > 0)
+        {
+            _cooldownImage.fillAmount -= 0.01f;
+            spellCooldown -= Time.deltaTime;
+        }
+        _cooldownImage.enabled = false;
+        _cooldownImage.fillAmount = 1.0f;
+    }
 
         IEnumerator ammoChangerInitiate()
         {
