@@ -5262,7 +5262,7 @@ MonoBehaviour:
   jump: 5
   characterController: {fileID: 4252106629176813779}
   cursorOn: 0
-  mouseSensitivity: 10
+  mouseSensitivity: 4
 --- !u!114 &3725589401160941901
 MonoBehaviour:
   m_ObjectHideFlags: 0
