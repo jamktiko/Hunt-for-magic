@@ -13,6 +13,15 @@ public class EnemyHealthbar : MonoBehaviour
 
     private HealthSystem _enemy;
 
+    [SerializeField]
+    private Image _wet;
+
+    [SerializeField]
+    private Image _fire;
+
+    [SerializeField]
+    private Image _chill;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -29,13 +38,45 @@ public class EnemyHealthbar : MonoBehaviour
         {
             gameObject.GetComponent<Image>().enabled = true;
             _healthBarImage.enabled = true;
+
+            if (gameObject.GetComponentInParent<Debuffs>()._wet)
+            {
+                _wet.enabled = true;
+            }
+
+            else
+            {
+                _wet.enabled = false;
+            }
+
+            if (gameObject.GetComponentInParent<Debuffs>()._onFire)
+            {
+                _fire.enabled = true;
+            }
+
+            else
+            {
+                _fire.enabled = false;
+            }
+
+            if (gameObject.GetComponentInParent<Debuffs>()._chilled)
+            {
+                _chill.enabled = true;
+            }
+
+            else
+            {
+                _chill.enabled = false;
+            }
         }
 
         else
         {
             gameObject.GetComponent<Image>().enabled = false;
             _healthBarImage.enabled = false;
-
+            _wet.enabled = false;
+            _fire.enabled = false;
+            _chill.enabled = false;
         }
 
         _healthBarImage.fillAmount = _enemy.health / 100;
