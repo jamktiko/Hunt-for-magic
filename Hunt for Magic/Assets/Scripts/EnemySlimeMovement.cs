@@ -18,6 +18,7 @@ public class EnemySlimeMovement : MonoBehaviour
     public bool attackTrigger2 = true;
     public bool chargeTrigger = true;
     public float chargeAttackRoller;
+    public bool isChargeAttacking = false;
 
     // Start is called before the first frame update
     void Start()
@@ -45,6 +46,7 @@ public class EnemySlimeMovement : MonoBehaviour
 
         if (chargeTrigger)
         {
+            isChargeAttacking = true;
             StartCoroutine(chargeTimer());
         }
         else
@@ -65,7 +67,7 @@ public class EnemySlimeMovement : MonoBehaviour
                 lookDirectionNode.transform.localPosition = new Vector3(LD1,0,LD2);
                 
             }
-            else if (inRange && touchGround)
+            else if (inRange && touchGround) //chase command
             {
                 StartCoroutine(jumpPhaser());
                 Vector3 lookDirection = (player.transform.position - transform.position).normalized; // search for player
@@ -123,6 +125,7 @@ public class EnemySlimeMovement : MonoBehaviour
         enemyRB.velocity = Vector3.zero;
         yield return new WaitForSeconds(2f);
         chargeTrigger = false;
+        isChargeAttacking = false;
     }
 
     IEnumerator jumpPhaser()
