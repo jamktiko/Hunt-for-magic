@@ -31,7 +31,7 @@ public class SlimeDrop : MonoBehaviour
         {
             _dropChargeCooldown = true;
 
-            Instantiate(_ChargeSlime, transform.TransformPoint(0, -0.67f, 0), Quaternion.identity);
+            Instantiate(_ChargeSlime, transform.TransformPoint(0, -0.57f, 0), Quaternion.identity);
 
             Invoke("ChargeCooldown", 3f);
         }
