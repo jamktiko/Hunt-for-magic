@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemySlimeMovement : MonoBehaviour
 {
     private float jump = 3;
-    private float speed = 3;
+    public float speed = 3;
     private float attackDamage = 5f;
     private Rigidbody enemyRB;
     private GameObject lookDirectionNode;

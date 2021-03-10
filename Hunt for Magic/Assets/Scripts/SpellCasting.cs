@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SpellCasting : MonoBehaviour  // Tämä scripti liitetään pelaajaan
 {
@@ -10,8 +11,7 @@ public class SpellCasting : MonoBehaviour  // Tämä scripti liitetään pelaaja
     private Transform _castingPoint;
     private Transform _waterCastingPoint;
 
-    [SerializeField]
-    private bool _spellCooldown;
+    public static bool _spellCooldown;
 
     [SerializeField]
     private float _spellInterval = 1f;
@@ -95,6 +95,7 @@ public class SpellCasting : MonoBehaviour  // Tämä scripti liitetään pelaaja
             }
         }
 
+
         if (Input.GetButton("Fire1"))
         {
 
@@ -108,7 +109,7 @@ public class SpellCasting : MonoBehaviour  // Tämä scripti liitetään pelaaja
                 Instantiate(_spellPrefab, _castingPoint.position, _castingPoint.rotation);
 
                 _spellCooldown = true;
-
+                StartCoroutine("CoolDownImage");
                 Invoke("EndCooldown", _spellInterval);
             }
 
@@ -247,7 +248,6 @@ public class SpellCasting : MonoBehaviour  // Tämä scripti liitetään pelaaja
         {
             _spellCooldown = false;
         }
-
 
 
         IEnumerator ammoChangerInitiate()

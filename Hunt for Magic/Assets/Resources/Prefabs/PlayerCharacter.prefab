@@ -5130,6 +5130,7 @@ GameObject:
   - component: {fileID: 3725589401160941901}
   - component: {fileID: 7575110303431485873}
   - component: {fileID: 7370827034873486316}
+  - component: {fileID: 1697893290111303662}
   m_Layer: 0
   m_Name: PlayerCharacter
   m_TagString: Player
@@ -5257,11 +5258,11 @@ MonoBehaviour:
   cam: {fileID: 4252106628218637969}
   playerBody: {fileID: 4252106629176813780}
   gravity: 20
-  speed: 1.8
+  speed: 2.5
   jump: 5
   characterController: {fileID: 4252106629176813779}
   cursorOn: 0
-  mouseSensitivity: 10
+  mouseSensitivity: 5
 --- !u!114 &3725589401160941901
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5304,6 +5305,21 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1697893290111303662
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4252106629176813803}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 153b88b2988e24c4a82544c43812ee77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _playerSpeed: 2.5
+  _dodgeDash: 0
+  _coolDown: 0
 --- !u!1 &4590092344485926886
 GameObject:
   m_ObjectHideFlags: 0
