@@ -14,8 +14,8 @@ public class LightingBoltSpell : MonoBehaviour
     void Start()
     {
 
-        GameObject player = GameObject.Find("PlayerCharacter");
-        chargeCounter = player.GetComponent<SpellCasting>().chargeCounter;
+        GameObject player = GameObject.Find("PlayerCharacter"); //Find player
+        chargeCounter = player.GetComponent<SpellCasting>().spellCharge; //get amount of charges
         _castingPoint = GameObject.Find("CastingPoint").GetComponent<Transform>();
         gameObject.GetComponent<Rigidbody>().AddForce(_castingPoint.forward * speed, ForceMode.Impulse);
     }
@@ -53,7 +53,7 @@ public class LightingBoltSpell : MonoBehaviour
         {
             enemyHealth.AddDamage(_damageAmount);
 
-            if (chargeCounter == 1)
+            if (chargeCounter <= 1)
             {
                 Destroy(gameObject);
             }

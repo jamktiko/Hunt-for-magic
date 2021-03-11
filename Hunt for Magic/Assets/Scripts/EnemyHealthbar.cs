@@ -29,7 +29,7 @@ public class EnemyHealthbar : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         var position = Camera.main.WorldToScreenPoint(_enemyHealth.transform.position);
         transform.position = position;

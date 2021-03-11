@@ -5,20 +5,36 @@ using UnityEngine;
 public class SlimeDrop : MonoBehaviour
 {
     private bool _dropCooldown;
-
+    private bool _dropChargeCooldown;
     private Object _slowingSlime;
+    private Object _ChargeSlime;
+    public bool isChargeAttacking = false;
 
     // Start is called before the first frame update
     void Start()
     {
         _dropCooldown = false;
         _slowingSlime = Resources.Load("Prefabs/SlowingSlime");
+        _ChargeSlime = Resources.Load("Prefabs/SlowingSlimeCharge");
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        isChargeAttacking = gameObject.GetComponent<EnemySlimeMovement>().isChargeAttacking;
+
+        if (!isChargeAttacking)
+        {
+
+        }
+        else if (isChargeAttacking && _dropChargeCooldown == false)
+        {
+            _dropChargeCooldown = true;
+
+            Instantiate(_ChargeSlime, transform.TransformPoint(0, -0.57f, 0), Quaternion.identity);
+
+            Invoke("ChargeCooldown", 3f);
+        }
     }
 
     private void OnCollisionExit(Collision collision)
@@ -36,5 +52,9 @@ public class SlimeDrop : MonoBehaviour
     private void Cooldown()
     {
         _dropCooldown = false;
+    }
+    private void ChargeCooldown()
+    {
+        _dropChargeCooldown = false;
     }
 }
