@@ -108,7 +108,7 @@ public class EnemySlimeMovement : MonoBehaviour
                 attackTrigger1 = false;
                 attackTrigger2 = false;
                 chargeTrigger = true;
-
+                gameObject.GetComponentInChildren<SlimeAnimation>()._chargeAttack = true;
             }
         }
 
