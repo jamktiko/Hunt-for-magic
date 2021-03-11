@@ -411,15 +411,10 @@ PrefabInstance:
       propertyPath: m_SizeDelta.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2423154635942256863, guid: 9d596df91270fb244949a371da133a7c,
-        type: 3}
-      propertyPath: _enemyHealth
-      value: 
-      objectReference: {fileID: 1520834626}
-    - target: {fileID: 3458629560146075544, guid: 9d596df91270fb244949a371da133a7c,
+    - target: {fileID: 5278001804704398818, guid: 9d596df91270fb244949a371da133a7c,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -426.70312
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9d596df91270fb244949a371da133a7c, type: 3}
@@ -517,12 +512,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1520834626 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2572935742619770933, guid: a6a44eab725b9f044b88dad8a23c10af,
-    type: 3}
-  m_PrefabInstance: {fileID: 1703489246}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1703489246
 PrefabInstance:
   m_ObjectHideFlags: 0
