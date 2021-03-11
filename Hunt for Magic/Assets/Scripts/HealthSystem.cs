@@ -26,7 +26,7 @@ public class HealthSystem : MonoBehaviour
         {
             _health = 0;
 
-            if (gameObject.name == "EnemySlimePrefab")
+            if (gameObject.name.Contains("EnemySlimePrefab"))
             {
                 gameObject.GetComponent<EnemySlimeMovement>().enabled = false;
             }    
