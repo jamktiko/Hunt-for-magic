@@ -33,8 +33,8 @@ public class SlimeAnimation : MonoBehaviour
 
         if (_chargeAttack)
         {
-            _anim.Play("SlimeCharged");
             _chargeAttack = false;
+            _anim.Play("SlimeCharged");
         }
 
         if (_slime.GetComponent<HealthSystem>().health == 0)

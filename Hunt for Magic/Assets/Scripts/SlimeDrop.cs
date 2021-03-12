@@ -9,6 +9,7 @@ public class SlimeDrop : MonoBehaviour
     private Object _slowingSlime;
     private Object _ChargeSlime;
     public bool isChargeAttacking = false;
+    public bool animationReady;
 
     // Start is called before the first frame update
     void Start()
@@ -23,11 +24,13 @@ public class SlimeDrop : MonoBehaviour
     {
         isChargeAttacking = gameObject.GetComponent<EnemySlimeMovement>().isChargeAttacking;
 
+        animationReady = gameObject.GetComponent<EnemySlimeMovement>().animationReady;
+
         if (!isChargeAttacking)
         {
 
         }
-        else if (isChargeAttacking && _dropChargeCooldown == false)
+        else if (isChargeAttacking && _dropChargeCooldown == false && animationReady)
         {
             _dropChargeCooldown = true;
 
