@@ -27,7 +27,7 @@ public class Cooldown : MonoBehaviour
         else if (_player.GetComponent<EnergySystem>()._currentEnergy < 100 && SpellCasting._spellCooldown == false)
         {
             cooldown.enabled = true;
-            cooldown.fillAmount -= _player.GetComponent<EnergySystem>()._currentEnergy / _player.GetComponent<EnergySystem>()._maxEnergy;
+            cooldown.fillAmount = 1 - _player.GetComponent<EnergySystem>()._currentEnergy / _player.GetComponent<EnergySystem>()._maxEnergy;
         }
         else
         {

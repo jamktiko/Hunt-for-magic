@@ -22,7 +22,7 @@ public class DisplayCharge : MonoBehaviour
         {
             Debug.Log("100");
             _chargeText.enabled = true;
-            _chargeText.text = _player.GetComponent<EnergySystem>()._currentEnergy.ToString();
+            _chargeText.text = Mathf.Round(_player.GetComponent<EnergySystem>()._currentEnergy).ToString();
         }
         else
         {
