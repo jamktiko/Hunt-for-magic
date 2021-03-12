@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
@@ -10,6 +11,9 @@ public class PauseMenu : MonoBehaviour
 
     [SerializeField]
     private Button _resume;
+
+    [SerializeField]
+    private Button _mainMenu;
 
     private GameObject _player;
 
@@ -34,6 +38,8 @@ public class PauseMenu : MonoBehaviour
         }
 
         _resume.onClick.AddListener(ContinueGame);
+
+        _mainMenu.onClick.AddListener(MainMenu);
     }
 
     private void PauseGame()
@@ -52,9 +58,14 @@ public class PauseMenu : MonoBehaviour
         _pausePanel.SetActive(false);
         _player.GetComponent<PlayerCharacterController>().enabled = true;
         _player.GetComponentInChildren<PlayerAnimation>().enabled = true;
-Cursor.visible = false;
+        Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
         _crosshair.SetActive(true);
         Time.timeScale = 1;
+    }
+
+    private void MainMenu()
+    {
+        
     }
 }
