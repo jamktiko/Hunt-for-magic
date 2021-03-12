@@ -8,7 +8,7 @@ public class GroundSlime : MonoBehaviour
     private bool DamageDealt;
 
     [SerializeField]
-    private float _playerSpeed = 1.8f;
+    private float _playerSpeed = 2.5f;
     private float _damageAmount = 10f;
 
     private void Update()

@@ -1,0 +1,60 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
+
+public class PauseMenu : MonoBehaviour
+{
+    [SerializeField]
+    private GameObject _pausePanel;
+
+    [SerializeField]
+    private Button _resume;
+
+    private GameObject _player;
+
+    private GameObject _crosshair;
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        _player = GameObject.Find("PlayerCharacter");
+        _crosshair = GameObject.Find("Crosshair");
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        if (Input.GetKeyDown (KeyCode.P))
+        {
+            if (!_pausePanel.activeSelf)
+            {
+                PauseGame();
+            }
+        }
+
+        _resume.onClick.AddListener(ContinueGame);
+    }
+
+    private void PauseGame()
+    {
+        _pausePanel.SetActive(true);
+        _player.GetComponent<PlayerCharacterController>().enabled = false;
+        _player.GetComponentInChildren<PlayerAnimation>().enabled = false;
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
+        _crosshair.SetActive(false);
+        Time.timeScale = 0;
+    }
+
+    private void ContinueGame()
+    {
+        _pausePanel.SetActive(false);
+        _player.GetComponent<PlayerCharacterController>().enabled = true;
+        _player.GetComponentInChildren<PlayerAnimation>().enabled = true;
+Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
+        _crosshair.SetActive(true);
+        Time.timeScale = 1;
+    }
+}
