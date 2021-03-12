@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -1000,13 +1000,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2432602193744794409, guid: a2d31e30ea2d90f4d890cbdaadaa29a4,
         type: 3}
+      propertyPath: LightsModule.maxLights
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 2432602193744794409, guid: a2d31e30ea2d90f4d890cbdaadaa29a4,
+        type: 3}
       propertyPath: LightsModule.intensityCurve.scalar
-      value: 0.05
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 2432602193744794410, guid: a2d31e30ea2d90f4d890cbdaadaa29a4,
         type: 3}
       propertyPath: m_LocalPosition.z
       value: -0.0026
+      objectReference: {fileID: 0}
+    - target: {fileID: 2432602193744794415, guid: a2d31e30ea2d90f4d890cbdaadaa29a4,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4075953802097914540, guid: a2d31e30ea2d90f4d890cbdaadaa29a4,
         type: 3}
