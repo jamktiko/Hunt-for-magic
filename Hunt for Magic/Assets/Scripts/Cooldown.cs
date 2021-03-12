@@ -22,7 +22,7 @@ public class Cooldown : MonoBehaviour
         if (SpellCasting._spellCooldown == true)
         {
             cooldown.enabled = true;
-            cooldown.fillAmount -= _player.GetComponent<SpellCasting>()._spellInterval * Time.deltaTime;
+            cooldown.fillAmount -= 1 / _player.GetComponent<SpellCasting>()._spellInterval * Time.deltaTime;
         }
         else if (_player.GetComponent<EnergySystem>()._currentEnergy < 100 && SpellCasting._spellCooldown == false)
         {
