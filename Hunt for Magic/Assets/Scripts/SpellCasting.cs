@@ -14,7 +14,7 @@ public class SpellCasting : MonoBehaviour  // Tämä scripti liitetään pelaaja
     public static bool _spellCooldown;
 
     [SerializeField]
-    private float _spellInterval = 1f;
+    public float _spellInterval = 1f;
 
     private GameObject _player;
 
@@ -109,7 +109,6 @@ public class SpellCasting : MonoBehaviour  // Tämä scripti liitetään pelaaja
                 Instantiate(_spellPrefab, _castingPoint.position, _castingPoint.rotation);
 
                 _spellCooldown = true;
-                StartCoroutine("CoolDownImage");
                 Invoke("EndCooldown", _spellInterval);
             }
 
