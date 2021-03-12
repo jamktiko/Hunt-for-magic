@@ -19,6 +19,7 @@ public class EnemySlimeMovement : MonoBehaviour
     public bool chargeTrigger = true;
     public float chargeAttackRoller;
     public bool isChargeAttacking = false;
+    public bool animationReady = false;
 
     // Start is called before the first frame update
     void Start()
@@ -123,9 +124,12 @@ public class EnemySlimeMovement : MonoBehaviour
     IEnumerator chargeTimer()
     {
         enemyRB.velocity = Vector3.zero;
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(0.8f);
+        animationReady = true;
+        yield return new WaitForSeconds(1.2f);
         chargeTrigger = false;
         isChargeAttacking = false;
+        animationReady = false;
     }
 
     IEnumerator jumpPhaser()
