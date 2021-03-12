@@ -39,11 +39,14 @@ public class EnemySlimeMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Vector3.Distance(player.transform.position, enemyRB.transform.position) < 15)
-        { 
-            inRange = true; 
+        if (player != null)
+        {
+            if (Vector3.Distance(player.transform.position, enemyRB.transform.position) < 15)
+            {
+                inRange = true;
+            }
+            else inRange = false;
         }
-        else inRange = false;
 
         if (chargeTrigger)
         {
