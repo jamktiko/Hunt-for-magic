@@ -69,6 +69,7 @@
     <Compile Include="Assets\Scripts\ColliderDestroy.cs" />
     <Compile Include="Assets\Scripts\Cooldown.cs" />
     <Compile Include="Assets\Scripts\Debuffs.cs" />
+    <Compile Include="Assets\Scripts\DisplayCharge.cs" />
     <Compile Include="Assets\Scripts\Dodgedash.cs" />
     <Compile Include="Assets\Scripts\EnemyHealthbar.cs" />
     <Compile Include="Assets\Scripts\EnemySlimeMovement.cs" />
