@@ -696,6 +696,12 @@
     <Reference Include="UnityEditor.UI">
       <HintPath>C:/Users/tomsk/Desktop/koulutyö/TC8/Hunt-for-magic/Hunt for Magic/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.TerrainTools">
+      <HintPath>C:/Users/tomsk/Desktop/koulutyö/TC8/Hunt-for-magic/Hunt for Magic/Library/ScriptAssemblies/Unity.TerrainTools.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.TerrainTools.Editor">
+      <HintPath>C:/Users/tomsk/Desktop/koulutyö/TC8/Hunt-for-magic/Hunt for Magic/Library/ScriptAssemblies/Unity.TerrainTools.Editor.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup></ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
