@@ -53,16 +53,24 @@ public class PlayerAnimation : MonoBehaviour
             anim.SetTrigger("Melee");
         }
 
-        if (Input.GetKeyDown("w") || Input.GetKeyDown("a") || Input.GetKeyDown("s") || Input.GetKeyDown("d"))
+        if (Input.GetKey("w") || Input.GetKey("a") || Input.GetKey("s") || Input.GetKey("d"))
         {
             anim.SetBool("Move", true);
         }
 
-        else if (Input.anyKey == false)
+        else
         {
             anim.SetBool("Move", false); //Lopettaa kävelyanimaation tarvittaessa
         }
 
+        if (_player.GetComponent<PlayerCharacterController>().speed == 6.25f)
+        {
+            anim.SetBool("Dodgedash", true);
+        }
 
+        else
+        {
+            anim.SetBool("Dodgedash", false);
+        }
     }
 }
