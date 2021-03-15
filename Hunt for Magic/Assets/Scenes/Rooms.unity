@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -17468,7 +17468,7 @@ GameObject:
   m_Component:
   - component: {fileID: 370153689}
   m_Layer: 0
-  m_Name: realroom
+  m_Name: StartRoom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -20698,7 +20698,7 @@ GameObject:
   m_Component:
   - component: {fileID: 480582620}
   m_Layer: 0
-  m_Name: realroom (11)
+  m_Name: SideRoom4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -29079,7 +29079,7 @@ GameObject:
   m_Component:
   - component: {fileID: 727673958}
   m_Layer: 0
-  m_Name: realroom (6)
+  m_Name: MiddleRoom2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -31827,7 +31827,7 @@ GameObject:
   m_Component:
   - component: {fileID: 816799329}
   m_Layer: 0
-  m_Name: realroom (7)
+  m_Name: EndRoom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -36054,7 +36054,7 @@ GameObject:
   m_Component:
   - component: {fileID: 973550670}
   m_Layer: 0
-  m_Name: realroom (12)
+  m_Name: SideRoom5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -37612,7 +37612,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1015982201}
   m_Layer: 0
-  m_Name: realroom (3)
+  m_Name: SideRoom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -43405,7 +43405,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1203193153}
   m_Layer: 0
-  m_Name: realroom (4)
+  m_Name: SideRoom2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -45587,7 +45587,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1259370007}
   m_Layer: 0
-  m_Name: realroom (2)
+  m_Name: CornerRoom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -57187,7 +57187,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1596865388}
   m_Layer: 0
-  m_Name: realroom (5)
+  m_Name: CornerRoom2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -62581,7 +62581,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1760062943}
   m_Layer: 0
-  m_Name: realroom (8)
+  m_Name: MiddleRoom3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -69745,7 +69745,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1972736909}
   m_Layer: 0
-  m_Name: realroom (9)
+  m_Name: SideRoom3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -72189,7 +72189,7 @@ Terrain:
   m_Enabled: 1
   serializedVersion: 6
   m_TerrainData: {fileID: 15600000, guid: ede3d5f563e7c4b40b9e7d1772b0acf4, type: 2}
-  m_TreeDistance: 100
+  m_TreeDistance: 120.06
   m_TreeBillboardDistance: 50
   m_TreeCrossFadeLength: 200
   m_TreeMaximumFullLODCount: 80
@@ -72203,7 +72203,7 @@ Terrain:
   m_DrawInstanced: 0
   m_DrawTreesAndFoliage: 1
   m_ReflectionProbeUsage: 1
-  m_MaterialTemplate: {fileID: 2100000, guid: 32f5609def5239049992904884ae41c0, type: 2}
+  m_MaterialTemplate: {fileID: 2100000, guid: 840b0502956cf454c816b589c9c4dce7, type: 2}
   m_BakeLightProbesForTrees: 1
   m_PreserveTreePrototypeLayers: 0
   m_DeringLightProbesForTrees: 1
@@ -72220,7 +72220,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2031219389}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -490, y: -0.2, z: -394}
+  m_LocalPosition: {x: -250.1, y: 0.01, z: -32.4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -73694,7 +73694,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2084264331}
   m_Layer: 0
-  m_Name: realroom (1)
+  m_Name: MiddleRoom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -79812,7 +79812,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2119604842}
   m_Layer: 0
-  m_Name: realroom (10)
+  m_Name: MiddleRoom4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
