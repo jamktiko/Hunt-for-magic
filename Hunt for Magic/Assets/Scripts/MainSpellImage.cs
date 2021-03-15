@@ -5,48 +5,78 @@ using UnityEngine.UI;
 
 public class MainSpellImage : MonoBehaviour
 {
-    private Object _spellImage;
+    public Object _currentSpell;
+    public GameObject _fire;
+    public GameObject _wind;
+    public GameObject _electricity;
+    public GameObject _water;
+    public GameObject _fireball;
+    public GameObject _chainlightning;
 
-    private Object _currentSpell;
 
     // Start is called before the first frame update
     void Start()
     {
-        _spellImage = gameObject.GetComponent<Image>();
         _currentSpell = GameObject.Find("PlayerCharacter").GetComponent<SpellCasting>()._spellPrefab;
     }
 
     // Update is called once per frame
     void Update()
     {
+        _currentSpell = GameObject.Find("PlayerCharacter").GetComponent<SpellCasting>()._spellPrefab;
+
         if (_currentSpell.name == "Flamethrower_particle")
         {
-            _spellImage = Resources.Load("hud/Spellfire");
+            _fire.SetActive(true);
+        }
+        else
+        {
+            _fire.SetActive(false);
         }
 
         if (_currentSpell.name == "WindEffect")
         {
-            _spellImage = Resources.Load("hud/spell_wind");
+            _wind.SetActive(true);
+        }
+        else
+        {
+            _wind.SetActive(false);
         }
 
         if (_currentSpell.name == "Electricity")
         {
-            _spellImage = Resources.Load("hud/spell_Elec");
+            _electricity.SetActive(true);
+        }
+        else
+        {
+            _electricity.SetActive(false);
         }
 
         if (_currentSpell.name == "Waterwave")
         {
-            _spellImage = Resources.Load("hud/spell_water");
+            _water.SetActive(true);
+        }
+        else
+        {
+            _water.SetActive(false);
         }
 
         if (_currentSpell.name == "Fireball")
         {
-            _spellImage = Resources.Load("hud/spell_fireball");
+            _fireball.SetActive(true);
+        }
+        else
+        {
+            _fireball.SetActive(false);
         }
 
         if (_currentSpell.name == "ChainLightning")
         {
-            _spellImage = Resources.Load("hud/ChainLightning");
+            _chainlightning.SetActive(true);
+        }
+        else
+        {
+            _chainlightning.SetActive(false);
         }
     }
 }
