@@ -5,13 +5,12 @@ using UnityEngine;
 public class MeleeAttack : MonoBehaviour
 {
 
-    private bool _isAttackOnCooldown;
+    public static bool _isAttackOnCooldown;
 
     [SerializeField]
     private float _damage = 5f;
 
-    [SerializeField]
-    private float _cooldown = 0.75f;
+    public float _cooldown = 1.2f;
 
     // Start is called before the first frame update
     void Start()

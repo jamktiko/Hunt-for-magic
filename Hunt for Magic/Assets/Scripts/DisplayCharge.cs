@@ -20,7 +20,6 @@ public class DisplayCharge : MonoBehaviour
     {
         if (_player.GetComponent<EnergySystem>()._currentEnergy < 100)
         {
-            Debug.Log("100");
             _chargeText.enabled = true;
             _chargeText.text = Mathf.Round(_player.GetComponent<EnergySystem>()._currentEnergy).ToString();
         }
