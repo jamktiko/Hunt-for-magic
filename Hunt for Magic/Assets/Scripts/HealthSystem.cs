@@ -12,6 +12,8 @@ public class HealthSystem : MonoBehaviour
 
     public float health => _health;
 
+    public bool _damageTaken;
+
 
     public void AddDamage(float damage)
     {
@@ -20,7 +22,14 @@ public class HealthSystem : MonoBehaviour
             damage = 0;
         }
 
-        _health -= damage;
+            _health -= damage;
+
+        if (gameObject.tag == "Player")
+        {
+            _damageTaken = true;
+
+            Invoke("DamageOff", 0.5f);
+        }
 
         if (_health <= 0)
         {
@@ -33,5 +42,10 @@ public class HealthSystem : MonoBehaviour
 
             Destroy(gameObject, 2f);   //2 sekuntia aikaa kuolinanimaatiolle
         }
+    }
+
+    private void DamageOff()
+    {
+        _damageTaken = false;
     }
 }

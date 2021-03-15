@@ -67,8 +67,10 @@
     <Compile Include="Assets\Scripts\Buffs.cs" />
     <Compile Include="Assets\Scripts\ChainLightingSpell.cs" />
     <Compile Include="Assets\Scripts\ColliderDestroy.cs" />
+    <Compile Include="Assets\Scripts\Cooldown.cs" />
     <Compile Include="Assets\Scripts\Debuffs.cs" />
     <Compile Include="Assets\Scripts\Dodgedash.cs" />
+    <Compile Include="Assets\Scripts\EnemyHealthbar.cs" />
     <Compile Include="Assets\Scripts\EnemySlimeMovement.cs" />
     <Compile Include="Assets\Scripts\EnergySystem.cs" />
     <Compile Include="Assets\Scripts\FireSpell.cs" />
@@ -81,6 +83,7 @@
     <Compile Include="Assets\Scripts\LightingBoltSpell.cs" />
     <Compile Include="Assets\Scripts\LightingSpell.cs" />
     <Compile Include="Assets\Scripts\MeleeAttack.cs" />
+    <Compile Include="Assets\Scripts\PauseMenu.cs" />
     <Compile Include="Assets\Scripts\PlayerAnimation.cs" />
     <Compile Include="Assets\Scripts\PlayerCharacterController.cs" />
     <Compile Include="Assets\Scripts\PlayerDebuffs.cs" />

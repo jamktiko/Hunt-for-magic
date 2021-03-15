@@ -7,6 +7,8 @@ public class HealthBar : MonoBehaviour
 {
     private static Image HealthBarImage;
     private GameObject player;
+    [SerializeField]
+    private GameObject damageTaken;
 
     // Start is called before the first frame update
     void Start()
@@ -45,5 +47,15 @@ public class HealthBar : MonoBehaviour
     void Update()
     {
         SetHealthBarValue(player.GetComponent<HealthSystem>().health / 100);
+
+        if (player.GetComponent<HealthSystem>()._damageTaken)
+        {
+            damageTaken.SetActive(true);
+        }
+
+        else
+        {
+            damageTaken.SetActive(false);
+        }
     }
 }
