@@ -43,7 +43,7 @@ public class PlayerSounds : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey("w") || Input.GetKey("a") || Input.GetKey("s") || Input.GetKey("d"))
+        if (GetComponent<CharacterController>().isGrounded && GetComponent<PlayerCharacterController>().speed == 2.5f && (Input.GetKey("w") || Input.GetKey("a") || Input.GetKey("s") || Input.GetKey("d")))
         {
             _move = true;
         }
@@ -52,7 +52,8 @@ public class PlayerSounds : MonoBehaviour
             _move = false;
         }
 
-        if (GetComponent<SpellCasting>()._spellPrefab.name == "Flamethrower_particle" && Input.GetButton("Fire1"))
+
+        if (GetComponent<SpellCasting>()._spellPrefab.name == "Flamethrower_particle" && Input.GetButton("Fire1") && GetComponent<EnergySystem>()._currentEnergy > 5)
         {
             _fire = true;
         }
