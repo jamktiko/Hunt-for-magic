@@ -48,11 +48,6 @@ public class PlayerAnimation : MonoBehaviour
             anim.SetBool("CastingOn", false);
         }
 
-        if (Input.GetMouseButtonDown(1))
-        {
-            anim.SetTrigger("Melee");
-        }
-
         if (Input.GetKey("w") || Input.GetKey("a") || Input.GetKey("s") || Input.GetKey("d"))
         {
             anim.SetBool("Move", true);
