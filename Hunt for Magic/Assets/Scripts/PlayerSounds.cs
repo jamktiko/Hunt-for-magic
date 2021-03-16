@@ -43,7 +43,7 @@ public class PlayerSounds : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (GetComponent<CharacterController>().isGrounded && (Input.GetKey("w") || Input.GetKey("a") || Input.GetKey("s") || Input.GetKey("d")))
+        if (GetComponent<CharacterController>().isGrounded && GetComponent<PlayerCharacterController>().speed == 2.5f && (Input.GetKey("w") || Input.GetKey("a") || Input.GetKey("s") || Input.GetKey("d")))
         {
             _move = true;
         }
