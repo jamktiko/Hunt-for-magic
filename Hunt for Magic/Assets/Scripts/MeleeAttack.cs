@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class MeleeAttack : MonoBehaviour
 {
-    [SerializeField]
-    private bool _isAttackOnCooldown;
+    public static bool _isAttackOnCooldown;
 
     [SerializeField]
     private float _damage = 5f;
 
+
     [SerializeField]
-    private float _cooldown = 1.16f;
+    public float _cooldown = 1.16f;
 
     [SerializeField]
     private Animator _anim;
