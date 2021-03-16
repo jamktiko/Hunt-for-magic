@@ -83,6 +83,7 @@
     <Compile Include="Assets\Scripts\HealthSystem.cs" />
     <Compile Include="Assets\Scripts\LightingBoltSpell.cs" />
     <Compile Include="Assets\Scripts\LightingSpell.cs" />
+    <Compile Include="Assets\Scripts\MainSpellImage.cs" />
     <Compile Include="Assets\Scripts\MeleeAttack.cs" />
     <Compile Include="Assets\Scripts\PauseMenu.cs" />
     <Compile Include="Assets\Scripts\PlayerAnimation.cs" />
@@ -648,6 +649,9 @@
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>C:/Users/tomsk/Desktop/koulutyö/TC8/Hunt-for-magic/Hunt for Magic/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.TerrainTools">
+      <HintPath>C:/Users/tomsk/Desktop/koulutyö/TC8/Hunt-for-magic/Hunt for Magic/Library/ScriptAssemblies/Unity.TerrainTools.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.RenderPipelines.Universal.Shaders">
       <HintPath>C:/Users/tomsk/Desktop/koulutyö/TC8/Hunt-for-magic/Hunt for Magic/Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Shaders.dll</HintPath>
     </Reference>
@@ -692,6 +696,9 @@
     </Reference>
     <Reference Include="Unity.TextMeshPro">
       <HintPath>C:/Users/tomsk/Desktop/koulutyö/TC8/Hunt-for-magic/Hunt for Magic/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.TerrainTools.Editor">
+      <HintPath>C:/Users/tomsk/Desktop/koulutyö/TC8/Hunt-for-magic/Hunt for Magic/Library/ScriptAssemblies/Unity.TerrainTools.Editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.UI">
       <HintPath>C:/Users/tomsk/Desktop/koulutyö/TC8/Hunt-for-magic/Hunt for Magic/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
