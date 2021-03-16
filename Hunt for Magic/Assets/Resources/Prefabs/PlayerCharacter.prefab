@@ -57,8 +57,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4186b0803291834b997dcf8e8790696, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _isAttackOnCooldown: 0
   _damage: 5
-  _cooldown: 0.75
+  _cooldown: 1.16
+  _anim: {fileID: 7889203802875422247}
 --- !u!95 &457667194
 Animator:
   serializedVersion: 3
@@ -5385,7 +5387,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e72b830f1d3424488a4c9e226cd47a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anim: {fileID: 457667194}
+  anim: {fileID: 7889203802875422247}
 --- !u!1001 &1259611717
 PrefabInstance:
   m_ObjectHideFlags: 0
