@@ -85,6 +85,7 @@ GameObject:
   - component: {fileID: 1764130498194208307}
   - component: {fileID: 3072982113403988789}
   - component: {fileID: 2679867707067521536}
+  - component: {fileID: 1410282749381502587}
   m_Layer: 5
   m_Name: Cooldown (1)
   m_TagString: Untagged
@@ -148,6 +149,18 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 28.6
+--- !u!114 &1410282749381502587
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 763438471832445291}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 380a99b61678d59469accee97b3b836d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &803175978699039018
 GameObject:
   m_ObjectHideFlags: 0
@@ -1729,6 +1742,7 @@ GameObject:
   - component: {fileID: 6097766088857349297}
   - component: {fileID: 8617920704393537966}
   - component: {fileID: 2847415862052051846}
+  - component: {fileID: 1416652075111014966}
   m_Layer: 5
   m_Name: Cooldown
   m_TagString: Untagged
@@ -1792,6 +1806,18 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 28.6
+--- !u!114 &1416652075111014966
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3215934803943897902}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7af5c504b1292b24f99a4e51db5d8d22, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3224981830006784198
 GameObject:
   m_ObjectHideFlags: 0
