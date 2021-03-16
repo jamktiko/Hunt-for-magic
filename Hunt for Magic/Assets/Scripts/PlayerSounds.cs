@@ -8,10 +8,15 @@ public class PlayerSounds : MonoBehaviour
     private Animator _anim;
 
     [SerializeField]
-    private AudioSource _audioSrc;
+    private AudioSource _walkingSrc;
 
     [SerializeField]
+    private AudioSource _fireSrc;
+
     private bool _move;
+
+    [SerializeField]
+    private bool _fire;
 
     private int _rnd;
 
@@ -25,6 +30,9 @@ public class PlayerSounds : MonoBehaviour
     public AudioClip _runningOnGrass8;
     public AudioClip _runningOnGrass9;
     public AudioClip _runningOnGrass10;
+
+    public AudioClip _flameThrower1;
+    public AudioClip _flameThrower2;
 
     // Start is called before the first frame update
     void Start()
@@ -44,53 +52,83 @@ public class PlayerSounds : MonoBehaviour
             _move = false;
         }
 
-        if (_move == true && _audioSrc.isPlaying == false)
+        if (GetComponent<SpellCasting>()._spellPrefab.name == "Flamethrower_particle" && Input.GetButton("Fire1"))
         {
-            Randomizer();
-            _audioSrc.Play();
+            _fire = true;
+        }
+        else
+        {
+            _fire = false;
+        }
+
+        if (_move == true && _walkingSrc.isPlaying == false)
+        {
+            WalkingRandomizer();
+            _walkingSrc.Play();
         }
 
         if (_move == false)
         {
-            _audioSrc.Stop();
+            _walkingSrc.Stop();
+        }
+
+        if (_fire == true && _fireSrc.isPlaying == false)
+        {
+            _rnd = Random.Range(1, 3);
+
+            if (_rnd == 1)
+            {
+                _fireSrc.clip = _flameThrower1;
+            }
+            else if (_rnd == 2)
+            {
+                _fireSrc.clip = _flameThrower2;
+            }
+
+            _fireSrc.Play();
+        }
+        
+        if (_fire == false)
+        {
+            _fireSrc.Stop();
         }
     }
 
-    void Randomizer()
+    void WalkingRandomizer()
     {
         _rnd = Random.Range(1, 11);
 
         switch (_rnd)
         {
             case 1:
-                _audioSrc.clip = _runningOnGrass1;
+                _walkingSrc.clip = _runningOnGrass1;
                 break;
             case 2:
-                _audioSrc.clip = _runningOnGrass2;
+                _walkingSrc.clip = _runningOnGrass2;
                 break;
             case 3:
-                _audioSrc.clip = _runningOnGrass3;
+                _walkingSrc.clip = _runningOnGrass3;
                 break;
             case 4:
-                _audioSrc.clip = _runningOnGrass4;
+                _walkingSrc.clip = _runningOnGrass4;
                 break;
             case 5:
-                _audioSrc.clip = _runningOnGrass5;
+                _walkingSrc.clip = _runningOnGrass5;
                 break;
             case 6:
-                _audioSrc.clip = _runningOnGrass6;
+                _walkingSrc.clip = _runningOnGrass6;
                 break;
             case 7:
-                _audioSrc.clip = _runningOnGrass7;
+                _walkingSrc.clip = _runningOnGrass7;
                 break;
             case 8:
-                _audioSrc.clip = _runningOnGrass8;
+                _walkingSrc.clip = _runningOnGrass8;
                 break;
             case 9:
-                _audioSrc.clip = _runningOnGrass9;
+                _walkingSrc.clip = _runningOnGrass9;
                 break;
             case 10:
-                _audioSrc.clip = _runningOnGrass10;
+                _walkingSrc.clip = _runningOnGrass10;
                 break;
         }
     }
