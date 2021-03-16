@@ -44,11 +44,10 @@ public class MeleeAttack : MonoBehaviour
             if (_isAttackOnCooldown)
                 return;
 
-            other.GetComponent<HealthSystem>().AddDamage(_damage);
-
-            _isAttackOnCooldown = true;
-
-            Invoke("EndAttackCooldown", _cooldown);
+            if (other.gameObject.tag != "Player")
+            {
+                other.GetComponent<HealthSystem>().AddDamage(_damage);
+            }
         }
     }
 
