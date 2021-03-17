@@ -51,6 +51,7 @@ public class HealthBar : MonoBehaviour
         if (player.GetComponent<HealthSystem>()._damageTaken)
         {
             damageTaken.SetActive(true);
+            damageTaken.GetComponent<Image>().CrossFadeAlpha(0, 0.5f, false);
         }
 
         else
