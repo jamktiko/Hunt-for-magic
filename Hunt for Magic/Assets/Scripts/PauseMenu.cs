@@ -24,6 +24,10 @@ public class PauseMenu : MonoBehaviour
     {
         _player = GameObject.Find("PlayerCharacter");
         _crosshair = GameObject.Find("Crosshair");
+
+        _resume.onClick.AddListener(ContinueGame);
+
+        _mainMenu.onClick.AddListener(MainMenu);
     }
 
     // Update is called once per frame
@@ -36,10 +40,6 @@ public class PauseMenu : MonoBehaviour
                 PauseGame();
             }
         }
-
-        _resume.onClick.AddListener(ContinueGame);
-
-        _mainMenu.onClick.AddListener(MainMenu);
     }
 
     private void PauseGame()
