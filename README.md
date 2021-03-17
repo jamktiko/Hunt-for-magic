@@ -9,9 +9,15 @@ This is our school project to create a interesting game demo in four months.
  
  # Our team
  Tomi Asikainen - Product owner + Content production
+ 
  Eetu Pitkänen - Scrum master + Content production
+ 
  Niko Hokkanen - Tester + Coder
+ 
  Arttu Rintamäki - Business
+ 
  Ville-Veikko Taskinen - Contet Production
+ 
  Riku Juvonen - Coder
+ 
  Arttu Pylkkö - Coder
