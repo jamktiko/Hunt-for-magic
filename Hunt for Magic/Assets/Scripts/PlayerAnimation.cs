@@ -37,13 +37,13 @@ public class PlayerAnimation : MonoBehaviour
         {
             anim.SetTrigger("Casting");
 
-            if (Input.GetMouseButtonDown(0))
+            if (Input.GetMouseButtonDown(0) && GetComponentInParent<EnergySystem>()._currentEnergy > 5f)
             {
                 anim.SetBool("CastingOn", true); //Jatkaa casting-animaatiota, jos pelaaja pitää hiirtä pohjassa
             }
         }
 
-        if (Input.GetMouseButtonUp(0))
+        if (Input.GetMouseButtonUp(0) || GetComponentInParent<EnergySystem>()._currentEnergy < 5f)
         {
             anim.SetBool("CastingOn", false);
         }
