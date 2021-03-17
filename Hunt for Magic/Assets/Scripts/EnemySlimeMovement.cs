@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemySlimeMovement : MonoBehaviour
 {
     private float jump = 3;
-    private float speed = 3;
+    public float speed = 3;
     private float attackDamage = 5f;
     private Rigidbody enemyRB;
     private GameObject lookDirectionNode;
@@ -18,6 +18,8 @@ public class EnemySlimeMovement : MonoBehaviour
     public bool attackTrigger2 = true;
     public bool chargeTrigger = true;
     public float chargeAttackRoller;
+    public bool isChargeAttacking = false;
+    public bool animationReady = false;
 
     // Start is called before the first frame update
     void Start()
@@ -37,14 +39,18 @@ public class EnemySlimeMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Vector3.Distance(player.transform.position, enemyRB.transform.position) < 15)
-        { 
-            inRange = true; 
+        if (player != null)
+        {
+            if (Vector3.Distance(player.transform.position, enemyRB.transform.position) < 15)
+            {
+                inRange = true;
+            }
+            else inRange = false;
         }
-        else inRange = false;
 
         if (chargeTrigger)
         {
+            isChargeAttacking = true;
             StartCoroutine(chargeTimer());
         }
         else
@@ -65,7 +71,7 @@ public class EnemySlimeMovement : MonoBehaviour
                 lookDirectionNode.transform.localPosition = new Vector3(LD1,0,LD2);
                 
             }
-            else if (inRange && touchGround)
+            else if (inRange && touchGround) //chase command
             {
                 StartCoroutine(jumpPhaser());
                 Vector3 lookDirection = (player.transform.position - transform.position).normalized; // search for player
@@ -106,7 +112,7 @@ public class EnemySlimeMovement : MonoBehaviour
                 attackTrigger1 = false;
                 attackTrigger2 = false;
                 chargeTrigger = true;
-
+                gameObject.GetComponentInChildren<SlimeAnimation>()._chargeAttack = true;
             }
         }
 
@@ -121,8 +127,12 @@ public class EnemySlimeMovement : MonoBehaviour
     IEnumerator chargeTimer()
     {
         enemyRB.velocity = Vector3.zero;
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(0.8f);
+        animationReady = true;
+        yield return new WaitForSeconds(1.2f);
         chargeTrigger = false;
+        isChargeAttacking = false;
+        animationReady = false;
     }
 
     IEnumerator jumpPhaser()

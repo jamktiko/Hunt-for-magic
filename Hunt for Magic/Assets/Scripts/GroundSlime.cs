@@ -5,13 +5,16 @@ using UnityEngine;
 public class GroundSlime : MonoBehaviour
 {
     private bool _slowed;
+    private bool DamageDealt;
 
     [SerializeField]
-    private float _playerSpeed = 1.8f;
+    private float _playerSpeed = 2.5f;
+    private float _damageAmount = 10f;
 
     private void Update()
     {
         Invoke("MovementReturn", 5f);
+        DamageOff();
         Destroy(gameObject, 5f);
     }
 
@@ -19,9 +22,27 @@ public class GroundSlime : MonoBehaviour
     {
         if (other.gameObject.tag == "Player" && _slowed == false)
         {
-            other.GetComponent<PlayerCharacterController>().speed /= 2f;
+            other.GetComponent<PlayerCharacterController>().speed = _playerSpeed / 2f;
 
             _slowed = true;
+
+            if (this.gameObject.name =="SlowingSlimeCharge" && !DamageDealt)
+            {
+                var enemy = other.gameObject.GetComponent<Rigidbody>();
+
+                var enemyHealth = other.gameObject.GetComponent<HealthSystem>();
+
+                 if (enemy != null)
+                 {
+                 DamageDealt = true;
+                 enemyHealth.AddDamage(_damageAmount);
+                 }
+
+            }
+            else
+            {
+
+            }
         }
     }
 
@@ -38,5 +59,11 @@ public class GroundSlime : MonoBehaviour
         GameObject.FindWithTag("Player").GetComponent<PlayerCharacterController>().speed = _playerSpeed;
 
         _slowed = false;
+    }
+
+    IEnumerator DamageOff()
+    {
+        yield return new WaitForSeconds(1.1f);
+        DamageDealt = true;
     }
 }

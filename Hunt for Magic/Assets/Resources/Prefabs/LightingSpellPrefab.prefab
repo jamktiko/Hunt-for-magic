@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8718254244820922036}
-  - component: {fileID: 4824001618098034725}
   - component: {fileID: 2452016617282404372}
-  - component: {fileID: 1190259757940699508}
+  - component: {fileID: 7729709095310313841}
+  - component: {fileID: 8130006469222615744}
   m_Layer: 0
   m_Name: LightingSpellPrefab
   m_TagString: Untagged
@@ -33,19 +33,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
---- !u!114 &4824001618098034725
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6952479942451807331}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dff706f432d342248bc8679f6705579d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _damageAmount: 15
 --- !u!136 &2452016617282404372
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -59,8 +46,8 @@ CapsuleCollider:
   m_Radius: 0.5000001
   m_Height: 2
   m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
---- !u!54 &1190259757940699508
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!54 &7729709095310313841
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -76,3 +63,16 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &8130006469222615744
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6952479942451807331}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dff706f432d342248bc8679f6705579d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _damageAmount: 15

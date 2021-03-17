@@ -66,7 +66,13 @@
     <Compile Include="Assets\Scripts\AdvancedAI.cs" />
     <Compile Include="Assets\Scripts\Buffs.cs" />
     <Compile Include="Assets\Scripts\ChainLightingSpell.cs" />
+    <Compile Include="Assets\Scripts\ColliderDestroy.cs" />
+    <Compile Include="Assets\Scripts\Cooldown.cs" />
     <Compile Include="Assets\Scripts\Debuffs.cs" />
+    <Compile Include="Assets\Scripts\DisplayCharge.cs" />
+    <Compile Include="Assets\Scripts\DodgeCooldown.cs" />
+    <Compile Include="Assets\Scripts\Dodgedash.cs" />
+    <Compile Include="Assets\Scripts\EnemyHealthbar.cs" />
     <Compile Include="Assets\Scripts\EnemySlimeMovement.cs" />
     <Compile Include="Assets\Scripts\EnergySystem.cs" />
     <Compile Include="Assets\Scripts\FireSpell.cs" />
@@ -78,10 +84,15 @@
     <Compile Include="Assets\Scripts\HealthSystem.cs" />
     <Compile Include="Assets\Scripts\LightingBoltSpell.cs" />
     <Compile Include="Assets\Scripts\LightingSpell.cs" />
+    <Compile Include="Assets\Scripts\MainMenu.cs" />
+    <Compile Include="Assets\Scripts\MainSpellImage.cs" />
     <Compile Include="Assets\Scripts\MeleeAttack.cs" />
+    <Compile Include="Assets\Scripts\MeleeCooldown.cs" />
+    <Compile Include="Assets\Scripts\PauseMenu.cs" />
     <Compile Include="Assets\Scripts\PlayerAnimation.cs" />
     <Compile Include="Assets\Scripts\PlayerCharacterController.cs" />
     <Compile Include="Assets\Scripts\PlayerDebuffs.cs" />
+    <Compile Include="Assets\Scripts\PlayerSounds.cs" />
     <Compile Include="Assets\Scripts\SlimeAnimation.cs" />
     <Compile Include="Assets\Scripts\SlimeDrop.cs" />
     <Compile Include="Assets\Scripts\SpellCasting.cs" />
@@ -642,6 +653,9 @@
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>C:/Users/tomsk/Desktop/koulutyö/TC8/Hunt-for-magic/Hunt for Magic/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.TerrainTools">
+      <HintPath>C:/Users/tomsk/Desktop/koulutyö/TC8/Hunt-for-magic/Hunt for Magic/Library/ScriptAssemblies/Unity.TerrainTools.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.RenderPipelines.Universal.Shaders">
       <HintPath>C:/Users/tomsk/Desktop/koulutyö/TC8/Hunt-for-magic/Hunt for Magic/Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Shaders.dll</HintPath>
     </Reference>
@@ -686,6 +700,9 @@
     </Reference>
     <Reference Include="Unity.TextMeshPro">
       <HintPath>C:/Users/tomsk/Desktop/koulutyö/TC8/Hunt-for-magic/Hunt for Magic/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.TerrainTools.Editor">
+      <HintPath>C:/Users/tomsk/Desktop/koulutyö/TC8/Hunt-for-magic/Hunt for Magic/Library/ScriptAssemblies/Unity.TerrainTools.Editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.UI">
       <HintPath>C:/Users/tomsk/Desktop/koulutyö/TC8/Hunt-for-magic/Hunt for Magic/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>

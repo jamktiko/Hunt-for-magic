@@ -8,6 +8,9 @@ public class SlimeAnimation : MonoBehaviour
 
     private Rigidbody _slime;
 
+    [HideInInspector]
+    public bool _chargeAttack;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -26,6 +29,12 @@ public class SlimeAnimation : MonoBehaviour
         if (_slime.velocity == Vector3.zero)
         {
             _anim.SetBool("Jump", false);
+        }
+
+        if (_chargeAttack)
+        {
+            _chargeAttack = false;
+            _anim.Play("SlimeCharged");
         }
 
         if (_slime.GetComponent<HealthSystem>().health == 0)

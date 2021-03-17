@@ -20,12 +20,20 @@ public class Debuffs : MonoBehaviour
 
     private HealthSystem _healthSystem;
 
-    private GameObject _onFirePrefab;
+    [HideInInspector]
+    public bool _stunned;
+
+    [SerializeField]
+    private GameObject _wetEffect;
+
+    [SerializeField]
+    private GameObject _onFireEffect;
 
     private void Start()
     {
         _onFire = false;
         _healthSystem = gameObject.GetComponent<HealthSystem>();
+        
     }
 
     // Update is called once per frame
@@ -39,17 +47,24 @@ public class Debuffs : MonoBehaviour
         if (_wet)
         {
             _onFire = false;
+            _wetEffect.SetActive(true);
             StartCoroutine("WaterStopper");
         }
 
         if (_onFire)
         {
+            _onFireEffect.SetActive(true);
             StartCoroutine("FireDamage");
         }
 
         if (_shocked)
         {
             StartCoroutine("ShockStopper");
+        }
+
+        if (_stunned)
+        {
+            StartCoroutine("StunStopper");
         }
     }
 
@@ -65,6 +80,7 @@ public class Debuffs : MonoBehaviour
         }
 
         _onFire = false;
+        _onFireEffect.SetActive(false);
     }
 
     private void Repeat()
@@ -96,6 +112,7 @@ public class Debuffs : MonoBehaviour
         }
 
         _wet = false;
+        _wetEffect.SetActive(false);
     }
 
     IEnumerator ShockStopper()
@@ -109,5 +126,19 @@ public class Debuffs : MonoBehaviour
         }
 
         _shocked = false;
+    }
+
+    IEnumerator StunStopper()
+    {
+        if (GetComponent<EnemySlimeMovement>().enabled)
+        {
+            GetComponent<EnemySlimeMovement>().speed = 0;
+
+            yield return new WaitForSeconds(1f);
+
+            GetComponent<EnemySlimeMovement>().speed = 3;
+        }
+
+        _stunned = false;
     }
 }

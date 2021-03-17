@@ -12,21 +12,47 @@ public class HealthSystem : MonoBehaviour
 
     public float health => _health;
 
+    public bool _damageTaken;
+
 
     public void AddDamage(float damage)
     {
-        _health -= damage;
+        if (gameObject.tag == "Player" && gameObject.GetComponent<Dodgedash>()._dodgeDash)
+        {
+            damage = 0;
+        }
+
+            _health -= damage;
+
+        if (gameObject.tag == "Player")
+        {
+            _damageTaken = true;
+
+            Invoke("DamageOff", 1f);
+        }
 
         if (_health <= 0)
         {
             _health = 0;
 
-            if (gameObject.name == "EnemySlimePrefab")
+            if (gameObject.name.Contains("EnemySlimePrefab"))
             {
                 gameObject.GetComponent<EnemySlimeMovement>().enabled = false;
-            }    
+            }
 
-            Destroy(gameObject, 2f);   //2 sekuntia aikaa kuolinanimaatiolle
+            if (gameObject.tag != "Player")
+            {
+                Destroy(gameObject, 2f);   //2 sekuntia aikaa kuolinanimaatiolle
+            }
+            else
+            {
+                GameObject.Find("Panel").GetComponent<GameOverScript>()._gameoverPanel.SetActive(true);
+            }
         }
+    }
+
+    private void DamageOff()
+    {
+        _damageTaken = false;
     }
 }

@@ -4,38 +4,39 @@ using UnityEngine;
 
 public class MeleeAttack : MonoBehaviour
 {
-
-    private bool _isAttackOnCooldown;
+    public bool _isAttackOnCooldown;
 
     [SerializeField]
     private float _damage = 5f;
 
+    public float _cooldown = 1.16f;
+
     [SerializeField]
-    private float _cooldown = 0.75f;
+    private Animator _anim;
+
+    [SerializeField]
+    private GameObject _meleeTrigger;
 
     // Start is called before the first frame update
     void Start()
     {
         _isAttackOnCooldown = false;
+        _meleeTrigger.SetActive(false);
     }
 
     // Update is called once per frame
-    void Update()
-    {
-
-    }
-
-    private void OnTriggerStay(Collider other)
+    void FixedUpdate()
     {
         if (Input.GetButton("Fire2"))
         {
             if (_isAttackOnCooldown)
                 return;
 
-            other.GetComponent<HealthSystem>().AddDamage(_damage);
+            _anim.SetTrigger("Melee");
+
+            StartCoroutine(Attack());
 
             _isAttackOnCooldown = true;
-
             Invoke("EndAttackCooldown", _cooldown);
         }
     }
@@ -43,5 +44,16 @@ public class MeleeAttack : MonoBehaviour
     void EndAttackCooldown()
     {
         _isAttackOnCooldown = false;
+    }
+
+    IEnumerator Attack()
+    {
+        yield return new WaitForSeconds(0.3f);
+
+        _meleeTrigger.SetActive(true);
+
+        yield return new WaitForSeconds(0.1f);
+
+        _meleeTrigger.SetActive(false);
     }
 }
