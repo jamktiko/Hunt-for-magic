@@ -77,6 +77,7 @@
     <Compile Include="Assets\Scripts\EnergySystem.cs" />
     <Compile Include="Assets\Scripts\FireSpell.cs" />
     <Compile Include="Assets\Scripts\FireballSpell.cs" />
+    <Compile Include="Assets\Scripts\GameOverScript.cs" />
     <Compile Include="Assets\Scripts\GroundFire.cs" />
     <Compile Include="Assets\Scripts\GroundSlime.cs" />
     <Compile Include="Assets\Scripts\GroundWater.cs" />
@@ -88,6 +89,7 @@
     <Compile Include="Assets\Scripts\MainSpellImage.cs" />
     <Compile Include="Assets\Scripts\MeleeAttack.cs" />
     <Compile Include="Assets\Scripts\MeleeCooldown.cs" />
+    <Compile Include="Assets\Scripts\MeleeTrigger.cs" />
     <Compile Include="Assets\Scripts\PauseMenu.cs" />
     <Compile Include="Assets\Scripts\PlayerAnimation.cs" />
     <Compile Include="Assets\Scripts\PlayerCharacterController.cs" />
