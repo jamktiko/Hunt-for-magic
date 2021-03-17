@@ -47,6 +47,7 @@ public class PauseMenu : MonoBehaviour
         _pausePanel.SetActive(true);
         _player.GetComponent<PlayerCharacterController>().enabled = false;
         _player.GetComponentInChildren<PlayerAnimation>().enabled = false;
+        _player.GetComponent<PlayerSounds>().enabled = false;
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
         _crosshair.SetActive(false);
@@ -58,6 +59,7 @@ public class PauseMenu : MonoBehaviour
         _pausePanel.SetActive(false);
         _player.GetComponent<PlayerCharacterController>().enabled = true;
         _player.GetComponentInChildren<PlayerAnimation>().enabled = true;
+        _player.GetComponent<PlayerSounds>().enabled = true;
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
         _crosshair.SetActive(true);
@@ -66,6 +68,12 @@ public class PauseMenu : MonoBehaviour
 
     private void MainMenu()
     {
+        _pausePanel.SetActive(false);
+        _player.GetComponent<PlayerCharacterController>().enabled = true;
+        _player.GetComponentInChildren<PlayerAnimation>().enabled = true;
+        _player.GetComponent<PlayerSounds>().enabled = true;
+        _crosshair.SetActive(true);
+        Time.timeScale = 1;
         SceneManager.LoadScene(0);
     }
 }
