@@ -4,14 +4,17 @@ using UnityEngine;
 
 public class MeleeAttack : MonoBehaviour
 {
-
-    private bool _isAttackOnCooldown;
+    public static bool _isAttackOnCooldown;
 
     [SerializeField]
     private float _damage = 5f;
 
+
     [SerializeField]
-    private float _cooldown = 0.75f;
+    public float _cooldown = 1.16f;
+
+    [SerializeField]
+    private Animator _anim;
 
     // Start is called before the first frame update
     void Start()
@@ -22,7 +25,16 @@ public class MeleeAttack : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetButton("Fire2"))
+        {
+            if (_isAttackOnCooldown)
+                return;
 
+            _anim.SetTrigger("Melee");
+
+            _isAttackOnCooldown = true;
+            Invoke("EndAttackCooldown", _cooldown);
+        }
     }
 
     private void OnTriggerStay(Collider other)
@@ -32,11 +44,10 @@ public class MeleeAttack : MonoBehaviour
             if (_isAttackOnCooldown)
                 return;
 
-            other.GetComponent<HealthSystem>().AddDamage(_damage);
-
-            _isAttackOnCooldown = true;
-
-            Invoke("EndAttackCooldown", _cooldown);
+            if (other.gameObject.tag != "Player")
+            {
+                other.GetComponent<HealthSystem>().AddDamage(_damage);
+            }
         }
     }
 
