@@ -20,10 +20,10 @@ public class MeleeCooldown : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (MeleeAttack._isAttackOnCooldown)
+        if (_player.GetComponentInChildren<MeleeAttack>()._isAttackOnCooldown)
         {
             _cooldown.enabled = true;
-            _cooldown.fillAmount -= 1.0f / 1.2f * Time.deltaTime;
+            _cooldown.fillAmount -= 1.0f / 1.16f * Time.deltaTime;
         }
         else
         {
