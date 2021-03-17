@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MeleeAttack : MonoBehaviour
 {
-    public static bool _isAttackOnCooldown;
+    public bool _isAttackOnCooldown;
 
     [SerializeField]
     private float _damage = 5f;
@@ -25,7 +25,7 @@ public class MeleeAttack : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         if (Input.GetButton("Fire2"))
         {
