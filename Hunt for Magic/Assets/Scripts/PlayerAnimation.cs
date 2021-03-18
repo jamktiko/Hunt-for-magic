@@ -37,32 +37,35 @@ public class PlayerAnimation : MonoBehaviour
         {
             anim.SetTrigger("Casting");
 
-            if (Input.GetMouseButtonDown(0))
+            if (Input.GetMouseButtonDown(0) && GetComponentInParent<EnergySystem>()._currentEnergy > 5f)
             {
                 anim.SetBool("CastingOn", true); //Jatkaa casting-animaatiota, jos pelaaja pitää hiirtä pohjassa
             }
         }
 
-        if (Input.GetMouseButtonUp(0))
+        if (Input.GetMouseButtonUp(0) || GetComponentInParent<EnergySystem>()._currentEnergy < 5f)
         {
             anim.SetBool("CastingOn", false);
         }
 
-        if (Input.GetMouseButtonDown(1))
-        {
-            anim.SetTrigger("Melee");
-        }
-
-        if (Input.GetKeyDown("w") || Input.GetKeyDown("a") || Input.GetKeyDown("s") || Input.GetKeyDown("d"))
+        if (Input.GetKey("w") || Input.GetKey("a") || Input.GetKey("s") || Input.GetKey("d"))
         {
             anim.SetBool("Move", true);
         }
 
-        else if (Input.anyKey == false)
+        else
         {
             anim.SetBool("Move", false); //Lopettaa kävelyanimaation tarvittaessa
         }
 
+        if (_player.GetComponent<PlayerCharacterController>().speed == 6.25f)
+        {
+            anim.SetBool("Dodgedash", true);
+        }
 
+        else
+        {
+            anim.SetBool("Dodgedash", false);
+        }
     }
 }

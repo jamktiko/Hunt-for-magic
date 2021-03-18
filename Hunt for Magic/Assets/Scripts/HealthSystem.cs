@@ -28,7 +28,7 @@ public class HealthSystem : MonoBehaviour
         {
             _damageTaken = true;
 
-            Invoke("DamageOff", 0.5f);
+            Invoke("DamageOff", 1f);
         }
 
         if (_health <= 0)
@@ -38,9 +38,16 @@ public class HealthSystem : MonoBehaviour
             if (gameObject.name.Contains("EnemySlimePrefab"))
             {
                 gameObject.GetComponent<EnemySlimeMovement>().enabled = false;
-            }    
+            }
 
-            Destroy(gameObject, 2f);   //2 sekuntia aikaa kuolinanimaatiolle
+            if (gameObject.tag != "Player")
+            {
+                Destroy(gameObject, 2f);   //2 sekuntia aikaa kuolinanimaatiolle
+            }
+            else
+            {
+                GameObject.Find("Panel").GetComponent<GameOverScript>()._gameoverPanel.SetActive(true);
+            }
         }
     }
 

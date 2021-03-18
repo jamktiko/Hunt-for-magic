@@ -22,7 +22,7 @@ public class GroundSlime : MonoBehaviour
     {
         if (other.gameObject.tag == "Player" && _slowed == false)
         {
-            other.GetComponent<PlayerCharacterController>().speed /= 2f;
+            other.GetComponent<PlayerCharacterController>().speed = _playerSpeed / 2f;
 
             _slowed = true;
 

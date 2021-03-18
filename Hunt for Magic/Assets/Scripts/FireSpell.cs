@@ -29,7 +29,7 @@ public class FireSpell : MonoBehaviour
 
         var enemyHealth = other.gameObject.GetComponent<HealthSystem>();
 
-        if (enemy != null && enemy.name != "PlayerCharacter")
+        if (enemy != null && enemy.tag == "Monster")
         {
             if (enemy.GetComponent<Debuffs>()._wet == true)
             {
