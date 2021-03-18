@@ -598,11 +598,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemySlimePrefab
       objectReference: {fileID: 0}
-    - target: {fileID: 6893892525520940796, guid: a6a44eab725b9f044b88dad8a23c10af,
-        type: 3}
-      propertyPath: m_Constraints
-      value: 112
-      objectReference: {fileID: 0}
     - target: {fileID: 6893892525520940797, guid: a6a44eab725b9f044b88dad8a23c10af,
         type: 3}
       propertyPath: m_RootOrder
@@ -656,11 +651,6 @@ PrefabInstance:
     - target: {fileID: 6893892525520940797, guid: a6a44eab725b9f044b88dad8a23c10af,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8983533158999772186, guid: a6a44eab725b9f044b88dad8a23c10af,
-        type: 3}
-      propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
