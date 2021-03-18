@@ -44,6 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4186b0803291834b997dcf8e8790696, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _isAttackOnCooldown: 0
   _damage: 5
   _cooldown: 1.16
   _anim: {fileID: 7889203802875422247}
@@ -5523,8 +5524,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _anim: {fileID: 7889203802875422247}
   _walkingSrc: {fileID: 1987628948}
-  _fireSrc: {fileID: 1285839465180032608}
-  _fire: 0
+  _spellSrc: {fileID: 1285839465180032608}
   _runningOnGrass1: {fileID: 8300000, guid: 435432b8c5d61e641983b009d47afc97, type: 3}
   _runningOnGrass2: {fileID: 8300000, guid: c7c6f432726d0bc4a8e3c63c84419da5, type: 3}
   _runningOnGrass3: {fileID: 8300000, guid: ed438539192f2d4488185bc452f918b1, type: 3}
@@ -5537,6 +5537,7 @@ MonoBehaviour:
   _runningOnGrass10: {fileID: 8300000, guid: 2dd0464da5d00d94da413ea608a18698, type: 3}
   _flameThrower1: {fileID: 8300000, guid: 720f8cee6f4c3f140bb69c5d24335d09, type: 3}
   _flameThrower2: {fileID: 8300000, guid: ad39be6ec08a7d24a9f0e58fde071187, type: 3}
+  _electricity1: {fileID: 8300000, guid: 36afb69354887144ea1322a7d2fe68dd, type: 3}
 --- !u!1 &4590092344485926886
 GameObject:
   m_ObjectHideFlags: 0

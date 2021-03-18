@@ -11,14 +11,17 @@ public class PlayerSounds : MonoBehaviour
     private AudioSource _walkingSrc;
 
     [SerializeField]
-    private AudioSource _fireSrc;
+    private AudioSource _spellSrc;
 
     private bool _move;
 
-    [SerializeField]
     private bool _fire;
 
+    private bool _elec;
+
     private int _rnd;
+
+    private bool _empty;
 
     public AudioClip _runningOnGrass1;
     public AudioClip _runningOnGrass2;
@@ -34,6 +37,8 @@ public class PlayerSounds : MonoBehaviour
     public AudioClip _flameThrower1;
     public AudioClip _flameThrower2;
 
+    public AudioClip _electricity1;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -43,6 +48,16 @@ public class PlayerSounds : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (GetComponent<SpellCasting>().ammoCount == 0)
+        {
+            Invoke("Empty", 0.1f);
+        }
+
+        else
+        {
+            _empty = false;
+        }
+
         if (GetComponent<CharacterController>().isGrounded && GetComponent<PlayerCharacterController>().speed == 2.5f && (Input.GetKey("w") || Input.GetKey("a") || Input.GetKey("s") || Input.GetKey("d")))
         {
             _move = true;
@@ -62,6 +77,15 @@ public class PlayerSounds : MonoBehaviour
             _fire = false;
         }
 
+        if (GetComponent<SpellCasting>()._spellPrefab.name == "Electricity" && Input.GetButton("Fire1"))
+        {
+            _elec = true;
+        }
+        else
+        {
+            _elec = false;
+        }
+
         if (_move == true && _walkingSrc.isPlaying == false)
         {
             WalkingRandomizer();
@@ -73,25 +97,32 @@ public class PlayerSounds : MonoBehaviour
             _walkingSrc.Stop();
         }
 
-        if (_fire == true && _fireSrc.isPlaying == false)
+        if (_fire == true && _spellSrc.isPlaying == false)
         {
             _rnd = Random.Range(1, 3);
 
             if (_rnd == 1)
             {
-                _fireSrc.clip = _flameThrower1;
+                _spellSrc.clip = _flameThrower1;
             }
             else if (_rnd == 2)
             {
-                _fireSrc.clip = _flameThrower2;
+                _spellSrc.clip = _flameThrower2;
             }
 
-            _fireSrc.Play();
+            _spellSrc.Play();
         }
-        
-        if (_fire == false)
+
+        if (_elec == true && _spellSrc.isPlaying == false && !_empty)
         {
-            _fireSrc.Stop();
+            _spellSrc.clip = _electricity1;
+
+            _spellSrc.Play();
+        }
+
+        if (_fire == false && _elec == false)
+        {
+            _spellSrc.Stop();
         }
     }
 
@@ -132,5 +163,10 @@ public class PlayerSounds : MonoBehaviour
                 _walkingSrc.clip = _runningOnGrass10;
                 break;
         }
+    }
+
+    void Empty()
+    {
+        _empty = true;
     }
 }
