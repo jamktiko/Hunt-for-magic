@@ -132,7 +132,7 @@ public class EnemySlimeMovement : MonoBehaviour
             enemyHealth.AddDamage(attackDamage);
         }
 
-        if (collision.gameObject.name == "ChainLightning")
+        if (collision.gameObject.name == "ChainHitBox")
         {
             clHit = true;
         }

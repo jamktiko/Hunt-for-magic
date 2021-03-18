@@ -4838,7 +4838,7 @@ PrefabInstance:
     - target: {fileID: 6952479942451807331, guid: 01cbb3bb515f1704499c59900e48e410,
         type: 3}
       propertyPath: m_Name
-      value: LightingSpellPrefab
+      value: ChainHitBox
       objectReference: {fileID: 0}
     - target: {fileID: 8718254244820922036, guid: 01cbb3bb515f1704499c59900e48e410,
         type: 3}
@@ -4895,8 +4895,7 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 8130006469222615744, guid: 01cbb3bb515f1704499c59900e48e410, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 01cbb3bb515f1704499c59900e48e410, type: 3}
 --- !u!1 &1345863350358823797 stripped
 GameObject:
