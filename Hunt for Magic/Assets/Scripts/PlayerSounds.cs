@@ -17,11 +17,7 @@ public class PlayerSounds : MonoBehaviour
 
     private bool _fire;
 
-    private bool _elec;
-
     private int _rnd;
-
-    private bool _empty;
 
     public AudioClip _runningOnGrass1;
     public AudioClip _runningOnGrass2;
@@ -37,8 +33,6 @@ public class PlayerSounds : MonoBehaviour
     public AudioClip _flameThrower1;
     public AudioClip _flameThrower2;
 
-    public AudioClip _electricity1;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -46,19 +40,9 @@ public class PlayerSounds : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        if (GetComponent<SpellCasting>().ammoCount == 0)
-        {
-            Invoke("Empty", 0.1f);
-        }
-
-        else
-        {
-            _empty = false;
-        }
-
-        if (GetComponent<CharacterController>().isGrounded && GetComponent<PlayerCharacterController>().speed == 2.5f && (Input.GetKey("w") || Input.GetKey("a") || Input.GetKey("s") || Input.GetKey("d")))
+        if (GetComponent<CharacterController>().isGrounded && GetComponent<PlayerCharacterController>().speed == 2.5f && (Input.GetKey("w") | Input.GetKey("a") | Input.GetKey("s") | Input.GetKey("d")))
         {
             _move = true;
         }
@@ -75,15 +59,6 @@ public class PlayerSounds : MonoBehaviour
         else
         {
             _fire = false;
-        }
-
-        if (GetComponent<SpellCasting>()._spellPrefab.name == "Electricity" && Input.GetButton("Fire1"))
-        {
-            _elec = true;
-        }
-        else
-        {
-            _elec = false;
         }
 
         if (_move == true && _walkingSrc.isPlaying == false)
@@ -113,16 +88,12 @@ public class PlayerSounds : MonoBehaviour
             _spellSrc.Play();
         }
 
-        if (_elec == true && _spellSrc.isPlaying == false && !_empty)
+        if (GetComponent<SpellCasting>()._spellPrefab.name == "Flamethrower_particle" | GetComponent<EnergySystem>()._currentEnergy > 5)
         {
-            _spellSrc.clip = _electricity1;
-
-            _spellSrc.Play();
-        }
-
-        if (_fire == false && _elec == false)
-        {
-            _spellSrc.Stop();
+            if (Input.GetButtonUp("Fire1"))
+            {
+                _spellSrc.Stop();
+            }
         }
     }
 
@@ -163,10 +134,5 @@ public class PlayerSounds : MonoBehaviour
                 _walkingSrc.clip = _runningOnGrass10;
                 break;
         }
-    }
-
-    void Empty()
-    {
-        _empty = true;
     }
 }
