@@ -20,10 +20,13 @@ public class EnemySlimeMovement : MonoBehaviour
     public float chargeAttackRoller;
     public bool isChargeAttacking = false;
     public bool animationReady = false;
+    public bool clHit;
+    private bool clWait;
 
     // Start is called before the first frame update
     void Start()
     {
+        clHit = false;
         touchGround = false;
         attackTrigger2 = false;
         attackTrigger1 = false;
@@ -39,6 +42,11 @@ public class EnemySlimeMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (clHit && !clWait)
+        {
+            CLcooldown();
+        }
+
         if (player != null)
         {
             if (Vector3.Distance(player.transform.position, enemyRB.transform.position) < 15)
@@ -53,6 +61,7 @@ public class EnemySlimeMovement : MonoBehaviour
             isChargeAttacking = true;
             StartCoroutine(chargeTimer());
         }
+
         else
         {
 
@@ -122,6 +131,11 @@ public class EnemySlimeMovement : MonoBehaviour
             var enemyHealth = collision.gameObject.GetComponent<HealthSystem>();
             enemyHealth.AddDamage(attackDamage);
         }
+
+        if (collision.gameObject.name == "ChainHitBox")
+        {
+            clHit = true;
+        }
     }
 
     IEnumerator chargeTimer()
@@ -139,5 +153,13 @@ public class EnemySlimeMovement : MonoBehaviour
     {
         enemyRB.velocity = Vector3.zero;
         yield return new WaitForSeconds(1f);
+    }
+
+    IEnumerator CLcooldown()
+    {
+        clWait = true;
+        yield return new WaitForSeconds(1.3f);
+        clWait = false;
+        clHit = false;
     }
 }
