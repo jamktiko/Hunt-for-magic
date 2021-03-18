@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class SpellCasting : MonoBehaviour  // Tämä scripti liitetään pelaajaan
 {
     [SerializeField]
-    private Object _spellPrefab;
+    public Object _spellPrefab;
 
     private Transform _castingPoint;
     private Transform _waterCastingPoint;
@@ -109,7 +109,7 @@ public class SpellCasting : MonoBehaviour  // Tämä scripti liitetään pelaaja
                 Instantiate(_spellPrefab, _castingPoint.position, _castingPoint.rotation);
 
                 _spellCooldown = true;
-                Invoke("EndCooldown", _spellInterval);
+                StartCoroutine("EndCooldown");
             }
 
             if (_spellPrefab.name == "Flamethrower_particle")
@@ -136,7 +136,7 @@ public class SpellCasting : MonoBehaviour  // Tämä scripti liitetään pelaaja
 
                 _spellCooldown = true;
 
-                Invoke("EndCooldown", _spellInterval);
+                StartCoroutine("EndCooldown");
             }
 
             if (_spellPrefab.name == "Electricity")
@@ -155,7 +155,7 @@ public class SpellCasting : MonoBehaviour  // Tämä scripti liitetään pelaaja
 
                 _spellCooldown = true;
 
-                Invoke("EndCooldown", _spellInterval);
+                StartCoroutine("EndCooldown");
             }
 
             if (_spellPrefab.name == "Fireball")
@@ -170,7 +170,7 @@ public class SpellCasting : MonoBehaviour  // Tämä scripti liitetään pelaaja
 
                 _spellCooldown = true;
 
-                Invoke("EndCooldown", _spellInterval);
+                StartCoroutine("EndCooldown");
             }
 
             if (_spellPrefab.name == "ChainLightning")
@@ -217,10 +217,10 @@ public class SpellCasting : MonoBehaviour  // Tämä scripti liitetään pelaaja
                 {
                     spellCharge = chargeCounter;
                     canChargeSpell = false;
-                    Instantiate(_spellPrefab, _castingPoint.position, _castingPoint.rotation);                 
+                    Instantiate(_spellPrefab, _castingPoint.position, _castingPoint.rotation);
                     alreadyCast = true;
                     chargeChancerCooldown = false;
-                    Invoke("EndCooldown", _spellInterval);
+                    StartCoroutine("EndCooldown");
                     chargeCounter = 0;
                 }
 
@@ -231,7 +231,7 @@ public class SpellCasting : MonoBehaviour  // Tämä scripti liitetään pelaaja
                     Instantiate(_spellPrefab, _castingPoint.position, _castingPoint.rotation);
                     alreadyCast = true;
                     chargeChancerCooldown = false;
-                    Invoke("EndCooldown", _spellInterval);
+                    StartCoroutine("EndCooldown");
                     chargeCounter = 0;
                 }
             }
@@ -243,28 +243,30 @@ public class SpellCasting : MonoBehaviour  // Tämä scripti liitetään pelaaja
         }
     }
 
-        public void EndCooldown()
-        {
-            _spellCooldown = false;
-        }
+    public IEnumerator EndCooldown()
+    {
+        yield return new WaitForSeconds(_spellInterval);
+
+        _spellCooldown = false;
+    }
 
 
-        IEnumerator ammoChangerInitiate()
+    IEnumerator ammoChangerInitiate()
+    {
+        yield return new WaitForSeconds(3.5f);
+        if (canCharge)
         {
-            yield return new WaitForSeconds(3.5f);
-            if (canCharge)
+            if (ammoChangerCooldown)
             {
-                if (ammoChangerCooldown)
-                {
-                    ammoChangerCooldown = false;
+                ammoChangerCooldown = false;
 
-                    if (ammoCount < maxAmmo)
-                    {
+                if (ammoCount < maxAmmo)
+                {
                     ammoCount = ammoCount + ammoChanger;
-                    }
                 }
             }
         }
+    }
 
     IEnumerator ChargeCooldown()
     {

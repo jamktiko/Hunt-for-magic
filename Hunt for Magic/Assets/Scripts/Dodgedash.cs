@@ -11,7 +11,9 @@ public class Dodgedash : MonoBehaviour
     public bool _dodgeDash;
 
     [SerializeField]
-    private bool _coolDown;
+    public bool _coolDown;
+
+    public float _coolDownTimer = 5.0f;
 
     // Start is called before the first frame update
     void Start()
@@ -20,7 +22,7 @@ public class Dodgedash : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         if (Input.GetKey(KeyCode.LeftShift) && _coolDown == false)
         {
@@ -42,7 +44,7 @@ public class Dodgedash : MonoBehaviour
 
         _dodgeDash = false;
 
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(_coolDownTimer);
 
         _coolDown = false;
     }
