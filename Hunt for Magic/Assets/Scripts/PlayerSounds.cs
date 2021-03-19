@@ -88,9 +88,9 @@ public class PlayerSounds : MonoBehaviour
             _spellSrc.Play();
         }
 
-        if (GetComponent<SpellCasting>()._spellPrefab.name == "Flamethrower_particle" | GetComponent<EnergySystem>()._currentEnergy > 5)
+        if (GetComponent<SpellCasting>()._spellPrefab.name == "Flamethrower_particle")
         {
-            if (Input.GetButtonUp("Fire1"))
+            if (Input.GetButtonUp("Fire1") | GetComponent<EnergySystem>()._currentEnergy < 5)
             {
                 _spellSrc.Stop();
             }
