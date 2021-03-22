@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8718254244820922036}
   - component: {fileID: 2452016617282404372}
   - component: {fileID: 7729709095310313841}
-  - component: {fileID: 8130006469222615744}
+  - component: {fileID: 5705343545405573048}
   m_Layer: 0
   m_Name: LightingSpellPrefab
   m_TagString: Untagged
@@ -63,7 +63,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &8130006469222615744
+--- !u!114 &5705343545405573048
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

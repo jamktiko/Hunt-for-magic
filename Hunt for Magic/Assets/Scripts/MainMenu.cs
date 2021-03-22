@@ -15,15 +15,15 @@ public class MainMenu : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        _newGame.onClick.AddListener(NewGame);
+
+        _exitGame.onClick.AddListener(ExitGame);
     }
 
     // Update is called once per frame
     void Update()
     {
-        _newGame.onClick.AddListener(NewGame);
 
-        _exitGame.onClick.AddListener(ExitGame);
     }
 
     private void NewGame()
