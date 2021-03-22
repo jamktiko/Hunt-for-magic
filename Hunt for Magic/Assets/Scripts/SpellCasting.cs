@@ -41,7 +41,7 @@ public class SpellCasting : MonoBehaviour  // Tämä scripti liitetään pelaaja
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
         if (Input.GetKeyDown("1"))
         {
@@ -109,7 +109,7 @@ public class SpellCasting : MonoBehaviour  // Tämä scripti liitetään pelaaja
                 Instantiate(_spellPrefab, _castingPoint.position, _castingPoint.rotation);
 
                 _spellCooldown = true;
-                StartCoroutine("EndCooldown");
+                StartCoroutine(EndCooldown());
             }
 
             if (_spellPrefab.name == "Flamethrower_particle")
@@ -136,7 +136,7 @@ public class SpellCasting : MonoBehaviour  // Tämä scripti liitetään pelaaja
 
                 _spellCooldown = true;
 
-                StartCoroutine("EndCooldown");
+                StartCoroutine(EndCooldown());
             }
 
             if (_spellPrefab.name == "Electricity")
@@ -155,7 +155,7 @@ public class SpellCasting : MonoBehaviour  // Tämä scripti liitetään pelaaja
 
                 _spellCooldown = true;
 
-                StartCoroutine("EndCooldown");
+                StartCoroutine(EndCooldown());
             }
 
             if (_spellPrefab.name == "Fireball")
@@ -170,7 +170,7 @@ public class SpellCasting : MonoBehaviour  // Tämä scripti liitetään pelaaja
 
                 _spellCooldown = true;
 
-                StartCoroutine("EndCooldown");
+                StartCoroutine(EndCooldown());
             }
 
             if (_spellPrefab.name == "ChainLightning")
@@ -220,7 +220,7 @@ public class SpellCasting : MonoBehaviour  // Tämä scripti liitetään pelaaja
                     Instantiate(_spellPrefab, _castingPoint.position, _castingPoint.rotation);
                     alreadyCast = true;
                     chargeChancerCooldown = false;
-                    StartCoroutine("EndCooldown");
+                    StartCoroutine(EndCooldown());
                     chargeCounter = 0;
                 }
 
@@ -231,7 +231,7 @@ public class SpellCasting : MonoBehaviour  // Tämä scripti liitetään pelaaja
                     Instantiate(_spellPrefab, _castingPoint.position, _castingPoint.rotation);
                     alreadyCast = true;
                     chargeChancerCooldown = false;
-                    StartCoroutine("EndCooldown");
+                    StartCoroutine(EndCooldown());
                     chargeCounter = 0;
                 }
             }

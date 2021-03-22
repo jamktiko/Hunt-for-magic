@@ -11,11 +11,10 @@ public class PlayerSounds : MonoBehaviour
     private AudioSource _walkingSrc;
 
     [SerializeField]
-    private AudioSource _fireSrc;
+    private AudioSource _spellSrc;
 
     private bool _move;
 
-    [SerializeField]
     private bool _fire;
 
     private int _rnd;
@@ -41,9 +40,9 @@ public class PlayerSounds : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        if (GetComponent<CharacterController>().isGrounded && GetComponent<PlayerCharacterController>().speed == 2.5f && (Input.GetKey("w") || Input.GetKey("a") || Input.GetKey("s") || Input.GetKey("d")))
+        if (GetComponent<CharacterController>().isGrounded && GetComponent<PlayerCharacterController>().speed == 2.5f && (Input.GetKey("w") | Input.GetKey("a") | Input.GetKey("s") | Input.GetKey("d")))
         {
             _move = true;
         }
@@ -73,25 +72,28 @@ public class PlayerSounds : MonoBehaviour
             _walkingSrc.Stop();
         }
 
-        if (_fire == true && _fireSrc.isPlaying == false)
+        if (_fire == true && _spellSrc.isPlaying == false)
         {
             _rnd = Random.Range(1, 3);
 
             if (_rnd == 1)
             {
-                _fireSrc.clip = _flameThrower1;
+                _spellSrc.clip = _flameThrower1;
             }
             else if (_rnd == 2)
             {
-                _fireSrc.clip = _flameThrower2;
+                _spellSrc.clip = _flameThrower2;
             }
 
-            _fireSrc.Play();
+            _spellSrc.Play();
         }
-        
-        if (_fire == false)
+
+        if (GetComponent<SpellCasting>()._spellPrefab.name == "Flamethrower_particle")
         {
-            _fireSrc.Stop();
+            if (Input.GetButtonUp("Fire1") | GetComponent<EnergySystem>()._currentEnergy < 5)
+            {
+                _spellSrc.Stop();
+            }
         }
     }
 

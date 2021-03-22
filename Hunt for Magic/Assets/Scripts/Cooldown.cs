@@ -17,7 +17,7 @@ public class Cooldown : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         if (SpellCasting._spellCooldown == true)
         {
