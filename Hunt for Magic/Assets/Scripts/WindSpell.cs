@@ -12,12 +12,18 @@ public class WindSpell : MonoBehaviour  //Tämä scripti liitetään WindEffect-
 
     private Transform _castingPoint;
 
+    private Object _rocketjumpTrigger;
+
+    private Vector3 _forward;
+
 
     // Start is called before the first frame update
     void Start()
     {
         _castingPoint = GameObject.Find("CastingPoint").GetComponent<Transform>();
         gameObject.GetComponent<Rigidbody>().AddForce(_castingPoint.forward * _speed, ForceMode.Impulse);
+        _rocketjumpTrigger = Resources.Load("Prefabs/RocketjumpTrigger");
+        _forward = new Vector3(_castingPoint.forward.x, 0.1f, _castingPoint.forward.z);
     }
 
     // Update is called once per frame
@@ -53,8 +59,17 @@ public class WindSpell : MonoBehaviour  //Tämä scripti liitetään WindEffect-
             {
                 other.GetComponent<Debuffs>()._stunned = true;
             }
-            enemy.AddForce(0, 3f, 10f, ForceMode.Impulse);
+
             enemyHealth.AddDamage(_damageAmount);
+
+            enemy.AddForce(_forward * (20f - Vector3.Distance(enemy.position, _castingPoint.position)), ForceMode.Impulse);
+        }
+
+        if (other.tag == "Ground")
+        {
+            Object rocketJump = Instantiate(_rocketjumpTrigger, transform.position, Quaternion.identity);
+            Destroy(rocketJump, 0.1f);
+            
         }
     }
 }
