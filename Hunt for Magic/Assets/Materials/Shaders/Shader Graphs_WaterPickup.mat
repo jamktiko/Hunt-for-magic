@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Shader Graphs_Water
-  m_Shader: {fileID: -6465566751694194690, guid: 9fa133df0c7275642bf7d308c93e0d3a,
+  m_Name: Shader Graphs_WaterPickup
+  m_Shader: {fileID: -6465566751694194690, guid: 00a897b3986e21b42889fbeb4d7645d0,
     type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
@@ -21,10 +21,9 @@ Material:
     serializedVersion: 3
     m_TexEnvs: []
     m_Floats:
-    - Vector1_36BE1696: 4.96
-    - Vector1_393FD705: 2.12
-    - Vector1_62F5D43A: 0.1
-    - Vector1_BCF1B540: 4
+    - Vector1_2B9A5FAD: 0.6
+    - Vector1_4DED7FF7: 5
+    - Vector1_79F89A83: 1
+    - Vector1_A0D40EC6: 0.13
     m_Colors:
-    - Color_A12430A7: {r: 0.4858491, g: 0.9425021, b: 1, a: 0}
-    - Color_A7903724: {r: 0.642349, g: 1.393914, b: 2.670157, a: 0}
+    - Color_30C0CBCD: {r: 0.05490196, g: 1, b: 0.8392157, a: 0}

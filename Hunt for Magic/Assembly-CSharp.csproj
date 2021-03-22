@@ -65,6 +65,7 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\AdvancedAI.cs" />
     <Compile Include="Assets\Scripts\Buffs.cs" />
+    <Compile Include="Assets\Scripts\CLHIt.cs" />
     <Compile Include="Assets\Scripts\ChainLightingSpell.cs" />
     <Compile Include="Assets\Scripts\ColliderDestroy.cs" />
     <Compile Include="Assets\Scripts\Cooldown.cs" />
