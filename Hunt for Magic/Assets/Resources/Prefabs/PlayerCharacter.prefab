@@ -5737,7 +5737,7 @@ MonoBehaviour:
   _runningOnGrass10: {fileID: 8300000, guid: 2dd0464da5d00d94da413ea608a18698, type: 3}
   _flameThrower1: {fileID: 8300000, guid: 720f8cee6f4c3f140bb69c5d24335d09, type: 3}
   _flameThrower2: {fileID: 8300000, guid: ad39be6ec08a7d24a9f0e58fde071187, type: 3}
-  _melee1: {fileID: 8300000, guid: ee7be931f03a4344491691c0c703f408, type: 3}
+  _melee1: {fileID: 8300000, guid: 485c33c7d8c4b184e9c892e3e8013a23, type: 3}
   _dodgedash1: {fileID: 8300000, guid: 54a3fb3b87c76574d9b13ad10de0f4c6, type: 3}
 --- !u!1 &4590092344485926886
 GameObject:
