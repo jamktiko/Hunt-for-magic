@@ -6,6 +6,8 @@ public class MeleeAttack : MonoBehaviour
 {
     public bool _isAttackOnCooldown;
 
+    public bool _soundTrigger;
+
     [SerializeField]
     private float _damage = 5f;
 
@@ -32,6 +34,8 @@ public class MeleeAttack : MonoBehaviour
             if (_isAttackOnCooldown)
                 return;
 
+            GetComponentInParent<PlayerSounds>()._meleeSrc.Play();
+
             _anim.SetTrigger("Melee");
 
             StartCoroutine(Attack());
@@ -44,6 +48,8 @@ public class MeleeAttack : MonoBehaviour
     void EndAttackCooldown()
     {
         _isAttackOnCooldown = false;
+
+        GetComponentInParent<PlayerSounds>()._meleeSrc.Stop();
     }
 
     IEnumerator Attack()

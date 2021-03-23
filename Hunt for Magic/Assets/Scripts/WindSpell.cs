@@ -12,6 +12,7 @@ public class WindSpell : MonoBehaviour  //Tämä scripti liitetään WindEffect-
 
     private Transform _castingPoint;
 
+    [SerializeField]
     private Object _rocketjumpTrigger;
 
     private Vector3 _forward;
@@ -22,7 +23,6 @@ public class WindSpell : MonoBehaviour  //Tämä scripti liitetään WindEffect-
     {
         _castingPoint = GameObject.Find("CastingPoint").GetComponent<Transform>();
         gameObject.GetComponent<Rigidbody>().AddForce(_castingPoint.forward * _speed, ForceMode.Impulse);
-        _rocketjumpTrigger = Resources.Load("Prefabs/RocketjumpTrigger");
         _forward = new Vector3(_castingPoint.forward.x, 0.1f, _castingPoint.forward.z);
     }
 
@@ -68,7 +68,7 @@ public class WindSpell : MonoBehaviour  //Tämä scripti liitetään WindEffect-
         if (other.tag == "Ground")
         {
             Object rocketJump = Instantiate(_rocketjumpTrigger, transform.position, Quaternion.identity);
-            Destroy(rocketJump, 0.1f);
+            Destroy(rocketJump, 0.02f);
             
         }
     }

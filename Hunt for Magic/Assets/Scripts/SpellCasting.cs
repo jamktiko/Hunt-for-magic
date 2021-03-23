@@ -41,7 +41,7 @@ public class SpellCasting : MonoBehaviour  // Tämä scripti liitetään pelaaja
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         if (Input.GetKeyDown("1"))
         {

@@ -60,6 +60,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _damageAmount: 5
   _speed: 35.62
+  _rocketjumpTrigger: {fileID: 0}
 --- !u!54 &4740537810288572285
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -136,6 +137,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _damageAmount: 5
   _speed: 35.62
+  _rocketjumpTrigger: {fileID: 975024681128364463, guid: 9550b032308589e42bf83f488c5e032f,
+    type: 3}
 --- !u!54 &5918544793587055564
 Rigidbody:
   m_ObjectHideFlags: 0
