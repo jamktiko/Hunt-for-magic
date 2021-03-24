@@ -50,7 +50,7 @@ public class Cooldown : MonoBehaviour
             cooldown.enabled = true;
             cooldown.fillAmount -= 1 / _player.GetComponent<SpellCasting>()._spellInterval * Time.deltaTime;
         }
-        else if (_player.GetComponent<EnergySystem>()._currentEnergy < 100 && _player.GetComponent<SpellCasting>()._spellCooldown == false)
+        else if (_player.GetComponent<EnergySystem>()._currentEnergy < 100 && _player.GetComponent<SpellCasting>()._spellCooldown == false && _player.GetComponent<SpellCasting>()._spellPrefab.name == "Flamethrower_particle")
         {
             cooldown.enabled = true;
             cooldown.fillAmount = 1 - _player.GetComponent<EnergySystem>()._currentEnergy / _player.GetComponent<EnergySystem>()._maxEnergy;
