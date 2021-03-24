@@ -20,10 +20,13 @@ public class EnemySlimeMovement : MonoBehaviour
     public float chargeAttackRoller;
     public bool isChargeAttacking = false;
     public bool animationReady = false;
+    public bool clHit;
+    private bool clWait;
 
     // Start is called before the first frame update
     void Start()
     {
+        clHit = false;
         touchGround = false;
         attackTrigger2 = false;
         attackTrigger1 = false;
@@ -32,13 +35,16 @@ public class EnemySlimeMovement : MonoBehaviour
         player = GameObject.Find("PlayerCharacter"); // find player character
         lookDirectionNode = GameObject.Find("LookDirectionNode");
         transform.LookAt(lookDirectionNode.transform.position);
-
-
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (clHit && !clWait)
+        {
+            CLcooldown();
+        }
+
         if (player != null)
         {
             if (Vector3.Distance(player.transform.position, enemyRB.transform.position) < 15)
@@ -53,13 +59,17 @@ public class EnemySlimeMovement : MonoBehaviour
             isChargeAttacking = true;
             StartCoroutine(chargeTimer());
         }
+
         else
         {
 
             if (touchGround && !inRange) //jump command
             {
                 StartCoroutine(jumpPhaser());
-                transform.LookAt(lookDirectionNode.transform.position);
+                if (lookDirectionNode != null)
+                {
+                    transform.LookAt(lookDirectionNode.transform.position);
+                }
                 Vector3 lookDirection = (lookDirectionNode.transform.position - transform.position).normalized; // patrol movement
                 enemyRB.AddForce(Vector3.up * jump, ForceMode.Impulse); // upward motion command
                 enemyRB.AddForce(lookDirection * speed, ForceMode.Impulse); // forward motion command
@@ -82,7 +92,7 @@ public class EnemySlimeMovement : MonoBehaviour
                 attackTrigger2 = false;
             }
 
-            if (attackTrigger2)
+            if (attackTrigger2) //attack trigger
             {
                 enemyRB.velocity = Vector3.zero;
                 Vector3 lookDirection = (player.transform.position - transform.position).normalized; // search for player
@@ -122,6 +132,11 @@ public class EnemySlimeMovement : MonoBehaviour
             var enemyHealth = collision.gameObject.GetComponent<HealthSystem>();
             enemyHealth.AddDamage(attackDamage);
         }
+
+        if (collision.gameObject.GetComponent("ChainLightning") != null)
+        {
+            clHit = true;
+        }
     }
 
     IEnumerator chargeTimer()
@@ -139,5 +154,13 @@ public class EnemySlimeMovement : MonoBehaviour
     {
         enemyRB.velocity = Vector3.zero;
         yield return new WaitForSeconds(1f);
+    }
+
+    IEnumerator CLcooldown()
+    {
+        clWait = true;
+        yield return new WaitForSeconds(2.6f);
+        clWait = false;
+        clHit = false;
     }
 }

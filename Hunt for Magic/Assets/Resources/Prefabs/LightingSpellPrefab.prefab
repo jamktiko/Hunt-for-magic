@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 8718254244820922036}
   - component: {fileID: 2452016617282404372}
   - component: {fileID: 7729709095310313841}
-  - component: {fileID: 8130006469222615744}
   m_Layer: 0
   m_Name: LightingSpellPrefab
   m_TagString: Untagged
@@ -63,16 +62,3 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &8130006469222615744
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6952479942451807331}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dff706f432d342248bc8679f6705579d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _damageAmount: 15
