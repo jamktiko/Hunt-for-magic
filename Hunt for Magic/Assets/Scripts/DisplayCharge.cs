@@ -22,6 +22,9 @@ public class DisplayCharge : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (_player.GetComponent<SpellCasting>()._spellPrefab == null)
+            return;
+
         if (SpellBehaviour._activeSlot == 0)
         {
             _chargeText1.enabled = false;
