@@ -11,7 +11,7 @@ public class SpellCasting : MonoBehaviour  // Tämä scripti liitetään pelaaja
     private Transform _castingPoint;
     private Transform _waterCastingPoint;
 
-    public static bool _spellCooldown;
+    public bool _spellCooldown;
 
     [SerializeField]
     public float _spellInterval = 1f;
@@ -20,6 +20,8 @@ public class SpellCasting : MonoBehaviour  // Tämä scripti liitetään pelaaja
 
     [SerializeField]
     private float _throwForce = 20f;
+
+    public GameObject _weaponArea;
 
     public float ammoCount = 1;
     public float ammoChanger = 1;
@@ -38,40 +40,12 @@ public class SpellCasting : MonoBehaviour  // Tämä scripti liitetään pelaaja
         _waterCastingPoint = GameObject.Find("WaterCastingPoint").GetComponent<Transform>();
         _castingPoint = GameObject.Find("CastingPoint").GetComponent<Transform>();
         _player = GameObject.Find("PlayerCharacter");
+        _weaponArea = GameObject.Find("WeaponArea");
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
-        if (Input.GetKeyDown("1"))
-        {
-            _spellPrefab = Resources.Load("Prefabs/Flamethrower_particle");
-        }
-
-        if (Input.GetKeyDown("2"))
-        {
-            _spellPrefab = Resources.Load("Prefabs/WindEffect");
-        }
-
-        if (Input.GetKeyDown("3"))
-        {
-            _spellPrefab = Resources.Load("Prefabs/Electricity");
-        }
-
-        if (Input.GetKeyDown("4"))
-        {
-            _spellPrefab = Resources.Load("Prefabs/Waterwave");
-        }
-
-        if (Input.GetKeyDown("5"))
-        {
-            _spellPrefab = Resources.Load("Prefabs/Fireball");
-        }
-
-        if (Input.GetKeyDown("6"))
-        {
-            _spellPrefab = Resources.Load("Prefabs/LightningBolt");
-        }
 
         if (!ammoChangerCooldown)
         {
@@ -101,37 +75,26 @@ public class SpellCasting : MonoBehaviour  // Tämä scripti liitetään pelaaja
 
             if (_spellPrefab.name == "WindEffect")
             {
-                _spellInterval = 1f;
                 if (_spellCooldown)
                 {
                     return;
                 }
+                _spellInterval = 1f;
+
                 Instantiate(_spellPrefab, _castingPoint.position, _castingPoint.rotation);
 
                 _spellCooldown = true;
                 StartCoroutine(EndCooldown());
             }
 
-            if (_spellPrefab.name == "Flamethrower_particle")
-            {
-                _player.GetComponent<EnergySystem>().ReduceEnergy(1f);
-                _spellInterval = 1.5f;
-
-                if (_player.GetComponent<EnergySystem>()._currentEnergy < 5)
-                {
-                    return;
-                }
-
-                Instantiate(_spellPrefab, _castingPoint.position, _castingPoint.rotation);
-            }
-
             if (_spellPrefab.name == "Waterwave" && PlayerCharacterController.isGrounded)
             {
-                _spellInterval = 2f;
                 if (_spellCooldown)
                 {
                     return;
                 }
+                _spellInterval = 2f;
+
                 Instantiate(_spellPrefab, _waterCastingPoint.position, _waterCastingPoint.rotation);
 
                 _spellCooldown = true;
@@ -141,11 +104,11 @@ public class SpellCasting : MonoBehaviour  // Tämä scripti liitetään pelaaja
 
             if (_spellPrefab.name == "Electricity")
             {
-                _spellInterval = 0.8f;
                 if (_spellCooldown)
                 {
                     return;
                 }
+                _spellInterval = 0.8f;
 
                 if (ammoCount >= 1)
                 {
@@ -160,11 +123,11 @@ public class SpellCasting : MonoBehaviour  // Tämä scripti liitetään pelaaja
 
             if (_spellPrefab.name == "Fireball")
             {
-                _spellInterval = 3f;
                 if (_spellCooldown)
                 {
                     return;
                 }
+                _spellInterval = 3f;
 
                 Instantiate(_spellPrefab, _castingPoint.position, _castingPoint.rotation);
 
@@ -175,13 +138,14 @@ public class SpellCasting : MonoBehaviour  // Tämä scripti liitetään pelaaja
 
             if (_spellPrefab.name == "ChainLightning")
             {
-                _spellInterval = 2f;
                 if (ammoCount > 0)
                 {
                     if (_spellCooldown)
                     {
                         return;
                     }
+                    _spellInterval = 2f;
+
                     canChargeSpell = true;
 
                     ammoCount--;
@@ -193,13 +157,14 @@ public class SpellCasting : MonoBehaviour  // Tämä scripti liitetään pelaaja
 
             if (_spellPrefab.name == "LightningBolt")
             {
-                _spellInterval = 1.7f;
                 if (ammoCount > 0)
                 {
                     if (_spellCooldown)
                     {
                         return;
                     }
+                    _spellInterval = 1.7f;
+
                     canChargeSpell = true;
 
                     ammoCount--;
@@ -240,6 +205,25 @@ public class SpellCasting : MonoBehaviour  // Tämä scripti liitetään pelaaja
                 alreadyCast = false;
             }
 
+        }
+    }
+
+    private void FixedUpdate()
+    {
+        if (Input.GetButton("Fire1"))
+        {
+            if (_spellPrefab.name == "Flamethrower_particle")
+            {
+                _player.GetComponent<EnergySystem>().ReduceEnergy(1f);
+                _spellInterval = 1.5f;
+
+                if (_player.GetComponent<EnergySystem>()._currentEnergy < 5)
+                {
+                    return;
+                }
+
+                Instantiate(_spellPrefab, _castingPoint.position, _castingPoint.rotation);
+            }
         }
     }
 

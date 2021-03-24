@@ -11,19 +11,61 @@ public class MainSpellImage : MonoBehaviour
     public GameObject _electricity;
     public GameObject _water;
     public GameObject _fireball;
+    public GameObject _lightningbolt;
     public GameObject _chainlightning;
+    public GameObject _weaponArea;
+    public GameObject _activity;
 
+    private GameObject _player;
 
     // Start is called before the first frame update
     void Start()
     {
-        _currentSpell = GameObject.Find("PlayerCharacter").GetComponent<SpellCasting>()._spellPrefab;
+        _player = GameObject.Find("PlayerCharacter");
     }
 
     // Update is called once per frame
     void Update()
     {
-        _currentSpell = GameObject.Find("PlayerCharacter").GetComponent<SpellCasting>()._spellPrefab;
+        if (gameObject.name == "MainSpell")
+        {
+            _currentSpell = _weaponArea.GetComponent<SpellBehaviour>()._spell0;
+
+            if (SpellBehaviour._activeSlot == 0)
+            {
+                _activity.SetActive(true);
+            }
+            else
+            {
+                _activity.SetActive(false);
+            }
+        }
+        else if (gameObject.name == "Spellslot1")
+        {
+            _currentSpell = _weaponArea.GetComponent<SpellBehaviour>()._spell1;
+
+            if (SpellBehaviour._activeSlot == 1)
+            {
+                _activity.SetActive(true);
+            }
+            else
+            {
+                _activity.SetActive(false);
+            }
+        }
+        else if (gameObject.name == "Spellslot2")
+        {
+            _currentSpell = _weaponArea.GetComponent<SpellBehaviour>()._spell2;
+
+            if (SpellBehaviour._activeSlot == 2)
+            {
+                _activity.SetActive(true);
+            }
+            else
+            {
+                _activity.SetActive(false);
+            }
+        }
 
         if (_currentSpell.name == "Flamethrower_particle")
         {
@@ -68,6 +110,15 @@ public class MainSpellImage : MonoBehaviour
         else
         {
             _fireball.SetActive(false);
+        }
+
+        if (_currentSpell.name == "LightningBolt")
+        {
+            _lightningbolt.SetActive(true);
+        }
+        else
+        {
+            _lightningbolt.SetActive(false);
         }
 
         if (_currentSpell.name == "ChainLightning")

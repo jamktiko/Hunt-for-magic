@@ -126,7 +126,7 @@ public class EnemySlimeMovement : MonoBehaviour
             }
         }
 
-        if (collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Player") && GetComponent<HealthSystem>()._deadSlime == false)
         {
             attackTrigger2 = true; // impact checker
             var enemyHealth = collision.gameObject.GetComponent<HealthSystem>();
