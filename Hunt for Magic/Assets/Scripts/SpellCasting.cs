@@ -70,7 +70,7 @@ public class SpellCasting : MonoBehaviour  // Tämä scripti liitetään pelaaja
 
         if (Input.GetKeyDown("6"))
         {
-            _spellPrefab = Resources.Load("Prefabs/LightingBolt");
+            _spellPrefab = Resources.Load("Prefabs/LightningBolt");
         }
 
         if (!ammoChangerCooldown)

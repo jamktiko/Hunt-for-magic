@@ -9,7 +9,7 @@ public class ChainLightingSpell : MonoBehaviour
     private Transform _castingPoint;
     private float speed = 20f;
     public float chargeCounter;
-    private Object targetFound;
+    public bool targetFound;
     private Rigidbody enemyRB;
     public bool firstHit;
     public Object enemyFinder;
@@ -20,6 +20,7 @@ public class ChainLightingSpell : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        targetFound = true;
         enemyFinder = Resources.Load("Prefabs/EnemyFinder");
         firstHit = false;
         GameObject player = GameObject.Find("PlayerCharacter");        
