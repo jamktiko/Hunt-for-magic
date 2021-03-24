@@ -4,18 +4,16 @@ using UnityEngine;
 
 public class EnemyArcherMovement : MonoBehaviour
 {
-    public float speed = 4f;
-    private float runSpeed = 6f;
-    private float attackDamage = 15f;
+    public float speed = 8f;
+    private float runSpeed = 10f;
+    private float attackDamage = 10f;
     private Rigidbody enemyRB;
-    private GameObject lookDirectionNode;
+    private Transform lookDirectionNode;
     private bool inRange;
     private bool runRange;
     private bool attackRange;
     private GameObject player;
     public bool touchGround = true;
-    public bool attackTrigger1 = true;
-    public bool attackTrigger2 = true;
     public bool chargeTrigger = true;
     public float chargeAttackRoller;
     public bool isChargeAttacking = false;
@@ -26,18 +24,25 @@ public class EnemyArcherMovement : MonoBehaviour
     private bool clWait;
     private Vector3 lookDirection;
     private bool patrol;
+    private float step;
+    private float runStep;
+    private bool runAway;
+    private bool running;
+    private bool rollDice;
 
     // Start is called before the first frame update
     void Start()
     {
+        step = speed * Time.deltaTime;
+        runStep = runSpeed * Time.deltaTime;
         clHit = false;
         touchGround = false;
-        attackTrigger2 = false;
-        attackTrigger1 = false;
         chargeTrigger = false;
+        running = false;
+        runAway = false;
         enemyRB = GetComponent<Rigidbody>(); // make Archer rigid
         player = GameObject.Find("PlayerCharacter"); // find player character
-        lookDirectionNode = GameObject.Find("LookDirectionNode");
+        lookDirectionNode = transform.Find("LookDirectionNode");
         transform.LookAt(lookDirectionNode.transform.position);
     }
 
@@ -46,12 +51,12 @@ public class EnemyArcherMovement : MonoBehaviour
     {        
         if (player != null)
         {
-            if (Vector3.Distance(player.transform.position, enemyRB.transform.position) <= 15)
+            if (Vector3.Distance(player.transform.position, enemyRB.transform.position) <= 15 && Vector3.Distance(player.transform.position, enemyRB.transform.position) > 10)
             {
-                inRange = true;
                 attackRange = true;
-                runRange = false;
             }
+            else attackRange = false;
+
             if (Vector3.Distance(player.transform.position, enemyRB.transform.position) >= 25)
             {
                 inRange = false;
@@ -60,55 +65,136 @@ public class EnemyArcherMovement : MonoBehaviour
             }
             if (Vector3.Distance(player.transform.position, enemyRB.transform.position) <= 10)
             {
-                inRange = true;
-                attackRange = false;
                 runRange = true;
             }
+            else runRange = false;
+
             if (Vector3.Distance(player.transform.position, enemyRB.transform.position) < 25)
             {
                 inRange = true;
-                attackRange = false;
-                runRange = false;
             }
 
             if (inRange && !attackRange)
             {
                 if(patrol)
                 {
-                    patrol = false;
+                    patrol = false;                  
                 }
+                transform.position = Vector3.MoveTowards(transform.position, player.transform.position, step);
 
+            }
+            else if (!inRange)
+            {
+                patrol = true;
             }
 
             if (!inRange)
             {
-                PatrolPhaser();
-                enemyRB.AddForce(lookDirection * speed, ForceMode.Impulse);
+                if (!patrol)
+                {
+                    patrol = true;                  
+                }
+
+                if (patrol)
+                {
+                    PatrolPhaser();
+                    if (!rollDice)
+                    {
+                        lookDirectionNode.transform.localPosition = new Vector3(LD1, 0, LD2);
+                        transform.position = Vector3.MoveTowards(transform.position, lookDirectionNode.transform.position, step);
+                    }
+                }
+            }
+            else if (inRange)
+            {
+                patrol = false;
             }
 
-            if (attackRange && !runRange)
+            if (attackRange)
             {
                 //attack comes here
             }
 
             if (runRange)
             {
-                //runaway comes here
+                if (!running)
+                {
+                    lookDirection = (player.transform.position - transform.position).normalized;
+                    lookDirectionNode.transform.localPosition = -lookDirection;
+                    running = true;
+                }
+                runAway = true;
+                patrol = false;             
+                if (runAway)
+                {
+                    transform.LookAt(lookDirectionNode.transform.position);
+                    transform.position = Vector3.MoveTowards(transform.position, lookDirectionNode.transform.position, runStep);
+                }
+                runAway = false;
+            }
+            else if (!runRange)
+            {
+                running = false;
+            }
+
+            if(attackRange && chargeTrigger)
+            {
+                //special attack comes here
             }
         }
     }
     IEnumerator PatrolPhaser()
     {
-        patrol = true;
-        if (lookDirectionNode != null)
+        if (lookDirectionNode != null && patrol)
         {
             transform.LookAt(lookDirectionNode.transform.position);
+            rollDice = true;
+            if (rollDice)
+            {
+                LD1 = Random.Range(-1f, 1f);
+                LD2 = Random.Range(-1f, 1f);
+            }
+            rollDice = false;           
+            yield return new WaitForSeconds(3f);
+            
+        }    
+    }
+
+    IEnumerator CLcooldown()
+    {
+        clWait = true;
+        yield return new WaitForSeconds(2.6f);
+        clWait = false;
+        clHit = false;
+    }
+
+    void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Ground"))
+        {
+            touchGround = true; //movement checker
+            chargeAttackRoller = Random.Range(0, 16); // charge attact randomizer
+
+            if (chargeAttackRoller <= 9 || !inRange)
+            {
+
+            }
+            else if (chargeAttackRoller == 15 && inRange)
+            {
+
+                chargeTrigger = true;
+            }
         }
-        yield return new WaitForSeconds(3f);
-        LD1 = Random.Range(-1f, 1f);
-        LD2 = Random.Range(-1f, 1f);
-        lookDirectionNode.transform.localPosition = new Vector3(LD1, 0, LD2);
-        lookDirection = (lookDirectionNode.transform.position - transform.position).normalized; // patrol movement
-        patrol = false;
+        else if (!collision.gameObject.CompareTag("Ground"))
+        {
+            touchGround = false;
+        }
+
+
+        if (collision.gameObject.name.Contains("ChainLightning"))
+        {
+            clHit = collision.gameObject.GetComponent<ChainLightingSpell>().targetFound;
+            CLcooldown();
+        }
     }
 }

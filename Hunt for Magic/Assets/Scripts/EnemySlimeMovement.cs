@@ -8,7 +8,7 @@ public class EnemySlimeMovement : MonoBehaviour
     public float speed = 3;
     private float attackDamage = 5f;
     private Rigidbody enemyRB;
-    private GameObject lookDirectionNode;
+    private Transform lookDirectionNode;
     private bool inRange;
     private float LD1;
     private float LD2;
@@ -33,7 +33,7 @@ public class EnemySlimeMovement : MonoBehaviour
         chargeTrigger = false;
         enemyRB = GetComponent<Rigidbody>(); // make slime rigid
         player = GameObject.Find("PlayerCharacter"); // find player character
-        lookDirectionNode = GameObject.Find("LookDirectionNode");
+        lookDirectionNode = transform.Find("LookDirectionNode");
         transform.LookAt(lookDirectionNode.transform.position);
     }
 
@@ -133,9 +133,10 @@ public class EnemySlimeMovement : MonoBehaviour
             enemyHealth.AddDamage(attackDamage);
         }
 
-        if (collision.gameObject.GetComponent("ChainLightning") != null)
+        if (collision.gameObject.name.Contains("ChainLightning"))
         {
-            clHit = true;
+            clHit = collision.gameObject.GetComponent<ChainLightingSpell>().targetFound;
+            CLcooldown();
         }
     }
 

@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 3638711222704340850}
   m_Layer: 0
   m_Name: EnemyArcher
-  m_TagString: Untagged
+  m_TagString: Monster
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -131,8 +131,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 4
   touchGround: 1
-  attackTrigger1: 1
-  attackTrigger2: 1
   chargeTrigger: 1
   chargeAttackRoller: 0
   isChargeAttacking: 0
