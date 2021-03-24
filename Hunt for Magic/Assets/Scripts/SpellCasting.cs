@@ -21,7 +21,7 @@ public class SpellCasting : MonoBehaviour  // Tämä scripti liitetään pelaaja
     [SerializeField]
     private float _throwForce = 20f;
 
-    public SpellBehaviour _spellBehaviour;
+    public GameObject _weaponArea;
 
     public float ammoCount = 1;
     public float ammoChanger = 1;
@@ -40,7 +40,7 @@ public class SpellCasting : MonoBehaviour  // Tämä scripti liitetään pelaaja
         _waterCastingPoint = GameObject.Find("WaterCastingPoint").GetComponent<Transform>();
         _castingPoint = GameObject.Find("CastingPoint").GetComponent<Transform>();
         _player = GameObject.Find("PlayerCharacter");
-        _spellBehaviour = GameObject.Find("WeaponArea").GetComponent<SpellBehaviour>();
+        _weaponArea = GameObject.Find("WeaponArea");
     }
 
     // Update is called once per frame

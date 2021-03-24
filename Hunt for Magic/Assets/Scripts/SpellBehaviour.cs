@@ -28,85 +28,108 @@ public class SpellBehaviour : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        _newSpell = _player.GetComponent<SpellCasting>()._spellPrefab;
-
-        if (SpellPickup._count > 0)
+        if (SpellPickup._count < 99)
         {
-            if (SpellPickup._count == 1 && _mainSpell.activeSelf == false)
-            {
-                _mainSpell.SetActive(true);
-                _spell0 = _newSpell;
-            }
-            else if (SpellPickup._count == 2 && _spellSlot1.activeSelf == false)
-            {
-                _spellSlot1.SetActive(true);
-                _spell1 = _newSpell;
-                _activeSlot = 1;
-            }
-            else if (SpellPickup._count == 3 && _spellSlot2.activeSelf == false)
-            {
-                _spellSlot2.SetActive(true);
-                _spell2 = _newSpell;
-                _activeSlot = 2;
-            }
-            else if (SpellPickup._count == 4 || SpellPickup._countAdded)
-            {
-                if (_activeSlot == 0)
-                {
-                    _spell0 = _newSpell;
-                }
-                if (_activeSlot == 1)
-                {
-                    _spell1 = _newSpell;
-                }
-                if (_activeSlot == 2)
-                {
-                    _spell2 = _newSpell;
-                }
-            }
-            else
-            {
-
-            }
-
+            Pickup();
         }
 
+        if (Input.GetKey("1") || Input.GetKey("2") || Input.GetKey("3") || Input.GetKey(KeyCode.E))
+        {
+            Inputs();
+            _player.GetComponent<SpellCasting>()._spellPrefab = _newSpell;
+        }
 
-        if (Input.GetKey("1"))
+        if (_active0 || _active1 || _active2 || Input.GetKeyDown(KeyCode.E))
         {
-            _active0 = true;
-            _active1 = false;
-            _active2 = false;
+            ActiveSlots();
         }
-        if (Input.GetKey("2"))
+    }
+
+    private void Pickup()
+    {
+        if (SpellPickup._count == 1 && _mainSpell.activeSelf == false)
         {
-            _active0 = false;
-            _active1 = true;
-            _active2 = false;
+            _mainSpell.SetActive(true);
+            _spell0 = _newSpell;
         }
-        if (Input.GetKey("3"))
+        else if (SpellPickup._count == 2 && _spellSlot1.activeSelf == false)
         {
+            _spellSlot1.SetActive(true);
+            _activeSlot = 1;
+            _spell1 = _newSpell;
+
+        }
+        else if (SpellPickup._count == 3 && _spellSlot2.activeSelf == false)
+        {
+            _spellSlot2.SetActive(true);
+            _activeSlot = 2;
+            _spell2 = _newSpell;
             _active0 = false;
             _active1 = false;
             _active2 = true;
         }
+        else
+        {
 
+        }
+    }
 
+    private void Inputs()
+    {
+        if (Input.GetKeyDown("1"))
+        {
+            _active0 = true;
+            _active1 = false;
+            _active2 = false;
+
+            _newSpell = _spell0;
+        }
+        else if (Input.GetKeyDown("2"))
+        {
+            _active0 = false;
+            _active1 = true;
+            _active2 = false;
+
+            _newSpell = _spell1;
+        }
+        else if (Input.GetKeyDown("3"))
+        {
+            _active0 = false;
+            _active1 = false;
+            _active2 = true;
+
+            _newSpell = _spell2;
+        }
+    }
+
+    private void ActiveSlots()
+    {
         if (_active0 && _mainSpell.activeSelf == true)
         {
             _activeSlot = 0;
-            _player.GetComponent<SpellCasting>()._spellPrefab = _spell0;
+
+            if (_spellSlot2.activeSelf)
+            {
+                _spell0 = _player.GetComponent<SpellCasting>()._spellPrefab;
+            }
         }
-        if (_active1 && _spellSlot1.activeSelf == true)
+        else if (_active1 && _spellSlot1.activeSelf == true)
         {
             _activeSlot = 1;
-            _player.GetComponent<SpellCasting>()._spellPrefab = _spell1;
+
+            if (_spellSlot2.activeSelf)
+            {
+                _spell1 = _player.GetComponent<SpellCasting>()._spellPrefab;
+            }
         }
-        if (_active2 && _spellSlot2.activeSelf == true)
+        else if (_active2 && _spellSlot2.activeSelf == true)
         {
             _activeSlot = 2;
-            _player.GetComponent<SpellCasting>()._spellPrefab = _spell2;
+
+            if (_spellSlot2.activeSelf)
+            {
+                _spell2 = _player.GetComponent<SpellCasting>()._spellPrefab;
+            }
         }
     }
 }
-

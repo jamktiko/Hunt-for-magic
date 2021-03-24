@@ -16,16 +16,17 @@ public class MainSpellImage : MonoBehaviour
     public GameObject _weaponArea;
     public GameObject _activity;
 
+    private GameObject _player;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        _player = GameObject.Find("PlayerCharacter");
     }
 
     // Update is called once per frame
     void Update()
     {
-        
         if (gameObject.name == "MainSpell")
         {
             _currentSpell = _weaponArea.GetComponent<SpellBehaviour>()._spell0;

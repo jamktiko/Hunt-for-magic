@@ -6,79 +6,139 @@ public class SpellPickup : MonoBehaviour
 {
     public static int _count;
 
-    public static bool _countAdded;
+    private GameObject _player;
+    private GameObject _weaponArea;
+    private Transform _spawnPoint;
+
+    private Object _airPickup;
+    private Object _chainlightningPickup;
+    private Object _elecPickup;
+    private Object _fireballPickup;
+    private Object _flamethrowerPickup;
+    private Object _lightningboltPickup;
+    private Object _waterPickup;
 
     // Start is called before the first frame update
     void Start()
     {
         _count = 0;
+
+        _player = GameObject.Find("PlayerCharacter");
+        _spawnPoint = GameObject.Find("SpellDropPoint").GetComponent<Transform>();
+        _weaponArea = GameObject.Find("WeaponArea");
+
+        _airPickup = Resources.Load("Prefabs/Air_pickup");
+        _chainlightningPickup = Resources.Load("Prefabs/Chainlightning_pickup");
+        _elecPickup = Resources.Load("Prefabs/Elec_Pickup");
+        _fireballPickup = Resources.Load("Prefabs/Fireball_pickup");
+        _flamethrowerPickup = Resources.Load("Prefabs/flamethrower_pickup");
+        _lightningboltPickup = Resources.Load("Prefabs/Lightningbolt_pickup");
+        _waterPickup = Resources.Load("Prefabs/Water_pickup");
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (_countAdded == true)
+        
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (Input.GetKeyDown(KeyCode.E))
         {
-            _countAdded = false;
+            if (other.tag == "Player")
+            {
+
+                if (gameObject.name.Contains("Air"))
+                {
+                    _count += 1;
+                    Spawner();
+                    _weaponArea.GetComponent<SpellBehaviour>()._newSpell = Resources.Load("Prefabs/WindEffect");
+                    Destroy(gameObject);
+                }
+
+                if (gameObject.name.Contains("Water"))
+                {
+                    _count += 1;
+                    Spawner();
+                    _weaponArea.GetComponent<SpellBehaviour>()._newSpell = Resources.Load("Prefabs/Waterwave");
+                    Destroy(gameObject);
+                }
+
+                if (gameObject.name.Contains("Elec"))
+                {
+                    _count += 1;
+                    Spawner();
+                    _weaponArea.GetComponent<SpellBehaviour>()._newSpell = Resources.Load("Prefabs/Electricity");
+                    Destroy(gameObject);
+                }
+
+                if (gameObject.name.Contains("flamethrower"))
+                {
+                    _count += 1;
+                    Spawner();
+                    _weaponArea.GetComponent<SpellBehaviour>()._newSpell = Resources.Load("Prefabs/Flamethrower_particle");
+                    Destroy(gameObject);
+                }
+
+                if (gameObject.name.Contains("Fireball"))
+                {
+                    _count += 1;
+                    Spawner();
+                    _weaponArea.GetComponent<SpellBehaviour>()._newSpell = Resources.Load("Prefabs/Fireball");
+                    Destroy(gameObject);
+                }
+
+                if (gameObject.name.Contains("Lightningbolt"))
+                {
+                    _count += 1;
+                    Spawner();
+                    _weaponArea.GetComponent<SpellBehaviour>()._newSpell = Resources.Load("Prefabs/LightningBolt");
+                    Destroy(gameObject);
+                }
+
+                if (gameObject.name.Contains("Chainlightning"))
+                {
+                    _count += 1;
+                    Spawner();
+                    _weaponArea.GetComponent<SpellBehaviour>()._newSpell = Resources.Load("Prefabs/ChainLightning");
+                    Destroy(gameObject);
+                }
+            }
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void Spawner()
     {
-        if (other.tag == "Player")
+        if (_player.GetComponent<SpellCasting>()._spellPrefab != null && _weaponArea.GetComponent<SpellBehaviour>()._spellSlot2.activeSelf)
         {
-            if (_count > 3)
+            if (_weaponArea.GetComponent<SpellBehaviour>()._newSpell.name == "WindEffect")
             {
-                _countAdded = true;
+                Instantiate(_airPickup, _spawnPoint.position, Quaternion.identity);
             }
-
-            if (gameObject.name == "Air_pickup")
+            if (_weaponArea.GetComponent<SpellBehaviour>()._newSpell.name == "ChainLightning")
             {
-                _count += 1;
-                other.GetComponent<SpellCasting>()._spellPrefab = Resources.Load("Prefabs/WindEffect");
-                Destroy(gameObject);
+                Instantiate(_chainlightningPickup, _spawnPoint.position, Quaternion.identity);
             }
-
-            if (gameObject.name == "Water_pickup")
+            if (_weaponArea.GetComponent<SpellBehaviour>()._newSpell.name == "Electricity")
             {
-                _count += 1;
-                other.GetComponent<SpellCasting>()._spellPrefab = Resources.Load("Prefabs/Waterwave");
-                Destroy(gameObject);
+                Instantiate(_elecPickup, _spawnPoint.position, Quaternion.identity);
             }
-
-            if (gameObject.name == "Elec_Pickup")
+            if (_weaponArea.GetComponent<SpellBehaviour>()._newSpell.name == "Fireball")
             {
-                _count += 1;
-                other.GetComponent<SpellCasting>()._spellPrefab = Resources.Load("Prefabs/Electricity");
-                Destroy(gameObject);
+                Instantiate(_fireballPickup, _spawnPoint.position, Quaternion.identity);
             }
-
-            if (gameObject.name == "flamethrower_pickup")
+            if (_weaponArea.GetComponent<SpellBehaviour>()._newSpell.name == "Flamethrower_particle")
             {
-                _count += 1;
-                other.GetComponent<SpellCasting>()._spellPrefab = Resources.Load("Prefabs/Flamethrower_particle");
-                Destroy(gameObject);
+                Instantiate(_flamethrowerPickup, _spawnPoint.position, Quaternion.identity);
             }
-
-            if (gameObject.name == "Fireball_pickup")
+            if (_weaponArea.GetComponent<SpellBehaviour>()._newSpell.name == "LightningBolt")
             {
-                _count += 1;
-                other.GetComponent<SpellCasting>()._spellPrefab = Resources.Load("Prefabs/Fireball");
-                Destroy(gameObject);
+                Instantiate(_lightningboltPickup, _spawnPoint.position, Quaternion.identity);
             }
-
-            if (gameObject.name == "Lightningbolt_pickup")
+            if (_weaponArea.GetComponent<SpellBehaviour>()._newSpell.name == "Waterwave")
             {
-                _count += 1;
-                other.GetComponent<SpellCasting>()._spellPrefab = Resources.Load("Prefabs/LightningBolt");
-                Destroy(gameObject);
-            }
-
-            if (gameObject.name == "Chainlightning_pickup")
-            {
-                _count += 1;
-                other.GetComponent<SpellCasting>()._spellPrefab = Resources.Load("Prefabs/ChainLightning");
-                Destroy(gameObject);
+                Instantiate(_waterPickup, _spawnPoint.position, Quaternion.identity);
             }
         }
     }
