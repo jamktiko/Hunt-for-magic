@@ -11,7 +11,7 @@ public class SpellCasting : MonoBehaviour  // Tämä scripti liitetään pelaaja
     private Transform _castingPoint;
     private Transform _waterCastingPoint;
 
-    public static bool _spellCooldown;
+    public bool _spellCooldown;
 
     [SerializeField]
     public float _spellInterval = 1f;
@@ -20,6 +20,8 @@ public class SpellCasting : MonoBehaviour  // Tämä scripti liitetään pelaaja
 
     [SerializeField]
     private float _throwForce = 20f;
+
+    public SpellBehaviour _spellBehaviour;
 
     public float ammoCount = 1;
     public float ammoChanger = 1;
@@ -38,40 +40,13 @@ public class SpellCasting : MonoBehaviour  // Tämä scripti liitetään pelaaja
         _waterCastingPoint = GameObject.Find("WaterCastingPoint").GetComponent<Transform>();
         _castingPoint = GameObject.Find("CastingPoint").GetComponent<Transform>();
         _player = GameObject.Find("PlayerCharacter");
+        _spellBehaviour = GameObject.Find("WeaponArea").GetComponent<SpellBehaviour>();
+        _spellPrefab = null;
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (Input.GetKeyDown("1"))
-        {
-            _spellPrefab = Resources.Load("Prefabs/Flamethrower_particle");
-        }
-
-        if (Input.GetKeyDown("2"))
-        {
-            _spellPrefab = Resources.Load("Prefabs/WindEffect");
-        }
-
-        if (Input.GetKeyDown("3"))
-        {
-            _spellPrefab = Resources.Load("Prefabs/Electricity");
-        }
-
-        if (Input.GetKeyDown("4"))
-        {
-            _spellPrefab = Resources.Load("Prefabs/Waterwave");
-        }
-
-        if (Input.GetKeyDown("5"))
-        {
-            _spellPrefab = Resources.Load("Prefabs/Fireball");
-        }
-
-        if (Input.GetKeyDown("6"))
-        {
-            _spellPrefab = Resources.Load("Prefabs/LightingBolt");
-        }
 
         if (!ammoChangerCooldown)
         {

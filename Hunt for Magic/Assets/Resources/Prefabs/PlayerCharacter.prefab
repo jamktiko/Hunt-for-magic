@@ -5499,10 +5499,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfcfd8dbd6ace0143ad88edd473295c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _spellPrefab: {fileID: 5246509708691133756, guid: c797fb59b7592db40b45a280d7f3f140,
-    type: 3}
+  _spellPrefab: {fileID: 0}
+  _spellCooldown: 0
   _spellInterval: 1
   _throwForce: 20
+  _spellBehaviour: {fileID: 0}
   ammoCount: 1
   ammoChanger: 1
   maxAmmo: 3
@@ -5580,6 +5581,7 @@ MonoBehaviour:
   _health: 100
   _maxHealth: 100
   _damageTaken: 0
+  _deadSlime: 0
 --- !u!136 &7370827034873486316
 CapsuleCollider:
   m_ObjectHideFlags: 0
