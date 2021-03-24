@@ -14,6 +14,7 @@ public class PlayerCharacterController : MonoBehaviour
     public CharacterController characterController;
     public static bool isGrounded;
     public bool cursorOn;
+    public bool rocketJump;
 
     private PlayerDebuffs playerDebuff;
     public float mouseSensitivity = 100f;
@@ -67,6 +68,11 @@ public class PlayerCharacterController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && characterController.isGrounded)
         { 
             moveDirection.y = jump;
+        }
+        else if (rocketJump)
+        {
+            moveDirection.y = jump * 2;
+            rocketJump = false;
         }
         else
         {

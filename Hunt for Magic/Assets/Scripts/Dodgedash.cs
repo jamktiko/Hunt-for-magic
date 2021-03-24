@@ -15,6 +15,8 @@ public class Dodgedash : MonoBehaviour
 
     public float _coolDownTimer = 5.0f;
 
+    public AudioClip _dodgedash;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -32,6 +34,10 @@ public class Dodgedash : MonoBehaviour
 
     IEnumerator Dodge()
     {
+        GetComponent<PlayerSounds>()._otherSrc.PlayOneShot(_dodgedash);
+
+        GetComponent<PlayerSounds>()._dodgedash = true;
+
         _coolDown = true;
 
         _dodgeDash = true;
@@ -47,5 +53,7 @@ public class Dodgedash : MonoBehaviour
         yield return new WaitForSeconds(_coolDownTimer);
 
         _coolDown = false;
+
+        GetComponent<PlayerSounds>()._dodgedash = false;
     }
 }

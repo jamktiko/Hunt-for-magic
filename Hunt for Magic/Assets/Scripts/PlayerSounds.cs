@@ -8,14 +8,20 @@ public class PlayerSounds : MonoBehaviour
     private Animator _anim;
 
     [SerializeField]
-    private AudioSource _walkingSrc;
+    public AudioSource _walkingSrc;
 
     [SerializeField]
-    private AudioSource _spellSrc;
+    public AudioSource _spellSrc;
+
+    public AudioSource _meleeSrc;
+
+    public AudioSource _otherSrc;
 
     private bool _move;
 
     private bool _fire;
+
+    public bool _dodgedash;
 
     private int _rnd;
 
@@ -33,6 +39,10 @@ public class PlayerSounds : MonoBehaviour
     public AudioClip _flameThrower1;
     public AudioClip _flameThrower2;
 
+    public AudioClip _melee1;
+
+    public AudioClip _dodgedash1;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -42,6 +52,8 @@ public class PlayerSounds : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        _meleeSrc.clip = _melee1;
+
         if (GetComponent<CharacterController>().isGrounded && GetComponent<PlayerCharacterController>().speed == 2.5f && (Input.GetKey("w") | Input.GetKey("a") | Input.GetKey("s") | Input.GetKey("d")))
         {
             _move = true;
@@ -50,7 +62,6 @@ public class PlayerSounds : MonoBehaviour
         {
             _move = false;
         }
-
 
         if (GetComponent<SpellCasting>()._spellPrefab.name == "Flamethrower_particle" && Input.GetButton("Fire1") && GetComponent<EnergySystem>()._currentEnergy > 5)
         {
@@ -70,6 +81,16 @@ public class PlayerSounds : MonoBehaviour
         if (_move == false)
         {
             _walkingSrc.Stop();
+        }
+
+        if (_dodgedash == true && _otherSrc.isPlaying == false)
+        {
+            _otherSrc.Play();
+        }
+
+        if (_dodgedash == false)
+        {
+            _otherSrc.Stop();
         }
 
         if (_fire == true && _spellSrc.isPlaying == false)
