@@ -69,6 +69,8 @@ public class SpellCasting : MonoBehaviour  // Tämä scripti liitetään pelaaja
             }
         }
 
+        if (_spellPrefab == null)
+            return;
 
         if (Input.GetButton("Fire1"))
         {
@@ -210,6 +212,9 @@ public class SpellCasting : MonoBehaviour  // Tämä scripti liitetään pelaaja
 
     private void FixedUpdate()
     {
+        if (_spellPrefab == null)
+            return;
+
         if (Input.GetButton("Fire1"))
         {
             if (_spellPrefab.name == "Flamethrower_particle")
