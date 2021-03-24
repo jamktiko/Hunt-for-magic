@@ -35,8 +35,6 @@ public class EnemySlimeMovement : MonoBehaviour
         player = GameObject.Find("PlayerCharacter"); // find player character
         lookDirectionNode = GameObject.Find("LookDirectionNode");
         transform.LookAt(lookDirectionNode.transform.position);
-
-
     }
 
     // Update is called once per frame
@@ -68,7 +66,10 @@ public class EnemySlimeMovement : MonoBehaviour
             if (touchGround && !inRange) //jump command
             {
                 StartCoroutine(jumpPhaser());
-                transform.LookAt(lookDirectionNode.transform.position);
+                if (lookDirectionNode != null)
+                {
+                    transform.LookAt(lookDirectionNode.transform.position);
+                }
                 Vector3 lookDirection = (lookDirectionNode.transform.position - transform.position).normalized; // patrol movement
                 enemyRB.AddForce(Vector3.up * jump, ForceMode.Impulse); // upward motion command
                 enemyRB.AddForce(lookDirection * speed, ForceMode.Impulse); // forward motion command
@@ -91,7 +92,7 @@ public class EnemySlimeMovement : MonoBehaviour
                 attackTrigger2 = false;
             }
 
-            if (attackTrigger2)
+            if (attackTrigger2) //attack trigger
             {
                 enemyRB.velocity = Vector3.zero;
                 Vector3 lookDirection = (player.transform.position - transform.position).normalized; // search for player
@@ -132,7 +133,7 @@ public class EnemySlimeMovement : MonoBehaviour
             enemyHealth.AddDamage(attackDamage);
         }
 
-        if (collision.gameObject.name == "ChainHitBox")
+        if (collision.gameObject.GetComponent("ChainLightning") != null)
         {
             clHit = true;
         }
@@ -158,7 +159,7 @@ public class EnemySlimeMovement : MonoBehaviour
     IEnumerator CLcooldown()
     {
         clWait = true;
-        yield return new WaitForSeconds(1.3f);
+        yield return new WaitForSeconds(2.6f);
         clWait = false;
         clHit = false;
     }

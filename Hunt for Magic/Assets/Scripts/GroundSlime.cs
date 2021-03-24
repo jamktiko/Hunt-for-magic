@@ -9,12 +9,15 @@ public class GroundSlime : MonoBehaviour
 
     [SerializeField]
     private float _playerSpeed = 2.5f;
-    private float _damageAmount = 10f;
+    private float _damageAmount = 25f;
 
     private void Update()
     {
         Invoke("MovementReturn", 5f);
-        DamageOff();
+        if (!DamageDealt)
+        {
+            DamageOff();
+        }
         Destroy(gameObject, 5f);
     }
 
@@ -26,22 +29,12 @@ public class GroundSlime : MonoBehaviour
 
             _slowed = true;
 
-            if (this.gameObject.name =="SlowingSlimeCharge" && !DamageDealt)
+            if (gameObject.name.Contains("SlowingSlimeCharge") && !DamageDealt)
             {
-                var enemy = other.gameObject.GetComponent<Rigidbody>();
+               var enemyHealth = other.gameObject.GetComponent<HealthSystem>();
 
-                var enemyHealth = other.gameObject.GetComponent<HealthSystem>();
-
-                 if (enemy != null)
-                 {
-                 DamageDealt = true;
-                 enemyHealth.AddDamage(_damageAmount);
-                 }
-
-            }
-            else
-            {
-
+                DamageDealt = true;
+                enemyHealth.AddDamage(_damageAmount);
             }
         }
     }
@@ -63,7 +56,7 @@ public class GroundSlime : MonoBehaviour
 
     IEnumerator DamageOff()
     {
-        yield return new WaitForSeconds(1.1f);
+        yield return new WaitForSeconds(1.8f);
         DamageDealt = true;
     }
 }
