@@ -63,7 +63,7 @@ public class PlayerSounds : MonoBehaviour
             _move = false;
         }
 
-        if (GetComponent<SpellCasting>()._spellPrefab.name == "Flamethrower_particle" && Input.GetButton("Fire1") && GetComponent<EnergySystem>()._currentEnergy > 5)
+        if (GetComponent<SpellCasting>()._spellPrefab != null && GetComponent<SpellCasting>()._spellPrefab.name == "Flamethrower_particle" && Input.GetButton("Fire1") && GetComponent<EnergySystem>()._currentEnergy > 5)
         {
             _fire = true;
         }
@@ -109,7 +109,7 @@ public class PlayerSounds : MonoBehaviour
             _spellSrc.Play();
         }
 
-        if (GetComponent<SpellCasting>()._spellPrefab.name == "Flamethrower_particle")
+        if (GetComponent<SpellCasting>()._spellPrefab != null && GetComponent<SpellCasting>()._spellPrefab.name == "Flamethrower_particle")
         {
             if (Input.GetButtonUp("Fire1") | GetComponent<EnergySystem>()._currentEnergy < 5)
             {

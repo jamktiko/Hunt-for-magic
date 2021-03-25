@@ -14,6 +14,8 @@ public class HealthSystem : MonoBehaviour
 
     public bool _damageTaken;
 
+    public bool _deadSlime;
+
 
     public void AddDamage(float damage)
     {
@@ -38,6 +40,7 @@ public class HealthSystem : MonoBehaviour
             if (gameObject.name.Contains("EnemySlimePrefab"))
             {
                 gameObject.GetComponent<EnemySlimeMovement>().enabled = false;
+                _deadSlime = true;
             }
 
             if (gameObject.tag != "Player")
