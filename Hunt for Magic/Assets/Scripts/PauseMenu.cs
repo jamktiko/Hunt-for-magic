@@ -10,7 +10,13 @@ public class PauseMenu : MonoBehaviour
     private GameObject _pausePanel;
 
     [SerializeField]
+    private GameObject _settingsPanel;
+
+    [SerializeField]
     private Button _resume;
+
+    [SerializeField]
+    private Button _settings;
 
     [SerializeField]
     private Button _mainMenu;
@@ -26,7 +32,7 @@ public class PauseMenu : MonoBehaviour
         _crosshair = GameObject.Find("Crosshair");
 
         _resume.onClick.AddListener(ContinueGame);
-
+        _settings.onClick.AddListener(Setting);
         _mainMenu.onClick.AddListener(MainMenu);
     }
 
@@ -64,6 +70,12 @@ public class PauseMenu : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         _crosshair.SetActive(true);
         Time.timeScale = 1;
+    }
+
+    private void Setting()
+    {
+        _pausePanel.SetActive(false);
+        _settingsPanel.SetActive(true);
     }
 
     private void MainMenu()
