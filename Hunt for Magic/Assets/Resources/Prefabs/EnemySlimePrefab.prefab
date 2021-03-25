@@ -309,8 +309,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _anim: {fileID: 0}
-  _slimeSounds: {fileID: 3364451846326701775}
-  _slimeJump: {fileID: 8300000, guid: f47136292ab8c184dbb3b110d765e847, type: 3}
   _chargeAttack: 0
 --- !u!1 &6573132610404777415
 GameObject:
@@ -512,6 +510,8 @@ MonoBehaviour:
   isChargeAttacking: 0
   animationReady: 0
   clHit: 0
+  _slimeSounds: {fileID: 0}
+  _slimeJump: {fileID: 8300000, guid: f47136292ab8c184dbb3b110d765e847, type: 3}
 --- !u!114 &2261954844955577238
 MonoBehaviour:
   m_ObjectHideFlags: 0

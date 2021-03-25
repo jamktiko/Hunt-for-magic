@@ -790,6 +790,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6893892525520940793, guid: a6a44eab725b9f044b88dad8a23c10af,
+        type: 3}
+      propertyPath: _slimeJump
+      value: 
+      objectReference: {fileID: 8300000, guid: f47136292ab8c184dbb3b110d765e847, type: 3}
     - target: {fileID: 6893892525520940794, guid: a6a44eab725b9f044b88dad8a23c10af,
         type: 3}
       propertyPath: m_Name
