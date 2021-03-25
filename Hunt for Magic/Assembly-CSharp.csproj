@@ -96,6 +96,7 @@
     <Compile Include="Assets\Scripts\PlayerCharacterController.cs" />
     <Compile Include="Assets\Scripts\PlayerDebuffs.cs" />
     <Compile Include="Assets\Scripts\PlayerSounds.cs" />
+    <Compile Include="Assets\Scripts\RocketJump.cs" />
     <Compile Include="Assets\Scripts\SlimeAnimation.cs" />
     <Compile Include="Assets\Scripts\SlimeDrop.cs" />
     <Compile Include="Assets\Scripts\SpellCasting.cs" />
