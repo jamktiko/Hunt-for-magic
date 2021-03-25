@@ -8,6 +8,7 @@ public class CLHIt : MonoBehaviour
     public bool clHit;
     private Vector3 scaleChange, positionChange;
     public Rigidbody Target;
+    private Rigidbody thisRB;
 
 
     // Start is called before the first frame update
@@ -16,8 +17,8 @@ public class CLHIt : MonoBehaviour
         firstHit = true;
         clHit = false;
         gameObject.GetComponent<SphereCollider>();
-        scaleChange = new Vector3(0.08f, 0.08f, 0.08f);
-        positionChange = new Vector3(0, -0.008f, 0);
+        scaleChange = new Vector3(0.28f, 0.28f, 0.28f);
+        positionChange = new Vector3(0, -0.052f, 0);
     }
 
     // Update is called once per frame
@@ -25,25 +26,32 @@ public class CLHIt : MonoBehaviour
     {
         gameObject.transform.localScale += scaleChange;
         gameObject.transform.position += positionChange;
-        Destroy(gameObject, 1.5f);
+        Destroy(gameObject, 1.8f);
     }
 
     //Find target
     void OnTriggerEnter(Collider other)
-    {      
-        var enemy = other.gameObject.GetComponent<EnemySlimeMovement>().clHit;
-        var target = other.gameObject.GetComponent<Rigidbody>();
-
-        clHit = enemy;
-
-        if (clHit)
+    {
+        if (other.CompareTag("Monster"))
         {
+            if (other.name.Contains("Slime"))
+            {           
+                clHit = other.gameObject.GetComponent<EnemySlimeMovement>().clHit;
 
-        }
-        else if (!clHit && !firstHit)
-        {
-            firstHit = true;
-            Target = target;
-        }
+                if (clHit || firstHit)
+                {
+
+                }
+
+                if (!clHit && !firstHit)
+                {
+                    Target = other.gameObject.GetComponent<Rigidbody>();
+                    if (Target != null)
+                    {
+                        firstHit = true;
+                    }
+                }
+            }          
+        }      
     }
 }

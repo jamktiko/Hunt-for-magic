@@ -8,7 +8,7 @@ public class EnemySlimeMovement : MonoBehaviour
     public float speed = 3;
     private float attackDamage = 5f;
     private Rigidbody enemyRB;
-    private GameObject lookDirectionNode;
+    private Transform lookDirectionNode;
     private bool inRange;
     private float LD1;
     private float LD2;
@@ -33,10 +33,8 @@ public class EnemySlimeMovement : MonoBehaviour
         chargeTrigger = false;
         enemyRB = GetComponent<Rigidbody>(); // make slime rigid
         player = GameObject.Find("PlayerCharacter"); // find player character
-        lookDirectionNode = GameObject.Find("LookDirectionNode");
+        lookDirectionNode = transform.Find("LookDirectionNode");
         transform.LookAt(lookDirectionNode.transform.position);
-
-
     }
 
     // Update is called once per frame
@@ -68,7 +66,10 @@ public class EnemySlimeMovement : MonoBehaviour
             if (touchGround && !inRange) //jump command
             {
                 StartCoroutine(jumpPhaser());
-                transform.LookAt(lookDirectionNode.transform.position);
+                if (lookDirectionNode != null)
+                {
+                    transform.LookAt(lookDirectionNode.transform.position);
+                }
                 Vector3 lookDirection = (lookDirectionNode.transform.position - transform.position).normalized; // patrol movement
                 enemyRB.AddForce(Vector3.up * jump, ForceMode.Impulse); // upward motion command
                 enemyRB.AddForce(lookDirection * speed, ForceMode.Impulse); // forward motion command
@@ -91,7 +92,7 @@ public class EnemySlimeMovement : MonoBehaviour
                 attackTrigger2 = false;
             }
 
-            if (attackTrigger2)
+            if (attackTrigger2) //attack trigger
             {
                 enemyRB.velocity = Vector3.zero;
                 Vector3 lookDirection = (player.transform.position - transform.position).normalized; // search for player
@@ -125,16 +126,17 @@ public class EnemySlimeMovement : MonoBehaviour
             }
         }
 
-        if (collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Player") && GetComponent<HealthSystem>()._deadSlime == false)
         {
             attackTrigger2 = true; // impact checker
             var enemyHealth = collision.gameObject.GetComponent<HealthSystem>();
             enemyHealth.AddDamage(attackDamage);
         }
 
-        if (collision.gameObject.name == "ChainHitBox")
+        if (collision.gameObject.name.Contains("ChainLightning"))
         {
-            clHit = true;
+            clHit = collision.gameObject.GetComponent<ChainLightingSpell>().targetFound;
+            CLcooldown();
         }
     }
 
@@ -158,7 +160,7 @@ public class EnemySlimeMovement : MonoBehaviour
     IEnumerator CLcooldown()
     {
         clWait = true;
-        yield return new WaitForSeconds(1.3f);
+        yield return new WaitForSeconds(2.6f);
         clWait = false;
         clHit = false;
     }

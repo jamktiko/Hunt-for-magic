@@ -9,24 +9,25 @@ public class ChainLightingSpell : MonoBehaviour
     private Transform _castingPoint;
     private float speed = 20f;
     public float chargeCounter;
-    private Object targetFound;
+    public bool targetFound;
     private Rigidbody enemyRB;
     public bool firstHit;
-    private Object enemyFinder;
-    private Rigidbody target;
+    public Object enemyFinder;
+    public Rigidbody target;
     private Rigidbody thisRB;
 
 
     // Start is called before the first frame update
     void Start()
     {
+        targetFound = true;
         enemyFinder = Resources.Load("Prefabs/EnemyFinder");
         firstHit = false;
         GameObject player = GameObject.Find("PlayerCharacter");        
         chargeCounter = player.GetComponent<SpellCasting>().spellCharge;
         _castingPoint = GameObject.Find("CastingPoint").GetComponent<Transform>();
         gameObject.GetComponent<Rigidbody>().AddForce(_castingPoint.forward * speed, ForceMode.Impulse);
-        thisRB = GetComponentInChildren<Rigidbody>();
+        thisRB = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
@@ -34,12 +35,7 @@ public class ChainLightingSpell : MonoBehaviour
     {      
         if (firstHit)
         {
-            var enemy = GameObject.Find("EnemyFinder");
-            target = enemy.gameObject.GetComponent<CLHIt>().Target;
-            enemyRB = target;
-
-            Vector3 Target = (enemyRB.transform.position - thisRB.transform.position).normalized;
-            thisRB.AddForce(Target * speed, ForceMode.Impulse);
+            spellCharger();
         }
 
         Destroy(gameObject, 4f);
@@ -48,19 +44,18 @@ public class ChainLightingSpell : MonoBehaviour
     private void OnTriggerEnter(Collider other)
 
     {
-        var enemy = other.gameObject.GetComponent<Rigidbody>();
-
-        var enemyHealth = other.gameObject.GetComponent<HealthSystem>();
-
-        if (!firstHit && enemy != null)
+        if (other.gameObject.CompareTag("Monster"))
         {
-            firstHit = true;
-        }
-        
-        if(chargeCounter > 0)
-        {
+            var enemy = other.gameObject.GetComponent<Rigidbody>();
 
-            if (enemy != null)
+            var enemyHealth = other.gameObject.GetComponent<HealthSystem>();
+
+            if (!firstHit && enemy != null)
+            {
+                firstHit = true;
+            }
+
+            if (chargeCounter > 0 && enemy != null)
             {
                 thisRB.velocity = Vector3.zero;
 
@@ -68,9 +63,9 @@ public class ChainLightingSpell : MonoBehaviour
 
                 enemyHealth.AddDamage(_damageAmount);
 
-                chargeCounter--;             
+                chargeCounter--;
             }
-        }
+        }  
     }
 
     private void OnTriggerExit(Collider other)
@@ -92,7 +87,15 @@ public class ChainLightingSpell : MonoBehaviour
 
     private void spellCharger()
     {
-        
+        var enemyFinUpdate = GameObject.Find("EnemyFinder");
+
+        if (enemyFinUpdate != null)
+        {
+            enemyRB = enemyFinUpdate.GetComponent<CLHIt>().Target;
+
+            Vector3 Target = (enemyRB.transform.position - transform.position).normalized;
+            thisRB.AddForce(Target * speed, ForceMode.Impulse);
+        }
     }
 
     IEnumerator Cooldown()

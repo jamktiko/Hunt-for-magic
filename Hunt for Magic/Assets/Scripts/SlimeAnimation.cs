@@ -11,11 +11,14 @@ public class SlimeAnimation : MonoBehaviour
     [HideInInspector]
     public bool _chargeAttack;
 
+    private Object _slimeExplosion;
+
     // Start is called before the first frame update
     void Start()
     {
         _slime = gameObject.GetComponentInParent<Rigidbody>();
         _anim = _slime.GetComponentInChildren<Animator>();
+        _slimeExplosion = Resources.Load("Prefabs/SlimeExplosion");
     }
 
     // Update is called once per frame
@@ -35,6 +38,8 @@ public class SlimeAnimation : MonoBehaviour
         {
             _chargeAttack = false;
             _anim.Play("SlimeCharged");
+            Object explosion = Instantiate(_slimeExplosion, _slime.position, Quaternion.Euler(90, 0, 0));
+            Destroy(explosion, 2f);
         }
 
         if (_slime.GetComponent<HealthSystem>().health == 0)
