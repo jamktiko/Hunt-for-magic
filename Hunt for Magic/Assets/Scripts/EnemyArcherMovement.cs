@@ -52,30 +52,30 @@ public class EnemyArcherMovement : MonoBehaviour
     {        
         if (player != null)
         {
-            if (Vector3.Distance(player.transform.position, enemyRB.transform.position) <= 15 && Vector3.Distance(player.transform.position, enemyRB.transform.position) > 10)
+            if (Vector3.Distance(player.transform.position, enemyRB.transform.position) <= 17 && Vector3.Distance(player.transform.position, enemyRB.transform.position) > 10) // attack range checker
             {
                 attackRange = true;
             }
             else attackRange = false;
 
-            if (Vector3.Distance(player.transform.position, enemyRB.transform.position) >= 25)
+            if (Vector3.Distance(player.transform.position, enemyRB.transform.position) >= 25) // patrol spotter
             {
                 inRange = false;
                 attackRange = false;
                 runRange = false;
             }
-            if (Vector3.Distance(player.transform.position, enemyRB.transform.position) <= 10)
+            if (Vector3.Distance(player.transform.position, enemyRB.transform.position) <= 8) // run away spotter
             {
                 runRange = true;
             }
             else runRange = false;
 
-            if (Vector3.Distance(player.transform.position, enemyRB.transform.position) < 25)
+            if (Vector3.Distance(player.transform.position, enemyRB.transform.position) < 25) // player spotter
             {
                 inRange = true;
             }
 
-            if (inRange && !attackRange)
+            if (inRange && !attackRange) // move closer command line
             {
                 if(patrol)
                 {
@@ -90,7 +90,7 @@ public class EnemyArcherMovement : MonoBehaviour
                 patrol = true;
             }
 
-            if (!inRange)
+            if (!inRange) // patrol command line
             {
                 if (!patrol)
                 {
@@ -121,7 +121,7 @@ public class EnemyArcherMovement : MonoBehaviour
                 //attack comes here
             }
 
-            if (runRange)
+            if (runRange) // run away commandline
             {
                 if (!running)
                 {

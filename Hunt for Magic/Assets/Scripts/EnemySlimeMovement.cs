@@ -47,7 +47,7 @@ public class EnemySlimeMovement : MonoBehaviour
 
         if (player != null)
         {
-            if (Vector3.Distance(player.transform.position, enemyRB.transform.position) < 15)
+            if (Vector3.Distance(player.transform.position, enemyRB.transform.position) < 25)
             {
                 inRange = true;
             }
