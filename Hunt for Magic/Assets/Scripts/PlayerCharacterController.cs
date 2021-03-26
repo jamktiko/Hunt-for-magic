@@ -17,7 +17,7 @@ public class PlayerCharacterController : MonoBehaviour
     public bool rocketJump;
 
     private PlayerDebuffs playerDebuff;
-    public float mouseSensitivity = 100f;
+    public static float mouseSensitivity = 5f;
     float xRotation = 0f;
     float yRotation = 0f;
     float rotationLimitPositive = 90f;

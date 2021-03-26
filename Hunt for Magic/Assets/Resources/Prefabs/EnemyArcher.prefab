@@ -30,7 +30,7 @@ RectTransform:
   m_GameObject: {fileID: 2579396315191834181}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.7406575, y: 0.7406575, z: 0.7406575}
+  m_LocalScale: {x: 1, y: 1.4, z: 1}
   m_Children:
   - {fileID: 2746860438513299205}
   m_Father: {fileID: 0}
@@ -129,7 +129,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18ff25884cfc9fb4eb75bf0c873d249a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 4
   touchGround: 1
   chargeTrigger: 1
   chargeAttackRoller: 0

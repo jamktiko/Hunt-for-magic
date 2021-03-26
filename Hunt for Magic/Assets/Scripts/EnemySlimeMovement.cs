@@ -22,6 +22,8 @@ public class EnemySlimeMovement : MonoBehaviour
     public bool animationReady = false;
     public bool clHit;
     private bool clWait;
+    public AudioSource _slimeSounds;
+    public AudioClip _slimeJump;
 
     // Start is called before the first frame update
     void Start()
@@ -35,6 +37,7 @@ public class EnemySlimeMovement : MonoBehaviour
         player = GameObject.Find("PlayerCharacter"); // find player character
         lookDirectionNode = transform.Find("LookDirectionNode");
         transform.LookAt(lookDirectionNode.transform.position);
+        _slimeSounds = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -47,7 +50,7 @@ public class EnemySlimeMovement : MonoBehaviour
 
         if (player != null)
         {
-            if (Vector3.Distance(player.transform.position, enemyRB.transform.position) < 15)
+            if (Vector3.Distance(player.transform.position, enemyRB.transform.position) < 25)
             {
                 inRange = true;
             }
@@ -79,7 +82,10 @@ public class EnemySlimeMovement : MonoBehaviour
                 LD1 = Random.Range(-1f, 1f);
                 LD2 = Random.Range(-1f, 1f);
                 lookDirectionNode.transform.localPosition = new Vector3(LD1,0,LD2);
-                
+                if (!_slimeSounds.isPlaying)
+                {
+                    _slimeSounds.PlayOneShot(_slimeJump);
+                }
             }
             else if (inRange && touchGround) //chase command
             {
@@ -90,6 +96,10 @@ public class EnemySlimeMovement : MonoBehaviour
                 touchGround = false;
                 attackTrigger1 = false;
                 attackTrigger2 = false;
+                if (!_slimeSounds.isPlaying)
+                {
+                    _slimeSounds.PlayOneShot(_slimeJump);
+                }
             }
 
             if (attackTrigger2) //attack trigger
@@ -131,6 +141,9 @@ public class EnemySlimeMovement : MonoBehaviour
             attackTrigger2 = true; // impact checker
             var enemyHealth = collision.gameObject.GetComponent<HealthSystem>();
             enemyHealth.AddDamage(attackDamage);
+            {
+                _slimeSounds.PlayOneShot(_slimeJump);
+            }
         }
 
         if (collision.gameObject.name.Contains("ChainLightning"))
