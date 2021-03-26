@@ -73,6 +73,7 @@
     <Compile Include="Assets\Scripts\DisplayCharge.cs" />
     <Compile Include="Assets\Scripts\DodgeCooldown.cs" />
     <Compile Include="Assets\Scripts\Dodgedash.cs" />
+    <Compile Include="Assets\Scripts\EnemyArcherMovement.cs" />
     <Compile Include="Assets\Scripts\EnemyHealthbar.cs" />
     <Compile Include="Assets\Scripts\EnemySlimeMovement.cs" />
     <Compile Include="Assets\Scripts\EnergySystem.cs" />
@@ -99,7 +100,9 @@
     <Compile Include="Assets\Scripts\RocketJump.cs" />
     <Compile Include="Assets\Scripts\SlimeAnimation.cs" />
     <Compile Include="Assets\Scripts\SlimeDrop.cs" />
+    <Compile Include="Assets\Scripts\SpellBehaviour.cs" />
     <Compile Include="Assets\Scripts\SpellCasting.cs" />
+    <Compile Include="Assets\Scripts\SpellPickup.cs" />
     <Compile Include="Assets\Scripts\WaterSpell.cs" />
     <Compile Include="Assets\Scripts\WindSpell.cs" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
