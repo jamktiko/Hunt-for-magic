@@ -60,6 +60,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _damageAmount: 5
   _speed: 35.62
+  _rocketjumpTrigger: {fileID: 0}
 --- !u!54 &4740537810288572285
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -68,7 +69,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 762923226908891683}
   serializedVersion: 2
-  m_Mass: 1
+  m_Mass: 0.0000001
   m_Drag: 0
   m_AngularDrag: 0
   m_UseGravity: 0
@@ -104,7 +105,7 @@ Transform:
   m_GameObject: {fileID: 4452991817423903515}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_Children: []
   m_Father: {fileID: 135058507269698838}
   m_RootOrder: 1
@@ -136,6 +137,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _damageAmount: 5
   _speed: 35.62
+  _rocketjumpTrigger: {fileID: 975024681128364463, guid: 9550b032308589e42bf83f488c5e032f,
+    type: 3}
 --- !u!54 &5918544793587055564
 Rigidbody:
   m_ObjectHideFlags: 0

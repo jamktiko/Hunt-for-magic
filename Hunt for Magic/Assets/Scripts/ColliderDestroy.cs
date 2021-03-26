@@ -11,7 +11,7 @@ public class ColliderDestroy : MonoBehaviour
     void Start()
     {
         _castingPoint = GameObject.Find("CastingPoint").GetComponent<Transform>();
-        gameObject.GetComponent<Rigidbody>().AddForce(_castingPoint.forward * speed, ForceMode.Impulse);
+        gameObject.GetComponent<Rigidbody>().AddForce(_castingPoint.forward * speed, ForceMode.VelocityChange);
     }
 
 

@@ -20,13 +20,14 @@ public class GameOverScript : MonoBehaviour
     {
         _player = GameObject.Find("PlayerCharacter");
         _crosshair = GameObject.Find("Crosshair");
+
+        _mainMenu.onClick.AddListener(MainMenu);
     }
 
 
     // Update is called once per frame
     void Update()
     {
-        _mainMenu.onClick.AddListener(MainMenu);
 
         if (_gameoverPanel.activeSelf)
         {
