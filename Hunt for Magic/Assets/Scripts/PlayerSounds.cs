@@ -8,15 +8,20 @@ public class PlayerSounds : MonoBehaviour
     private Animator _anim;
 
     [SerializeField]
-    private AudioSource _walkingSrc;
+    public AudioSource _walkingSrc;
 
     [SerializeField]
-    private AudioSource _fireSrc;
+    public AudioSource _spellSrc;
+
+    public AudioSource _meleeSrc;
+
+    public AudioSource _otherSrc;
 
     private bool _move;
 
-    [SerializeField]
     private bool _fire;
+
+    public bool _dodgedash;
 
     private int _rnd;
 
@@ -34,6 +39,10 @@ public class PlayerSounds : MonoBehaviour
     public AudioClip _flameThrower1;
     public AudioClip _flameThrower2;
 
+    public AudioClip _melee1;
+
+    public AudioClip _dodgedash1;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -41,9 +50,11 @@ public class PlayerSounds : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        if (GetComponent<CharacterController>().isGrounded && GetComponent<PlayerCharacterController>().speed == 2.5f && (Input.GetKey("w") || Input.GetKey("a") || Input.GetKey("s") || Input.GetKey("d")))
+        _meleeSrc.clip = _melee1;
+
+        if (GetComponent<CharacterController>().isGrounded && GetComponent<PlayerCharacterController>().speed == 2.5f && (Input.GetKey("w") | Input.GetKey("a") | Input.GetKey("s") | Input.GetKey("d")))
         {
             _move = true;
         }
@@ -52,8 +63,7 @@ public class PlayerSounds : MonoBehaviour
             _move = false;
         }
 
-
-        if (GetComponent<SpellCasting>()._spellPrefab.name == "Flamethrower_particle" && Input.GetButton("Fire1") && GetComponent<EnergySystem>()._currentEnergy > 5)
+        if (GetComponent<SpellCasting>()._spellPrefab != null && GetComponent<SpellCasting>()._spellPrefab.name == "Flamethrower_particle" && Input.GetButton("Fire1") && GetComponent<EnergySystem>()._currentEnergy > 5)
         {
             _fire = true;
         }
@@ -73,25 +83,38 @@ public class PlayerSounds : MonoBehaviour
             _walkingSrc.Stop();
         }
 
-        if (_fire == true && _fireSrc.isPlaying == false)
+        if (_dodgedash == true && _otherSrc.isPlaying == false)
+        {
+            _otherSrc.Play();
+        }
+
+        if (_dodgedash == false)
+        {
+            _otherSrc.Stop();
+        }
+
+        if (_fire == true && _spellSrc.isPlaying == false)
         {
             _rnd = Random.Range(1, 3);
 
             if (_rnd == 1)
             {
-                _fireSrc.clip = _flameThrower1;
+                _spellSrc.clip = _flameThrower1;
             }
             else if (_rnd == 2)
             {
-                _fireSrc.clip = _flameThrower2;
+                _spellSrc.clip = _flameThrower2;
             }
 
-            _fireSrc.Play();
+            _spellSrc.Play();
         }
-        
-        if (_fire == false)
+
+        if (GetComponent<SpellCasting>()._spellPrefab != null && GetComponent<SpellCasting>()._spellPrefab.name == "Flamethrower_particle")
         {
-            _fireSrc.Stop();
+            if (Input.GetButtonUp("Fire1") | GetComponent<EnergySystem>()._currentEnergy < 5)
+            {
+                _spellSrc.Stop();
+            }
         }
     }
 

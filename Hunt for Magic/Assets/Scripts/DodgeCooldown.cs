@@ -24,7 +24,7 @@ public class DodgeCooldown : MonoBehaviour
         if (_player.GetComponent<Dodgedash>()._coolDown)
         {
             _cooldown.enabled = true;
-            _cooldown.fillAmount -= 1.0f / 5.0f * Time.deltaTime;
+            _cooldown.fillAmount -= 1.0f / 5.3f * Time.deltaTime;
         }
         else
         {
