@@ -220,6 +220,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1665678826, guid: 6dd525fbf6a79b844a15b6bdcf0d50d1, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 118648667148364991, guid: 6dd525fbf6a79b844a15b6bdcf0d50d1,
         type: 3}
       propertyPath: m_Name
@@ -360,6 +364,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: flamethrower_pickup
       objectReference: {fileID: 0}
+    - target: {fileID: 5985076416929143959, guid: 829cf4e012ccb7f48b6f3139181434e5,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8445518991502028409, guid: 829cf4e012ccb7f48b6f3139181434e5,
         type: 3}
       propertyPath: m_RootOrder
@@ -428,6 +437,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Elec_Pickup
+      objectReference: {fileID: 0}
+    - target: {fileID: 6864458099251616323, guid: 39f92e4bfa011e943914bb221e80c349,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7522122401425404913, guid: 39f92e4bfa011e943914bb221e80c349,
         type: 3}
@@ -1018,6 +1032,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Chainlightning_pickup
       objectReference: {fileID: 0}
+    - target: {fileID: 8849938091001238985, guid: 16fb00be2432d9549b5b16b167e935b2,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 16fb00be2432d9549b5b16b167e935b2, type: 3}
 --- !u!1001 &3503772693462859006
@@ -1087,6 +1106,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Lightningbolt_pickup
       objectReference: {fileID: 0}
+    - target: {fileID: 8251711170033718736, guid: 7e2230d69c4b7d040b30fb212c8de3c6,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7e2230d69c4b7d040b30fb212c8de3c6, type: 3}
 --- !u!1001 &6653686860286893800
@@ -1155,6 +1179,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Fireball_pickup
+      objectReference: {fileID: 0}
+    - target: {fileID: 6923072439301326122, guid: 021f4223718cbca40964c7927164487c,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 021f4223718cbca40964c7927164487c, type: 3}
