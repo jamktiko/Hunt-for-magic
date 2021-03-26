@@ -528,6 +528,8 @@ MonoBehaviour:
   _maxHealth: 100
   _damageTaken: 0
   _deadSlime: 0
+  _slimeSounds: {fileID: 3364451846326701775}
+  _slimeDeath: {fileID: 8300000, guid: 798325e2455ba1549acdd9ddcda0ac3a, type: 3}
 --- !u!54 &6893892525520940796
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -648,7 +650,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0.25
+      value: 0.125
       inSlope: 0
       outSlope: 0
       tangentMode: 0
