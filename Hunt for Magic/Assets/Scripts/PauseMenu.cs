@@ -25,11 +25,14 @@ public class PauseMenu : MonoBehaviour
 
     private GameObject _crosshair;
 
+    public GameObject[] SpellPickups;
+
     // Start is called before the first frame update
     void Start()
     {
         _player = GameObject.Find("PlayerCharacter");
         _crosshair = GameObject.Find("Crosshair");
+        SpellPickups = GameObject.FindGameObjectsWithTag("Pickup");
 
         _resume.onClick.AddListener(ContinueGame);
         _settings.onClick.AddListener(Setting);
@@ -57,6 +60,12 @@ public class PauseMenu : MonoBehaviour
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
         _crosshair.SetActive(false);
+
+        foreach (GameObject spell in SpellPickups)
+        {
+            spell.GetComponent<PickupText>()._text.enabled = false;
+        }
+
         Time.timeScale = 0;
     }
 
@@ -69,6 +78,12 @@ public class PauseMenu : MonoBehaviour
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
         _crosshair.SetActive(true);
+
+        foreach (GameObject spell in SpellPickups)
+        {
+            spell.GetComponent<PickupText>()._text.enabled = true;
+        }
+
         Time.timeScale = 1;
     }
 
@@ -85,6 +100,12 @@ public class PauseMenu : MonoBehaviour
         _player.GetComponentInChildren<PlayerAnimation>().enabled = true;
         _player.GetComponent<PlayerSounds>().enabled = true;
         _crosshair.SetActive(true);
+
+        foreach (GameObject spell in SpellPickups)
+        {
+            spell.GetComponent<PickupText>()._text.enabled = true;
+        }
+
         Time.timeScale = 1;
         SceneManager.LoadScene(0);
     }
