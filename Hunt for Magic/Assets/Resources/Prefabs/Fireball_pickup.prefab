@@ -4798,7 +4798,7 @@ GameObject:
   - component: {fileID: 130543271545593861}
   m_Layer: 0
   m_Name: Fireball_pickup
-  m_TagString: Untagged
+  m_TagString: Pickup
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4857,8 +4857,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8eaa0f61950b15438697fc68ed70683, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _text: {fileID: 8961617590219844847}
+  _text: {fileID: 0}
   _pickupPoint: {fileID: 569995947446197475}
+  _pausePanel: {fileID: 0}
+  _settingsMenu: {fileID: 0}
 --- !u!1 &6505742582843655047
 GameObject:
   m_ObjectHideFlags: 0
@@ -5069,7 +5071,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2867713057841348913
 RectTransform:
   m_ObjectHideFlags: 0

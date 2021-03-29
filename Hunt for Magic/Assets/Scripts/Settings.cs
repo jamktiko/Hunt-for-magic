@@ -13,6 +13,20 @@ public class Settings : MonoBehaviour
 
     public Slider _sensitivity;
 
+    public Slider _soundSlider;
+
+    public UnityEngine.Audio.AudioMixer _mixer;
+
+    public string parameterName;
+
+    private void Awake()
+    {
+        float savedVolume = PlayerPrefs.GetFloat(parameterName, 1);
+        SetVolume(savedVolume);
+        _soundSlider.value = savedVolume;
+        _soundSlider.onValueChanged.AddListener((float _) => SetVolume(_));
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -25,10 +39,15 @@ public class Settings : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
-    void Update()
+    void SetVolume(float _value)
     {
-        
+        _mixer.SetFloat(parameterName, ConvertToDecibel(_value / _soundSlider.maxValue));
+        PlayerPrefs.SetFloat(parameterName, _value);
+    }
+
+    public float ConvertToDecibel(float _value)
+    {
+        return Mathf.Log10(Mathf.Max(_value, 0.0001f)) * 20f;
     }
 
     void Return()
