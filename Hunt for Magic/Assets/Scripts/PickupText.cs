@@ -30,7 +30,7 @@ public class PickupText : MonoBehaviour
         }
         else
         {
-            _text.enabled = true;
+            _text.enabled = false;
         }
     }
 }
