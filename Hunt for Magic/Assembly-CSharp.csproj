@@ -93,11 +93,13 @@
     <Compile Include="Assets\Scripts\MeleeCooldown.cs" />
     <Compile Include="Assets\Scripts\MeleeTrigger.cs" />
     <Compile Include="Assets\Scripts\PauseMenu.cs" />
+    <Compile Include="Assets\Scripts\PickupText.cs" />
     <Compile Include="Assets\Scripts\PlayerAnimation.cs" />
     <Compile Include="Assets\Scripts\PlayerCharacterController.cs" />
     <Compile Include="Assets\Scripts\PlayerDebuffs.cs" />
     <Compile Include="Assets\Scripts\PlayerSounds.cs" />
     <Compile Include="Assets\Scripts\RocketJump.cs" />
+    <Compile Include="Assets\Scripts\Settings.cs" />
     <Compile Include="Assets\Scripts\SlimeAnimation.cs" />
     <Compile Include="Assets\Scripts\SlimeDrop.cs" />
     <Compile Include="Assets\Scripts\SpellBehaviour.cs" />
@@ -122,6 +124,7 @@
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Masking.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF Overlay.shader" />
+    <None Include="Assets\Scripts\GetLightning.hlsl" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap-Mobile.shader" />
     <None Include="Assets\TextMesh Pro\Fonts\LiberationSans - OFL.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile.shader" />
