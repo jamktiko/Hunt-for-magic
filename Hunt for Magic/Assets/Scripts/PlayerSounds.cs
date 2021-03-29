@@ -21,6 +21,8 @@ public class PlayerSounds : MonoBehaviour
 
     private bool _fire;
 
+    private bool _slowed;
+
     public bool _dodgedash;
 
     private int _rnd;
@@ -42,6 +44,9 @@ public class PlayerSounds : MonoBehaviour
     public AudioClip _melee1;
 
     public AudioClip _dodgedash1;
+
+    public AudioClip _walkingOnSlime1;
+    public AudioClip _walkingOnSlime2;
 
     // Start is called before the first frame update
     void Start()
@@ -78,7 +83,23 @@ public class PlayerSounds : MonoBehaviour
             _walkingSrc.Play();
         }
 
-        if (_move == false)
+        if (GetComponent<CharacterController>().isGrounded && GetComponent<PlayerCharacterController>().speed == 1.25f && (Input.GetKey("w") | Input.GetKey("a") | Input.GetKey("s") | Input.GetKey("d")))
+        {
+            _slowed = true;
+        }
+
+        else
+        {
+            _slowed = false;
+        }
+
+        if (_slowed == true && _walkingSrc.isPlaying == false)
+        {
+            SlimewalkRandomizer();
+            _walkingSrc.Play();
+        }
+
+        if (_move == false && _slowed == false)
         {
             _walkingSrc.Stop();
         }
@@ -154,6 +175,21 @@ public class PlayerSounds : MonoBehaviour
             case 10:
                 _walkingSrc.clip = _runningOnGrass10;
                 break;
+        }
+    }
+
+    void SlimewalkRandomizer()
+    {
+        _rnd = Random.Range(1, 3);
+
+        if (_rnd == 1)
+        {
+            _walkingSrc.clip = _walkingOnSlime1;
+        }
+
+        else if (_rnd == 2)
+        {
+            _walkingSrc.clip = _walkingOnSlime2;
         }
     }
 }
