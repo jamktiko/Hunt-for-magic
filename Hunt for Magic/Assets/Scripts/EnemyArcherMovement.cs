@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class EnemyArcherMovement : MonoBehaviour
 {
-    public float speed = 8f;
-    private float runSpeed = 10f;
+    private float speed = 4f;
+    private float runSpeed = 6f;
     private float attackDamage = 10f;
     private Rigidbody enemyRB;
     private Transform lookDirectionNode;
@@ -29,6 +29,7 @@ public class EnemyArcherMovement : MonoBehaviour
     private bool runAway;
     private bool running;
     private bool rollDice;
+    private bool looking;
 
     // Start is called before the first frame update
     void Start()
@@ -47,39 +48,40 @@ public class EnemyArcherMovement : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {        
         if (player != null)
         {
-            if (Vector3.Distance(player.transform.position, enemyRB.transform.position) <= 15 && Vector3.Distance(player.transform.position, enemyRB.transform.position) > 10)
+            if (Vector3.Distance(player.transform.position, enemyRB.transform.position) <= 17 && Vector3.Distance(player.transform.position, enemyRB.transform.position) > 10) // attack range checker
             {
                 attackRange = true;
             }
             else attackRange = false;
 
-            if (Vector3.Distance(player.transform.position, enemyRB.transform.position) >= 25)
+            if (Vector3.Distance(player.transform.position, enemyRB.transform.position) >= 25) // patrol spotter
             {
                 inRange = false;
                 attackRange = false;
                 runRange = false;
             }
-            if (Vector3.Distance(player.transform.position, enemyRB.transform.position) <= 10)
+            if (Vector3.Distance(player.transform.position, enemyRB.transform.position) <= 8) // run away spotter
             {
                 runRange = true;
             }
             else runRange = false;
 
-            if (Vector3.Distance(player.transform.position, enemyRB.transform.position) < 25)
+            if (Vector3.Distance(player.transform.position, enemyRB.transform.position) < 25) // player spotter
             {
                 inRange = true;
             }
 
-            if (inRange && !attackRange)
+            if (inRange && !attackRange) // move closer command line
             {
                 if(patrol)
                 {
                     patrol = false;                  
                 }
+                transform.LookAt(player.transform.position);
                 transform.position = Vector3.MoveTowards(transform.position, player.transform.position, step);
 
             }
@@ -88,7 +90,7 @@ public class EnemyArcherMovement : MonoBehaviour
                 patrol = true;
             }
 
-            if (!inRange)
+            if (!inRange) // patrol command line
             {
                 if (!patrol)
                 {
@@ -96,13 +98,17 @@ public class EnemyArcherMovement : MonoBehaviour
                 }
 
                 if (patrol)
-                {
-                    PatrolPhaser();
-                    if (!rollDice)
+                {                            
+                    if (!looking)
                     {
+                        looking = true;
+                        LD1 = Random.Range(-1f, 1f);
+                        LD2 = Random.Range(-1f, 1f);
+                        transform.LookAt(lookDirectionNode.transform.position);
                         lookDirectionNode.transform.localPosition = new Vector3(LD1, 0, LD2);
-                        transform.position = Vector3.MoveTowards(transform.position, lookDirectionNode.transform.position, step);
+                        PatrolPhaser();
                     }
+                    transform.position = Vector3.MoveTowards(transform.position, lookDirectionNode.transform.position, step);
                 }
             }
             else if (inRange)
@@ -115,20 +121,18 @@ public class EnemyArcherMovement : MonoBehaviour
                 //attack comes here
             }
 
-            if (runRange)
+            if (runRange) // run away commandline
             {
                 if (!running)
                 {
-                    lookDirection = (player.transform.position - transform.position).normalized;
-                    lookDirectionNode.transform.localPosition = -lookDirection;
                     running = true;
                 }
                 runAway = true;
                 patrol = false;             
-                if (runAway)
+                if (runAway && running)
                 {
-                    transform.LookAt(lookDirectionNode.transform.position);
-                    transform.position = Vector3.MoveTowards(transform.position, lookDirectionNode.transform.position, runStep);
+                    transform.LookAt(-player.transform.position);
+                    transform.position = Vector3.MoveTowards(transform.position, player.transform.position, -1 * runStep);
                 }
                 runAway = false;
             }
@@ -145,19 +149,8 @@ public class EnemyArcherMovement : MonoBehaviour
     }
     IEnumerator PatrolPhaser()
     {
-        if (lookDirectionNode != null && patrol)
-        {
-            transform.LookAt(lookDirectionNode.transform.position);
-            rollDice = true;
-            if (rollDice)
-            {
-                LD1 = Random.Range(-1f, 1f);
-                LD2 = Random.Range(-1f, 1f);
-            }
-            rollDice = false;           
-            yield return new WaitForSeconds(3f);
-            
-        }    
+        yield return new WaitForSeconds(3f);
+        looking = false;
     }
 
     IEnumerator CLcooldown()
