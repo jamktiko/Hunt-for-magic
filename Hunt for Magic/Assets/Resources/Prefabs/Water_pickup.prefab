@@ -140,7 +140,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &9113584953465044059
 RectTransform:
   m_ObjectHideFlags: 0
@@ -215,7 +215,7 @@ GameObject:
   - component: {fileID: 3382228614387788942}
   m_Layer: 0
   m_Name: Water_pickup
-  m_TagString: Untagged
+  m_TagString: Pickup
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -275,8 +275,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8eaa0f61950b15438697fc68ed70683, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _text: {fileID: 5930593650205749675}
+  _text: {fileID: 0}
   _pickupPoint: {fileID: 103613002416921436}
+  _pausePanel: {fileID: 0}
+  _settingsMenu: {fileID: 0}
 --- !u!1 &8527084645893814176
 GameObject:
   m_ObjectHideFlags: 0

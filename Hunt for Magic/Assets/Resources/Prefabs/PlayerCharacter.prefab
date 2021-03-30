@@ -60,7 +60,8 @@ AudioSource:
   m_GameObject: {fileID: 538417786325944846}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: bd319ec7f338de043b5e075b0d2dd05e,
+    type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 1
@@ -5182,7 +5183,8 @@ AudioSource:
   m_GameObject: {fileID: 4252106628218637971}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: bd319ec7f338de043b5e075b0d2dd05e,
+    type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 1
@@ -5309,7 +5311,8 @@ AudioSource:
   m_GameObject: {fileID: 4252106628391893090}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: bd319ec7f338de043b5e075b0d2dd05e,
+    type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 1
@@ -5321,9 +5324,9 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 500
+  MaxDistance: 30
   Pan2D: 0
-  rolloffMode: 0
+  rolloffMode: 1
   BypassEffects: 0
   BypassListenerEffects: 0
   BypassReverbZones: 0
@@ -5356,7 +5359,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -5371,7 +5374,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 0.25
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -5582,6 +5585,8 @@ MonoBehaviour:
   _maxHealth: 100
   _damageTaken: 0
   _deadSlime: 0
+  _slimeSounds: {fileID: 0}
+  _slimeDeath: {fileID: 0}
 --- !u!136 &7370827034873486316
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -5622,7 +5627,8 @@ AudioSource:
   m_GameObject: {fileID: 4252106629176813803}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: bd319ec7f338de043b5e075b0d2dd05e,
+    type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 1
@@ -5741,6 +5747,8 @@ MonoBehaviour:
   _flameThrower2: {fileID: 8300000, guid: ad39be6ec08a7d24a9f0e58fde071187, type: 3}
   _melee1: {fileID: 8300000, guid: 485c33c7d8c4b184e9c892e3e8013a23, type: 3}
   _dodgedash1: {fileID: 8300000, guid: 54a3fb3b87c76574d9b13ad10de0f4c6, type: 3}
+  _walkingOnSlime1: {fileID: 8300000, guid: ce8203a60ce17034f828f4a172e99b94, type: 3}
+  _walkingOnSlime2: {fileID: 8300000, guid: 934c2b6b4e788ea4ca62455012189038, type: 3}
 --- !u!1 &4590092344485926886
 GameObject:
   m_ObjectHideFlags: 0

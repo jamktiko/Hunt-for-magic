@@ -500,7 +500,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 39f92e4bfa011e943914bb221e80c349, type: 3}
---- !u!1001 &1139996790
+--- !u!1001 &1003931985
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -795,6 +795,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Water_pickup
       objectReference: {fileID: 0}
+    - target: {fileID: 8337517480686389772, guid: 5180c8493451a7849962c973bca6d47f,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5180c8493451a7849962c973bca6d47f, type: 3}
 --- !u!1001 &1703489246
@@ -878,26 +883,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1285839465180032608, guid: ec75e577617f7ac439604093d35c2dba,
-        type: 3}
-      propertyPath: MaxDistance
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 1285839465180032608, guid: ec75e577617f7ac439604093d35c2dba,
-        type: 3}
-      propertyPath: rolloffMode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1285839465180032608, guid: ec75e577617f7ac439604093d35c2dba,
-        type: 3}
-      propertyPath: spreadCustomCurve.m_Curve.Array.data[0].value
-      value: 0.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 1285839465180032608, guid: ec75e577617f7ac439604093d35c2dba,
-        type: 3}
-      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4252106629176813780, guid: ec75e577617f7ac439604093d35c2dba,
         type: 3}
       propertyPath: m_RootOrder
@@ -957,11 +942,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PlayerCharacter
-      objectReference: {fileID: 0}
-    - target: {fileID: 7173822749763766676, guid: ec75e577617f7ac439604093d35c2dba,
-        type: 3}
-      propertyPath: spreadCustomCurve.m_Curve.Array.data[0].value
-      value: 0.25
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ec75e577617f7ac439604093d35c2dba, type: 3}
