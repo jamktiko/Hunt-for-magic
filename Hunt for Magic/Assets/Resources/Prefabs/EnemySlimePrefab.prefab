@@ -512,6 +512,7 @@ MonoBehaviour:
   clHit: 0
   _slimeSounds: {fileID: 0}
   _slimeJump: {fileID: 8300000, guid: f47136292ab8c184dbb3b110d765e847, type: 3}
+  _slimeAoe: {fileID: 8300000, guid: 1243f670d4e663147b2edb65aff05905, type: 3}
 --- !u!114 &2261954844955577238
 MonoBehaviour:
   m_ObjectHideFlags: 0
