@@ -5419,6 +5419,7 @@ GameObject:
   - component: {fileID: 1697893290111303662}
   - component: {fileID: 1987628948}
   - component: {fileID: 1987628937}
+  - component: {fileID: 1319101002477047823}
   m_Layer: 0
   m_Name: PlayerCharacter
   m_TagString: Player
@@ -5504,7 +5505,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _spellPrefab: {fileID: 0}
-  _spellCooldown: 0
+  _windCooldown: 0
+  _waterCooldown: 0
+  _elecCooldown: 0
+  _fireballCooldown: 0
+  _lightningboltCooldown: 0
+  _chainlightningCooldown: 0
   _spellInterval: 1
   _throwForce: 20
   _weaponArea: {fileID: 0}
@@ -5749,6 +5755,28 @@ MonoBehaviour:
   _dodgedash1: {fileID: 8300000, guid: 54a3fb3b87c76574d9b13ad10de0f4c6, type: 3}
   _walkingOnSlime1: {fileID: 8300000, guid: ce8203a60ce17034f828f4a172e99b94, type: 3}
   _walkingOnSlime2: {fileID: 8300000, guid: 934c2b6b4e788ea4ca62455012189038, type: 3}
+--- !u!114 &1319101002477047823
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4252106629176813803}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 677ba98ed95f8044cb110f5109a29232, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _isWet: 0
+  _onFire: 0
+  _chilled: 0
+  _slowed: 0
+  _oilSlowed: 0
+  _fireDebuffImage: {fileID: 0}
+  _chilledDebuffImage: {fileID: 0}
+  _slowedDebuffImage: {fileID: 0}
+  _oilDebuffImage: {fileID: 0}
+  _wetDebuffImage: {fileID: 0}
 --- !u!1 &4590092344485926886
 GameObject:
   m_ObjectHideFlags: 0
@@ -5995,15 +6023,15 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1259611717}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &6738709147749080836 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 6738709146861205825, guid: e887913d6b76a394d9a1243e7b42728e,
-    type: 3}
-  m_PrefabInstance: {fileID: 1259611717}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &919132148267031316 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: e887913d6b76a394d9a1243e7b42728e,
+    type: 3}
+  m_PrefabInstance: {fileID: 1259611717}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &6738709147749080836 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6738709146861205825, guid: e887913d6b76a394d9a1243e7b42728e,
     type: 3}
   m_PrefabInstance: {fileID: 1259611717}
   m_PrefabAsset: {fileID: 0}
