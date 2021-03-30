@@ -24,6 +24,7 @@ public class EnemySlimeMovement : MonoBehaviour
     private bool clWait;
     public AudioSource _slimeSounds;
     public AudioClip _slimeJump;
+    public AudioClip _slimeAoe;
 
     // Start is called before the first frame update
     void Start()
@@ -133,6 +134,10 @@ public class EnemySlimeMovement : MonoBehaviour
                 attackTrigger2 = false;
                 chargeTrigger = true;
                 gameObject.GetComponentInChildren<SlimeAnimation>()._chargeAttack = true;
+                if (!_slimeSounds.isPlaying)
+                {
+                    _slimeSounds.PlayOneShot(_slimeAoe);
+                }
             }
         }
 
