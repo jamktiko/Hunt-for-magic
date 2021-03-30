@@ -5505,7 +5505,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _spellPrefab: {fileID: 0}
-  _spellCooldown: 0
+  _windCooldown: 0
+  _waterCooldown: 0
+  _elecCooldown: 0
+  _fireballCooldown: 0
+  _lightningboltCooldown: 0
+  _chainlightningCooldown: 0
   _spellInterval: 1
   _throwForce: 20
   _weaponArea: {fileID: 0}
