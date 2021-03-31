@@ -17,7 +17,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &6580641378998951813
 RectTransform:
   m_ObjectHideFlags: 0
@@ -315,7 +315,7 @@ GameObject:
   - component: {fileID: 4340889369310392226}
   m_Layer: 0
   m_Name: Chainlightning_pickup
-  m_TagString: Untagged
+  m_TagString: Pickup
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -374,8 +374,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8eaa0f61950b15438697fc68ed70683, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _text: {fileID: 3910073911363932126}
+  _text: {fileID: 0}
   _pickupPoint: {fileID: 4662036279415669776}
+  _pausePanel: {fileID: 0}
+  _settingsMenu: {fileID: 0}
 --- !u!1 &8193903010553554465
 GameObject:
   m_ObjectHideFlags: 0

@@ -17,7 +17,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &752833879434782156
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4945,7 +4945,7 @@ GameObject:
   - component: {fileID: 373562269013384816}
   m_Layer: 0
   m_Name: Elec_Pickup
-  m_TagString: Untagged
+  m_TagString: Pickup
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5004,8 +5004,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8eaa0f61950b15438697fc68ed70683, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _text: {fileID: 3256803859690354691}
+  _text: {fileID: 0}
   _pickupPoint: {fileID: 7736926657770673095}
+  _pausePanel: {fileID: 0}
+  _settingsMenu: {fileID: 0}
 --- !u!1 &7736926657770673095
 GameObject:
   m_ObjectHideFlags: 0
