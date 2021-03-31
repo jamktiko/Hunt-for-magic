@@ -5755,6 +5755,8 @@ MonoBehaviour:
   _dodgedash1: {fileID: 8300000, guid: 54a3fb3b87c76574d9b13ad10de0f4c6, type: 3}
   _walkingOnSlime1: {fileID: 8300000, guid: ce8203a60ce17034f828f4a172e99b94, type: 3}
   _walkingOnSlime2: {fileID: 8300000, guid: 934c2b6b4e788ea4ca62455012189038, type: 3}
+  _walkingWater1: {fileID: 8300000, guid: fa19b6d780b2b2842a17ae53b5899797, type: 3}
+  _walkingWater2: {fileID: 8300000, guid: d178c0adb66b2324fb441c4ac86b038e, type: 3}
 --- !u!114 &1319101002477047823
 MonoBehaviour:
   m_ObjectHideFlags: 0
