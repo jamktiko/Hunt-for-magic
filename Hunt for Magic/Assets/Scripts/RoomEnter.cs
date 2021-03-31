@@ -12,11 +12,12 @@ public class RoomEnter : MonoBehaviour
     [SerializeField]
     private bool _isRoomEmpty;
     [SerializeField]
-    private List<Object> _spawnedEnemies;
+    private Object[] _spawnedEnemies;
     [SerializeField]
     Transform[] _spawnPoints;
     [SerializeField]
     Transform _room;
+    public int _enemyCount;
     // Start is called before the first frame update
     void Start()
     {
@@ -28,8 +29,9 @@ public class RoomEnter : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
+        _spawnedEnemies = GameObject.FindGameObjectsWithTag("Monster");
         if (_roomActive && IsArrayEmpty(_spawnedEnemies))
         {
             _roomActive = false;
@@ -58,15 +60,20 @@ public class RoomEnter : MonoBehaviour
         Debug.Log("Spawned enemy");
         Object enemy = Resources.Load("Prefabs/EnemySlimePrefab");
         Instantiate(enemy, spawnpoint.position, Quaternion.identity, _room);
-        _spawnedEnemies.Add(enemy);
     }
-    private bool IsArrayEmpty(List<Object> essenceArray)
+    private bool IsArrayEmpty(Object[] essenceArray)
     {
-        if (essenceArray == null || essenceArray.Count == 0) return true;
+        if (essenceArray == null || essenceArray.Length == 0) return true;
         else
         {
             return false;
         }
     }
-
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.gameObject.tag == "Monster")
+        {
+            
+        }
+    }
 }
