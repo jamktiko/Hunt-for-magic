@@ -17,6 +17,8 @@ public class PlayerSounds : MonoBehaviour
 
     public AudioSource _otherSrc;
 
+    public bool _onWater;
+
     private bool _move;
 
     private bool _fire;
@@ -48,6 +50,9 @@ public class PlayerSounds : MonoBehaviour
     public AudioClip _walkingOnSlime1;
     public AudioClip _walkingOnSlime2;
 
+    public AudioClip _walkingWater1;
+    public AudioClip _walkingWater2;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -59,7 +64,7 @@ public class PlayerSounds : MonoBehaviour
     {
         _meleeSrc.clip = _melee1;
 
-        if (GetComponent<CharacterController>().isGrounded && GetComponent<PlayerCharacterController>().speed == 2.5f && (Input.GetKey("w") | Input.GetKey("a") | Input.GetKey("s") | Input.GetKey("d")))
+        if (GetComponent<CharacterController>().isGrounded && GetComponent<PlayerCharacterController>().speed == 2.5f && _onWater == false && (Input.GetKey("w") | Input.GetKey("a") | Input.GetKey("s") | Input.GetKey("d")))
         {
             _move = true;
         }
@@ -80,7 +85,7 @@ public class PlayerSounds : MonoBehaviour
         if (_move == true && _walkingSrc.isPlaying == false)
         {
             WalkingRandomizer();
-            _walkingSrc.Play();
+            _walkingSrc.Play();                                         //Toistaa normaalia kävelyääntä
         }
 
         if (GetComponent<CharacterController>().isGrounded && GetComponent<PlayerCharacterController>().speed == 1.25f && (Input.GetKey("w") | Input.GetKey("a") | Input.GetKey("s") | Input.GetKey("d")))
@@ -96,10 +101,16 @@ public class PlayerSounds : MonoBehaviour
         if (_slowed == true && _walkingSrc.isPlaying == false)
         {
             SlimewalkRandomizer();
-            _walkingSrc.Play();
+            _walkingSrc.Play();                                         //Toistaa limanpäälläkävelyääntä
         }
 
-        if (_move == false && _slowed == false)
+        if (_onWater == true && _walkingSrc.isPlaying == false && (Input.GetKey("w") | Input.GetKey("a") | Input.GetKey("s") | Input.GetKey("d")))
+        {
+            WaterwalkRandomizer();
+            _walkingSrc.Play();                                         //Toistaa vedenpäälläkävelyääntä
+        }    
+
+        if (_move == false && _slowed == false && _onWater == false)
         {
             _walkingSrc.Stop();
         }
@@ -190,6 +201,21 @@ public class PlayerSounds : MonoBehaviour
         else if (_rnd == 2)
         {
             _walkingSrc.clip = _walkingOnSlime2;
+        }
+    }
+
+    void WaterwalkRandomizer()
+    {
+        _rnd = Random.Range(1, 3);
+
+        if (_rnd == 1)
+        {
+            _walkingSrc.clip = _walkingWater1;
+        }
+
+        else if (_rnd == 2)
+        {
+            _walkingSrc.clip = _walkingWater2;
         }
     }
 }

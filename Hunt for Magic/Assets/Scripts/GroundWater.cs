@@ -7,7 +7,6 @@ public class GroundWater : MonoBehaviour
     [SerializeField]
     private bool _electric;
 
-
     private void OnTriggerEnter(Collider other)
     {
         var enemy = other.gameObject.GetComponent<Rigidbody>();
@@ -22,7 +21,10 @@ public class GroundWater : MonoBehaviour
             other.gameObject.GetComponent<Debuffs>()._wet = true;
         }
 
-
+        if (other.tag == "Player")
+        {
+            other.GetComponent<PlayerSounds>()._onWater = true;
+        }
     }
 
     private void OnTriggerStay(Collider other)
@@ -36,5 +38,18 @@ public class GroundWater : MonoBehaviour
                 enemy.GetComponent<HealthSystem>().AddDamage(0.1f);
             }
         }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.tag == "Player")
+        {
+            other.GetComponent<PlayerSounds>()._onWater = false;
+        }
+    }
+
+    private void OnDestroy()
+    {
+        GameObject.FindWithTag("Player").GetComponent<PlayerSounds>()._onWater = false;
     }
 }
