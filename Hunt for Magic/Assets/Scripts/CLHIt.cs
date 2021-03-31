@@ -35,10 +35,15 @@ public class CLHIt : MonoBehaviour
         if (other.CompareTag("Monster"))
         {
             if (other.name.Contains("Slime"))
-            {           
-                clHit = other.gameObject.GetComponent<EnemySlimeMovement>().clHit;
+            {
+                other.gameObject.GetComponent<EnemySlimeMovement>().clHit = true;
+            }
+            if (other.name.Contains("Archer"))
+            {
+                other.gameObject.GetComponent<EnemyArcherMovement>().clHit = true;
+            }
 
-                if (clHit || firstHit)
+            if (clHit || firstHit)
                 {
 
                 }
@@ -46,12 +51,12 @@ public class CLHIt : MonoBehaviour
                 if (!clHit && !firstHit)
                 {
                     Target = other.gameObject.GetComponent<Rigidbody>();
+
                     if (Target != null)
                     {
                         firstHit = true;
                     }
-                }
-            }          
+                }          
         }      
     }
 }
