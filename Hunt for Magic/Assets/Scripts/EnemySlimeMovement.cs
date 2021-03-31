@@ -25,6 +25,8 @@ public class EnemySlimeMovement : MonoBehaviour
     public AudioSource _slimeSounds;
     public AudioClip _slimeJump;
     public AudioClip _slimeAoe;
+    public float _maxRange = 25f;
+    public float _range;
 
     // Start is called before the first frame update
     void Start()
@@ -39,6 +41,7 @@ public class EnemySlimeMovement : MonoBehaviour
         lookDirectionNode = transform.Find("LookDirectionNode");
         transform.LookAt(lookDirectionNode.transform.position);
         _slimeSounds = GetComponent<AudioSource>();
+        _range = 25f;
     }
 
     // Update is called once per frame
@@ -51,7 +54,7 @@ public class EnemySlimeMovement : MonoBehaviour
 
         if (player != null)
         {
-            if (Vector3.Distance(player.transform.position, enemyRB.transform.position) < 25)
+            if (Vector3.Distance(player.transform.position, enemyRB.transform.position) < _range)
             {
                 inRange = true;
             }
