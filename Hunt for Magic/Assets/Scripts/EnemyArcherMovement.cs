@@ -8,39 +8,45 @@ public class EnemyArcherMovement : MonoBehaviour
     private float runSpeed = 6f;
     private float attackDamage = 10f;
     private Rigidbody enemyRB;
+    private GameObject player;
     private Transform lookDirectionNode;
+    private Transform _arrowStartPoint;
+    private bool isChargeAttacking = false;
+    public bool isAttacking = false;
+    public bool animationReady = false;
     private bool inRange;
     private bool runRange;
     private bool attackRange;
-    private GameObject player;
-    public bool touchGround = true;
-    public bool chargeTrigger = true;
-    public float chargeAttackRoller;
-    public bool isChargeAttacking = false;
-    public bool animationReady = false;
-    private float LD1;
-    private float LD2;
-    public bool clHit;
-    private bool clWait;
-    private Vector3 lookDirection;
-    private bool patrol;
-    private float step;
-    private float runStep;
-    private bool runAway;
+    public bool attackCommence;
+    public bool patrol;
     private bool running;
     private bool rollDice;
     private bool looking;
+    private bool clWait;
+    public bool clHit;
+    public bool touchGround = true;
+    public bool chargeTrigger = true;
+    public float chargeAttackRoller;
+    private float LD1;
+    private float LD2;
+    private float step;
+    private float runStep;
+    private Object _arrowType;
+
+
+
 
     // Start is called before the first frame update
     void Start()
     {
+        _arrowType = Resources.Load("Prefabs/ArrowHitbox");
+        _arrowStartPoint = transform.Find("ArrowSpawnPoint");
         step = speed * Time.deltaTime;
         runStep = runSpeed * Time.deltaTime;
         clHit = false;
         touchGround = false;
         chargeTrigger = false;
         running = false;
-        runAway = false;
         enemyRB = GetComponent<Rigidbody>(); // make Archer rigid
         player = GameObject.Find("PlayerCharacter"); // find player character
         lookDirectionNode = transform.Find("LookDirectionNode");
@@ -49,10 +55,11 @@ public class EnemyArcherMovement : MonoBehaviour
 
     // Update is called once per frame
     void FixedUpdate()
-    {        
+    {      
+
         if (player != null)
         {
-            if (Vector3.Distance(player.transform.position, enemyRB.transform.position) <= 17 && Vector3.Distance(player.transform.position, enemyRB.transform.position) > 10) // attack range checker
+            if (Vector3.Distance(player.transform.position, enemyRB.transform.position) <= 17 && Vector3.Distance(player.transform.position, enemyRB.transform.position) > 9) // attack range checker
             {
                 attackRange = true;
             }
@@ -63,8 +70,10 @@ public class EnemyArcherMovement : MonoBehaviour
                 inRange = false;
                 attackRange = false;
                 runRange = false;
+                patrol = true;
             }
-            if (Vector3.Distance(player.transform.position, enemyRB.transform.position) <= 8) // run away spotter
+
+            if (Vector3.Distance(player.transform.position, enemyRB.transform.position) <= 5) // run away spotter
             {
                 runRange = true;
             }
@@ -81,7 +90,6 @@ public class EnemyArcherMovement : MonoBehaviour
                 {
                     patrol = false;                  
                 }
-                transform.LookAt(player.transform.position);
                 transform.position = Vector3.MoveTowards(transform.position, player.transform.position, step);
 
             }
@@ -104,21 +112,36 @@ public class EnemyArcherMovement : MonoBehaviour
                         looking = true;
                         LD1 = Random.Range(-1f, 1f);
                         LD2 = Random.Range(-1f, 1f);
-                        transform.LookAt(lookDirectionNode.transform.position);
-                        lookDirectionNode.transform.localPosition = new Vector3(LD1, 0, LD2);
-                        PatrolPhaser();
+                        StartCoroutine(PatrolPhaser());
+                        lookDirectionNode.localPosition = new Vector3(LD1, 0, LD2);
+                        transform.LookAt(lookDirectionNode.transform.position);               
+                        
                     }
                     transform.position = Vector3.MoveTowards(transform.position, lookDirectionNode.transform.position, step);
                 }
             }
-            else if (inRange)
+            
+            if (inRange && !running)
             {
-                patrol = false;
+                transform.LookAt(player.transform.position);
+                _arrowStartPoint.localPosition = new Vector3(0f, 0f, 1f);
             }
+
 
             if (attackRange)
             {
-                //attack comes here
+                if (!isAttacking)
+                {
+                    isAttacking = true;
+                    Instantiate(_arrowType, _arrowStartPoint.position, _arrowStartPoint.rotation);
+                    StartCoroutine(AttackCooldown());
+                    attackCommence = true;
+                }
+                else if (attackCommence)
+                {
+
+                }
+                
             }
 
             if (runRange) // run away commandline
@@ -126,15 +149,12 @@ public class EnemyArcherMovement : MonoBehaviour
                 if (!running)
                 {
                     running = true;
-                }
-                runAway = true;
-                patrol = false;             
-                if (runAway && running)
+                }            
+                if (runRange && running)
                 {
                     transform.LookAt(-player.transform.position);
                     transform.position = Vector3.MoveTowards(transform.position, player.transform.position, -1 * runStep);
                 }
-                runAway = false;
             }
             else if (!runRange)
             {
@@ -156,9 +176,16 @@ public class EnemyArcherMovement : MonoBehaviour
     IEnumerator CLcooldown()
     {
         clWait = true;
-        yield return new WaitForSeconds(2.6f);
+        yield return new WaitForSeconds(2.4f);
         clWait = false;
         clHit = false;
+    }
+
+    IEnumerator AttackCooldown()
+    {
+        yield return new WaitForSeconds(2.7f);
+        attackCommence = false;
+        isAttacking = false;
     }
 
     void OnCollisionEnter(Collision collision)
