@@ -6,7 +6,7 @@ using System.Linq;
 public class RoomEnter : MonoBehaviour
 {
     [SerializeField]
-    private bool _roomActive;
+    public bool _roomActive;
     [SerializeField]
     private bool _roomClear;
     [SerializeField]
@@ -18,6 +18,7 @@ public class RoomEnter : MonoBehaviour
     [SerializeField]
     Transform _room;
     public int _enemyCount;
+    public GameObject[] _doors;
     // Start is called before the first frame update
     void Start()
     {
@@ -26,6 +27,10 @@ public class RoomEnter : MonoBehaviour
         _spawnPoints = GetComponentsInChildren<Transform>();
         //Remove the first item in list to get rid of the parent.
         _spawnPoints = _spawnPoints.Skip(1).ToArray();
+        foreach (GameObject door in _doors)
+        {
+            door.SetActive(false);
+        }
     }
 
     // Update is called once per frame
@@ -36,6 +41,10 @@ public class RoomEnter : MonoBehaviour
         {
             _roomActive = false;
             _roomClear = true;
+            foreach (GameObject door in _doors)
+            {
+                door.SetActive(false);
+            }
         }
     }
     private void OnTriggerEnter(Collider other)
@@ -50,6 +59,10 @@ public class RoomEnter : MonoBehaviour
                 {
                     SpawnRandomEnemy(spawnpoint);
                 }
+            }
+            foreach (GameObject door in _doors)
+            {
+                door.SetActive(true);
             }
             _roomActive = true;
         }
