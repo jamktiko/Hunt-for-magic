@@ -11,6 +11,7 @@ public class Cooldown : MonoBehaviour
     private GameObject _player;
     public GameObject _weaponArea;
     private Image cooldown;
+    private int _slot;
 
     // Start is called before the first frame update
     void Start()
@@ -21,44 +22,99 @@ public class Cooldown : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (SpellBehaviour._activeSlot == 0 && _player.GetComponent<SpellCasting>()._spellCooldown == false)
+        if (_player.GetComponent<SpellCasting>()._windCooldown)
         {
-            cooldown1.enabled = false;
-            cooldown2.enabled = false;
+            if (_player.GetComponent<SpellCasting>()._spellPrefab.name == "WindEffect")
+            {
+                _slot = SpellBehaviour._activeSlot;
+            }
 
-            cooldown = cooldown0;
+            Slot();
         }
 
-        else if (SpellBehaviour._activeSlot == 1 && _player.GetComponent<SpellCasting>()._spellCooldown == false)
+        if (_player.GetComponent<SpellCasting>()._waterCooldown)
         {
-            cooldown0.enabled = false;
-            cooldown2.enabled = false;
+            if (_player.GetComponent<SpellCasting>()._spellPrefab.name == "Waterwave")
+            {
+                _slot = SpellBehaviour._activeSlot;
+            }
 
-            cooldown = cooldown1;
+            Slot();
         }
 
-        else if (SpellBehaviour._activeSlot == 2 && _player.GetComponent<SpellCasting>()._spellCooldown == false)
+        if (_player.GetComponent<SpellCasting>()._elecCooldown)
         {
-            cooldown0.enabled = false;
-            cooldown1.enabled = false;
+            if (_player.GetComponent<SpellCasting>()._spellPrefab.name == "Electricity")
+            {
+                _slot = SpellBehaviour._activeSlot;
+            }
 
-            cooldown = cooldown2;
+            Slot();
         }
 
-        if (_player.GetComponent<SpellCasting>()._spellCooldown == true)
+        if (_player.GetComponent<SpellCasting>()._fireballCooldown)
         {
-            cooldown.enabled = true;
-            cooldown.fillAmount -= 1 / _player.GetComponent<SpellCasting>()._spellInterval * Time.deltaTime;
+            if (_player.GetComponent<SpellCasting>()._spellPrefab.name == "Fireball")
+            {
+                _slot = SpellBehaviour._activeSlot;
+            }
+
+            Slot();
         }
-        else if (_player.GetComponent<EnergySystem>()._currentEnergy < 100 && _player.GetComponent<SpellCasting>()._spellCooldown == false && _player.GetComponent<SpellCasting>()._spellPrefab.name == "Flamethrower_particle")
+
+        if (_player.GetComponent<SpellCasting>()._lightningboltCooldown)
         {
-            cooldown.enabled = true;
-            cooldown.fillAmount = 1 - _player.GetComponent<EnergySystem>()._currentEnergy / _player.GetComponent<EnergySystem>()._maxEnergy;
+            if (_player.GetComponent<SpellCasting>()._spellPrefab.name == "LightningBolt")
+            {
+                _slot = SpellBehaviour._activeSlot;
+            }
+
+            Slot();
         }
-        else
+
+        if (_player.GetComponent<SpellCasting>()._chainlightningCooldown)
         {
-            cooldown.enabled = false;
-            cooldown.fillAmount = 1.0f;
+            if (_player.GetComponent<SpellCasting>()._spellPrefab.name == "ChainLightning")
+            {
+                _slot = SpellBehaviour._activeSlot;
+            }
+
+            Slot();
+        }
+
+        if (_player.GetComponent<EnergySystem>()._currentEnergy < 100)
+        {
+            if (_player.GetComponent<SpellCasting>()._spellPrefab.name == "Flamethrower_particle")
+            {
+                _slot = SpellBehaviour._activeSlot;
+            }
+
+            Slot();
+        }
+    }
+
+    private void Slot()
+    {
+        if (_slot == 0)
+        {
+            if (cooldown0.enabled)
+                return;
+
+            cooldown0.enabled = true;
+        }
+        else if (_slot == 1)
+        {
+            if (cooldown1.enabled)
+                return;
+
+            cooldown1.enabled = true;
+        }
+        else if (_slot == 2)
+        {
+            if (cooldown2.enabled)
+                return;
+
+            cooldown2.enabled = true;
         }
     }
 }

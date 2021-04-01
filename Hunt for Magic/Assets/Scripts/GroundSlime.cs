@@ -26,7 +26,7 @@ public class GroundSlime : MonoBehaviour
         if (other.gameObject.tag == "Player" && _slowed == false)
         {
             other.GetComponent<PlayerCharacterController>().speed = _playerSpeed / 2f;
-
+            other.GetComponent<PlayerDebuffs>()._slowed = true;
             _slowed = true;
 
             if (gameObject.name.Contains("SlowingSlimeCharge") && !DamageDealt)
@@ -50,7 +50,7 @@ public class GroundSlime : MonoBehaviour
     private void MovementReturn()
     {
         GameObject.FindWithTag("Player").GetComponent<PlayerCharacterController>().speed = _playerSpeed;
-
+        GameObject.FindWithTag("Player").GetComponent<PlayerDebuffs>()._slowed = false;
         _slowed = false;
     }
 

@@ -16,6 +16,12 @@ public class HealthSystem : MonoBehaviour
 
     public bool _deadSlime;
 
+    public AudioSource _slimeSounds;
+
+    public AudioClip _slimeDeath;
+
+    private bool _soundPlaying;
+
 
     public void AddDamage(float damage)
     {
@@ -39,8 +45,14 @@ public class HealthSystem : MonoBehaviour
 
             if (gameObject.name.Contains("EnemySlimePrefab"))
             {
-                gameObject.GetComponent<EnemySlimeMovement>().enabled = false;
                 _deadSlime = true;
+                gameObject.GetComponent<EnemySlimeMovement>().enabled = false;
+
+                if (!_soundPlaying)
+                {
+                    _slimeSounds.PlayOneShot(_slimeDeath);
+                    _soundPlaying = true;
+                }
             }
 
             if (gameObject.tag != "Player")
