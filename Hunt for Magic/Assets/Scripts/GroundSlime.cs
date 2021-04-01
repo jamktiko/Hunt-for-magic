@@ -16,7 +16,7 @@ public class GroundSlime : MonoBehaviour
         Invoke("MovementReturn", 5f);
         if (!DamageDealt)
         {
-            DamageOff();
+            StartCoroutine(DamageOff());
         }
         Destroy(gameObject, 5f);
     }
@@ -56,7 +56,7 @@ public class GroundSlime : MonoBehaviour
 
     IEnumerator DamageOff()
     {
-        yield return new WaitForSeconds(1.8f);
+        yield return new WaitForSeconds(0.5f);
         DamageDealt = true;
     }
 }
