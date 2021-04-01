@@ -10,6 +10,7 @@ TagManager:
   - Obstacle
   - Monster
   - Hazard
+  - Pickup
   layers:
   - Default
   - TransparentFX

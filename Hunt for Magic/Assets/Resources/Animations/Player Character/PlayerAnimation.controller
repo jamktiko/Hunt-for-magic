@@ -108,7 +108,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: PlayerMelee
-  m_Speed: 1
+  m_Speed: 1.25
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: -7829949311546640115}
@@ -287,7 +287,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: PlayerCastingStart
-  m_Speed: 1
+  m_Speed: 1.75
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: -6354521556706357803}
@@ -601,7 +601,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: PlayerCastingEnd
-  m_Speed: 1
+  m_Speed: 1.75
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: -132662910989164968}
@@ -837,7 +837,7 @@ AnimatorStateMachine:
     m_Position: {x: 560, y: 300, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -5133776877517673913}
-    m_Position: {x: 240, y: 300, z: 0}
+    m_Position: {x: 320, y: 290, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 2888298538746804843}
     m_Position: {x: 400, y: 60, z: 0}
@@ -858,7 +858,7 @@ AnimatorStateMachine:
     m_Position: {x: 70, y: 220, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -8279792369986977167}
-    m_Position: {x: 80, y: 480, z: 0}
+    m_Position: {x: 10, y: 410, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 6152699997173123221}
     m_Position: {x: 250, y: 640, z: 0}
@@ -888,7 +888,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: PlayerCasting
-  m_Speed: 1
+  m_Speed: 2
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: -7147960709139675916}
