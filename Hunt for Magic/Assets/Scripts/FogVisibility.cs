@@ -7,22 +7,51 @@ public class FogVisibility : MonoBehaviour
     [SerializeField]
     private float _slimeRange = 5f;
 
+    private GameObject _player;
 
-    private IEnumerator OnTriggerEnter(Collider other)
+    private GameObject[] _enemies;
+
+    private void Start()
     {
+        _player = GameObject.Find("PlayerCharacter");
+        _enemies = GameObject.FindGameObjectsWithTag("Monster");
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.tag == "Player")
+        {
+            other.GetComponent<PlayerDebuffs>()._inFog = true;
+        }
+
         if (other.name.Contains("EnemySlimePrefab"))
         {
-            other.GetComponent<EnemySlimeMovement>()._range = _slimeRange;
-            yield return new WaitForSeconds(6.9f);
-            other.GetComponent<EnemySlimeMovement>()._range = other.GetComponent<EnemySlimeMovement>()._maxRange;
+            other.GetComponent<EnemySlimeMovement>()._inFog = true;
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
+        if (other.tag == "Player")
+        {
+            other.GetComponent<PlayerDebuffs>()._inFog = false;
+        }
+
         if (other.name.Contains("EnemySlimePrefab"))
         {
-            other.GetComponent<EnemySlimeMovement>()._range = other.GetComponent<EnemySlimeMovement>()._maxRange;
+            other.GetComponent<EnemySlimeMovement>()._inFog = false;
+        }
+    }
+
+    private void OnDestroy()
+    {
+        _player.GetComponent<PlayerDebuffs>()._inFog = false;
+        foreach (GameObject enemy in _enemies)
+        {
+            if (enemy.name.Contains("EnemySlimePrefab"))
+            {
+                enemy.GetComponent<EnemySlimeMovement>()._inFog = false;
+            }
         }
     }
 }
