@@ -22,7 +22,6 @@ public class EnemyArcherMovement : MonoBehaviour
     private bool running;
     private bool rollDice;
     private bool looking;
-    private bool clWait;
     public bool clHit;
     public bool touchGround = true;
     public bool chargeTrigger = true;
@@ -175,9 +174,8 @@ public class EnemyArcherMovement : MonoBehaviour
 
     IEnumerator CLcooldown()
     {
-        clWait = true;
+        clHit = true;
         yield return new WaitForSeconds(2.4f);
-        clWait = false;
         clHit = false;
     }
 
@@ -213,8 +211,7 @@ public class EnemyArcherMovement : MonoBehaviour
 
         if (collision.gameObject.name.Contains("ChainLightning"))
         {
-            clHit = collision.gameObject.GetComponent<ChainLightingSpell>().targetFound;
-            CLcooldown();
+            StartCoroutine(CLcooldown());
         }
     }
 }

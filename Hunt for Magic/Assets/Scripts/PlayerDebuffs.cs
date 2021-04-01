@@ -10,6 +10,7 @@ public class PlayerDebuffs : MonoBehaviour
     public bool _chilled;
     public bool _slowed;
     public bool _oilSlowed;
+    public bool _inFog;
 
     private HealthSystem _playerHealth;
     private float _debuffDamage = 0.01f;
