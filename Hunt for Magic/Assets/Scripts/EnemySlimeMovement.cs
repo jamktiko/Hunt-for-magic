@@ -21,7 +21,6 @@ public class EnemySlimeMovement : MonoBehaviour
     public bool isChargeAttacking = false;
     public bool animationReady = false;
     public bool clHit;
-    private bool clWait;
     public AudioSource _slimeSounds;
     public AudioClip _slimeJump;
     public AudioClip _slimeAoe;
@@ -47,11 +46,6 @@ public class EnemySlimeMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (clHit && !clWait)
-        {
-            CLcooldown();
-        }
-
         if (player != null)
         {
             if (Vector3.Distance(player.transform.position, enemyRB.transform.position) < _range)
@@ -154,10 +148,10 @@ public class EnemySlimeMovement : MonoBehaviour
             }
         }
 
-        if (collision.gameObject.name.Contains("ChainLightning"))
+        if (collision.gameObject.CompareTag("ChainLightning"))
         {
-            clHit = collision.gameObject.GetComponent<ChainLightingSpell>().targetFound;
-            CLcooldown();
+            clHit = true;
+            StartCoroutine(CLcooldown());
         }
     }
 
@@ -180,9 +174,7 @@ public class EnemySlimeMovement : MonoBehaviour
 
     IEnumerator CLcooldown()
     {
-        clWait = true;
         yield return new WaitForSeconds(2.6f);
-        clWait = false;
         clHit = false;
     }
 }

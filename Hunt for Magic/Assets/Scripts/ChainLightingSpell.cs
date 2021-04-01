@@ -13,14 +13,14 @@ public class ChainLightingSpell : MonoBehaviour
     private Rigidbody enemyRB;
     public bool firstHit;
     public Object enemyFinder;
-    public Rigidbody target;
+    public GameObject target;
     private Rigidbody thisRB;
 
 
     // Start is called before the first frame update
     void Start()
     {
-        targetFound = true;
+        targetFound = false;
         enemyFinder = Resources.Load("Prefabs/EnemyFinder");
         firstHit = false;
         GameObject player = GameObject.Find("PlayerCharacter");        
@@ -91,9 +91,9 @@ public class ChainLightingSpell : MonoBehaviour
 
         if (enemyFinUpdate != null)
         {
-            enemyRB = enemyFinUpdate.GetComponent<CLHIt>().Target;
+            target = enemyFinUpdate.GetComponent<CLHIt>().Target;
 
-            Vector3 Target = (enemyRB.transform.position - transform.position).normalized;
+            Vector3 Target = (target.transform.position - transform.position).normalized;
             thisRB.AddForce(Target * speed, ForceMode.Impulse);
         }
     }
