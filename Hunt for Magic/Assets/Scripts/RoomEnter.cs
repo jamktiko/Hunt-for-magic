@@ -5,16 +5,16 @@ using System.Linq;
 
 public class RoomEnter : MonoBehaviour
 {
-    [SerializeField]
     public bool _roomActive;
+    public GameObject[] _powerUps;
     [SerializeField]
     private bool _roomClear;
     [SerializeField]
     private bool _isRoomEmpty;
     [SerializeField]
     private Object[] _spawnedEnemies;
-    [SerializeField]
-    Transform[] _spawnPoints;
+    public Transform _powerUpSpawnLocation;
+    public Transform[] _spawnPoints;
     [SerializeField]
     Transform _room;
     public int _enemyCount;
@@ -23,10 +23,6 @@ public class RoomEnter : MonoBehaviour
     void Start()
     {
         _room = GetComponent<Transform>();
-        //Find all the spawn points in parent, this gets also the parent.
-        _spawnPoints = GetComponentsInChildren<Transform>();
-        //Remove the first item in list to get rid of the parent.
-        _spawnPoints = _spawnPoints.Skip(1).ToArray();
         foreach (GameObject door in _doors)
         {
             door.SetActive(false);
@@ -45,6 +41,7 @@ public class RoomEnter : MonoBehaviour
             {
                 door.SetActive(false);
             }
+            SpawnRandomPickup();
         }
     }
     private void OnTriggerEnter(Collider other)
@@ -73,6 +70,12 @@ public class RoomEnter : MonoBehaviour
         Debug.Log("Spawned enemy");
         Object enemy = Resources.Load("Prefabs/EnemySlimePrefab");
         Instantiate(enemy, spawnpoint.position, Quaternion.identity, _room);
+    }
+    private void SpawnRandomPickup()
+    {
+        int randomIndex = Random.Range(0, _powerUps.Length);
+        GameObject powerUp = _powerUps[randomIndex];
+        Instantiate(powerUp, _powerUpSpawnLocation.position, Quaternion.identity, _room);
     }
     private bool IsArrayEmpty(Object[] essenceArray)
     {
