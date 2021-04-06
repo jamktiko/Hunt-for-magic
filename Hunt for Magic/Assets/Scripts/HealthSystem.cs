@@ -18,7 +18,11 @@ public class HealthSystem : MonoBehaviour
 
     public AudioSource _slimeSounds;
 
+    public AudioSource _slimeAnim;
+
     public AudioClip _slimeDeath;
+
+    public AudioClip _slimeDamage;
 
     private bool _soundPlaying;
 
@@ -37,6 +41,11 @@ public class HealthSystem : MonoBehaviour
             _damageTaken = true;
 
             Invoke("DamageOff", 1f);
+        }
+
+        if (gameObject.name.Contains("EnemySlimePrefab") && !_slimeAnim.isPlaying && !gameObject.GetComponent<Debuffs>()._onFire)
+        {
+            _slimeAnim.PlayOneShot(_slimeDamage);
         }
 
         if (_health <= 0)

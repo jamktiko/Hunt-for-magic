@@ -15,6 +15,9 @@ public class GameOverScript : MonoBehaviour
 
     private GameObject _crosshair;
 
+    public AudioSource _menuSrc;
+    public AudioClip _menuClick;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -31,18 +34,24 @@ public class GameOverScript : MonoBehaviour
 
         if (_gameoverPanel.activeSelf)
         {
-            _player.GetComponent<PlayerCharacterController>().enabled = false;
-            _player.GetComponentInChildren<PlayerAnimation>().enabled = false;
-            _player.GetComponent<PlayerSounds>().enabled = false;
-            Cursor.visible = true;
-            Cursor.lockState = CursorLockMode.None;
-            _crosshair.SetActive(false);
-            Time.timeScale = 0;
+            GameOver();
         }
+    }
+
+    private void GameOver()
+    {
+        _player.GetComponent<PlayerCharacterController>().enabled = false;
+        _player.GetComponentInChildren<PlayerAnimation>().enabled = false;
+        _player.GetComponent<PlayerSounds>().enabled = false;
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
+        _crosshair.SetActive(false);
+        Time.timeScale = 0;
     }
 
     private void MainMenu()
     {
+        _menuSrc.PlayOneShot(_menuClick);
         _gameoverPanel.SetActive(false);
         _player.GetComponent<PlayerCharacterController>().enabled = true;
         _player.GetComponentInChildren<PlayerAnimation>().enabled = true;

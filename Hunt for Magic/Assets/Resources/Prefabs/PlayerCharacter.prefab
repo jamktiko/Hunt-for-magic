@@ -5759,6 +5759,13 @@ MonoBehaviour:
   _walkingOnSlime2: {fileID: 8300000, guid: 934c2b6b4e788ea4ca62455012189038, type: 3}
   _walkingWater1: {fileID: 8300000, guid: fa19b6d780b2b2842a17ae53b5899797, type: 3}
   _walkingWater2: {fileID: 8300000, guid: d178c0adb66b2324fb441c4ac86b038e, type: 3}
+  _runningOnWood1: {fileID: 8300000, guid: bbf905d58d2dd51418ac911faf837381, type: 3}
+  _runningOnWood2: {fileID: 8300000, guid: e24cc88ae6439e843919cf7ab285154a, type: 3}
+  _runningOnWood3: {fileID: 8300000, guid: 9b0fd8d9d8c7fe441bde88e3d779a68f, type: 3}
+  _runningOnWood4: {fileID: 8300000, guid: 547b76f8ab95c544a9eae7b61b744735, type: 3}
+  _runningOnWood5: {fileID: 8300000, guid: a9dccb0e556ac144da7d44f49fdbb8ce, type: 3}
+  _runningOnWood6: {fileID: 8300000, guid: 2c9111109bb91094fbb2ce36ab24c9ed, type: 3}
+  _runningOnWood7: {fileID: 8300000, guid: 6c76553871c69d148888d3e820068b84, type: 3}
 --- !u!114 &1319101002477047823
 MonoBehaviour:
   m_ObjectHideFlags: 0

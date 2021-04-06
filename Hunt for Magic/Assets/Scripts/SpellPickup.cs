@@ -18,6 +18,9 @@ public class SpellPickup : MonoBehaviour
     private Object _lightningboltPickup;
     private Object _waterPickup;
 
+    private AudioSource _menuSrc;
+    private AudioClip _pickup;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -34,6 +37,9 @@ public class SpellPickup : MonoBehaviour
         _flamethrowerPickup = Resources.Load("Prefabs/flamethrower_pickup");
         _lightningboltPickup = Resources.Load("Prefabs/Lightningbolt_pickup");
         _waterPickup = Resources.Load("Prefabs/Water_pickup");
+
+        _menuSrc = GameObject.Find("HUD").GetComponent<AudioSource>();
+        _pickup = Resources.Load<AudioClip>("SFX/Player/Spells/spell_pickup");
     }
 
     // Update is called once per frame
@@ -48,6 +54,7 @@ public class SpellPickup : MonoBehaviour
         {
             if (other.tag == "Player")
             {
+                _menuSrc.PlayOneShot(_pickup);
 
                 if (gameObject.name.Contains("Air"))
                 {

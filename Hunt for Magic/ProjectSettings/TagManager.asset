@@ -11,6 +11,8 @@ TagManager:
   - Monster
   - Hazard
   - Pickup
+  - Wood
+  - ChainLightning
   layers:
   - Default
   - TransparentFX

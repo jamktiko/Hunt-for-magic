@@ -27,6 +27,9 @@ public class PauseMenu : MonoBehaviour
 
     public GameObject[] SpellPickups;
 
+    public AudioSource _menuSrc;
+    public AudioClip _menuClick;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -51,7 +54,7 @@ public class PauseMenu : MonoBehaviour
         }
     }
 
-    private void PauseGame()
+    private void PauseGame()                    //Game pauses
     {
         _pausePanel.SetActive(true);
         _player.GetComponent<PlayerCharacterController>().enabled = false;
@@ -63,14 +66,18 @@ public class PauseMenu : MonoBehaviour
 
         foreach (GameObject spell in SpellPickups)
         {
-            spell.GetComponent<PickupText>()._text.enabled = false;
+            if (spell != null)
+            {
+                spell.GetComponent<PickupText>()._text.enabled = false;
+            }
         }
 
         Time.timeScale = 0;
     }
 
-    private void ContinueGame()
+    private void ContinueGame()                     //Game continues
     {
+        _menuSrc.PlayOneShot(_menuClick);
         _pausePanel.SetActive(false);
         _player.GetComponent<PlayerCharacterController>().enabled = true;
         _player.GetComponentInChildren<PlayerAnimation>().enabled = true;
@@ -81,7 +88,10 @@ public class PauseMenu : MonoBehaviour
 
         foreach (GameObject spell in SpellPickups)
         {
-            spell.GetComponent<PickupText>()._text.enabled = true;
+            if (spell != null)
+            {
+                spell.GetComponent<PickupText>()._text.enabled = true;
+            }
         }
 
         Time.timeScale = 1;
@@ -89,12 +99,14 @@ public class PauseMenu : MonoBehaviour
 
     private void Setting()
     {
+        _menuSrc.PlayOneShot(_menuClick);
         _pausePanel.SetActive(false);
         _settingsPanel.SetActive(true);
     }
 
-    private void MainMenu()
+    private void MainMenu()                             //Returns to main menu
     {
+        _menuSrc.PlayOneShot(_menuClick);
         _pausePanel.SetActive(false);
         _player.GetComponent<PlayerCharacterController>().enabled = true;
         _player.GetComponentInChildren<PlayerAnimation>().enabled = true;
@@ -103,7 +115,10 @@ public class PauseMenu : MonoBehaviour
 
         foreach (GameObject spell in SpellPickups)
         {
-            spell.GetComponent<PickupText>()._text.enabled = true;
+            if (spell != null)
+            {
+                spell.GetComponent<PickupText>()._text.enabled = true;
+            }
         }
 
         Time.timeScale = 1;

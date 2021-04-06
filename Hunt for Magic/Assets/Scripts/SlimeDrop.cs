@@ -42,7 +42,7 @@ public class SlimeDrop : MonoBehaviour
 
     private void OnCollisionExit(Collision collision)
     {
-        if (collision.gameObject.tag == "Ground" && _dropCooldown == false)
+        if ((collision.gameObject.tag == "Ground" || collision.gameObject.tag == "Wood") && _dropCooldown == false)
         {
             _dropCooldown = true;
 

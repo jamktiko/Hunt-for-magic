@@ -18,15 +18,12 @@ public class PlayerSounds : MonoBehaviour
     public AudioSource _otherSrc;
 
     public bool _onWater;
-
+    public bool _onWood;
     private bool _move;
-
+    private bool _moveOnWood;
     private bool _fire;
-
     private bool _slowed;
-
     public bool _dodgedash;
-
     private int _rnd;
 
     public AudioClip _runningOnGrass1;
@@ -53,10 +50,29 @@ public class PlayerSounds : MonoBehaviour
     public AudioClip _walkingWater1;
     public AudioClip _walkingWater2;
 
-    // Start is called before the first frame update
-    void Start()
+    public AudioClip _runningOnWood1;
+    public AudioClip _runningOnWood2;
+    public AudioClip _runningOnWood3;
+    public AudioClip _runningOnWood4;
+    public AudioClip _runningOnWood5;
+    public AudioClip _runningOnWood6;
+    public AudioClip _runningOnWood7;
+
+
+    private void OnCollisionStay(Collision collision)
     {
-        
+        if (collision.gameObject.CompareTag("Wood"))
+        {
+            _onWood = true;
+        }
+    }
+
+    private void OnCollisionExit(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Wood"))
+        {
+            _onWood = false;
+        }
     }
 
     // Update is called once per frame
@@ -64,13 +80,22 @@ public class PlayerSounds : MonoBehaviour
     {
         _meleeSrc.clip = _melee1;
 
-        if (GetComponent<CharacterController>().isGrounded && GetComponent<PlayerCharacterController>().speed == 2.5f && _onWater == false && (Input.GetKey("w") | Input.GetKey("a") | Input.GetKey("s") | Input.GetKey("d")))
+        if (GetComponent<CharacterController>().isGrounded && GetComponent<PlayerCharacterController>().speed == 2.5f && _onWater == false && _onWood == false && (Input.GetKey("w") | Input.GetKey("a") | Input.GetKey("s") | Input.GetKey("d")))
         {
             _move = true;
         }
         else
         {
             _move = false;
+        }
+
+        if (GetComponent<CharacterController>().isGrounded && GetComponent<PlayerCharacterController>().speed == 2.5f && _onWater == false && _onWood == true && (Input.GetKey("w") | Input.GetKey("a") | Input.GetKey("s") | Input.GetKey("d")))
+        {
+            _moveOnWood = true;
+        }
+        else
+        {
+            _moveOnWood = false;
         }
 
         if (GetComponent<SpellCasting>()._spellPrefab != null && GetComponent<SpellCasting>()._spellPrefab.name == "Flamethrower_particle" && Input.GetButton("Fire1") && GetComponent<EnergySystem>()._currentEnergy > 5)
@@ -80,6 +105,12 @@ public class PlayerSounds : MonoBehaviour
         else
         {
             _fire = false;
+        }
+
+        if (_moveOnWood == true && _walkingSrc.isPlaying == false)
+        {
+            WoodWalkRandomizer();
+            _walkingSrc.Play();
         }
 
         if (_move == true && _walkingSrc.isPlaying == false)
@@ -110,7 +141,7 @@ public class PlayerSounds : MonoBehaviour
             _walkingSrc.Play();                                         //Toistaa vedenpäälläkävelyääntä
         }    
 
-        if (_move == false && _slowed == false && _onWater == false)
+        if (_move == false && _slowed == false && _onWater == false && _moveOnWood == false)
         {
             _walkingSrc.Stop();
         }
@@ -216,6 +247,36 @@ public class PlayerSounds : MonoBehaviour
         else if (_rnd == 2)
         {
             _walkingSrc.clip = _walkingWater2;
+        }
+    }
+
+    void WoodWalkRandomizer()
+    {
+        _rnd = Random.Range(1, 8);
+
+        switch (_rnd)
+        {
+            case 1:
+                _walkingSrc.clip = _runningOnWood1;
+                break;
+            case 2:
+                _walkingSrc.clip = _runningOnWood2;
+                break;
+            case 3:
+                _walkingSrc.clip = _runningOnWood3;
+                break;
+            case 4:
+                _walkingSrc.clip = _runningOnWood4;
+                break;
+            case 5:
+                _walkingSrc.clip = _runningOnWood5;
+                break;
+            case 6:
+                _walkingSrc.clip = _runningOnWood6;
+                break;
+            case 7:
+                _walkingSrc.clip = _runningOnWood7;
+                break;
         }
     }
 }

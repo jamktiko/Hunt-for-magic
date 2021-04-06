@@ -126,7 +126,7 @@ public class EnemySlimeMovement : MonoBehaviour
     
     void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Ground"))
+        if (collision.gameObject.CompareTag("Ground") || collision.gameObject.CompareTag("Wood"))
         {
             touchGround = true; //jump checker
             attackTrigger1 = true; // splash checker
