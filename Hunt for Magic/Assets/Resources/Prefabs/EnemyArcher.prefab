@@ -12,8 +12,9 @@ GameObject:
   - component: {fileID: 927650353673549076}
   - component: {fileID: 6754814559752141546}
   - component: {fileID: 4967213405980219738}
+  - component: {fileID: 1615805881285795346}
+  - component: {fileID: 8477099518834487904}
   - component: {fileID: 1384399118263093017}
-  - component: {fileID: 3638711222704340850}
   m_Layer: 0
   m_Name: EnemyArcher
   m_TagString: Monster
@@ -102,6 +103,43 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1615805881285795346
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2579396315191834181}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79fa5e34d5443814ebfcf2e8c6cec8b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _healthBarImage: {fileID: 0}
+  _enemyHealth: {fileID: 0}
+  _wet: {fileID: 0}
+  _fire: {fileID: 0}
+  _chill: {fileID: 0}
+--- !u!114 &8477099518834487904
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2579396315191834181}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d31100b7ffabcaa49bc4df06852879e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isAttacking: 0
+  animationReady: 0
+  attackCommence: 0
+  patrol: 0
+  clHit: 0
+  touchGround: 1
+  chargeTrigger: 1
+  chargeAttackRoller: 0
 --- !u!54 &1384399118263093017
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -118,24 +156,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
---- !u!114 &3638711222704340850
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2579396315191834181}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 18ff25884cfc9fb4eb75bf0c873d249a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  touchGround: 1
-  chargeTrigger: 1
-  chargeAttackRoller: 0
-  isChargeAttacking: 0
-  animationReady: 0
-  clHit: 0
 --- !u!1 &5379981314743688686
 GameObject:
   m_ObjectHideFlags: 0
