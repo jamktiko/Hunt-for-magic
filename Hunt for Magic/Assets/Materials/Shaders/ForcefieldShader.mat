@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Shader Graphs_Water
-  m_Shader: {fileID: -6465566751694194690, guid: 9fa133df0c7275642bf7d308c93e0d3a,
+  m_Name: ForcefieldShader
+  m_Shader: {fileID: -6465566751694194690, guid: 4aa355aa47770e04686da9e067fcc907,
     type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
@@ -21,10 +21,9 @@ Material:
     serializedVersion: 3
     m_TexEnvs: []
     m_Floats:
-    - Vector1_36BE1696: 4.96
-    - Vector1_393FD705: 2.12
-    - Vector1_62F5D43A: 0.1
-    - Vector1_BCF1B540: 4
+    - Vector1_18EC87B8: 5
+    - Vector1_5BAF1415: 0.6
+    - Vector1_C8F493C0: 0.09
+    - Vector1_CC0A9CA: 0.05
     m_Colors:
-    - Color_A12430A7: {r: 0.4858491, g: 0.9425021, b: 1, a: 0}
-    - Color_A7903724: {r: 0.642349, g: 1.393914, b: 2.670157, a: 0}
+    - Color_FC47C3B1: {r: 0.71106267, g: 0.32016435, b: 0.1526365, a: 0}

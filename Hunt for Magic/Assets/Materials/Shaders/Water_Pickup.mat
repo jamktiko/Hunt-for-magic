@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Shader Graphs_WaterPickup
+  m_Name: Water_Pickup
   m_Shader: {fileID: -6465566751694194690, guid: 00a897b3986e21b42889fbeb4d7645d0,
     type: 3}
   m_ShaderKeywords: 
