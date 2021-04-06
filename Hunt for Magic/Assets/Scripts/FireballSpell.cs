@@ -44,7 +44,7 @@ public class FireballSpell : MonoBehaviour
             Instantiate(_groundFire, transform.position, Quaternion.Euler(90, 0, 0));
         }
 
-        if (other.gameObject.tag == "Ground")
+        if (other.gameObject.tag == "Ground" || other.gameObject.tag == "Wood")
         {
             Instantiate(_explosion, transform.position, Quaternion.identity);
             Instantiate(_groundFire, transform.position, Quaternion.Euler(90, 0, 0));
