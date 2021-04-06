@@ -11,7 +11,12 @@ public class SpellCasting : MonoBehaviour  // Tämä scripti liitetään pelaaja
     private Transform _castingPoint;
     private Transform _waterCastingPoint;
 
-    public bool _spellCooldown;
+    public bool _windCooldown;
+    public bool _waterCooldown;
+    public bool _elecCooldown;
+    public bool _fireballCooldown;
+    public bool _lightningboltCooldown;
+    public bool _chainlightningCooldown;
 
     [SerializeField]
     public float _spellInterval = 1f;
@@ -77,40 +82,38 @@ public class SpellCasting : MonoBehaviour  // Tämä scripti liitetään pelaaja
 
             if (_spellPrefab.name == "WindEffect")
             {
-                if (_spellCooldown)
+                if (_windCooldown)
                 {
                     return;
                 }
-                _spellInterval = 1f;
 
                 Instantiate(_spellPrefab, _castingPoint.position, _castingPoint.rotation);
 
-                _spellCooldown = true;
-                StartCoroutine(EndCooldown());
+                _windCooldown = true;
+
+                StartCoroutine(EndWindCooldown());
             }
 
             if (_spellPrefab.name == "Waterwave" && PlayerCharacterController.isGrounded)
             {
-                if (_spellCooldown)
+                if (_waterCooldown)
                 {
                     return;
                 }
-                _spellInterval = 2f;
 
                 Instantiate(_spellPrefab, _waterCastingPoint.position, _waterCastingPoint.rotation);
 
-                _spellCooldown = true;
+                _waterCooldown = true;
 
-                StartCoroutine(EndCooldown());
+                StartCoroutine(EndWaterCooldown());
             }
 
             if (_spellPrefab.name == "Electricity")
             {
-                if (_spellCooldown)
+                if (_elecCooldown)
                 {
                     return;
                 }
-                _spellInterval = 0.8f;
 
                 if (ammoCount >= 1)
                 {
@@ -118,31 +121,30 @@ public class SpellCasting : MonoBehaviour  // Tämä scripti liitetään pelaaja
                     Instantiate(_spellPrefab, _castingPoint.position, _castingPoint.rotation);
                 }
 
-                _spellCooldown = true;
+                _elecCooldown = true;
 
-                StartCoroutine(EndCooldown());
+                StartCoroutine(EndElecCooldown());
             }
 
             if (_spellPrefab.name == "Fireball")
             {
-                if (_spellCooldown)
+                if (_fireballCooldown)
                 {
                     return;
                 }
-                _spellInterval = 3f;
 
                 Instantiate(_spellPrefab, _castingPoint.position, _castingPoint.rotation);
 
-                _spellCooldown = true;
+                _fireballCooldown = true;
 
-                StartCoroutine(EndCooldown());
+                StartCoroutine(EndFireballCooldown());
             }
 
             if (_spellPrefab.name == "ChainLightning")
             {
                 if (ammoCount > 0)
                 {
-                    if (_spellCooldown)
+                    if (_chainlightningCooldown)
                     {
                         return;
                     }
@@ -153,7 +155,7 @@ public class SpellCasting : MonoBehaviour  // Tämä scripti liitetään pelaaja
                     ammoCount--;
                     chargeCounter++;
 
-                    _spellCooldown = true;
+                    _chainlightningCooldown = true;
                 }
             }
 
@@ -161,7 +163,7 @@ public class SpellCasting : MonoBehaviour  // Tämä scripti liitetään pelaaja
             {
                 if (ammoCount > 0)
                 {
-                    if (_spellCooldown)
+                    if (_lightningboltCooldown)
                     {
                         return;
                     }
@@ -172,7 +174,7 @@ public class SpellCasting : MonoBehaviour  // Tämä scripti liitetään pelaaja
                     ammoCount--;
                     chargeCounter++;
 
-                    _spellCooldown = true;
+                    _lightningboltCooldown = true;
                 }
             }
         }
@@ -187,7 +189,7 @@ public class SpellCasting : MonoBehaviour  // Tämä scripti liitetään pelaaja
                     Instantiate(_spellPrefab, _castingPoint.position, _castingPoint.rotation);
                     alreadyCast = true;
                     chargeChancerCooldown = false;
-                    StartCoroutine(EndCooldown());
+                    StartCoroutine(EndChainlightningCooldown());
                     chargeCounter = 0;
                 }
 
@@ -198,7 +200,7 @@ public class SpellCasting : MonoBehaviour  // Tämä scripti liitetään pelaaja
                     Instantiate(_spellPrefab, _castingPoint.position, _castingPoint.rotation);
                     alreadyCast = true;
                     chargeChancerCooldown = false;
-                    StartCoroutine(EndCooldown());
+                    StartCoroutine(EndLightningboltCooldown());
                     chargeCounter = 0;
                 }
             }
@@ -232,13 +234,44 @@ public class SpellCasting : MonoBehaviour  // Tämä scripti liitetään pelaaja
         }
     }
 
-    public IEnumerator EndCooldown()
+    IEnumerator EndWindCooldown()
     {
-        yield return new WaitForSeconds(_spellInterval);
+        yield return new WaitForSeconds(1f);
 
-        _spellCooldown = false;
+        _windCooldown = false;
+    }
+    IEnumerator EndWaterCooldown()
+    {
+        yield return new WaitForSeconds(2f);
+
+        _waterCooldown = false;
+    }
+    IEnumerator EndElecCooldown()
+    {
+        yield return new WaitForSeconds(0.8f);
+
+        _elecCooldown = false;
+    }
+    IEnumerator EndFireballCooldown()
+    {
+        yield return new WaitForSeconds(3f);
+
+        _fireballCooldown = false;
     }
 
+    IEnumerator EndLightningboltCooldown()
+    {
+        yield return new WaitForSeconds(1.7f);
+
+        _lightningboltCooldown = false;
+    }
+
+    IEnumerator EndChainlightningCooldown()
+    {
+        yield return new WaitForSeconds(2f);
+
+        _chainlightningCooldown = false;
+    }
 
     IEnumerator ammoChangerInitiate()
     {

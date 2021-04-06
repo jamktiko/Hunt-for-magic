@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3494317032672740559}
   m_Layer: 0
   m_Name: ChainLightning
-  m_TagString: Untagged
+  m_TagString: ChainLightning
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -78,7 +78,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _damageAmount: 30
   chargeCounter: 0
+  targetFound: 0
   firstHit: 0
+  enemyFinder: {fileID: 0}
+  target: {fileID: 0}
 --- !u!1001 &8531415170505932106
 PrefabInstance:
   m_ObjectHideFlags: 0
