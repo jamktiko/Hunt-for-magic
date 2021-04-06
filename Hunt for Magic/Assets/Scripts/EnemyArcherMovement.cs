@@ -17,6 +17,7 @@ public class EnemyArcherMovement : MonoBehaviour
     private bool inRange;
     private bool runRange;
     private bool attackRange;
+    private bool strafe;
     public bool attackCommence;
     public bool patrol;
     private bool running;
@@ -133,12 +134,30 @@ public class EnemyArcherMovement : MonoBehaviour
                 {
                     isAttacking = true;
                     Instantiate(_arrowType, _arrowStartPoint.position, _arrowStartPoint.rotation);
-                    StartCoroutine(AttackCooldown());
                     attackCommence = true;
+                    StartCoroutine(AttackCooldown());                 
                 }
                 else if (attackCommence)
                 {
-
+                    float LD3 = Random.Range(0,3);
+                    if (!strafe)
+                    {
+                        strafe = true;
+                        StartCoroutine(StrafePhaser());
+                        if (LD3 == 1)
+                        {
+                            lookDirectionNode.localPosition = new Vector3(1, 0, 0);
+                        }
+                        if (LD3 == 2)
+                        {
+                            lookDirectionNode.localPosition = new Vector3(-1, 0, 0);
+                        }
+                        transform.LookAt(lookDirectionNode.transform.position);
+                    }
+                    else if (strafe)
+                    {
+                        transform.position = Vector3.MoveTowards(transform.position, lookDirectionNode.transform.position, step);
+                    }
                 }
                 
             }
@@ -172,6 +191,13 @@ public class EnemyArcherMovement : MonoBehaviour
         looking = false;
     }
 
+    IEnumerator StrafePhaser()
+    {
+        yield return new WaitForSeconds(1.5f);
+        strafe = false;
+        attackCommence = false;
+    }
+
     IEnumerator CLcooldown()
     {
         clHit = true;
@@ -181,8 +207,7 @@ public class EnemyArcherMovement : MonoBehaviour
 
     IEnumerator AttackCooldown()
     {
-        yield return new WaitForSeconds(2.7f);
-        attackCommence = false;
+        yield return new WaitForSeconds(4.3f);       
         isAttacking = false;
     }
 
