@@ -9,11 +9,13 @@ public class LightingSpell : MonoBehaviour
     private bool chargeHold = false;
     private Transform _castingPoint;
     private float speed = 30f;
+    private Object _elecHit;
 
     // Start is called before the first frame update
     void Start()
     {
         _castingPoint = GameObject.Find("CastingPoint").GetComponent<Transform>();
+        _elecHit = Resources.Load("Prefabs/OnHitElec");
         gameObject.GetComponent<Rigidbody>().AddForce(_castingPoint.forward * speed, ForceMode.Impulse);
     }
 
@@ -40,6 +42,10 @@ public class LightingSpell : MonoBehaviour
 
             enemyHealth.AddDamage(_damageAmount);
             other.GetComponent<Debuffs>()._shocked = true;
+
+            Object onHitElec = Instantiate(_elecHit, transform.position, Quaternion.identity);
+            Destroy(onHitElec, 1f);
+
             Destroy(gameObject);
         }
     }

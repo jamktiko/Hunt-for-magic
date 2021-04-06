@@ -19,6 +19,7 @@ public class PlayerDebuffs : MonoBehaviour
     public GameObject _slowedDebuffImage;
     public GameObject _oilDebuffImage;
     public GameObject _wetDebuffImage;
+    public GameObject _playerDamageTaken;
 
 
     // Start is called before the first frame update
@@ -56,6 +57,15 @@ public class PlayerDebuffs : MonoBehaviour
         {
             StartCoroutine("WetStopper");
             _wetDebuffImage.SetActive(true);
+        }
+
+        if (gameObject.GetComponent<HealthSystem>()._damageTaken)
+        {
+            _playerDamageTaken.SetActive(true);
+        }
+        else
+        {
+            _playerDamageTaken.SetActive(false);
         }
     }
     IEnumerator FireDamage()
