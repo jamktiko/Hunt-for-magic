@@ -19,6 +19,9 @@ public class Settings : MonoBehaviour
 
     public string parameterName;
 
+    public AudioSource _menuSrc;
+    public AudioClip _menuClick;
+
     private void Awake()
     {
         float savedVolume = PlayerPrefs.GetFloat(parameterName, 1);
@@ -52,6 +55,7 @@ public class Settings : MonoBehaviour
 
     void Return()
     {
+        _menuSrc.PlayOneShot(_menuClick);
         gameObject.SetActive(false);
         _menuUI.SetActive(true);
     }

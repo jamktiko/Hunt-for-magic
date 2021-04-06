@@ -203,7 +203,7 @@ public class EnemyArcherMovement : MonoBehaviour
                 chargeTrigger = true;
             }
         }
-        else if (!collision.gameObject.CompareTag("Ground"))
+        else if (!collision.gameObject.CompareTag("Ground") || !collision.gameObject.CompareTag("Wood"))
         {
             touchGround = false;
         }
