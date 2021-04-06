@@ -65,7 +65,7 @@ public class WindSpell : MonoBehaviour  //Tämä scripti liitetään WindEffect-
             enemy.AddForce(_forward * (20f - Vector3.Distance(enemy.position, _castingPoint.position)), ForceMode.Impulse);
         }
 
-        if (other.tag == "Ground")
+        if (other.tag == "Ground" || other.tag == "Wood")
         {
             Object rocketJump = Instantiate(_rocketjumpTrigger, transform.position, Quaternion.identity);
             Destroy(rocketJump, 0.02f);

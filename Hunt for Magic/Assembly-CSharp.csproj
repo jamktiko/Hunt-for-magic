@@ -64,11 +64,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\AdvancedAI.cs" />
+    <Compile Include="Assets\Scripts\ArrowFireScript.cs" />
     <Compile Include="Assets\Scripts\Buffs.cs" />
     <Compile Include="Assets\Scripts\CLHIt.cs" />
     <Compile Include="Assets\Scripts\ChainLightingSpell.cs" />
     <Compile Include="Assets\Scripts\ColliderDestroy.cs" />
     <Compile Include="Assets\Scripts\Cooldown.cs" />
+    <Compile Include="Assets\Scripts\CooldownImage.cs" />
     <Compile Include="Assets\Scripts\Debuffs.cs" />
     <Compile Include="Assets\Scripts\DisplayCharge.cs" />
     <Compile Include="Assets\Scripts\DodgeCooldown.cs" />
@@ -77,8 +79,10 @@
     <Compile Include="Assets\Scripts\EnemyHealthbar.cs" />
     <Compile Include="Assets\Scripts\EnemySlimeMovement.cs" />
     <Compile Include="Assets\Scripts\EnergySystem.cs" />
+    <Compile Include="Assets\Scripts\Explosion.cs" />
     <Compile Include="Assets\Scripts\FireSpell.cs" />
     <Compile Include="Assets\Scripts\FireballSpell.cs" />
+    <Compile Include="Assets\Scripts\FogVisibility.cs" />
     <Compile Include="Assets\Scripts\GameOverScript.cs" />
     <Compile Include="Assets\Scripts\GroundFire.cs" />
     <Compile Include="Assets\Scripts\GroundSlime.cs" />
@@ -99,6 +103,7 @@
     <Compile Include="Assets\Scripts\PlayerDebuffs.cs" />
     <Compile Include="Assets\Scripts\PlayerSounds.cs" />
     <Compile Include="Assets\Scripts\RocketJump.cs" />
+    <Compile Include="Assets\Scripts\RoomEnter.cs" />
     <Compile Include="Assets\Scripts\Settings.cs" />
     <Compile Include="Assets\Scripts\SlimeAnimation.cs" />
     <Compile Include="Assets\Scripts\SlimeDrop.cs" />

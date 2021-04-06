@@ -26,6 +26,7 @@ public class EnemySlimeMovement : MonoBehaviour
     public AudioClip _slimeAoe;
     public float _maxRange = 25f;
     public float _range;
+    public bool _inFog;
 
     // Start is called before the first frame update
     void Start()
@@ -46,6 +47,16 @@ public class EnemySlimeMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        if (_inFog || player.GetComponent<PlayerDebuffs>()._inFog)
+        {
+            _range = 5f;
+        }
+        else
+        {
+            _range = _maxRange;
+        }
+
         if (player != null)
         {
             if (Vector3.Distance(player.transform.position, enemyRB.transform.position) < _range)
@@ -115,7 +126,7 @@ public class EnemySlimeMovement : MonoBehaviour
     
     void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Ground"))
+        if (collision.gameObject.CompareTag("Ground") || collision.gameObject.CompareTag("Wood"))
         {
             touchGround = true; //jump checker
             attackTrigger1 = true; // splash checker
