@@ -7,6 +7,7 @@ public class RoomEnter : MonoBehaviour
 {
     public bool _roomActive;
     public GameObject[] _powerUps;
+    public GameObject[] _enemies;
     public GameObject healthPickup;
     [SerializeField]
     private bool _roomClear;
@@ -68,14 +69,14 @@ public class RoomEnter : MonoBehaviour
 
     private void SpawnRandomEnemy(Transform spawnpoint)
     {
-        Debug.Log("Spawned enemy");
+        
         Object enemy = Resources.Load("Prefabs/EnemySlimePrefab");
         Instantiate(enemy, spawnpoint.position, Quaternion.identity, _room);
     }
     private void SpawnRandomPickup()
     {
-        int healthRandom = Random.Range(0, 1);
-        if (healthRandom == 0)
+        int pickupDropType = Random.Range(0, 2);
+        if (pickupDropType == 0)
         {
             int randomIndex = Random.Range(0, _powerUps.Length);
             GameObject powerUp = _powerUps[randomIndex];
