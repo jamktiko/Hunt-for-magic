@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 1ac1b3bcd80e3e74a805122ea8790b6d
+guid: 752314a2ad910d04e9fbec0c047cbbde
 ModelImporter:
   serializedVersion: 19301
   internalIDToNameTable: []
@@ -8,7 +8,7 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Hedgerow
-    second: {fileID: 2100000, guid: 8081aef8eb6aa074b87442197d998236, type: 2}
+    second: {fileID: 2100000, guid: 9b0fdfc49957b6542a3a9fb8397a5a4e, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0
@@ -86,7 +86,7 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 1
+    globalScale: 0.01
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0
