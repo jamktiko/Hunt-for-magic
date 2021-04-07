@@ -17,6 +17,8 @@ public class WindSpell : MonoBehaviour  //Tämä scripti liitetään WindEffect-
 
     private Vector3 _forward;
 
+    private Object _windHit;
+
 
     // Start is called before the first frame update
     void Start()
@@ -24,6 +26,7 @@ public class WindSpell : MonoBehaviour  //Tämä scripti liitetään WindEffect-
         _castingPoint = GameObject.Find("CastingPoint").GetComponent<Transform>();
         gameObject.GetComponent<Rigidbody>().AddForce(_castingPoint.forward * _speed, ForceMode.Impulse);
         _forward = new Vector3(_castingPoint.forward.x, 0.1f, _castingPoint.forward.z);
+        _windHit = Resources.Load("Prefabs/OnHitwind");
     }
 
     // Update is called once per frame
@@ -63,6 +66,9 @@ public class WindSpell : MonoBehaviour  //Tämä scripti liitetään WindEffect-
             enemyHealth.AddDamage(_damageAmount);
 
             enemy.AddForce(_forward * (20f - Vector3.Distance(enemy.position, _castingPoint.position)), ForceMode.Impulse);
+
+            Object onHitwind = Instantiate(_windHit, transform.position, Quaternion.identity);
+            Destroy(onHitwind, 1f);
         }
 
         if (other.tag == "Ground" || other.tag == "Wood")

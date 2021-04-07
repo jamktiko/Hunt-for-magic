@@ -13,6 +13,8 @@ public class WaterSpell : MonoBehaviour
 
     private Object _waterPool;
 
+    private Object _waterHit;
+
 
     void Start()
     {
@@ -23,6 +25,7 @@ public class WaterSpell : MonoBehaviour
         positionChange = new Vector3(0, -0.0001f, 0);
         StartCoroutine("DamageFizzle");
         _waterPool = Resources.Load("Prefabs/GroundWater");
+        _waterHit = Resources.Load("Prefabs/OnHitwater");
     }
 
     // Update is called once per frame
@@ -59,6 +62,9 @@ public class WaterSpell : MonoBehaviour
 
                 Object groundWater = Instantiate(_waterPool, transform.TransformPoint(0, -1.28f, 0), Quaternion.identity);
                 Destroy(groundWater, 5f);
+
+                Object onHitwater = Instantiate(_waterHit, transform.position, Quaternion.identity);
+                Destroy(onHitwater, 1f);
             }
         }
     }
