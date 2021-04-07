@@ -7,6 +7,7 @@ public class RoomEnter : MonoBehaviour
 {
     public bool _roomActive;
     public GameObject[] _powerUps;
+    public GameObject healthPickup;
     [SerializeField]
     private bool _roomClear;
     [SerializeField]
@@ -73,9 +74,16 @@ public class RoomEnter : MonoBehaviour
     }
     private void SpawnRandomPickup()
     {
-        int randomIndex = Random.Range(0, _powerUps.Length);
-        GameObject powerUp = _powerUps[randomIndex];
-        Instantiate(powerUp, _powerUpSpawnLocation.position, Quaternion.identity, _room);
+        int healthRandom = Random.Range(0, 1);
+        if (healthRandom == 0)
+        {
+            int randomIndex = Random.Range(0, _powerUps.Length);
+            GameObject powerUp = _powerUps[randomIndex];
+            Instantiate(powerUp, _powerUpSpawnLocation.position, Quaternion.identity, _room);
+        } else
+        {
+            Instantiate(healthPickup, _powerUpSpawnLocation.position, Quaternion.identity, _room);
+        }
     }
     private bool IsArrayEmpty(Object[] essenceArray)
     {
