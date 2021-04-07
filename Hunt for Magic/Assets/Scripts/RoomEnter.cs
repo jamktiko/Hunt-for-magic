@@ -94,11 +94,4 @@ public class RoomEnter : MonoBehaviour
             return false;
         }
     }
-    private void OnTriggerStay(Collider other)
-    {
-        if (other.gameObject.tag == "Monster")
-        {
-
-        }
-    }
 }
