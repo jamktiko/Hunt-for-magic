@@ -17,6 +17,7 @@ public class SpellCasting : MonoBehaviour  // Tämä scripti liitetään pelaaja
     public bool _fireballCooldown;
     public bool _lightningboltCooldown;
     public bool _chainlightningCooldown;
+    public bool _icewallCooldown;
 
     [SerializeField]
     public float _spellInterval = 1f;
@@ -177,6 +178,20 @@ public class SpellCasting : MonoBehaviour  // Tämä scripti liitetään pelaaja
                     _lightningboltCooldown = true;
                 }
             }
+
+            if (_spellPrefab.name == "IceWallSpell")
+            {
+                if (_icewallCooldown)
+                {
+                    return;
+                }
+
+                Instantiate(_spellPrefab, _castingPoint.position, _castingPoint.rotation);
+
+                _icewallCooldown = true;
+
+                StartCoroutine(EndIcewallCooldown());
+            }
         }
         if (Input.GetButtonUp("Fire1") || chargeCounter == 6)
         {
@@ -271,6 +286,13 @@ public class SpellCasting : MonoBehaviour  // Tämä scripti liitetään pelaaja
         yield return new WaitForSeconds(2f);
 
         _chainlightningCooldown = false;
+    }
+
+    IEnumerator EndIcewallCooldown()
+    {
+        yield return new WaitForSeconds(8f);
+
+        _icewallCooldown = false;
     }
 
     IEnumerator ammoChangerInitiate()

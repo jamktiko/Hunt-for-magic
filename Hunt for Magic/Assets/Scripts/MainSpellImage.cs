@@ -13,6 +13,7 @@ public class MainSpellImage : MonoBehaviour
     public GameObject _fireball;
     public GameObject _lightningbolt;
     public GameObject _chainlightning;
+    public GameObject _icewall;
     public GameObject _weaponArea;
     public GameObject _activity;
 
@@ -128,6 +129,15 @@ public class MainSpellImage : MonoBehaviour
         else
         {
             _chainlightning.SetActive(false);
+        }
+
+        if (_currentSpell.name == "IceWallSpell")
+        {
+            _icewall.SetActive(true);
+        }
+        else
+        {
+            _icewall.SetActive(false);
         }
     }
 }

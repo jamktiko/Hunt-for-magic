@@ -75,6 +75,16 @@ public class HealthSystem : MonoBehaviour
         }
     }
 
+    public void AddHealth(float heal)
+    {
+        _health += heal;
+
+        if (_health > 100)
+        {
+            _health = 100;
+        }
+    }
+
     private void DamageOff()
     {
         _damageTaken = false;
