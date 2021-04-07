@@ -7,6 +7,8 @@ public class RoomEnter : MonoBehaviour
 {
     public bool _roomActive;
     public GameObject[] _powerUps;
+    public GameObject[] _enemies;
+    public GameObject healthPickup;
     [SerializeField]
     private bool _roomClear;
     [SerializeField]
@@ -67,15 +69,22 @@ public class RoomEnter : MonoBehaviour
 
     private void SpawnRandomEnemy(Transform spawnpoint)
     {
-        Debug.Log("Spawned enemy");
+        
         Object enemy = Resources.Load("Prefabs/EnemySlimePrefab");
         Instantiate(enemy, spawnpoint.position, Quaternion.identity, _room);
     }
     private void SpawnRandomPickup()
     {
-        int randomIndex = Random.Range(0, _powerUps.Length);
-        GameObject powerUp = _powerUps[randomIndex];
-        Instantiate(powerUp, _powerUpSpawnLocation.position, Quaternion.identity, _room);
+        int pickupDropType = Random.Range(0, 2);
+        if (pickupDropType == 0)
+        {
+            int randomIndex = Random.Range(0, _powerUps.Length);
+            GameObject powerUp = _powerUps[randomIndex];
+            Instantiate(powerUp, _powerUpSpawnLocation.position, Quaternion.identity, _room);
+        } else
+        {
+            Instantiate(healthPickup, _powerUpSpawnLocation.position, Quaternion.identity, _room);
+        }
     }
     private bool IsArrayEmpty(Object[] essenceArray)
     {
@@ -83,13 +92,6 @@ public class RoomEnter : MonoBehaviour
         else
         {
             return false;
-        }
-    }
-    private void OnTriggerStay(Collider other)
-    {
-        if (other.gameObject.tag == "Monster")
-        {
-
         }
     }
 }

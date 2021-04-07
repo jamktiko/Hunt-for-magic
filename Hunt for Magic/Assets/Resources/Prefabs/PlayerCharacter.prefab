@@ -5593,7 +5593,9 @@ MonoBehaviour:
   _damageTaken: 0
   _deadSlime: 0
   _slimeSounds: {fileID: 0}
+  _slimeAnim: {fileID: 0}
   _slimeDeath: {fileID: 0}
+  _slimeDamage: {fileID: 0}
 --- !u!136 &7370827034873486316
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -5740,6 +5742,7 @@ MonoBehaviour:
   _meleeSrc: {fileID: 7173822749763766676}
   _otherSrc: {fileID: 1930945776}
   _onWater: 0
+  _onWood: 0
   _dodgedash: 0
   _runningOnGrass1: {fileID: 8300000, guid: 435432b8c5d61e641983b009d47afc97, type: 3}
   _runningOnGrass2: {fileID: 8300000, guid: c7c6f432726d0bc4a8e3c63c84419da5, type: 3}
@@ -5789,6 +5792,7 @@ MonoBehaviour:
   _slowedDebuffImage: {fileID: 0}
   _oilDebuffImage: {fileID: 0}
   _wetDebuffImage: {fileID: 0}
+  _playerDamageTaken: {fileID: 2896548745655662291}
 --- !u!1 &4590092344485926886
 GameObject:
   m_ObjectHideFlags: 0
@@ -6029,15 +6033,15 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 4aed374e0ad2d684db6cbe810db01e97, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e887913d6b76a394d9a1243e7b42728e, type: 3}
---- !u!4 &543450652473901486 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: e887913d6b76a394d9a1243e7b42728e,
-    type: 3}
-  m_PrefabInstance: {fileID: 1259611717}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6738709147749080836 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6738709146861205825, guid: e887913d6b76a394d9a1243e7b42728e,
+    type: 3}
+  m_PrefabInstance: {fileID: 1259611717}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &543450652473901486 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: e887913d6b76a394d9a1243e7b42728e,
     type: 3}
   m_PrefabInstance: {fileID: 1259611717}
   m_PrefabAsset: {fileID: 0}
@@ -6058,6 +6062,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PlayerDamageTaken
+      objectReference: {fileID: 0}
+    - target: {fileID: 1141524582666781801, guid: 6fcf181d772f9f740b1fb88d88d7909d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5386646337170086543, guid: 6fcf181d772f9f740b1fb88d88d7909d,
         type: 3}
@@ -6116,6 +6125,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6fcf181d772f9f740b1fb88d88d7909d, type: 3}
+--- !u!1 &2896548745655662291 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1141524582666781801, guid: 6fcf181d772f9f740b1fb88d88d7909d,
+    type: 3}
+  m_PrefabInstance: {fileID: 2874731646250283706}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &7864463068967528501 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5386646337170086543, guid: 6fcf181d772f9f740b1fb88d88d7909d,
