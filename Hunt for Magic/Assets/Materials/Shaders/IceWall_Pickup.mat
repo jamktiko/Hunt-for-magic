@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: HP_pickup
-  m_Shader: {fileID: -6465566751694194690, guid: 4aa355aa47770e04686da9e067fcc907,
+  m_Name: IceWall_Pickup
+  m_Shader: {fileID: -6465566751694194690, guid: 00a897b3986e21b42889fbeb4d7645d0,
     type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
@@ -21,9 +21,9 @@ Material:
     serializedVersion: 3
     m_TexEnvs: []
     m_Floats:
-    - Vector1_18EC87B8: 4.76
-    - Vector1_5BAF1415: 1.11
-    - Vector1_C8F493C0: 0.12
-    - Vector1_CC0A9CA: 1.88
+    - Vector1_2B9A5FAD: 0.6
+    - Vector1_4DED7FF7: 3.49
+    - Vector1_79F89A83: 0.05
+    - Vector1_A0D40EC6: 0.05
     m_Colors:
-    - Color_FC47C3B1: {r: 0.5849056, g: 0.057938762, b: 0.07357827, a: 1}
+    - Color_30C0CBCD: {r: 0.0990566, g: 0.4410612, b: 1, a: 0}
