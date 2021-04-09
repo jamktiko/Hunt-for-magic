@@ -17,6 +17,7 @@ public class SpellPickup : MonoBehaviour
     private Object _flamethrowerPickup;
     private Object _lightningboltPickup;
     private Object _waterPickup;
+    private Object _icePickup;
 
     private AudioSource _menuSrc;
     private AudioClip _pickup;
@@ -37,6 +38,7 @@ public class SpellPickup : MonoBehaviour
         _flamethrowerPickup = Resources.Load("Prefabs/flamethrower_pickup");
         _lightningboltPickup = Resources.Load("Prefabs/Lightningbolt_pickup");
         _waterPickup = Resources.Load("Prefabs/Water_pickup");
+        _icePickup = Resources.Load("Prefabs/Icewall_pickup");
 
         _menuSrc = GameObject.Find("HUD").GetComponent<AudioSource>();
         _pickup = Resources.Load<AudioClip>("SFX/Player/Spells/spell_pickup");
@@ -111,6 +113,14 @@ public class SpellPickup : MonoBehaviour
                     _weaponArea.GetComponent<SpellBehaviour>()._newSpell = Resources.Load("Prefabs/ChainLightning");
                     Destroy(gameObject);
                 }
+
+                if (gameObject.name.Contains("Ice"))
+                {
+                    _count += 1;
+                    Spawner();
+                    _weaponArea.GetComponent<SpellBehaviour>()._newSpell = Resources.Load("Prefabs/IceWallSpell");
+                    Destroy(gameObject);
+                }
             }
         }
     }
@@ -146,6 +156,10 @@ public class SpellPickup : MonoBehaviour
             if (_weaponArea.GetComponent<SpellBehaviour>()._newSpell.name == "Waterwave")
             {
                 Instantiate(_waterPickup, _spawnPoint.position, Quaternion.identity);
+            }
+            if (_weaponArea.GetComponent<SpellBehaviour>()._newSpell.name == "IceWallSpell")
+            {
+                Instantiate(_icePickup, _spawnPoint.position, Quaternion.identity);
             }
         }
     }

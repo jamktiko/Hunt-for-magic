@@ -28,10 +28,9 @@ public class SpellBehaviour : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (SpellPickup._count < 99)
-        {
-            Pickup();
-        }
+
+        Pickup();
+
 
         if (Input.GetKey("1") || Input.GetKey("2") || Input.GetKey("3") || Input.GetKey(KeyCode.E))
         {
