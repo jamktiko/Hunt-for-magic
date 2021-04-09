@@ -88,7 +88,9 @@
     <Compile Include="Assets\Scripts\GroundSlime.cs" />
     <Compile Include="Assets\Scripts\GroundWater.cs" />
     <Compile Include="Assets\Scripts\HealthBar.cs" />
+    <Compile Include="Assets\Scripts\HealthPickup.cs" />
     <Compile Include="Assets\Scripts\HealthSystem.cs" />
+    <Compile Include="Assets\Scripts\IcewallSpell.cs" />
     <Compile Include="Assets\Scripts\LightingBoltSpell.cs" />
     <Compile Include="Assets\Scripts\LightingSpell.cs" />
     <Compile Include="Assets\Scripts\MainMenu.cs" />
@@ -110,6 +112,7 @@
     <Compile Include="Assets\Scripts\SpellBehaviour.cs" />
     <Compile Include="Assets\Scripts\SpellCasting.cs" />
     <Compile Include="Assets\Scripts\SpellPickup.cs" />
+    <Compile Include="Assets\Scripts\TreasureRoom.cs" />
     <Compile Include="Assets\Scripts\WaterSpell.cs" />
     <Compile Include="Assets\Scripts\WindSpell.cs" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

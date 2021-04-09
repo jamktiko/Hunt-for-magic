@@ -58,6 +58,12 @@ public class CooldownImage : MonoBehaviour
                 Invoke("Disable", 2f);
             }
 
+            else if (_player.GetComponent<SpellCasting>()._spellPrefab.name == "IceWallSpell")
+            {
+                _cooldown.fillAmount -= 1 / 8f * Time.deltaTime;
+                Invoke("Disable", 8f);
+            }
+
             else if (_player.GetComponent<SpellCasting>()._spellPrefab.name == "Flamethrower_particle")
             {
                 _cooldown.fillAmount = 1 - _player.GetComponent<EnergySystem>()._currentEnergy / _player.GetComponent<EnergySystem>()._maxEnergy;

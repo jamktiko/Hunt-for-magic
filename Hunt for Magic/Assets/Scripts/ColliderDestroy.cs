@@ -5,7 +5,7 @@ using UnityEngine;
 public class ColliderDestroy : MonoBehaviour
 {
     private Transform _castingPoint;
-    private float speed = 30f;
+    private float speed = 50f;
 
     // Start is called before the first frame update
     void Start()
