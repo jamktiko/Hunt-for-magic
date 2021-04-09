@@ -5,7 +5,7 @@ using UnityEngine;
 public class WindSpell : MonoBehaviour  //Tämä scripti liitetään WindEffect-prefabin SphereCollideriin
 {
     [SerializeField]
-    private float _damageAmount = 5f;
+    private float _damageAmount = 15f;
 
     [SerializeField]
     private float _speed = 10f;

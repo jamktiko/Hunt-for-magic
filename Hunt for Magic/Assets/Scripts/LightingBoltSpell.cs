@@ -5,15 +5,19 @@ using UnityEngine;
 public class LightingBoltSpell : MonoBehaviour
 {
     [SerializeField]
-    private float _damageAmount = 25f;
+    private float _damageAmount;
+    private float _damageBoost;
     private Transform _castingPoint;
     private float speed = 20f;
     public float chargeCounter;
+    private Object onHitElec;
+    private Object _elecHit;
+
 
     // Start is called before the first frame update
     void Start()
     {
-
+        _elecHit = Resources.Load("Prefabs/OnHitElec");
         GameObject player = GameObject.Find("PlayerCharacter"); //Find player
         chargeCounter = player.GetComponent<SpellCasting>().spellCharge; //get amount of charges
         _castingPoint = GameObject.Find("CastingPoint").GetComponent<Transform>();
@@ -29,6 +33,9 @@ public class LightingBoltSpell : MonoBehaviour
     private void OnTriggerEnter(Collider other)
 
     {
+        _damageBoost = 3 * chargeCounter;
+        _damageAmount = 25 + _damageBoost;
+
         var enemy = other.gameObject.GetComponent<Rigidbody>();
 
         var enemyHealth = other.gameObject.GetComponent<HealthSystem>();
@@ -39,6 +46,7 @@ public class LightingBoltSpell : MonoBehaviour
             {
                 enemyHealth.AddDamage(_damageAmount);
                 chargeCounter--;
+                onHitElec = Instantiate(_elecHit, transform.position, Quaternion.identity);
             }
         }
     }

@@ -31,15 +31,12 @@ public class EnemyArcherMovement : MonoBehaviour
     private float LD2;
     private float step;
     private float runStep;
-    private Object _arrowType;
-
-
-
+    public Object _arrowType;
+    public float ATRoll;
 
     // Start is called before the first frame update
     void Start()
     {
-        _arrowType = Resources.Load("Prefabs/ArrowHitbox");
         _arrowStartPoint = transform.Find("ArrowSpawnPoint");
         step = speed * Time.deltaTime;
         runStep = runSpeed * Time.deltaTime;
@@ -51,6 +48,30 @@ public class EnemyArcherMovement : MonoBehaviour
         player = GameObject.Find("PlayerCharacter"); // find player character
         lookDirectionNode = transform.Find("LookDirectionNode");
         transform.LookAt(lookDirectionNode.transform.position);
+        if(_arrowType == null)
+        {
+            ATRoll = Random.Range(0, 6);
+            if(ATRoll == 1)
+            {
+                _arrowType = Resources.Load("Prefabs/FireArrow");
+            }
+            else if (ATRoll == 2)
+            {
+                _arrowType = Resources.Load("Prefabs/ThunderArrow");
+            }
+            else if (ATRoll == 3)
+            {
+                _arrowType = Resources.Load("Prefabs/WaterArrow");
+            }
+            else if (ATRoll == 4)
+            {
+                _arrowType = Resources.Load("Prefabs/WindArrow");
+            }
+            else if (ATRoll == 5)
+            {
+                _arrowType = Resources.Load("Prefabs/IceArrow");
+            }
+        }
     }
 
     // Update is called once per frame
@@ -146,11 +167,11 @@ public class EnemyArcherMovement : MonoBehaviour
                         StartCoroutine(StrafePhaser());
                         if (LD3 == 1)
                         {
-                            lookDirectionNode.localPosition = new Vector3(1, 0, 0);
+                            lookDirectionNode.localPosition = new Vector3(1f, 0, 0);
                         }
                         if (LD3 == 2)
                         {
-                            lookDirectionNode.localPosition = new Vector3(-1, 0, 0);
+                            lookDirectionNode.localPosition = new Vector3(-1f, 0, 0);
                         }
                         transform.LookAt(lookDirectionNode.transform.position);
                     }
