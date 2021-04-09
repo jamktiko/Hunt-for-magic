@@ -18,12 +18,7 @@ public class PlayerAnimation : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown("space") && _player.GetComponent<CharacterController>().isGrounded)
-        {
-            anim.SetTrigger("Jump");  //Hyppää välilyönnillä, jos pelaaja on maassa
-        }
-
-        if (!_player.GetComponent<CharacterController>().isGrounded && !anim.GetCurrentAnimatorStateInfo(0).IsName("PlayerJumpTakeoff"))
+        if (!_player.GetComponent<CharacterController>().isGrounded && !anim.GetCurrentAnimatorStateInfo(0).IsName("PlayerJumpTakeoff") && !anim.GetCurrentAnimatorStateInfo(0).IsName("PlayerMelee") && anim.GetBool("Dodgedash") == false && anim.GetBool("CastingOn") == false)
         {
             anim.SetBool("OnAir", true);
         }
@@ -37,10 +32,15 @@ public class PlayerAnimation : MonoBehaviour
         {
             anim.SetTrigger("Casting");
 
-            if (Input.GetMouseButtonDown(0) && GetComponentInParent<EnergySystem>()._currentEnergy > 5f)
+            if (Input.GetMouseButton(0) && GetComponentInParent<EnergySystem>()._currentEnergy > 5f)
             {
                 anim.SetBool("CastingOn", true); //Jatkaa casting-animaatiota, jos pelaaja pitää hiirtä pohjassa
             }
+        }
+
+        else if (Input.GetKeyDown("space") && _player.GetComponent<CharacterController>().isGrounded && anim.GetBool("CastingOn") == false)
+        {
+            anim.SetTrigger("Jump");  //Hyppää välilyönnillä, jos pelaaja on maassa
         }
 
         if (Input.GetMouseButtonUp(0) || GetComponentInParent<EnergySystem>()._currentEnergy < 5f)
@@ -58,7 +58,7 @@ public class PlayerAnimation : MonoBehaviour
             anim.SetBool("Move", false); //Lopettaa kävelyanimaation tarvittaessa
         }
 
-        if (_player.GetComponent<PlayerCharacterController>().speed == 6.25f)
+        if (_player.GetComponent<PlayerCharacterController>().speed == 6.25f && !anim.GetCurrentAnimatorStateInfo(0).IsName("PlayerMelee"))
         {
             anim.SetBool("Dodgedash", true);
         }
