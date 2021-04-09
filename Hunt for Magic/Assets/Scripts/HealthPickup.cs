@@ -23,7 +23,7 @@ public class HealthPickup : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.tag == "Player" && Input.GetKeyDown(KeyCode.E))
+        if (other.tag == "Player")
         {
             _menuSrc.PlayOneShot(_pickup);
             other.GetComponent<HealthSystem>().AddHealth(_healthAmount);
