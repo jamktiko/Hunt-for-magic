@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -928,6 +928,12 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3849870186783016218, guid: c2367003dafe3244cac78d889124f626,
         type: 3}
+      propertyPath: healthPickup
+      value: 
+      objectReference: {fileID: 180406926869665145, guid: b8d2b24811c10664e9bbabeb000b0df3,
+        type: 3}
+    - target: {fileID: 3849870186783016218, guid: c2367003dafe3244cac78d889124f626,
+        type: 3}
       propertyPath: _doors.Array.size
       value: 3
       objectReference: {fileID: 0}
@@ -1594,6 +1600,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: MiddleRoom (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 8324087079083140871, guid: 721129b399dff7b48babe056c9985c6e,
+        type: 3}
+      propertyPath: healthPickup
+      value: 
+      objectReference: {fileID: 180406926869665145, guid: b8d2b24811c10664e9bbabeb000b0df3,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 721129b399dff7b48babe056c9985c6e, type: 3}
 --- !u!1001 &532213812
@@ -2253,12 +2265,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1044271635906807448, guid: 9d596df91270fb244949a371da133a7c,
-        type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 4bb480daefc351142b5175fff0f30364,
-        type: 3}
     - target: {fileID: 2061507828639154784, guid: 9d596df91270fb244949a371da133a7c,
         type: 3}
       propertyPath: m_Pivot.x
@@ -2384,18 +2390,6 @@ PrefabInstance:
       propertyPath: m_SizeDelta.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3691176465736279737, guid: 9d596df91270fb244949a371da133a7c,
-        type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 4bb480daefc351142b5175fff0f30364,
-        type: 3}
-    - target: {fileID: 4868999221215893074, guid: 9d596df91270fb244949a371da133a7c,
-        type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 4bb480daefc351142b5175fff0f30364,
-        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9d596df91270fb244949a371da133a7c, type: 3}
 --- !u!1 &839485244 stripped
@@ -3598,6 +3592,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8324087079083140871, guid: 721129b399dff7b48babe056c9985c6e,
         type: 3}
+      propertyPath: healthPickup
+      value: 
+      objectReference: {fileID: 180406926869665145, guid: b8d2b24811c10664e9bbabeb000b0df3,
+        type: 3}
+    - target: {fileID: 8324087079083140871, guid: 721129b399dff7b48babe056c9985c6e,
+        type: 3}
       propertyPath: _doors.Array.size
       value: 2
       objectReference: {fileID: 0}
@@ -4180,6 +4180,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8324087079083140871, guid: 721129b399dff7b48babe056c9985c6e,
         type: 3}
+      propertyPath: healthPickup
+      value: 
+      objectReference: {fileID: 180406926869665145, guid: b8d2b24811c10664e9bbabeb000b0df3,
+        type: 3}
+    - target: {fileID: 8324087079083140871, guid: 721129b399dff7b48babe056c9985c6e,
+        type: 3}
       propertyPath: _doors.Array.size
       value: 1
       objectReference: {fileID: 0}
@@ -4197,6 +4203,12 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3849870186783016218, guid: c2367003dafe3244cac78d889124f626,
+        type: 3}
+      propertyPath: healthPickup
+      value: 
+      objectReference: {fileID: 180406926869665145, guid: b8d2b24811c10664e9bbabeb000b0df3,
+        type: 3}
     - target: {fileID: 4206289886397377136, guid: c2367003dafe3244cac78d889124f626,
         type: 3}
       propertyPath: m_Name
@@ -4635,6 +4647,12 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3849870186783016218, guid: c2367003dafe3244cac78d889124f626,
+        type: 3}
+      propertyPath: healthPickup
+      value: 
+      objectReference: {fileID: 180406926869665145, guid: b8d2b24811c10664e9bbabeb000b0df3,
+        type: 3}
     - target: {fileID: 4206289886397377136, guid: c2367003dafe3244cac78d889124f626,
         type: 3}
       propertyPath: m_Name
@@ -6205,6 +6223,12 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3849870186783016218, guid: c2367003dafe3244cac78d889124f626,
         type: 3}
+      propertyPath: healthPickup
+      value: 
+      objectReference: {fileID: 180406926869665145, guid: b8d2b24811c10664e9bbabeb000b0df3,
+        type: 3}
+    - target: {fileID: 3849870186783016218, guid: c2367003dafe3244cac78d889124f626,
+        type: 3}
       propertyPath: _doors.Array.size
       value: 3
       objectReference: {fileID: 0}
@@ -6292,6 +6316,12 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1285592323290233155, guid: 995a31820190b5d4b930cf129d8b7eda,
+        type: 3}
+      propertyPath: healthPickup
+      value: 
+      objectReference: {fileID: 180406926869665145, guid: b8d2b24811c10664e9bbabeb000b0df3,
+        type: 3}
     - target: {fileID: 6710000251126897622, guid: 995a31820190b5d4b930cf129d8b7eda,
         type: 3}
       propertyPath: m_RootOrder
@@ -6460,6 +6490,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: a30d17ed646224a47a06b7a8c08ddfa6, type: 2}
+    - target: {fileID: 7714329949599766671, guid: 5d1a546b87ba00a41a84bf4798d74511,
+        type: 3}
+      propertyPath: m_TagString
+      value: Wall
+      objectReference: {fileID: 0}
     - target: {fileID: 7714329950008678332, guid: 5d1a546b87ba00a41a84bf4798d74511,
         type: 3}
       propertyPath: m_Name
@@ -6519,6 +6554,51 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7714329950706364991, guid: 5d1a546b87ba00a41a84bf4798d74511,
+        type: 3}
+      propertyPath: m_TagString
+      value: Wall
+      objectReference: {fileID: 0}
+    - target: {fileID: 7714329950764160168, guid: 5d1a546b87ba00a41a84bf4798d74511,
+        type: 3}
+      propertyPath: m_TagString
+      value: Wall
+      objectReference: {fileID: 0}
+    - target: {fileID: 7714329950857753524, guid: 5d1a546b87ba00a41a84bf4798d74511,
+        type: 3}
+      propertyPath: m_TagString
+      value: Wall
+      objectReference: {fileID: 0}
+    - target: {fileID: 7714329951046301175, guid: 5d1a546b87ba00a41a84bf4798d74511,
+        type: 3}
+      propertyPath: m_TagString
+      value: Wall
+      objectReference: {fileID: 0}
+    - target: {fileID: 7714329951138148568, guid: 5d1a546b87ba00a41a84bf4798d74511,
+        type: 3}
+      propertyPath: m_TagString
+      value: Wall
+      objectReference: {fileID: 0}
+    - target: {fileID: 7714329951186455572, guid: 5d1a546b87ba00a41a84bf4798d74511,
+        type: 3}
+      propertyPath: m_TagString
+      value: Wall
+      objectReference: {fileID: 0}
+    - target: {fileID: 7714329951509048667, guid: 5d1a546b87ba00a41a84bf4798d74511,
+        type: 3}
+      propertyPath: m_TagString
+      value: Wall
+      objectReference: {fileID: 0}
+    - target: {fileID: 8731897901915798656, guid: 5d1a546b87ba00a41a84bf4798d74511,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 8731897902108807002, guid: 5d1a546b87ba00a41a84bf4798d74511,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 9102884087005613651, guid: 5d1a546b87ba00a41a84bf4798d74511,
         type: 3}
@@ -6619,6 +6699,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: MiddleRoom
       objectReference: {fileID: 0}
+    - target: {fileID: 8324087079083140871, guid: 721129b399dff7b48babe056c9985c6e,
+        type: 3}
+      propertyPath: healthPickup
+      value: 
+      objectReference: {fileID: 180406926869665145, guid: b8d2b24811c10664e9bbabeb000b0df3,
+        type: 3}
     - target: {fileID: 8324087079083140871, guid: 721129b399dff7b48babe056c9985c6e,
         type: 3}
       propertyPath: _enemies.Array.size

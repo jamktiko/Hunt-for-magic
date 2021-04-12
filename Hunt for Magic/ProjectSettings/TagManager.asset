@@ -13,6 +13,7 @@ TagManager:
   - Pickup
   - Wood
   - ChainLightning
+  - Wall
   layers:
   - Default
   - TransparentFX
