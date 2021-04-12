@@ -8164,6 +8164,17 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: a30d17ed646224a47a06b7a8c08ddfa6, type: 2}
+    - target: {fileID: 4512738504744126509, guid: 5d1a546b87ba00a41a84bf4798d74511,
+        type: 3}
+      propertyPath: _powerUps.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4512738504744126509, guid: 5d1a546b87ba00a41a84bf4798d74511,
+        type: 3}
+      propertyPath: _powerUps.Array.data[2]
+      value: 
+      objectReference: {fileID: 7170643759427645203, guid: 5180c8493451a7849962c973bca6d47f,
+        type: 3}
     - target: {fileID: 5408998027081155870, guid: 5d1a546b87ba00a41a84bf4798d74511,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -8268,6 +8279,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7142163950995378941, guid: 721129b399dff7b48babe056c9985c6e,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8324087077259716751, guid: 721129b399dff7b48babe056c9985c6e,
         type: 3}
       propertyPath: m_LocalPosition.y
@@ -8355,6 +8371,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8324087079083140871, guid: 721129b399dff7b48babe056c9985c6e,
         type: 3}
+      propertyPath: healthPickup
+      value: 
+      objectReference: {fileID: 180406926869665145, guid: b8d2b24811c10664e9bbabeb000b0df3,
+        type: 3}
+    - target: {fileID: 8324087079083140871, guid: 721129b399dff7b48babe056c9985c6e,
+        type: 3}
       propertyPath: _enemies.Array.size
       value: 0
       objectReference: {fileID: 0}
@@ -8374,6 +8396,12 @@ PrefabInstance:
       propertyPath: _powerUps.Array.data[2]
       value: 
       objectReference: {fileID: 4645139587042417983, guid: 021f4223718cbca40964c7927164487c,
+        type: 3}
+    - target: {fileID: 8324087079083140871, guid: 721129b399dff7b48babe056c9985c6e,
+        type: 3}
+      propertyPath: _powerUps.Array.data[6]
+      value: 
+      objectReference: {fileID: 1270565694640996697, guid: 6ec91e1e3cff95e4593693a424ab6103,
         type: 3}
     - target: {fileID: 8324087079083140871, guid: 721129b399dff7b48babe056c9985c6e,
         type: 3}

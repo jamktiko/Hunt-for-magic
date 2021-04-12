@@ -2862,9 +2862,10 @@ MonoBehaviour:
   - {fileID: 2026757433774082842, guid: 829cf4e012ccb7f48b6f3139181434e5, type: 3}
   - {fileID: 7170643759427645203, guid: 5180c8493451a7849962c973bca6d47f, type: 3}
   - {fileID: 7266799211990475546, guid: 7e2230d69c4b7d040b30fb212c8de3c6, type: 3}
-  - {fileID: 180406926869665145, guid: b8d2b24811c10664e9bbabeb000b0df3, type: 3}
+  - {fileID: 1270565694640996697, guid: 6ec91e1e3cff95e4593693a424ab6103, type: 3}
   _enemies: []
-  healthPickup: {fileID: 0}
+  healthPickup: {fileID: 180406926869665145, guid: b8d2b24811c10664e9bbabeb000b0df3,
+    type: 3}
   _roomClear: 0
   _isRoomEmpty: 0
   _spawnedEnemies: []
