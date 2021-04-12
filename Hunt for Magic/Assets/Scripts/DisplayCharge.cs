@@ -61,6 +61,12 @@ public class DisplayCharge : MonoBehaviour
             _chargeText.color = Color.black;
             _chargeText.text = _player.GetComponent<SpellCasting>().ammoCount.ToString();
         }
+        else if (_player.GetComponent<SpellCasting>()._spellPrefab.name == "LightningBolt")
+        {
+            _chargeText.enabled = true;
+            _chargeText.color = Color.black;
+            _chargeText.text = _player.GetComponent<SpellCasting>().chargeCounter.ToString();
+        }
 
         else
         {

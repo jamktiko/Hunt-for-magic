@@ -48,8 +48,15 @@ public class CooldownImage : MonoBehaviour
 
             else if (_player.GetComponent<SpellCasting>()._spellPrefab.name == "LightningBolt")
             {
-                _cooldown.fillAmount -= 1 / 1.7f * Time.deltaTime;
-                Invoke("Disable", 1.7f);
+                if (!Input.GetButton("Fire1"))
+                {
+                    _cooldown.fillAmount -= 1 / 1.7f * Time.deltaTime;
+                    Invoke("Disable", 1.7f);
+                }
+                else
+                {
+                    Disable();
+                }
             }
 
             else if (_player.GetComponent<SpellCasting>()._spellPrefab.name == "ChainLightning")

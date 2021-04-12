@@ -71,8 +71,16 @@ public class PlayerCharacterController : MonoBehaviour
         }
         else if (rocketJump)
         {
-            moveDirection.y = jump * 2;
-            rocketJump = false;
+            if (gameObject.GetComponent<Dodgedash>()._dodgeDash == false)
+            {
+                moveDirection.y = jump * 2;
+                rocketJump = false;
+            }
+            else
+            {
+                moveDirection.y = jump * 1.5f;
+                rocketJump = false;
+            }
         }
         else
         {
