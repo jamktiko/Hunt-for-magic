@@ -9,6 +9,7 @@ public class RoomEnter : MonoBehaviour
     public GameObject[] _powerUps;
     public GameObject[] _enemies;
     public GameObject healthPickup;
+    private GameObject _spellArea;
     [SerializeField]
     private bool _roomClear;
     [SerializeField]
@@ -24,6 +25,7 @@ public class RoomEnter : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        _spellArea = GameObject.Find("WeaponArea");
         _room = GetComponent<Transform>();
         foreach (GameObject door in _doors)
         {
@@ -75,16 +77,24 @@ public class RoomEnter : MonoBehaviour
     }
     private void SpawnRandomPickup()
     {
-        int pickupDropType = Random.Range(0, 2);
+
+        int pickupDropType = Random.Range(0, 3);
         if (pickupDropType == 0)
         {
             int randomIndex = Random.Range(0, _powerUps.Length);
             GameObject powerUp = _powerUps[randomIndex];
+            while (powerUp == _spellArea.GetComponent<SpellBehaviour>()._spell0 | powerUp == _spellArea.GetComponent<SpellBehaviour>()._spell1 | powerUp == _spellArea.GetComponent<SpellBehaviour>()._spell2)
+            {
+                randomIndex = Random.Range(0, _powerUps.Length);
+                powerUp = _powerUps[randomIndex];
+            }
             Instantiate(powerUp, _powerUpSpawnLocation.position, Quaternion.identity, _room);
-        } else
+
+        } else if (pickupDropType == 1)
         {
             Instantiate(healthPickup, _powerUpSpawnLocation.position, Quaternion.identity, _room);
         }
+        
     }
     private bool IsArrayEmpty(Object[] essenceArray)
     {
