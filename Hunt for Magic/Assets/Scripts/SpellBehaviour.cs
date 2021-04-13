@@ -17,11 +17,13 @@ public class SpellBehaviour : MonoBehaviour
     private bool _active0;
     private bool _active1;
     private bool _active2;
+    public int _count;
 
 
     // Start is called before the first frame update
     void Start()
     {
+        _count = 0;
         _player = GameObject.Find("PlayerCharacter");
     }
 
@@ -46,19 +48,19 @@ public class SpellBehaviour : MonoBehaviour
 
     private void Pickup()
     {
-        if (SpellPickup._count == 1 && _mainSpell.activeSelf == false)
+        if (_count == 1 && _mainSpell.activeSelf == false)
         {
             _mainSpell.SetActive(true);
             _spell0 = _newSpell;
         }
-        else if (SpellPickup._count == 2 && _spellSlot1.activeSelf == false)
+        else if (_count == 2 && _spellSlot1.activeSelf == false)
         {
             _spellSlot1.SetActive(true);
             _activeSlot = 1;
             _spell1 = _newSpell;
 
         }
-        else if (SpellPickup._count == 3 && _spellSlot2.activeSelf == false)
+        else if (_count == 3 && _spellSlot2.activeSelf == false)
         {
             _spellSlot2.SetActive(true);
             _activeSlot = 2;
