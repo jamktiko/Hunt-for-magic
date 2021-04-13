@@ -98,7 +98,7 @@ public class PlayerCharacterController : MonoBehaviour
         xRotation = Mathf.Clamp(xRotation, rotationLimitNegative, rotationLimitPositive);
         yRotation -= mouseX;
 
-        cam.transform.eulerAngles = new Vector3(xRotation, -yRotation, 0f);
+        transform.localEulerAngles = new Vector3(xRotation, -yRotation, 0f);
 
         playerBody.Rotate(Vector3.up * mouseX);
     }
