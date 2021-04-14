@@ -48,7 +48,7 @@ public class PauseMenu : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if (!_pausePanel.activeSelf)
+            if (!_pausePanel.activeSelf && !_settingsPanel.activeSelf)
             {
                 PauseGame();
             }
