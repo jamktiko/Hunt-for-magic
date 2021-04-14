@@ -16,7 +16,7 @@ public class Debuffs : MonoBehaviour
     [SerializeField]
     public bool _shocked;
 
-    private float _debuffDamage = 0.01f;
+    public float _debuffDamage = 0.01f;
 
     private HealthSystem _healthSystem;
 
