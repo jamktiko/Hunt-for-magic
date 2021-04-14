@@ -5,7 +5,7 @@ using UnityEngine;
 public class LightingSpell : MonoBehaviour
 {
     [SerializeField]
-    private float _damageAmount = 15f;
+    public float _damageAmount = 15f;
     private bool chargeHold = false;
     private Transform _castingPoint;
     private float speed = 50f;
