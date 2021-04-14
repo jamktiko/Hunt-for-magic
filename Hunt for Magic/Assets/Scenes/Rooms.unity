@@ -5626,6 +5626,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2705754201364717084, guid: c2367003dafe3244cac78d889124f626,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 12.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2705754201364717084, guid: c2367003dafe3244cac78d889124f626,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -14.1
+      objectReference: {fileID: 0}
     - target: {fileID: 3849870186783016218, guid: c2367003dafe3244cac78d889124f626,
         type: 3}
       propertyPath: _roomClear
@@ -5710,6 +5720,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6062601857896105615, guid: c2367003dafe3244cac78d889124f626,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 16.1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c2367003dafe3244cac78d889124f626, type: 3}
@@ -7720,7 +7735,7 @@ PrefabInstance:
     - target: {fileID: 80385157813001191, guid: 5d1a546b87ba00a41a84bf4798d74511,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -8.1
+      value: -6.5
       objectReference: {fileID: 0}
     - target: {fileID: 904762391106664331, guid: 5d1a546b87ba00a41a84bf4798d74511,
         type: 3}
