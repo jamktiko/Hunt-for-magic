@@ -5,7 +5,7 @@ using UnityEngine;
 public class WaterSpell : MonoBehaviour
 {
     [SerializeField]
-    private float _damageAmount = 8f;
+    public float _damageAmount = 8f;
     private float _speed = 5f;
 
     private Transform _waterCastingPoint;
