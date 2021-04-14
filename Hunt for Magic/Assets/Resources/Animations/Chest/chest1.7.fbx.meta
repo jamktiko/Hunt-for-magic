@@ -1,19 +1,32 @@
 fileFormatVersion: 2
-guid: f0ef9a242e578034391322afa4db9fa5
+guid: ac28962063e425c449db15cb74cba492
 ModelImporter:
   serializedVersion: 19301
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      74: 4781951162920444690
+    second: Armature|ArmatureAction
   externalObjects:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Material
-    second: {fileID: 2100000, guid: a18206b85cb56e3499d31bf3e11daa78, type: 2}
+      name: gold
+    second: {fileID: 2100000, guid: 2ef2e0287e29c2b47bb808dab1f3797a, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Tree Branch
-    second: {fileID: 2100000, guid: 321be95362a53fb4c9cac8d48be4afdc, type: 2}
+      name: hinges
+    second: {fileID: 2100000, guid: ede22ac8d3231dd4f9a7b4d486cbad5d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lock
+    second: {fileID: 2100000, guid: 0df7f9c36e9075d44b36048a425e0f27, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: wood
+    second: {fileID: 2100000, guid: ab4060d48c9207e41a6699d90841b69a, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0
@@ -44,15 +57,15 @@ ModelImporter:
     isReadable: 0
   meshes:
     lODScreenPercentages: []
-    globalScale: 50
-    meshCompression: 1
-    addColliders: 1
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
     useSRGBMaterialColor: 1
     sortHierarchyByName: 1
     importVisibility: 1
     importBlendShapes: 1
-    importCameras: 0
-    importLights: 0
+    importCameras: 1
+    importLights: 1
     fileIdsGeneration: 2
     swapUVChannels: 0
     generateSecondaryUV: 0
@@ -91,7 +104,7 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 0.5
+    globalScale: 1
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0

@@ -13,7 +13,8 @@ public class FireballSpell : MonoBehaviour
 
     private Transform _castingPoint;
 
-    private float _speed = 20f;
+    [SerializeField]
+    private float _speed = 30f;
 
     // Start is called before the first frame update
     void Start()
@@ -42,12 +43,20 @@ public class FireballSpell : MonoBehaviour
             enemyHealth.AddDamage(_damageAmount);
             Instantiate(_explosion, transform.position, Quaternion.identity);
             Instantiate(_groundFire, transform.position, Quaternion.Euler(90, 0, 0));
+            Destroy(transform.parent.gameObject);
         }
 
         if (other.gameObject.tag == "Ground" || other.gameObject.tag == "Wood")
         {
             Instantiate(_explosion, transform.position, Quaternion.identity);
             Instantiate(_groundFire, transform.position, Quaternion.Euler(90, 0, 0));
-        }    
+            Destroy(transform.parent.gameObject);
+        }
+
+        if (other.gameObject.tag == "Wall")
+        {
+            Instantiate(_explosion, transform.position, Quaternion.identity);
+            Destroy(transform.parent.gameObject);
+        }
     }
 }
