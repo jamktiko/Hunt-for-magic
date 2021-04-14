@@ -62,8 +62,6 @@ public class SpellPickup : MonoBehaviour
             {
                 _menuSrc.PlayOneShot(_pickup);
 
-                if (gameObject.name.Contains("Upgrade"))
-                {
                     if (gameObject.name.Contains("Ember"))
                     {
                         _weaponArea.GetComponent<CrystalScript>().crystalUpgrade = Resources.Load("Prefabs/EmberUpgrade_pickup");
@@ -84,7 +82,6 @@ public class SpellPickup : MonoBehaviour
                         _weaponArea.GetComponent<CrystalScript>().crystalUpgrade = Resources.Load("Prefabs/NorthUpgrade_pickup");
                         Destroy(gameObject);
                     }
-                }
 
                 if (gameObject.name.Contains("Air"))
                 {
