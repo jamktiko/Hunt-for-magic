@@ -10,33 +10,43 @@ public class TreasureRoom : MonoBehaviour
     public GameObject _healthUp;
     public int _minHealthLevel;
     private GameObject _spellArea;
+    private GameObject _player;
     private Transform _room;
-    private bool _roomClear;
+    [SerializeField]
+    private bool _roomClear = false;
+    private bool _roomActive;
     // Start is called before the first frame update
     void Start()
     {
         _spellArea = GameObject.Find("WeaponArea");
+        _player = GameObject.Find("PlayerCharacter");
         _room = GetComponent<Transform>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
-    }
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other == GameObject.Find("Player") && !_roomClear)
+        if (_roomClear && _roomActive)
         {
-            if (other.GetComponent<HealthSystem>().health < _minHealthLevel)
+            _roomActive = false;
+            SpawnTreasure();
+            if (_player.GetComponent<HealthSystem>().health < _minHealthLevel)
             {
                 foreach (Transform healthspawnpoint in _healthSpawnPoints)
                 {
                     Instantiate(_healthUp, healthspawnpoint.position, Quaternion.identity, _room);
                 }
             }
-            SpawnTreasure();
+        }
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Player" && !_roomClear)
+        {
+
             _roomClear = true;
+            _roomActive = true;
+           
         }
     }
     private void SpawnTreasure()

@@ -35,7 +35,6 @@ public class PauseMenu : MonoBehaviour
     {
         _player = GameObject.Find("PlayerCharacter");
         _crosshair = GameObject.Find("Crosshair");
-        SpellPickups = GameObject.FindGameObjectsWithTag("Pickup");
 
         _resume.onClick.AddListener(ContinueGame);
         _settings.onClick.AddListener(Setting);
@@ -45,7 +44,9 @@ public class PauseMenu : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown (KeyCode.P))
+        SpellPickups = GameObject.FindGameObjectsWithTag("Pickup");
+
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
             if (!_pausePanel.activeSelf)
             {

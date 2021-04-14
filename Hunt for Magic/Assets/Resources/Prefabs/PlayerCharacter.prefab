@@ -191,6 +191,7 @@ GameObject:
   - component: {fileID: 8037762780560335336}
   - component: {fileID: 2997465465986713192}
   - component: {fileID: 8641412092014207351}
+  - component: {fileID: 3623587246157307216}
   m_Layer: 0
   m_Name: Particle System
   m_TagString: Untagged
@@ -205,13 +206,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2726383833597850698}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: 0.08715572, y: 0.996193, z: -0.00016430019, w: -0.0018777342}
+  m_LocalPosition: {x: -0.0005280636, y: 0.00006148287, z: -0.0001009652}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 6738709147749080836}
+  m_Father: {fileID: 2712382470167030627}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 180, y: 0.21598816, z: -170}
 --- !u!198 &2997465465986713192
 ParticleSystem:
   m_ObjectHideFlags: 0
@@ -843,7 +844,7 @@ ParticleSystem:
     angle: 25
     length: 5
     boxThickness: {x: 0, y: 0, z: 0}
-    radiusThickness: 0.72
+    radiusThickness: 0
     donutRadius: 0.03
     m_Position: {x: 0, y: 0, z: 0}
     m_Rotation: {x: 0, y: 0, z: 0}
@@ -926,7 +927,7 @@ ParticleSystem:
     sphericalDirectionAmount: 0
     randomPositionAmount: 0
     radius:
-      value: 0.11
+      value: 0.0001
       mode: 0
       spread: 0
       speed:
@@ -1155,7 +1156,7 @@ ParticleSystem:
       countCurve:
         serializedVersion: 2
         minMaxState: 0
-        scalar: 2
+        scalar: 5
         minScalar: 30
         maxCurve:
           serializedVersion: 2
@@ -1710,11 +1711,11 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     speedRange: {x: 0, y: 1}
-    tilesX: 1
-    tilesY: 1
+    tilesX: 3
+    tilesY: 2
     animationType: 0
     rowIndex: 0
-    cycles: 1
+    cycles: 5
     uvChannelMask: -1
     rowMode: 1
     sprites:
@@ -2392,22 +2393,22 @@ ParticleSystem:
           inWeight: 0.33333334
           outWeight: 0.33333334
         - serializedVersion: 3
-          time: 0.3408121
+          time: 0.35933608
           value: 1
-          inSlope: -0.6589951
-          outSlope: -0.6589951
+          inSlope: -0.29996026
+          outSlope: -0.29996026
           tangentMode: 0
           weightedMode: 0
-          inWeight: 0.33333334
+          inWeight: 0.91195047
           outWeight: 0.38190228
         - serializedVersion: 3
-          time: 0.6357021
-          value: -0.28187686
-          inSlope: 0
-          outSlope: 0
+          time: 0.6621434
+          value: -0.359802
+          inSlope: -3.936577
+          outSlope: -3.936577
           tangentMode: 0
           weightedMode: 0
-          inWeight: 0.33333334
+          inWeight: 0.27067265
           outWeight: 0.33333334
         - serializedVersion: 3
           time: 0.79286754
@@ -5055,6 +5056,23 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
+--- !u!1818360608 &3623587246157307216
+PositionConstraint:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2726383833597850698}
+  m_Enabled: 1
+  m_Weight: 1
+  m_TranslationAtRest: {x: -0.0005280636, y: 0.00006148287, z: -0.0001009652}
+  m_TranslationOffset: {x: 0, y: 0, z: 0}
+  m_AffectTranslationX: 1
+  m_AffectTranslationY: 1
+  m_AffectTranslationZ: 1
+  m_IsContraintActive: 0
+  m_IsLocked: 1
+  m_Sources: []
 --- !u!1 &4252106628218637971
 GameObject:
   m_ObjectHideFlags: 0
@@ -6035,12 +6053,6 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 4aed374e0ad2d684db6cbe810db01e97, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e887913d6b76a394d9a1243e7b42728e, type: 3}
---- !u!4 &6738709147749080836 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 6738709146861205825, guid: e887913d6b76a394d9a1243e7b42728e,
-    type: 3}
-  m_PrefabInstance: {fileID: 1259611717}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &543450652473901486 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: e887913d6b76a394d9a1243e7b42728e,
@@ -6283,6 +6295,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 47039fb7c33f2084983bcdd6b0061398, type: 3}
+--- !u!4 &2712382470167030627 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6738709146861205825, guid: 47039fb7c33f2084983bcdd6b0061398,
+    type: 3}
+  m_PrefabInstance: {fileID: 8656170513864528418}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &8422167713569714035 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 47039fb7c33f2084983bcdd6b0061398,

@@ -112,6 +112,7 @@
     <Compile Include="Assets\Scripts\SpellBehaviour.cs" />
     <Compile Include="Assets\Scripts\SpellCasting.cs" />
     <Compile Include="Assets\Scripts\SpellPickup.cs" />
+    <Compile Include="Assets\Scripts\StartSpells.cs" />
     <Compile Include="Assets\Scripts\TreasureRoom.cs" />
     <Compile Include="Assets\Scripts\WaterSpell.cs" />
     <Compile Include="Assets\Scripts\WindSpell.cs" />
