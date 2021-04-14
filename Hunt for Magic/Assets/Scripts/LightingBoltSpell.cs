@@ -48,6 +48,7 @@ public class LightingBoltSpell : MonoBehaviour
                 enemyHealth.AddDamage(_damageAmount);
                 chargeCounter--;
                 onHitElec = Instantiate(_elecHit, transform.position, Quaternion.identity);
+                Destroy(onHitElec, 1f);
             }
         }
     }

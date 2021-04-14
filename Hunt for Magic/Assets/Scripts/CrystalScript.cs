@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class CrystalScript : MonoBehaviour
 {
+    [SerializeField]
     public Object crystalUpgrade;
-    private Object crystalUpgradeSlot;
+    public Object crystalUpgradeSlot;
     private Transform crystalFloat;
     private Transform crystalAnimation;
     private float fireBonus;
@@ -23,7 +24,7 @@ public class CrystalScript : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         crystalAnimation.transform.position = crystalFloat.transform.position;
 
@@ -32,54 +33,82 @@ public class CrystalScript : MonoBehaviour
             crystalUpgradeSlot = crystalUpgrade;
         }
 
-        if (crystalUpgradeSlot.name.Contains("Ember"))
+        if (crystalUpgradeSlot.name.Contains("Ember") && crystalUpgradeSlot != null)
         {
             var changeScript = GameObject.Find("Fireball").GetComponent<FireballSpell>();
-            changeScript._damageAmount = 10;
+            if (changeScript != null)
+            {
+                changeScript._damageAmount = 10;
+            }
         }
-        else if (!crystalUpgradeSlot.name.Contains("Ember"))
+        if (!crystalUpgradeSlot.name.Contains("Ember") && crystalUpgradeSlot != null)
         {
             var changeScript = GameObject.Find("Fireball").GetComponent<FireballSpell>();
-            changeScript._damageAmount = 5;
+            if (changeScript != null)
+            {
+                changeScript._damageAmount = 5;
+            }
         }
 
-        if (crystalUpgradeSlot.name.Contains("Magnet"))
+        if (crystalUpgradeSlot.name.Contains("Magnet") && crystalUpgradeSlot != null)
         {
-            gameObject.GetComponent<SpellCasting>().maxAmmo = 5;
+            
             var changeScript = GameObject.Find("Electricity").GetComponent<LightingSpell>();
             changeScript._damageAmount = 20;
             var changeScript2 = GameObject.Find("LightningBolt").GetComponent<LightingBoltSpell>();
-            changeScript2._boostAmount = 7;
+            if (!changeScript2)
+            {
+                changeScript2._boostAmount = 7;
+                gameObject.GetComponent<SpellCasting>().maxAmmo = 5;
+            }
         }
-        else if (!crystalUpgradeSlot.name.Contains("Magnet"))
+        if (!crystalUpgradeSlot.name.Contains("Magnet") && crystalUpgradeSlot != null)
         {
-            gameObject.GetComponent<SpellCasting>().maxAmmo = 3;
             var changeScript = GameObject.Find("Electricity").GetComponent<LightingSpell>();
-            changeScript._damageAmount = 15;
+            if (changeScript != null)
+            {
+                gameObject.GetComponent<SpellCasting>().maxAmmo = 3;
+                changeScript._damageAmount = 15;
+            }
             var changeScript2 = GameObject.Find("LightningBolt").GetComponent<LightingBoltSpell>();
-            changeScript2._boostAmount = 3;
+            if (changeScript2 != null)
+            {
+                changeScript2._boostAmount = 3;
+            }
         }
 
-        if (crystalUpgradeSlot.name.Contains("Tear"))
+        if (crystalUpgradeSlot.name.Contains("Tear") && crystalUpgradeSlot != null)
         {
             var changeScript = GameObject.Find("WaterWave").GetComponent<WaterSpell>();
-            changeScript._damageAmount = 13;
+            if (changeScript != null)
+            {
+                changeScript._damageAmount = 13;
+            }
         }
-        else if (!crystalUpgradeSlot.name.Contains("Tear"))
+        if (!crystalUpgradeSlot.name.Contains("Tear") && crystalUpgradeSlot != null)
         {
             var changeScript = GameObject.Find("WaterWave").GetComponent<WaterSpell>();
-            changeScript._damageAmount = 8;
+            if (changeScript != null)
+            {
+                changeScript._damageAmount = 8;
+            }
         }
 
-        if (crystalUpgradeSlot.name.Contains("North"))
+        if (crystalUpgradeSlot.name.Contains("North") && crystalUpgradeSlot != null)
         {
             var changeScript = GameObject.Find("WindEffect").GetComponent<WindSpell>();
-            changeScript._damageAmount = 20;
+            if (changeScript != null)
+            {
+                changeScript._damageAmount = 20;
+            }
         }
-        else if (!crystalUpgradeSlot.name.Contains("North"))
+        if (!crystalUpgradeSlot.name.Contains("North") && crystalUpgradeSlot != null)
         {
             var changeScript = GameObject.Find("WindEffect").GetComponent<WindSpell>();
-            changeScript._damageAmount = 15;
+            if (changeScript != null)
+            {  
+                changeScript._damageAmount = 15;
+            }
         }
     }
 
