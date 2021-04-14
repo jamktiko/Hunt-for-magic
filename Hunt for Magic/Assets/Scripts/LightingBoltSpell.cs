@@ -10,6 +10,7 @@ public class LightingBoltSpell : MonoBehaviour
     private Transform _castingPoint;
     private float speed = 20f;
     public float chargeCounter;
+    public float _boostAmount = 3;
     private Object onHitElec;
     private Object _elecHit;
 
@@ -33,7 +34,7 @@ public class LightingBoltSpell : MonoBehaviour
     private void OnTriggerEnter(Collider other)
 
     {
-        _damageBoost = 3 * chargeCounter;
+        _damageBoost = _boostAmount * chargeCounter;
         _damageAmount = 25 + _damageBoost;
 
         var enemy = other.gameObject.GetComponent<Rigidbody>();
@@ -42,7 +43,7 @@ public class LightingBoltSpell : MonoBehaviour
         if (chargeCounter > 1)
         {
 
-            if (enemy != null)
+            if (enemy != null && enemy.tag == "Monster")
             {
                 enemyHealth.AddDamage(_damageAmount);
                 chargeCounter--;

@@ -5,7 +5,7 @@ using UnityEngine;
 public class FireballSpell : MonoBehaviour
 {
     [SerializeField]
-    private float _damageAmount = 5f;
+    public float _damageAmount = 5f;
 
     private GameObject _explosion;
 
