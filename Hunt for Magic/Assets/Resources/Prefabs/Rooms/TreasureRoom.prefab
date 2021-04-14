@@ -41,6 +41,7 @@ GameObject:
   - component: {fileID: 461126301065567793}
   - component: {fileID: 3699314585124446534}
   - component: {fileID: 6479960941830063358}
+  - component: {fileID: 1429564416935273464}
   m_Layer: 0
   m_Name: Treasure Room Trigger
   m_TagString: Untagged
@@ -117,6 +118,35 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 34.91213, y: 10.697606, z: 34.71756}
   m_Center: {x: 0.16464996, y: 4.848803, z: 0.06903839}
+--- !u!114 &1429564416935273464
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7580743513108294747}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2136453222e151a49ac2374898668d02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _treasureSpawnPoint: {fileID: 6572509244279427891}
+  _healthSpawnPoints:
+  - {fileID: 3914401845561562557}
+  - {fileID: 4247496700301090848}
+  _powerUps:
+  - {fileID: 118648667148364991, guid: 6dd525fbf6a79b844a15b6bdcf0d50d1, type: 3}
+  - {fileID: 7460174459539723216, guid: 16fb00be2432d9549b5b16b167e935b2, type: 3}
+  - {fileID: 6597692506983219370, guid: 39f92e4bfa011e943914bb221e80c349, type: 3}
+  - {fileID: 4645139587042417983, guid: 021f4223718cbca40964c7927164487c, type: 3}
+  - {fileID: 2026757433774082842, guid: 829cf4e012ccb7f48b6f3139181434e5, type: 3}
+  - {fileID: 1270565694640996697, guid: 6ec91e1e3cff95e4593693a424ab6103, type: 3}
+  - {fileID: 7266799211990475546, guid: 7e2230d69c4b7d040b30fb212c8de3c6, type: 3}
+  - {fileID: 7170643759427645203, guid: 5180c8493451a7849962c973bca6d47f, type: 3}
+  _healthUp: {fileID: 180406926869665145, guid: b8d2b24811c10664e9bbabeb000b0df3,
+    type: 3}
+  _minHealthLevel: 50
+  _roomClear: 0
 --- !u!1 &8585786665125839176
 GameObject:
   m_ObjectHideFlags: 0
