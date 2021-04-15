@@ -44,7 +44,7 @@ public class SpellPickup : MonoBehaviour
         _staffPickupLightning = Resources.Load("Prefabs/MagnetUpgrade_Pickup");
         _staffPickupFire = Resources.Load("Prefabs/EmberUpgrade_Pickup");
 
-    _menuSrc = GameObject.Find("HUD").GetComponent<AudioSource>();
+        _menuSrc = GameObject.Find("HUD").GetComponent<AudioSource>();
         _pickup = Resources.Load<AudioClip>("SFX/Player/Spells/spell_pickup");
     }
 
@@ -56,7 +56,7 @@ public class SpellPickup : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKey(KeyCode.E))
         {
             if (other.tag == "Player")
             {
