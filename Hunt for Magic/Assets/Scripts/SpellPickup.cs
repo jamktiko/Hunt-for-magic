@@ -20,6 +20,7 @@ public class SpellPickup : MonoBehaviour
     private Object _staffPickupWind;
     private Object _staffPickupLightning;
     private Object _staffPickupFire;
+    private Object staff_Set;
 
     private AudioSource _menuSrc;
     private AudioClip _pickup;
@@ -39,12 +40,12 @@ public class SpellPickup : MonoBehaviour
         _lightningboltPickup = Resources.Load("Prefabs/Lightningbolt_pickup");
         _waterPickup = Resources.Load("Prefabs/Water_pickup");
         _icePickup = Resources.Load("Prefabs/Icewall_pickup");
-        _staffPickupWater = Resources.Load("Prefabs/TearUpgrade_Pickup");
-        _staffPickupWind = Resources.Load("Prefabs/NorthUpgrade_Pickup");
-        _staffPickupLightning = Resources.Load("Prefabs/MagnetUpgrade_Pickup");
-        _staffPickupFire = Resources.Load("Prefabs/EmberUpgrade_Pickup");
+        _staffPickupWater = Resources.Load("Prefabs/TearUpgrade_pickup");
+        _staffPickupWind = Resources.Load("Prefabs/NorthUpgrade_pickup");
+        _staffPickupLightning = Resources.Load("Prefabs/MagnetUpgrade_pickup");
+        _staffPickupFire = Resources.Load("Prefabs/EmberUpgrade_pickup");
 
-    _menuSrc = GameObject.Find("HUD").GetComponent<AudioSource>();
+        _menuSrc = GameObject.Find("HUD").GetComponent<AudioSource>();
         _pickup = Resources.Load<AudioClip>("SFX/Player/Spells/spell_pickup");
     }
 
@@ -62,26 +63,27 @@ public class SpellPickup : MonoBehaviour
             {
                 _menuSrc.PlayOneShot(_pickup);
 
-                    if (gameObject.name.Contains("Ember"))
-                    {
-                        _weaponArea.GetComponent<CrystalScript>().crystalUpgrade = Resources.Load("Prefabs/EmberUpgrade_pickup");
-                        Destroy(gameObject);
-                    }
-                    if (gameObject.name.Contains("Magnet"))
-                    {
-                        _weaponArea.GetComponent<CrystalScript>().crystalUpgrade = Resources.Load("Prefabs/MagnetUpgrade_pickup");
-                        Destroy(gameObject);
-                    }
-                    if (gameObject.name.Contains("Tear"))
-                    {
-                        _weaponArea.GetComponent<CrystalScript>().crystalUpgrade = Resources.Load("Prefabs/TearUpgrade_pickup");
-                        Destroy(gameObject);
-                    }
-                    if (gameObject.name.Contains("North"))
-                    {
-                        _weaponArea.GetComponent<CrystalScript>().crystalUpgrade = Resources.Load("Prefabs/NorthUpgrade_pickup");
-                        Destroy(gameObject);
-                    }
+                if (gameObject.name.Contains("Ember"))
+                {
+                    other.GetComponent<CrystalScript>().crystalUpgrade = Resources.Load("Prefabs/EmberUpgrade_pickup");
+                    Destroy(gameObject);
+                }
+                if (gameObject.name.Contains("Magnet"))
+                {
+                    other.GetComponent<CrystalScript>().crystalUpgrade = Resources.Load("Prefabs/MagnetUpgrade_pickup");
+                    Destroy(gameObject);
+                }
+
+                if (gameObject.name.Contains("Tear"))
+                {
+                    other.GetComponent<CrystalScript>().crystalUpgrade = Resources.Load("Prefabs/TearUpgrade_pickup");
+                    Destroy(gameObject);
+                }
+                if (gameObject.name.Contains("North"))
+                {
+                    other.GetComponent<CrystalScript>().crystalUpgrade = Resources.Load("Prefabs/NorthUpgrade_pickup");
+                    Destroy(gameObject);
+                }
 
                 if (gameObject.name.Contains("Air"))
                 {

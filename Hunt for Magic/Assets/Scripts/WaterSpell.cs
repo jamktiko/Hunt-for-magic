@@ -5,7 +5,8 @@ using UnityEngine;
 public class WaterSpell : MonoBehaviour
 {
     [SerializeField]
-    public float _damageAmount = 8f;
+    public float _damageAmount;
+    private float _baseDamage = 8f;
     private float _speed = 5f;
 
     private Transform _waterCastingPoint;
@@ -18,6 +19,8 @@ public class WaterSpell : MonoBehaviour
 
     void Start()
     {
+        var WaterBonus = GameObject.FindGameObjectWithTag("Player").GetComponent<CrystalScript>().waterBonus;
+        _damageAmount = _baseDamage + WaterBonus;
         _waterCastingPoint = GameObject.Find("WaterCastingPoint").GetComponent<Transform>();
         gameObject.GetComponent<Rigidbody>().AddForce(_waterCastingPoint.forward * _speed, ForceMode.Impulse);
         gameObject.GetComponent<SphereCollider>();
