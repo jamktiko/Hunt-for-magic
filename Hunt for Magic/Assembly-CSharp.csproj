@@ -71,6 +71,7 @@
     <Compile Include="Assets\Scripts\ColliderDestroy.cs" />
     <Compile Include="Assets\Scripts\Cooldown.cs" />
     <Compile Include="Assets\Scripts\CooldownImage.cs" />
+    <Compile Include="Assets\Scripts\CrystalScript.cs" />
     <Compile Include="Assets\Scripts\Debuffs.cs" />
     <Compile Include="Assets\Scripts\DisplayCharge.cs" />
     <Compile Include="Assets\Scripts\DodgeCooldown.cs" />

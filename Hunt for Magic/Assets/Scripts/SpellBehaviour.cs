@@ -77,7 +77,7 @@ public class SpellBehaviour : MonoBehaviour
 
     private void Inputs()
     {
-        if (Input.GetKeyDown("1"))
+        if (Input.GetKey("1"))
         {
             _active0 = true;
             _active1 = false;
@@ -85,7 +85,7 @@ public class SpellBehaviour : MonoBehaviour
 
             _newSpell = _spell0;
         }
-        else if (Input.GetKeyDown("2"))
+        else if (Input.GetKey("2"))
         {
             _active0 = false;
             _active1 = true;
@@ -93,7 +93,7 @@ public class SpellBehaviour : MonoBehaviour
 
             _newSpell = _spell1;
         }
-        else if (Input.GetKeyDown("3"))
+        else if (Input.GetKey("3"))
         {
             _active0 = false;
             _active1 = false;

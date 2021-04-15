@@ -57,7 +57,7 @@ public class SpellPickup : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKey(KeyCode.E))
         {
             if (other.tag == "Player")
             {
