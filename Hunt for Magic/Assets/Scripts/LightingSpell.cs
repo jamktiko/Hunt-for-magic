@@ -5,7 +5,8 @@ using UnityEngine;
 public class LightingSpell : MonoBehaviour
 {
     [SerializeField]
-    public float _damageAmount = 15f;
+    private float _baseDamage = 12f;
+    public float _damageAmount;
     private bool chargeHold = false;
     private Transform _castingPoint;
     private float speed = 50f;
@@ -17,11 +18,13 @@ public class LightingSpell : MonoBehaviour
         _castingPoint = GameObject.Find("CastingPoint").GetComponent<Transform>();
         _elecHit = Resources.Load("Prefabs/OnHitElec");
         gameObject.GetComponent<Rigidbody>().AddForce(_castingPoint.forward * speed, ForceMode.Impulse);
+        _damageAmount = _baseDamage + GameObject.Find("Player").GetComponent<CrystalScript>().lightningBonus;
     }
 
     // Update is called once per frame
     void Update()
     {
+        
         spellCharger();
         Destroy(gameObject, 0.7f);
     }

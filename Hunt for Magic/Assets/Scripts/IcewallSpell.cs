@@ -5,7 +5,8 @@ using UnityEngine;
 public class IcewallSpell : MonoBehaviour
 {
     [SerializeField]
-    private float _damageAmount = 20f;
+    public float _damageAmount;
+    private float _baseDamage = 20f;
 
     [SerializeField]
     private float _speed = 35f;
@@ -21,6 +22,8 @@ public class IcewallSpell : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        var WaterBonus = _baseDamage + GameObject.FindGameObjectWithTag("Player").GetComponent<CrystalScript>().waterBonus;
+        _damageAmount = _baseDamage = WaterBonus;
         _castingPoint = GameObject.Find("CastingPoint").GetComponent<Transform>();
         _waterCastingPoint = GameObject.Find("WaterCastingPoint").GetComponent<Transform>();
         gameObject.GetComponent<Rigidbody>().AddForce(_castingPoint.forward * _speed, ForceMode.Impulse);
@@ -31,6 +34,7 @@ public class IcewallSpell : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
         Destroy(gameObject, 1f);
     }
 

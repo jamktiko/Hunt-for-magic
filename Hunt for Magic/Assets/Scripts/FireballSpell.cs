@@ -5,7 +5,8 @@ using UnityEngine;
 public class FireballSpell : MonoBehaviour
 {
     [SerializeField]
-    public float _damageAmount = 5f;
+    public float _damageAmount;
+    private float _baseDamage = 5f;
 
     private GameObject _explosion;
 
@@ -19,6 +20,8 @@ public class FireballSpell : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        var FireBonus = GameObject.FindGameObjectWithTag("Player").GetComponent<CrystalScript>().fireBonus;
+        _damageAmount = _baseDamage + FireBonus;
         _explosion = Resources.Load<GameObject>("Prefabs/Explosion");
         _groundFire = Resources.Load<GameObject>("Prefabs/ground_on_fire");
 

@@ -45,6 +45,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   crystalUpgrade: {fileID: 0}
+  crystalUpgradeSlot: {fileID: 0}
+  fireBonus: 0
+  waterBonus: 0
+  airBonus: 0
+  lightningBonus: 0
+  chargeCount: 0
+  fireDamage: 0
 --- !u!1001 &6888490808856689447
 PrefabInstance:
   m_ObjectHideFlags: 0
