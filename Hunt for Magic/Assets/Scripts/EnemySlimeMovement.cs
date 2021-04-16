@@ -164,6 +164,14 @@ public class EnemySlimeMovement : MonoBehaviour
             clHit = true;
             StartCoroutine(CLcooldown());
         }
+
+        if (collision.gameObject.CompareTag("Wall"))
+        {
+            enemyRB.velocity = Vector3.zero;
+            Vector3 lookDirection = (player.transform.position - transform.position).normalized;
+            enemyRB.AddForce(Vector3.up * 2f, ForceMode.Impulse);
+            enemyRB.AddForce(-lookDirection * 1.2f, ForceMode.Impulse);
+        }
     }
 
     IEnumerator chargeTimer()
