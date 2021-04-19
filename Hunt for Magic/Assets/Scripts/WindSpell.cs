@@ -5,7 +5,8 @@ using UnityEngine;
 public class WindSpell : MonoBehaviour  //Tämä scripti liitetään WindEffect-prefabin SphereCollideriin
 {
     [SerializeField]
-    public float _damageAmount = 15f;
+    public float _damageAmount;
+    private float _baseDamage = 15f;
 
     [SerializeField]
     private float _speed = 10f;
@@ -23,9 +24,11 @@ public class WindSpell : MonoBehaviour  //Tämä scripti liitetään WindEffect-
     // Start is called before the first frame update
     void Start()
     {
+        var AirBonus = GameObject.FindGameObjectWithTag("Player").GetComponent<CrystalScript>().airBonus;
         _castingPoint = GameObject.Find("CastingPoint").GetComponent<Transform>();
         gameObject.GetComponent<Rigidbody>().AddForce(_castingPoint.forward * _speed, ForceMode.Impulse);
         _forward = new Vector3(_castingPoint.forward.x, 0.1f, _castingPoint.forward.z);
+        _damageAmount = AirBonus + _baseDamage;
         _windHit = Resources.Load("Prefabs/OnHitwind");
     }
 

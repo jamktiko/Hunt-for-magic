@@ -10,7 +10,7 @@ public class LightingBoltSpell : MonoBehaviour
     private Transform _castingPoint;
     private float speed = 20f;
     public float chargeCounter;
-    public float _boostAmount = 3;
+    public float _boostAmount;
     private Object onHitElec;
     private Object _elecHit;
 
@@ -23,11 +23,13 @@ public class LightingBoltSpell : MonoBehaviour
         chargeCounter = player.GetComponent<SpellCasting>().spellCharge; //get amount of charges
         _castingPoint = GameObject.Find("CastingPoint").GetComponent<Transform>();
         gameObject.GetComponent<Rigidbody>().AddForce(_castingPoint.forward * speed, ForceMode.Impulse);
+        _boostAmount = player.GetComponent<CrystalScript>().lightningBonus;
     }
 
     // Update is called once per frame
     void Update()
     {
+        
         Destroy(gameObject, 2.1f);
     }
 
@@ -48,6 +50,7 @@ public class LightingBoltSpell : MonoBehaviour
                 enemyHealth.AddDamage(_damageAmount);
                 chargeCounter--;
                 onHitElec = Instantiate(_elecHit, transform.position, Quaternion.identity);
+                Destroy(onHitElec, 1f);
             }
         }
     }

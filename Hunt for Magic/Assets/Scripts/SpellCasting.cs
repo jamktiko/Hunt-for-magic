@@ -55,6 +55,7 @@ public class SpellCasting : MonoBehaviour  // Tämä scripti liitetään pelaaja
 
         if (!ammoChangerCooldown)
         {
+            maxAmmo = gameObject.GetComponent<CrystalScript>().chargeCount;
             if (ammoCount < maxAmmo)
             {
                 canCharge = true;

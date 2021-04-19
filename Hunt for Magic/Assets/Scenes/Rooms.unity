@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -4400,6 +4400,36 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9d596df91270fb244949a371da133a7c, type: 3}
+--- !u!1 &839485244 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2225223472272730983, guid: 9d596df91270fb244949a371da133a7c,
+    type: 3}
+  m_PrefabInstance: {fileID: 839485243}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &839485245 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2225223471994385343, guid: 9d596df91270fb244949a371da133a7c,
+    type: 3}
+  m_PrefabInstance: {fileID: 839485243}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &839485246 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2225223473011227960, guid: 9d596df91270fb244949a371da133a7c,
+    type: 3}
+  m_PrefabInstance: {fileID: 839485243}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &839485247 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2225223471056074277, guid: 9d596df91270fb244949a371da133a7c,
+    type: 3}
+  m_PrefabInstance: {fileID: 839485243}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &839485248 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2225223472932611588, guid: 9d596df91270fb244949a371da133a7c,
+    type: 3}
+  m_PrefabInstance: {fileID: 839485243}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &843482938
 GameObject:
   m_ObjectHideFlags: 0
@@ -10129,6 +10159,31 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: a30d17ed646224a47a06b7a8c08ddfa6, type: 2}
+    - target: {fileID: 2905229455666651964, guid: 5d1a546b87ba00a41a84bf4798d74511,
+        type: 3}
+      propertyPath: _oilDebuffImage
+      value: 
+      objectReference: {fileID: 839485245}
+    - target: {fileID: 2905229455666651964, guid: 5d1a546b87ba00a41a84bf4798d74511,
+        type: 3}
+      propertyPath: _wetDebuffImage
+      value: 
+      objectReference: {fileID: 839485244}
+    - target: {fileID: 2905229455666651964, guid: 5d1a546b87ba00a41a84bf4798d74511,
+        type: 3}
+      propertyPath: _fireDebuffImage
+      value: 
+      objectReference: {fileID: 839485248}
+    - target: {fileID: 2905229455666651964, guid: 5d1a546b87ba00a41a84bf4798d74511,
+        type: 3}
+      propertyPath: _slowedDebuffImage
+      value: 
+      objectReference: {fileID: 839485246}
+    - target: {fileID: 2905229455666651964, guid: 5d1a546b87ba00a41a84bf4798d74511,
+        type: 3}
+      propertyPath: _chilledDebuffImage
+      value: 
+      objectReference: {fileID: 839485247}
     - target: {fileID: 3407049926949049702, guid: 5d1a546b87ba00a41a84bf4798d74511,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
