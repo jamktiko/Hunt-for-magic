@@ -5086,6 +5086,7 @@ GameObject:
   - component: {fileID: 4252106628218637968}
   - component: {fileID: 4328526357200915979}
   - component: {fileID: 1930945776}
+  - component: {fileID: 5457210703868466176}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -5289,6 +5290,26 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &5457210703868466176
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4252106628218637971}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1474553f0d794b34ebddc1981c81d473, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  crystalUpgrade: {fileID: 0}
+  crystalUpgradeSlot: {fileID: 0}
+  fireBonus: 0
+  waterBonus: 0
+  airBonus: 0
+  lightningBonus: 0
+  chargeCount: 0
+  fireDamage: 0
 --- !u!1 &4252106628391893090
 GameObject:
   m_ObjectHideFlags: 0

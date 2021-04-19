@@ -7,6 +7,7 @@ public class LightingSpell : MonoBehaviour
     [SerializeField]
     private float _baseDamage = 12f;
     public float _damageAmount;
+    public float bonus_Damage;
     private bool chargeHold = false;
     private Transform _castingPoint;
     private float speed = 50f;
@@ -18,7 +19,8 @@ public class LightingSpell : MonoBehaviour
         _castingPoint = GameObject.Find("CastingPoint").GetComponent<Transform>();
         _elecHit = Resources.Load("Prefabs/OnHitElec");
         gameObject.GetComponent<Rigidbody>().AddForce(_castingPoint.forward * speed, ForceMode.Impulse);
-        _damageAmount = _baseDamage + GameObject.Find("Player").GetComponent<CrystalScript>().lightningBonus;
+        bonus_Damage = GameObject.Find("Player").GetComponent<CrystalScript>().lightningBonus;
+        _damageAmount = _baseDamage + bonus_Damage;
     }
 
     // Update is called once per frame
