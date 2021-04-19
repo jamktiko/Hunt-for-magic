@@ -22,7 +22,6 @@ public class SpellPickup : MonoBehaviour
     private Object _staffPickupWind;
     private Object _staffPickupLightning;
     private Object _staffPickupFire;
-    private Object staff_Set;
 
     private AudioSource _menuSrc;
     private AudioClip _pickup;

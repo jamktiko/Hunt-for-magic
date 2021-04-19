@@ -23,15 +23,12 @@ public class CrystalScript : MonoBehaviour
         crystalFloat = GameObject.Find("Crystal").GetComponent<Transform>();
         crystalAnimation = transform.Find("CrystalAnimationSphere");
         crystalAnimation.transform.position = crystalFloat.transform.position;
-        crystalUpgradeSlot = crystalUpgrade;
-        swapStats = false;
+        crystalUpgrade = Resources.Load("Prefabs/Empty_upgrade");
     }
 
     // Update is called once per frame
     void Update()
     {
-        crystalAnimation.transform.position = crystalFloat.transform.position;
-
         if (crystalUpgrade != crystalUpgradeSlot)
         {
             crystalUpgradeSlot = crystalUpgrade;

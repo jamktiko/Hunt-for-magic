@@ -70,6 +70,12 @@ public class WaterSpell : MonoBehaviour
                 Destroy(onHitwater, 1f);
             }
         }
+
+        if (other.tag == "Wall")
+        {
+            Destroy(gameObject.GetComponentInParent<ParticleSystem>());
+            Destroy(gameObject);
+        }
     }
 
     IEnumerator DamageFizzle()
