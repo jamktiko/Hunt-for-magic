@@ -50,5 +50,11 @@ public class IcewallSpell : MonoBehaviour
 
             Destroy(gameObject);
         }
+
+        if (other.tag == "Wall")
+        {
+            Destroy(gameObject.GetComponentInParent<ParticleSystem>());
+            Destroy(gameObject);
+        }
     }
 }
