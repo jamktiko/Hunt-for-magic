@@ -52,6 +52,11 @@ public class LightingBoltSpell : MonoBehaviour
                 onHitElec = Instantiate(_elecHit, transform.position, Quaternion.identity);
                 Destroy(onHitElec, 1f);
             }
+
+            if (other.tag == "Wall")
+            {
+                Destroy(gameObject);
+            }
         }
     }
 
@@ -69,6 +74,12 @@ public class LightingBoltSpell : MonoBehaviour
             {
                 Destroy(gameObject);
             }
+        }
+
+        if (other.tag == "Wall")
+        {
+            Destroy(gameObject.GetComponentInParent<ParticleSystem>());
+            Destroy(gameObject);
         }
     }
 

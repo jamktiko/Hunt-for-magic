@@ -51,6 +51,12 @@ public class LightingSpell : MonoBehaviour
 
             Destroy(gameObject);
         }
+
+        if (other.tag == "Wall")
+        {
+            Destroy(gameObject.GetComponentInParent<ParticleSystem>());
+            Destroy(gameObject);
+        }
     }
 
     private void spellCharger()
