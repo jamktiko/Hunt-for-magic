@@ -9,6 +9,7 @@ public class TreasureRoom : MonoBehaviour
     public GameObject[] _powerUps;
     public GameObject _healthUp;
     public int _minHealthLevel;
+    private GameObject _spawnManager;
     private GameObject _spellArea;
     private GameObject _player;
     private Transform _room;
@@ -18,6 +19,7 @@ public class TreasureRoom : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        _spawnManager = GameObject.Find("Spawn Manager");
         _spellArea = GameObject.Find("WeaponArea");
         _player = GameObject.Find("PlayerCharacter");
         _room = GetComponent<Transform>();
@@ -51,13 +53,14 @@ public class TreasureRoom : MonoBehaviour
     }
     private void SpawnTreasure()
     {
-        int randomIndex = Random.Range(0, _powerUps.Length);
-        GameObject powerUp = _powerUps[randomIndex];
-        while (powerUp == _spellArea.GetComponent<SpellBehaviour>()._spell0 | powerUp == _spellArea.GetComponent<SpellBehaviour>()._spell1 | powerUp == _spellArea.GetComponent<SpellBehaviour>()._spell2)
+
+        int randomIndex = Random.Range(0, _spawnManager.GetComponent<SpawnManager>()._spellList.Count);
+        GameObject powerUp = _spawnManager.GetComponent<SpawnManager>()._spellList[randomIndex];
+        Debug.Log(powerUp.name);
+        if (_spawnManager.GetComponent<SpawnManager>()._spellList != null)
         {
-            randomIndex = Random.Range(0, _powerUps.Length);
-            powerUp = _powerUps[randomIndex];
+            Instantiate(powerUp, _treasureSpawnPoint.position, Quaternion.identity);
         }
-        Instantiate(powerUp, _treasureSpawnPoint.position, Quaternion.identity, _room);
+
     }
 }
