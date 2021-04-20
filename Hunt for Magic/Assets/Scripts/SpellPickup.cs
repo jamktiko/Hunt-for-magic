@@ -208,6 +208,7 @@ public class SpellPickup : MonoBehaviour
             if (pickup.name.Contains(item.name))
             {
                 _spawnManager.GetComponent<SpawnManager>()._spellList.Remove(item);
+                break;
             }
     }
 }

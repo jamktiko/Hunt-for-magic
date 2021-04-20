@@ -61,6 +61,10 @@ public class TreasureRoom : MonoBehaviour
         {
             Instantiate(powerUp, _treasureSpawnPoint.position, Quaternion.identity);
         }
+        else
+        {
+            Instantiate(_healthUp, _treasureSpawnPoint.position, Quaternion.identity);
+        }
 
     }
 }
