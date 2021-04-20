@@ -22,6 +22,7 @@ public class SpellPickup : MonoBehaviour
     private Object _staffPickupWind;
     private Object _staffPickupLightning;
     private Object _staffPickupFire;
+    private Object _staffPickupMelee;
 
     private AudioSource _menuSrc;
     private AudioClip _pickup;
@@ -46,7 +47,7 @@ public class SpellPickup : MonoBehaviour
         _staffPickupWind = Resources.Load("Prefabs/NorthUpgrade_pickup");
         _staffPickupLightning = Resources.Load("Prefabs/MagnetUpgrade_pickup");
         _staffPickupFire = Resources.Load("Prefabs/EmberUpgrade_pickup");
-
+        _staffPickupMelee = Resources.Load("Prefabs/MountainUpgrade_pickup");
         _menuSrc = GameObject.Find("HUD").GetComponent<AudioSource>();
         _pickup = Resources.Load<AudioClip>("SFX/Player/Spells/spell_pickup");
     }
@@ -82,9 +83,16 @@ public class SpellPickup : MonoBehaviour
                     other.GetComponent<CrystalScript>().crystalUpgrade = Resources.Load("Prefabs/TearUpgrade_pickup");
                     Destroy(gameObject);
                 }
+
                 if (gameObject.name.Contains("North"))
                 {
                     other.GetComponent<CrystalScript>().crystalUpgrade = Resources.Load("Prefabs/NorthUpgrade_pickup");
+                    Destroy(gameObject);
+                }
+
+                if (gameObject.name.Contains("Mountain"))
+                {
+                    other.GetComponent<CrystalScript>().crystalUpgrade = Resources.Load("Prefabs/MountainUpgrade_pickup");
                     Destroy(gameObject);
                 }
 
