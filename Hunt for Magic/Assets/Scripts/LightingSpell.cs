@@ -12,6 +12,7 @@ public class LightingSpell : MonoBehaviour
     private Transform _castingPoint;
     private float speed = 50f;
     private Object _elecHit;
+    public GameObject _player;
 
     // Start is called before the first frame update
     void Start()
@@ -19,7 +20,8 @@ public class LightingSpell : MonoBehaviour
         _castingPoint = GameObject.Find("CastingPoint").GetComponent<Transform>();
         _elecHit = Resources.Load("Prefabs/OnHitElec");
         gameObject.GetComponent<Rigidbody>().AddForce(_castingPoint.forward * speed, ForceMode.Impulse);
-        bonus_Damage = GameObject.Find("Player").GetComponent<CrystalScript>().lightningBonus;
+        _player = GameObject.Find("PlayerCharacter");
+        bonus_Damage = _player.GetComponent<CrystalScript>().lightningBonus;
         _damageAmount = _baseDamage + bonus_Damage;
     }
 

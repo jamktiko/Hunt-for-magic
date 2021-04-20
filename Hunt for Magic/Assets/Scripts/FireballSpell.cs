@@ -7,9 +7,10 @@ public class FireballSpell : MonoBehaviour
     [SerializeField]
     public float _damageAmount;
     private float _baseDamage = 5f;
+    private float FireBonus;
 
     private GameObject _explosion;
-
+    public GameObject _player;
     private GameObject _groundFire;
 
     private Transform _castingPoint;
@@ -20,7 +21,8 @@ public class FireballSpell : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        var FireBonus = GameObject.FindGameObjectWithTag("Player").GetComponent<CrystalScript>().fireBonus;
+        _player = GameObject.Find("PlayerCharacter");
+        FireBonus = _player.GetComponent<CrystalScript>().fireBonus;
         _damageAmount = _baseDamage + FireBonus;
         _explosion = Resources.Load<GameObject>("Prefabs/Explosion");
         _groundFire = Resources.Load<GameObject>("Prefabs/ground_on_fire");
