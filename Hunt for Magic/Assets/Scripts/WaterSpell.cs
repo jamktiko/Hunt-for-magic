@@ -7,19 +7,21 @@ public class WaterSpell : MonoBehaviour
     [SerializeField]
     public float _damageAmount;
     private float _baseDamage = 8f;
+    private float WaterBonus;
     private float _speed = 5f;
 
     private Transform _waterCastingPoint;
     private Vector3 scaleChange, positionChange;
 
     private Object _waterPool;
-
+    public GameObject _player;
     private Object _waterHit;
 
 
     void Start()
     {
-        var WaterBonus = GameObject.FindGameObjectWithTag("Player").GetComponent<CrystalScript>().waterBonus;
+        _player = GameObject.Find("PlayerCharacter");
+        WaterBonus = _player.GetComponent<CrystalScript>().airBonus;
         _damageAmount = _baseDamage + WaterBonus;
         _waterCastingPoint = GameObject.Find("WaterCastingPoint").GetComponent<Transform>();
         gameObject.GetComponent<Rigidbody>().AddForce(_waterCastingPoint.forward * _speed, ForceMode.Impulse);

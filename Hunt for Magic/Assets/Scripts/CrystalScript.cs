@@ -9,21 +9,23 @@ public class CrystalScript : MonoBehaviour
     public Object crystalUpgradeSlot;
     private Transform crystalFloat;
     private Transform crystalAnimation;
-    public float fireBonus;
-    public float waterBonus;
-    public float airBonus;
-    public float lightningBonus;
-    public float chargeCount;
-    public float fireDamage;
-    private bool swapStats = true;
+    public float fireBonus = 0f;
+    public float waterBonus = 0f;
+    public float airBonus = 0f;
+    public float lightningBonus = 3f;
+    public float chargeCount = 3f;
+    public float fireDamage = 0.01f;
+    public float meleeDamage = 5f;
+    public float maxHp = 100f;
+    private bool swapStats;
 
     // Start is called before the first frame update
     void Start()
     {
+        crystalUpgrade = Resources.Load("Prefabs/EmptyUpgrade");
         crystalFloat = GameObject.Find("Crystal").GetComponent<Transform>();
         crystalAnimation = transform.Find("CrystalAnimationSphere");
-        crystalAnimation.transform.position = crystalFloat.transform.position;
-        crystalUpgrade = Resources.Load("Prefabs/Empty_upgrade");
+        crystalAnimation.transform.position = crystalFloat.transform.position;       
     }
 
     // Update is called once per frame
@@ -79,6 +81,18 @@ public class CrystalScript : MonoBehaviour
             if (!crystalUpgradeSlot.name.Contains("North"))
             {
                 airBonus = 0f;
+            }
+
+            if (crystalUpgradeSlot.name.Contains("Mountain"))
+            {
+                meleeDamage = 25f;
+                maxHp = 125;
+            }
+
+            if (!crystalUpgradeSlot.name.Contains("Mountain"))
+            {
+                meleeDamage = 5f;
+                maxHp = 100;
             }
 
             swapStats = false;

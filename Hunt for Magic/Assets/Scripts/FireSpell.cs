@@ -7,13 +7,16 @@ public class FireSpell : MonoBehaviour
 
     [SerializeField]
     public float _damageAmount;
+    public float FireBonus;
+    public GameObject _player;
 
     private float _wetDamageAmount;
 
     // Start is called before the first frame update
     void Start()
     {
-        var FireBonus = GameObject.FindGameObjectWithTag("Player").GetComponent<CrystalScript>().fireDamage;
+        _player = GameObject.Find("PlayerCharacter");
+        FireBonus = _player.GetComponent<CrystalScript>().fireDamage;
         _damageAmount = FireBonus;
         _wetDamageAmount = _damageAmount * 0.5f;
     }

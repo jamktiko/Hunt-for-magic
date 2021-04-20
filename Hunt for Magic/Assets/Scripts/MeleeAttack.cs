@@ -9,7 +9,7 @@ public class MeleeAttack : MonoBehaviour
     public bool _soundTrigger;
 
     [SerializeField]
-    private float _damage = 5f;
+    public float _damage = 5f;
 
     public float _cooldown = 1.16f;
 
