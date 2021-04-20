@@ -7,6 +7,7 @@ public class IcewallSpell : MonoBehaviour
     [SerializeField]
     public float _damageAmount;
     private float _baseDamage = 20f;
+    private float WaterBonus;
 
     [SerializeField]
     private float _speed = 35f;
@@ -16,13 +17,14 @@ public class IcewallSpell : MonoBehaviour
     private Transform _waterCastingPoint;
 
     private Object _iceWall;
-
+    public GameObject _player;
     private Object _iceTrigger;
 
     // Start is called before the first frame update
     void Start()
     {
-        var WaterBonus = _baseDamage + GameObject.FindGameObjectWithTag("Player").GetComponent<CrystalScript>().waterBonus;
+        _player = GameObject.Find("PlayerCharacter");
+        WaterBonus = _player.GetComponent<CrystalScript>().waterBonus;
         _damageAmount = _baseDamage = WaterBonus;
         _castingPoint = GameObject.Find("CastingPoint").GetComponent<Transform>();
         _waterCastingPoint = GameObject.Find("WaterCastingPoint").GetComponent<Transform>();
