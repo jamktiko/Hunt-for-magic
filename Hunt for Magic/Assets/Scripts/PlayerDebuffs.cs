@@ -12,6 +12,7 @@ public class PlayerDebuffs : MonoBehaviour
     public bool _oilSlowed;
     public bool _inFog;
 
+    private GameObject _player;
     private HealthSystem _playerHealth;
     private float _debuffDamage = 0.01f;
     public GameObject _fireDebuffImage;
@@ -19,14 +20,14 @@ public class PlayerDebuffs : MonoBehaviour
     public GameObject _slowedDebuffImage;
     public GameObject _oilDebuffImage;
     public GameObject _wetDebuffImage;
-    public GameObject _playerDamageTaken;
 
 
     // Start is called before the first frame update
     void Start()
     {
         _onFire = false;
-        _playerHealth = GetComponent<HealthSystem>();
+        _player = GameObject.FindWithTag("Player");
+        _playerHealth = _player.GetComponent<HealthSystem>();
         _fireDebuffImage.SetActive(false);
     }
 
@@ -57,15 +58,6 @@ public class PlayerDebuffs : MonoBehaviour
         {
             StartCoroutine("WetStopper");
             _wetDebuffImage.SetActive(true);
-        }
-
-        if (gameObject.GetComponent<HealthSystem>()._damageTaken)
-        {
-            _playerDamageTaken.SetActive(true);
-        }
-        else
-        {
-            _playerDamageTaken.SetActive(false);
         }
     }
     IEnumerator FireDamage()

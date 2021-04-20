@@ -1236,6 +1236,7 @@ GameObject:
   - component: {fileID: 7231689185232990965}
   - component: {fileID: 1283901737301464359}
   - component: {fileID: 8136813826956357477}
+  - component: {fileID: 1887865688}
   m_Layer: 0
   m_Name: Sphere
   m_TagString: Untagged
@@ -1312,12 +1313,25 @@ MeshCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3741198292928193394}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1887865688
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3741198292928193394}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4f5ddf0ba7900443b30f63a998bd659, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _player: {fileID: 0}
 --- !u!1 &7607515208153354511
 GameObject:
   m_ObjectHideFlags: 0
@@ -1457,15 +1471,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a2d31e30ea2d90f4d890cbdaadaa29a4, type: 3}
---- !u!4 &2447962310618399723 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 312018348001540646, guid: a2d31e30ea2d90f4d890cbdaadaa29a4,
-    type: 3}
-  m_PrefabInstance: {fileID: 2714663184953604557}
-  m_PrefabAsset: {fileID: 0}
 --- !u!108 &6974578298955176019 stripped
 Light:
   m_CorrespondingSourceObject: {fileID: 5000901908297310622, guid: a2d31e30ea2d90f4d890cbdaadaa29a4,
+    type: 3}
+  m_PrefabInstance: {fileID: 2714663184953604557}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &2447962310618399723 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 312018348001540646, guid: a2d31e30ea2d90f4d890cbdaadaa29a4,
     type: 3}
   m_PrefabInstance: {fileID: 2714663184953604557}
   m_PrefabAsset: {fileID: 0}

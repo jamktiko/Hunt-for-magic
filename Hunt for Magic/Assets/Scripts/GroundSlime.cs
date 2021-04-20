@@ -50,7 +50,7 @@ public class GroundSlime : MonoBehaviour
     private void MovementReturn()
     {
         GameObject.FindWithTag("Player").GetComponent<PlayerCharacterController>().speed = _playerSpeed;
-        GameObject.FindWithTag("Player").GetComponent<PlayerDebuffs>()._slowed = false;
+        GameObject.FindWithTag("HUD").GetComponentInChildren<PlayerDebuffs>()._slowed = false;
         _slowed = false;
     }
 
