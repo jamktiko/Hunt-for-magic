@@ -80,5 +80,11 @@ public class WindSpell : MonoBehaviour  //Tämä scripti liitetään WindEffect-
             Destroy(rocketJump, 0.02f);
             
         }
+
+        if (other.tag == "Wall")
+        {
+            Destroy(gameObject.GetComponentInParent<ParticleSystem>());
+            Destroy(gameObject);
+        }
     }
 }

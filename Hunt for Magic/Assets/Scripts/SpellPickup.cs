@@ -7,6 +7,8 @@ public class SpellPickup : MonoBehaviour
     private GameObject _player;
     private GameObject _weaponArea;
     private Transform _spawnPoint;
+    [SerializeField]
+    private GameObject _spawnManager;
 
     private Object _airPickup;
     private Object _chainlightningPickup;
@@ -20,7 +22,6 @@ public class SpellPickup : MonoBehaviour
     private Object _staffPickupWind;
     private Object _staffPickupLightning;
     private Object _staffPickupFire;
-    private Object staff_Set;
 
     private AudioSource _menuSrc;
     private AudioClip _pickup;
@@ -28,6 +29,7 @@ public class SpellPickup : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        _spawnManager = GameObject.Find("Spawn Manager");
         _player = GameObject.Find("PlayerCharacter");
         _spawnPoint = GameObject.Find("SpellDropPoint").GetComponent<Transform>();
         _weaponArea = GameObject.Find("WeaponArea");
@@ -57,6 +59,7 @@ public class SpellPickup : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
+
         if (Input.GetKey(KeyCode.E))
         {
             if (other.tag == "Player")
@@ -87,6 +90,7 @@ public class SpellPickup : MonoBehaviour
 
                 if (gameObject.name.Contains("Air"))
                 {
+                    RemoveObject(gameObject);
                     _weaponArea.GetComponent<SpellBehaviour>()._count++;
                     Spawner();
                     _weaponArea.GetComponent<SpellBehaviour>()._newSpell = Resources.Load("Prefabs/WindEffect");
@@ -95,6 +99,7 @@ public class SpellPickup : MonoBehaviour
 
                 if (gameObject.name.Contains("Water"))
                 {
+                    RemoveObject(gameObject);
                     _weaponArea.GetComponent<SpellBehaviour>()._count++;
                     Spawner();
                     _weaponArea.GetComponent<SpellBehaviour>()._newSpell = Resources.Load("Prefabs/Waterwave");
@@ -103,6 +108,7 @@ public class SpellPickup : MonoBehaviour
 
                 if (gameObject.name.Contains("Elec"))
                 {
+                    RemoveObject(gameObject);
                     _weaponArea.GetComponent<SpellBehaviour>()._count++;
                     Spawner();
                     _weaponArea.GetComponent<SpellBehaviour>()._newSpell = Resources.Load("Prefabs/Electricity");
@@ -111,6 +117,7 @@ public class SpellPickup : MonoBehaviour
 
                 if (gameObject.name.Contains("flamethrower"))
                 {
+                    RemoveObject(gameObject);
                     _weaponArea.GetComponent<SpellBehaviour>()._count++;
                     Spawner();
                     _weaponArea.GetComponent<SpellBehaviour>()._newSpell = Resources.Load("Prefabs/Flamethrower_particle");
@@ -119,6 +126,7 @@ public class SpellPickup : MonoBehaviour
 
                 if (gameObject.name.Contains("Fireball"))
                 {
+                    RemoveObject(gameObject);
                     _weaponArea.GetComponent<SpellBehaviour>()._count++;
                     Spawner();
                     _weaponArea.GetComponent<SpellBehaviour>()._newSpell = Resources.Load("Prefabs/Fireball");
@@ -127,6 +135,7 @@ public class SpellPickup : MonoBehaviour
 
                 if (gameObject.name.Contains("Lightningbolt"))
                 {
+                    RemoveObject(gameObject);
                     _weaponArea.GetComponent<SpellBehaviour>()._count++;
                     Spawner();
                     _weaponArea.GetComponent<SpellBehaviour>()._newSpell = Resources.Load("Prefabs/LightningBolt");
@@ -135,6 +144,7 @@ public class SpellPickup : MonoBehaviour
 
                 if (gameObject.name.Contains("Chainlightning"))
                 {
+                    RemoveObject(gameObject);
                     _weaponArea.GetComponent<SpellBehaviour>()._count++;
                     Spawner();
                     _weaponArea.GetComponent<SpellBehaviour>()._newSpell = Resources.Load("Prefabs/ChainLightning");
@@ -143,6 +153,7 @@ public class SpellPickup : MonoBehaviour
 
                 if (gameObject.name.Contains("Ice"))
                 {
+                    RemoveObject(gameObject);
                     _weaponArea.GetComponent<SpellBehaviour>()._count++;
                     Spawner();
                     _weaponArea.GetComponent<SpellBehaviour>()._newSpell = Resources.Load("Prefabs/IceWallSpell");
@@ -189,5 +200,15 @@ public class SpellPickup : MonoBehaviour
                 Instantiate(_icePickup, _spawnPoint.position, Quaternion.identity);
             }
         }
+    }
+    private void RemoveObject(GameObject pickup)
+    {
+        foreach (GameObject item in _spawnManager.GetComponent<SpawnManager>()._spellList)
+        
+            if (pickup.name.Contains(item.name))
+            {
+                _spawnManager.GetComponent<SpawnManager>()._spellList.Remove(item);
+                break;
+            }
     }
 }
