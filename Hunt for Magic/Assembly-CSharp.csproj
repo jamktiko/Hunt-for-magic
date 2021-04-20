@@ -110,6 +110,7 @@
     <Compile Include="Assets\Scripts\Settings.cs" />
     <Compile Include="Assets\Scripts\SlimeAnimation.cs" />
     <Compile Include="Assets\Scripts\SlimeDrop.cs" />
+    <Compile Include="Assets\Scripts\SpawnManager.cs" />
     <Compile Include="Assets\Scripts\SpellBehaviour.cs" />
     <Compile Include="Assets\Scripts\SpellCasting.cs" />
     <Compile Include="Assets\Scripts\SpellPickup.cs" />
