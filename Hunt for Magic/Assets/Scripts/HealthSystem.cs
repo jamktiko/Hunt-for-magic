@@ -26,6 +26,9 @@ public class HealthSystem : MonoBehaviour
 
     private bool _soundPlaying;
 
+    [SerializeField]
+    private GameObject _playerDamageTaken;
+
 
     public void AddDamage(float damage)
     {
@@ -36,9 +39,11 @@ public class HealthSystem : MonoBehaviour
 
             _health -= damage;
 
-        if (gameObject.tag == "Player")
+        if (gameObject.tag == "Player" && !gameObject.GetComponent<Dodgedash>()._dodgeDash)
         {
             _damageTaken = true;
+
+            _playerDamageTaken.SetActive(true);
 
             Invoke("DamageOff", 1f);
         }
@@ -87,6 +92,8 @@ public class HealthSystem : MonoBehaviour
 
     private void DamageOff()
     {
+        _playerDamageTaken.SetActive(false);
+
         _damageTaken = false;
     }
 }

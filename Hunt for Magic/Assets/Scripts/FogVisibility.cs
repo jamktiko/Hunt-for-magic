@@ -7,21 +7,21 @@ public class FogVisibility : MonoBehaviour
     [SerializeField]
     private float _slimeRange = 5f;
 
-    private GameObject _player;
-
     private GameObject[] _enemies;
+
+    private GameObject _hud;
 
     private void Start()
     {
-        _player = GameObject.Find("PlayerCharacter");
         _enemies = GameObject.FindGameObjectsWithTag("Monster");
+        _hud = GameObject.Find("HUD");
     }
 
     private void OnTriggerStay(Collider other)
     {
         if (other.tag == "Player")
         {
-            other.GetComponent<PlayerDebuffs>()._inFog = true;
+            _hud.GetComponentInChildren<PlayerDebuffs>()._inFog = true;
         }
 
         if (other.name.Contains("EnemySlimePrefab"))
@@ -34,7 +34,7 @@ public class FogVisibility : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            other.GetComponent<PlayerDebuffs>()._inFog = false;
+            _hud.GetComponentInChildren<PlayerDebuffs>()._inFog = false;
         }
 
         if (other.name.Contains("EnemySlimePrefab"))
@@ -45,7 +45,7 @@ public class FogVisibility : MonoBehaviour
 
     private void OnDestroy()
     {
-        _player.GetComponent<PlayerDebuffs>()._inFog = false;
+        _hud.GetComponentInChildren<PlayerDebuffs>()._inFog = false;
         foreach (GameObject enemy in _enemies)
         {
             if (enemy.name.Contains("EnemySlimePrefab"))
