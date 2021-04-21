@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 538256478255808183}
   - component: {fileID: 8751132918982733127}
   - component: {fileID: -598750642865828296}
-  - component: {fileID: -8795711984930178923}
+  - component: {fileID: 6823959579991329711}
   m_Layer: 0
   m_Name: ArrowHitBox
   m_TagString: Untagged
@@ -112,7 +112,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &-8795711984930178923
+--- !u!114 &6823959579991329711
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -121,6 +121,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 5227903973302575675}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b7e0960463330f428d2bc5f38b72abf, type: 3}
+  m_Script: {fileID: 11500000, guid: 9a1109c3a3f8ef6448dd17683af19dfe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
