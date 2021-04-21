@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Shader Graphs_ToonShader
+  m_Name: ToonHedge
   m_Shader: {fileID: -6465566751694194690, guid: 3229e42383ff23148bd600b30c99722c,
     type: 3}
   m_ShaderKeywords: BOOLEAN_B682DFDA_ON
@@ -21,7 +21,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - Texture2D_66BE9769:
-        m_Texture: {fileID: 2800000, guid: fc474de404ebd6840b175c4c0514906b, type: 3}
+        m_Texture: {fileID: 2800000, guid: 00f38f59da8ebca41a69f4ab0d1bf665, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - Texture2D_87732B:
@@ -34,7 +34,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - BOOLEAN_B682DFDA: 1
-    - Vector1_788BE359: 0.489
-    - Vector1_8A32494C: 0.31
+    - Vector1_788BE359: 0.001
+    - Vector1_8A32494C: 20.95
     m_Colors:
     - Color_3ED642A3: {r: 0.12616038, g: 1, b: 0, a: 0}
