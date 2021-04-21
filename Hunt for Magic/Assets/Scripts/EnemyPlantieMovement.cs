@@ -17,6 +17,10 @@ public class EnemyPlantieMovement : MonoBehaviour
     public Transform _vinePos1;
     public Transform _vinePos2;
     public Transform _vinePos3;
+    public bool _attack1;
+    public bool _attack2;
+    public bool _attack3;
+    public bool _attack4;
 
 
     // Start is called before the first frame update
@@ -37,34 +41,37 @@ public class EnemyPlantieMovement : MonoBehaviour
 
             if (_attackRoll == 1)
             {
-                Attack1();
                 _cooldown = true;
+                _attack1 = true;
+                Attack1();
             }
 
             if (_attackRoll == 2)
             {
-                Attack2();
                 _cooldown = true;
-
+                _attack2 = true;
+                StartCoroutine(Attack2());
             }
 
             if (_attackRoll == 3)
             {
-                Attack3();
                 _cooldown = true;
+                _attack3 = true;
+                Attack3();
             }
 
             if (_attackRoll == 4)
             {
-                Attack4();
                 _cooldown = true;
+                _attack4 = true;
                 _meleeAttack = true;
+                StartCoroutine(Attack4());
             }
         }
 
         if (!_meleeAttack)
         {
-            gameObject.transform.LookAt(_player.transform.position);
+            gameObject.transform.LookAt(new Vector3(_player.transform.position.x, transform.position.y, _player.transform.position.z));
         }
     }
 
@@ -73,12 +80,12 @@ public class EnemyPlantieMovement : MonoBehaviour
         int rand = Random.Range(1, 3);
         if (rand == 1)
         {
-            GameObject poison = Instantiate(_poisonCloud, _poisonPos1.position, Quaternion.identity);
+            GameObject poison = Instantiate(_poisonCloud, _poisonPos1.position, _poisonPos1.rotation);
             Destroy(poison, 5f);
         }
         else if (rand == 2)
         {
-            GameObject poison = Instantiate(_poisonCloud, _poisonPos2.position, Quaternion.identity);
+            GameObject poison = Instantiate(_poisonCloud, _poisonPos2.position, _poisonPos2.rotation);
             Destroy(poison, 5f);
         }
 
@@ -86,15 +93,18 @@ public class EnemyPlantieMovement : MonoBehaviour
         StartCoroutine(Cooldown());
     }
 
-    void Attack2()
+    IEnumerator Attack2()
     {
-        GameObject vine1 = Instantiate(_vine, _vinePos1.position, _player.transform.rotation);
-        GameObject vine2 = Instantiate(_vine, _vinePos2.position, Quaternion.identity);
-        GameObject vine3 = Instantiate(_vine, _vinePos3.position, Quaternion.identity);
+        yield return new WaitForSeconds(0.5f);
+        GameObject vine1 = Instantiate(_vine, _vinePos1.position, _vinePos1.rotation);
+        yield return new WaitForSeconds(0.2f);
+        GameObject vine2 = Instantiate(_vine, _vinePos2.position, _vinePos2.rotation);
+        yield return new WaitForSeconds(0.2f);
+        GameObject vine3 = Instantiate(_vine, _vinePos3.position, _vinePos3.rotation);
 
-        Destroy(vine1, 3.9f);
-        Destroy(vine2, 3.7f);
-        Destroy(vine3, 3.5f);
+        Destroy(vine1, 5f);
+        Destroy(vine2, 5f);
+        Destroy(vine3, 5f);
 
         _cooldownLength = 4f;
         StartCoroutine(Cooldown());
@@ -106,15 +116,7 @@ public class EnemyPlantieMovement : MonoBehaviour
         StartCoroutine(Cooldown());
     }
 
-    void Attack4()
-    {
-        StartCoroutine(Melee());
-
-        _cooldownLength = 4.5f;
-        StartCoroutine(Cooldown());
-    }
-
-    IEnumerator Melee()
+    IEnumerator Attack4()
     {
         yield return new WaitForSeconds(1.5f);
         _meleeHit.SetActive(true);
@@ -123,6 +125,9 @@ public class EnemyPlantieMovement : MonoBehaviour
 
         yield return new WaitForSeconds(0.4f);
         _meleeAttack = false;
+
+        _cooldownLength = 3f;
+        StartCoroutine(Cooldown());
     }
 
     IEnumerator Cooldown()
@@ -130,5 +135,10 @@ public class EnemyPlantieMovement : MonoBehaviour
         yield return new WaitForSeconds(_cooldownLength);
 
         _cooldown = false;
+
+        _attack1 = false;
+        _attack2 = false;
+        _attack3 = false;
+        _attack4 = false;
     }
 }
