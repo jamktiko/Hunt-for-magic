@@ -5437,7 +5437,6 @@ GameObject:
   - component: {fileID: 1697893290111303662}
   - component: {fileID: 1987628948}
   - component: {fileID: 1987628937}
-  - component: {fileID: 1319101002477047823}
   - component: {fileID: 2601113497659681079}
   m_Layer: 0
   m_Name: PlayerCharacter
@@ -5617,6 +5616,7 @@ MonoBehaviour:
   _slimeAnim: {fileID: 0}
   _slimeDeath: {fileID: 0}
   _slimeDamage: {fileID: 0}
+  _playerDamageTaken: {fileID: 2896548745655662291}
 --- !u!136 &7370827034873486316
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -5790,30 +5790,6 @@ MonoBehaviour:
   _runningOnWood5: {fileID: 8300000, guid: a9dccb0e556ac144da7d44f49fdbb8ce, type: 3}
   _runningOnWood6: {fileID: 8300000, guid: 2c9111109bb91094fbb2ce36ab24c9ed, type: 3}
   _runningOnWood7: {fileID: 8300000, guid: 6c76553871c69d148888d3e820068b84, type: 3}
---- !u!114 &1319101002477047823
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4252106629176813803}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 677ba98ed95f8044cb110f5109a29232, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _isWet: 0
-  _onFire: 0
-  _chilled: 0
-  _slowed: 0
-  _oilSlowed: 0
-  _inFog: 0
-  _fireDebuffImage: {fileID: 0}
-  _chilledDebuffImage: {fileID: 0}
-  _slowedDebuffImage: {fileID: 0}
-  _oilDebuffImage: {fileID: 0}
-  _wetDebuffImage: {fileID: 0}
-  _playerDamageTaken: {fileID: 2896548745655662291}
 --- !u!114 &2601113497659681079
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6106,15 +6082,15 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 4aed374e0ad2d684db6cbe810db01e97, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e887913d6b76a394d9a1243e7b42728e, type: 3}
---- !u!4 &543450652473901486 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: e887913d6b76a394d9a1243e7b42728e,
-    type: 3}
-  m_PrefabInstance: {fileID: 1259611717}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &919132148267031316 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: e887913d6b76a394d9a1243e7b42728e,
+    type: 3}
+  m_PrefabInstance: {fileID: 1259611717}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &543450652473901486 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: e887913d6b76a394d9a1243e7b42728e,
     type: 3}
   m_PrefabInstance: {fileID: 1259611717}
   m_PrefabAsset: {fileID: 0}

@@ -9,8 +9,8 @@ public class MeleeAttack : MonoBehaviour
     public bool _soundTrigger;
 
     [SerializeField]
-    public float _damage = 5f;
-
+    public float _damage;
+    public GameObject _player;
     public float _cooldown = 1.16f;
 
     [SerializeField]
@@ -22,6 +22,8 @@ public class MeleeAttack : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        _player = GameObject.Find("PlayerCharacter");
+        
         _isAttackOnCooldown = false;
         _meleeTrigger.SetActive(false);
     }
@@ -34,6 +36,7 @@ public class MeleeAttack : MonoBehaviour
             if (_isAttackOnCooldown)
                 return;
 
+            _damage = _player.GetComponent<CrystalScript>().meleeDamage;
             GetComponentInParent<PlayerSounds>()._meleeSrc.Play();
 
             _anim.SetTrigger("Melee");

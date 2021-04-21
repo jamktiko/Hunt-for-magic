@@ -8,7 +8,7 @@ public class HealthSystem : MonoBehaviour
     private float _health = 100;
 
     [SerializeField]
-    public float _maxHealth = 100;
+    public float _maxHealth;
 
     public float health => _health;
 
@@ -26,9 +26,13 @@ public class HealthSystem : MonoBehaviour
 
     private bool _soundPlaying;
 
+    [SerializeField]
+    private GameObject _playerDamageTaken;
+    public GameObject _player;
 
     public void AddDamage(float damage)
     {
+
         if (gameObject.tag == "Player" && gameObject.GetComponent<Dodgedash>()._dodgeDash)
         {
             damage = 0;
@@ -36,9 +40,11 @@ public class HealthSystem : MonoBehaviour
 
             _health -= damage;
 
-        if (gameObject.tag == "Player")
+        if (gameObject.tag == "Player" && !gameObject.GetComponent<Dodgedash>()._dodgeDash)
         {
             _damageTaken = true;
+
+            _playerDamageTaken.SetActive(true);
 
             Invoke("DamageOff", 1f);
         }
@@ -79,14 +85,16 @@ public class HealthSystem : MonoBehaviour
     {
         _health += heal;
 
-        if (_health > 100)
+        if (_health > _maxHealth)
         {
-            _health = 100;
+            _health = _maxHealth;
         }
     }
 
     private void DamageOff()
     {
+        _playerDamageTaken.SetActive(false);
+
         _damageTaken = false;
     }
 }

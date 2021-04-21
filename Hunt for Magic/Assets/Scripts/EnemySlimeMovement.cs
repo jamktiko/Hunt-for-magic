@@ -13,6 +13,7 @@ public class EnemySlimeMovement : MonoBehaviour
     private float LD1;
     private float LD2;
     private GameObject player;
+    private GameObject _hud;
     public bool touchGround = true;
     public bool attackTrigger1 = true;
     public bool attackTrigger2 = true;
@@ -42,13 +43,14 @@ public class EnemySlimeMovement : MonoBehaviour
         transform.LookAt(lookDirectionNode.transform.position);
         _slimeSounds = GetComponent<AudioSource>();
         _range = 25f;
+        _hud = GameObject.Find("HUD");
     }
 
     // Update is called once per frame
     void Update()
     {
 
-        if (_inFog || player.GetComponent<PlayerDebuffs>()._inFog)
+        if (_inFog || _hud.GetComponentInChildren<PlayerDebuffs>()._inFog)
         {
             _range = 5f;
         }
