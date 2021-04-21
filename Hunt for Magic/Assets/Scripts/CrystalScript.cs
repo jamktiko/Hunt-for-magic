@@ -7,7 +7,7 @@ public class CrystalScript : MonoBehaviour
     [SerializeField]
     public Object crystalUpgrade;
     public Object crystalUpgradeSlot;
-    private Transform crystalFloat;
+    private GameObject crystalFloat;
     private Transform crystalAnimation;
     public float fireBonus = 0f;
     public float waterBonus = 0f;
@@ -23,7 +23,7 @@ public class CrystalScript : MonoBehaviour
     void Start()
     {
         crystalUpgrade = Resources.Load("Prefabs/EmptyUpgrade");
-        crystalFloat = GameObject.Find("Crystal").GetComponent<Transform>();
+        crystalFloat = GameObject.Find("Crystal");
         crystalAnimation = transform.Find("CrystalAnimationSphere");
         crystalAnimation.transform.position = crystalFloat.transform.position;       
     }
@@ -41,6 +41,7 @@ public class CrystalScript : MonoBehaviour
         {
             if (crystalUpgradeSlot.name.Contains("Ember"))
             {
+                crystalFloat.GetComponent<Renderer>().material.SetColor("_EmissionColor", Color.yellow);
                 fireBonus = 5f;
                 fireDamage = 0.0115f;
             }
@@ -53,6 +54,7 @@ public class CrystalScript : MonoBehaviour
 
             if (crystalUpgradeSlot.name.Contains("Magnet"))
             {
+                crystalFloat.GetComponent<Renderer>().material.SetColor("_EmissionColor", Color.white);
                 lightningBonus = 5f;
                 chargeCount = 5f;
             }
@@ -65,6 +67,7 @@ public class CrystalScript : MonoBehaviour
 
             if (crystalUpgradeSlot.name.Contains("Tear"))
             {
+                crystalFloat.GetComponent<Renderer>().material.SetColor("_EmissionColor", Color.blue);
                 waterBonus = 5f;
             }
 
@@ -75,6 +78,7 @@ public class CrystalScript : MonoBehaviour
 
             if (crystalUpgradeSlot.name.Contains("North"))
             {
+                crystalFloat.GetComponent<Renderer>().material.SetColor("_EmissionColor", Color.green);
                 airBonus = 5f;
             }
 
@@ -85,6 +89,7 @@ public class CrystalScript : MonoBehaviour
 
             if (crystalUpgradeSlot.name.Contains("Mountain"))
             {
+                crystalFloat.GetComponent<Renderer>().material.SetColor("_EmissionColor", Color.red);
                 meleeDamage = 25f;
                 maxHp = 125;
                 var heal = 25;
