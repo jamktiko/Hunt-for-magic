@@ -87,12 +87,16 @@ public class CrystalScript : MonoBehaviour
             {
                 meleeDamage = 25f;
                 maxHp = 125;
+                var heal = 25;
+                gameObject.GetComponent<HealthSystem>()._maxHealth = maxHp;
+                gameObject.GetComponent<HealthSystem>().AddHealth(heal);
             }
 
             if (!crystalUpgradeSlot.name.Contains("Mountain"))
             {
                 meleeDamage = 5f;
                 maxHp = 100;
+                gameObject.GetComponent<HealthSystem>()._maxHealth = maxHp;
             }
 
             swapStats = false;
