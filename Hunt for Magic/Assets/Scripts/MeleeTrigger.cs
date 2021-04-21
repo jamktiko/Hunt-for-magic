@@ -5,7 +5,10 @@ using UnityEngine;
 public class MeleeTrigger : MonoBehaviour
 {
     [SerializeField]
-    private float _damage = 5f;
+    private float _playerDamage = 5f;
+
+    [SerializeField]
+    private float _plantieDamage = 10f;
 
     private GameObject _player;
 
@@ -25,11 +28,22 @@ public class MeleeTrigger : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other != null && other.gameObject.tag != "Player")
+        if (gameObject.name == "MeleeTrigger")
         {
-            other.GetComponent<HealthSystem>().AddDamage(_damage);
+            if (other != null && other.gameObject.tag != "Player")
+            {
+                other.GetComponent<HealthSystem>().AddDamage(_playerDamage);
 
-            _player.GetComponent<PlayerSounds>()._meleeSrc.PlayOneShot(_hitSlime);
+                _player.GetComponent<PlayerSounds>()._meleeSrc.PlayOneShot(_hitSlime);
+            }
+        }
+
+        else if (gameObject.name == "MeleeHit")
+        {
+            if (other != null && other.tag == "Player")
+            {
+                other.GetComponent<HealthSystem>().AddDamage(_plantieDamage);
+            }
         }
     }
 }
