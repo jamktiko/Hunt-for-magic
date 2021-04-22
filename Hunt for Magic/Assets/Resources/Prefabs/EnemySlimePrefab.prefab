@@ -162,7 +162,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_TargetDisplay: 0
 --- !u!114 &2286631559623135160
 MonoBehaviour:
@@ -633,6 +633,8 @@ MonoBehaviour:
   _slimeAnim: {fileID: 251499354881338264}
   _slimeDeath: {fileID: 8300000, guid: 798325e2455ba1549acdd9ddcda0ac3a, type: 3}
   _slimeDamage: {fileID: 8300000, guid: b6f7013244565444fa27932b5d9285ed, type: 3}
+  _playerDamageTaken: {fileID: 0}
+  _player: {fileID: 0}
 --- !u!54 &6893892525520940796
 Rigidbody:
   m_ObjectHideFlags: 0
