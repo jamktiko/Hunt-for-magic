@@ -78,6 +78,7 @@
     <Compile Include="Assets\Scripts\Dodgedash.cs" />
     <Compile Include="Assets\Scripts\EnemyArcherMovement.cs" />
     <Compile Include="Assets\Scripts\EnemyHealthbar.cs" />
+    <Compile Include="Assets\Scripts\EnemyPlantieMovement.cs" />
     <Compile Include="Assets\Scripts\EnemySlimeMovement.cs" />
     <Compile Include="Assets\Scripts\EnergySystem.cs" />
     <Compile Include="Assets\Scripts\Explosion.cs" />
@@ -106,6 +107,8 @@
     <Compile Include="Assets\Scripts\PlayerCharacterController.cs" />
     <Compile Include="Assets\Scripts\PlayerDebuffs.cs" />
     <Compile Include="Assets\Scripts\PlayerSounds.cs" />
+    <Compile Include="Assets\Scripts\PlayerSpawner.cs" />
+    <Compile Include="Assets\Scripts\PoisonCloud.cs" />
     <Compile Include="Assets\Scripts\RocketJump.cs" />
     <Compile Include="Assets\Scripts\RoomEnter.cs" />
     <Compile Include="Assets\Scripts\Settings.cs" />
