@@ -6,6 +6,14 @@ public class PoisonCloud : MonoBehaviour
 {
     private bool _cooldown;
 
+    private void FixedUpdate()
+    {
+        if (Time.timeScale == 1)
+        {
+            gameObject.transform.localScale += new Vector3(0.03f, 0.015f, 0.045f);
+        }
+    }
+
     void OnTriggerStay(Collider other)
     {
         if (other.tag == "Player")
