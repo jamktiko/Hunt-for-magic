@@ -12,8 +12,7 @@ public class LevelSwitch : MonoBehaviour
     {
         _player = GameObject.FindWithTag("Player");
         _hud = GameObject.Find("HUD");
-        DontDestroyOnLoad(_player);
-        DontDestroyOnLoad(_hud);
+
     }
 
     private void Start()
@@ -25,6 +24,8 @@ public class LevelSwitch : MonoBehaviour
     {
         if (other.tag == "Player")
         {
+            DontDestroyOnLoad(_player);
+            DontDestroyOnLoad(_hud);
             SceneManager.LoadScene(3);
         }
     }
