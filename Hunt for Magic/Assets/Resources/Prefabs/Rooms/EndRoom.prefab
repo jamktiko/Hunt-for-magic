@@ -1523,8 +1523,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 32.74708, y: 13.207132, z: 27.678642}
-  m_Center: {x: 0.03680992, y: 6.103566, z: 1.4842734}
+  m_Size: {x: 32.74708, y: 13.207132, z: 31.439112}
+  m_Center: {x: 0.03680992, y: 6.103566, z: -0.3959608}
 --- !u!114 &7641971245445026634
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1538,14 +1538,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _roomActive: 0
-  _powerUps:
-  - {fileID: 118648667148364991, guid: 6dd525fbf6a79b844a15b6bdcf0d50d1, type: 3}
-  - {fileID: 6597692506983219370, guid: 39f92e4bfa011e943914bb221e80c349, type: 3}
-  - {fileID: 4645139587042417983, guid: 021f4223718cbca40964c7927164487c, type: 3}
-  - {fileID: 2026757433774082842, guid: 829cf4e012ccb7f48b6f3139181434e5, type: 3}
-  - {fileID: 7170643759427645203, guid: 5180c8493451a7849962c973bca6d47f, type: 3}
-  - {fileID: 7266799211990475546, guid: 7e2230d69c4b7d040b30fb212c8de3c6, type: 3}
-  - {fileID: 1270565694640996697, guid: 6ec91e1e3cff95e4593693a424ab6103, type: 3}
   _enemies: []
   healthPickup: {fileID: 180406926869665145, guid: b8d2b24811c10664e9bbabeb000b0df3,
     type: 3}
