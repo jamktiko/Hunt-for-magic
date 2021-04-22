@@ -28,14 +28,13 @@ public class Settings : MonoBehaviour
         SetVolume(savedVolume);
         _soundSlider.value = savedVolume;
         _soundSlider.onValueChanged.AddListener((float _) => SetVolume(_));
+        _return.onClick.AddListener(Return);
+        _sensitivity.onValueChanged.AddListener(ApplySensitivity);
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        _return.onClick.AddListener(Return);
-        _sensitivity.onValueChanged.AddListener(ApplySensitivity);
-
         if (_sensitivity)
         {
             _sensitivity.value = (PlayerCharacterController.mouseSensitivity - 1) / 8;
