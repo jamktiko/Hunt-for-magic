@@ -95,19 +95,22 @@ public class EnemyPlantieMovement : MonoBehaviour
 
     IEnumerator Attack2()
     {
-        yield return new WaitForSeconds(0.5f);
-        GameObject vine1 = Instantiate(_vine, _vinePos1.position, _vinePos1.rotation);
-        yield return new WaitForSeconds(0.2f);
-        GameObject vine2 = Instantiate(_vine, _vinePos2.position, _vinePos2.rotation);
-        yield return new WaitForSeconds(0.2f);
-        GameObject vine3 = Instantiate(_vine, _vinePos3.position, _vinePos3.rotation);
+        if (_vinePos1 != null && _vinePos2 != null && _vinePos3 != null)
+        {
+            yield return new WaitForSeconds(0.5f);
+            GameObject vine1 = Instantiate(_vine, _vinePos1.position, _vinePos1.rotation);
+            yield return new WaitForSeconds(1f);
+            GameObject vine2 = Instantiate(_vine, _vinePos2.position, _vinePos2.rotation);
+            yield return new WaitForSeconds(1f);
+            GameObject vine3 = Instantiate(_vine, _vinePos3.position, _vinePos3.rotation);
 
-        Destroy(vine1, 5f);
-        Destroy(vine2, 5f);
-        Destroy(vine3, 5f);
+            Destroy(vine1, 5f);
+            Destroy(vine2, 5.5f);
+            Destroy(vine3, 6f);
 
-        _cooldownLength = 4f;
-        StartCoroutine(Cooldown());
+            _cooldownLength = 4f;
+            StartCoroutine(Cooldown());
+        }
     }
 
     void Attack3()
@@ -118,7 +121,7 @@ public class EnemyPlantieMovement : MonoBehaviour
 
     IEnumerator Attack4()
     {
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(2.5f);
         _meleeHit.SetActive(true);
         yield return new WaitForSeconds(0.1f);
         _meleeHit.SetActive(false);
@@ -126,7 +129,7 @@ public class EnemyPlantieMovement : MonoBehaviour
         yield return new WaitForSeconds(0.4f);
         _meleeAttack = false;
 
-        _cooldownLength = 3f;
+        _cooldownLength = 2f;
         StartCoroutine(Cooldown());
     }
 
