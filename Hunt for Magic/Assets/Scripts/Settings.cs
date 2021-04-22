@@ -52,16 +52,16 @@ public class Settings : MonoBehaviour
         return Mathf.Log10(Mathf.Max(_value, 0.0001f)) * 20f;
     }
 
+    public void ApplySensitivity(float mouseSens)
+    {
+        mouseSens = (_sensitivity.value * 8) + 1;
+        PlayerCharacterController.mouseSensitivity = mouseSens;
+    }
+
     void Return()
     {
         _menuSrc.PlayOneShot(_menuClick);
         gameObject.SetActive(false);
         _menuUI.SetActive(true);
-    }
-
-    public void ApplySensitivity(float mouseSens)
-    {
-        mouseSens = (_sensitivity.value * 8) + 1;
-        PlayerCharacterController.mouseSensitivity = mouseSens;
     }
 }
