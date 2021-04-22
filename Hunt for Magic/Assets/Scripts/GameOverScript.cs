@@ -27,14 +27,13 @@ public class GameOverScript : MonoBehaviour
         _crosshair = GameObject.Find("Crosshair");
 
         _mainMenu.onClick.AddListener(MainMenu);
-
-        SpellPickups = GameObject.FindGameObjectsWithTag("Pickup");
     }
 
 
     // Update is called once per frame
     void Update()
     {
+        SpellPickups = GameObject.FindGameObjectsWithTag("Pickup");
 
         if (_gameoverPanel.activeSelf)
         {
