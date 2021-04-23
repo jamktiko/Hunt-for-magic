@@ -44,7 +44,7 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.4
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &8240585710116105496
 MonoBehaviour:
@@ -61,6 +61,7 @@ MonoBehaviour:
   _damageAmount: 5
   _speed: 35.62
   _rocketjumpTrigger: {fileID: 0}
+  _player: {fileID: 0}
 --- !u!54 &4740537810288572285
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -121,7 +122,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.4
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &1235282678948985275
 MonoBehaviour:
@@ -139,6 +140,7 @@ MonoBehaviour:
   _speed: 35.62
   _rocketjumpTrigger: {fileID: 975024681128364463, guid: 9550b032308589e42bf83f488c5e032f,
     type: 3}
+  _player: {fileID: 0}
 --- !u!54 &5918544793587055564
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -5132,3 +5134,4 @@ MonoBehaviour:
   _damageAmount: 0
   _speed: 35.62
   _rocketjumpTrigger: {fileID: 0}
+  _player: {fileID: 0}
