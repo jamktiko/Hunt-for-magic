@@ -10,7 +10,7 @@ public class LightingSpell : MonoBehaviour
     public float bonus_Damage;
     private bool chargeHold = false;
     private Transform _castingPoint;
-    private float speed = 50f;
+    private float speed = 25f;
     private Object _elecHit;
     public GameObject _player;
 

@@ -138,7 +138,7 @@ public class EnemySlimeMovement : MonoBehaviour
             {
 
             }
-            else if (chargeAttackRoller == 10 && inRange)
+            else if (chargeAttackRoller == 10 && inRange && collision.gameObject.CompareTag("Ground"))
             {
                 attackTrigger1 = false;
                 attackTrigger2 = false;
