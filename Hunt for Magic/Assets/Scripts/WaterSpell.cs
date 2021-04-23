@@ -41,7 +41,11 @@ public class WaterSpell : MonoBehaviour
         {
             gameObject.transform.localScale += scaleChange;
             gameObject.transform.position += positionChange;
-            _damageAmount -= 0.1f; 
+            while (_damageAmount > 0)
+            {
+                _damageAmount -= 0.05f;
+
+            }
         }
 
     }
