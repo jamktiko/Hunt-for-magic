@@ -18,6 +18,8 @@ public class GameOverScript : MonoBehaviour
     public AudioSource _menuSrc;
     public AudioClip _menuClick;
 
+    public GameObject[] SpellPickups;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -31,6 +33,7 @@ public class GameOverScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        SpellPickups = GameObject.FindGameObjectsWithTag("Pickup");
 
         if (_gameoverPanel.activeSelf)
         {
@@ -42,10 +45,20 @@ public class GameOverScript : MonoBehaviour
     {
         _player.GetComponent<PlayerCharacterController>().enabled = false;
         _player.GetComponentInChildren<PlayerAnimation>().enabled = false;
+        _player.GetComponent<SpellCasting>().enabled = false;
         _player.GetComponent<PlayerSounds>().enabled = false;
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
         _crosshair.SetActive(false);
+
+        foreach (GameObject spell in SpellPickups)
+        {
+            if (spell != null)
+            {
+                spell.GetComponent<PickupText>()._text.enabled = false;
+            }
+        }
+
         Time.timeScale = 0;
     }
 
@@ -55,8 +68,18 @@ public class GameOverScript : MonoBehaviour
         _gameoverPanel.SetActive(false);
         _player.GetComponent<PlayerCharacterController>().enabled = true;
         _player.GetComponentInChildren<PlayerAnimation>().enabled = true;
+        _player.GetComponent<SpellCasting>().enabled = true;
         _player.GetComponent<PlayerSounds>().enabled = true;
         _crosshair.SetActive(true);
+
+        foreach (GameObject spell in SpellPickups)
+        {
+            if (spell != null)
+            {
+                spell.GetComponent<PickupText>()._text.enabled = true;
+            }
+        }
+
         Time.timeScale = 1;
         SceneManager.LoadScene(0);
     }

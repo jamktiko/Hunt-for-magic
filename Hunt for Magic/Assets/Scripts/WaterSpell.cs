@@ -37,9 +37,13 @@ public class WaterSpell : MonoBehaviour
     void Update()
     {
         Object.Destroy(gameObject, 5.0f);
-        
-        gameObject.transform.localScale += scaleChange;
-        gameObject.transform.position += positionChange;
+        if (Time.timeScale == 1)
+        {
+            gameObject.transform.localScale += scaleChange;
+            gameObject.transform.position += positionChange;
+            _damageAmount -= 0.1f; 
+        }
+
     }
 
     private void OnCollisionEnter(Collision other)
