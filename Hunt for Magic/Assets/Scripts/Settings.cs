@@ -28,14 +28,13 @@ public class Settings : MonoBehaviour
         SetVolume(savedVolume);
         _soundSlider.value = savedVolume;
         _soundSlider.onValueChanged.AddListener((float _) => SetVolume(_));
+        _return.onClick.AddListener(Return);
+        _sensitivity.onValueChanged.AddListener(ApplySensitivity);
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        _return.onClick.AddListener(Return);
-        _sensitivity.onValueChanged.AddListener(ApplySensitivity);
-
         if (_sensitivity)
         {
             _sensitivity.value = (PlayerCharacterController.mouseSensitivity - 1) / 8;
@@ -53,16 +52,16 @@ public class Settings : MonoBehaviour
         return Mathf.Log10(Mathf.Max(_value, 0.0001f)) * 20f;
     }
 
+    public void ApplySensitivity(float mouseSens)
+    {
+        mouseSens = (_sensitivity.value * 8) + 1;
+        PlayerCharacterController.mouseSensitivity = mouseSens;
+    }
+
     void Return()
     {
         _menuSrc.PlayOneShot(_menuClick);
         gameObject.SetActive(false);
         _menuUI.SetActive(true);
-    }
-
-    public void ApplySensitivity(float mouseSens)
-    {
-        mouseSens = (_sensitivity.value * 8) + 1;
-        PlayerCharacterController.mouseSensitivity = mouseSens;
     }
 }

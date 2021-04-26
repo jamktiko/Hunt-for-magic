@@ -31,7 +31,6 @@ public class TreasureRoom : MonoBehaviour
         if (_roomClear && _roomActive)
         {
             _roomActive = false;
-            SpawnTreasure();
             if (_player.GetComponent<HealthSystem>().health < _minHealthLevel)
             {
                 foreach (Transform healthspawnpoint in _healthSpawnPoints)

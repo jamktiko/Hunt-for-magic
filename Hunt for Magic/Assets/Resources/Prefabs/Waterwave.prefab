@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 8265137351833475637}
   - component: {fileID: 7728665807198763594}
   - component: {fileID: 1640279418692638959}
-  - component: {fileID: 3840668232419422177}
   m_Layer: 0
   m_Name: WaterSphereTrigger
   m_TagString: Untagged
@@ -28,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 1481578532903338666}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.5, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6747618785120715228}
   m_RootOrder: 1
@@ -44,7 +43,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.4
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &1640279418692638959
 Rigidbody:
@@ -62,19 +61,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &3840668232419422177
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1481578532903338666}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ecb27dcfcdb14e94a93e6814215514c0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _damageAmount: 15
 --- !u!1 &3317623580478994671
 GameObject:
   m_ObjectHideFlags: 0
@@ -4929,7 +4915,7 @@ GameObject:
   - component: {fileID: 455744079767392535}
   - component: {fileID: 8544567427799769742}
   - component: {fileID: 7685974720019626082}
-  - component: {fileID: 6562855586110310723}
+  - component: {fileID: 1453465800178493998}
   m_Layer: 0
   m_Name: AudioSource
   m_TagString: Untagged
@@ -5064,7 +5050,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &6562855586110310723
+--- !u!114 &1453465800178493998
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5077,6 +5063,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damageAmount: 0
+  _player: {fileID: 0}
+  _waterSpellCollider: {fileID: 7728665807198763594}
 --- !u!1 &8057938975784365771
 GameObject:
   m_ObjectHideFlags: 0
@@ -5121,7 +5109,7 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.4
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &3742047281098499429
 Rigidbody:
@@ -5152,3 +5140,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damageAmount: 15
+  _player: {fileID: 0}
+  _waterSpellCollider: {fileID: 7728665807198763594}

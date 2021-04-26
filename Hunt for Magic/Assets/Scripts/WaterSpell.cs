@@ -5,8 +5,8 @@ using UnityEngine;
 public class WaterSpell : MonoBehaviour
 {
     [SerializeField]
-    public float _damageAmount;
-    private float _baseDamage = 8f;
+    private float _damageAmount;
+    private float _baseDamage = 15f;
     private float WaterBonus;
     private float _speed = 5f;
 
@@ -15,6 +15,7 @@ public class WaterSpell : MonoBehaviour
 
     private Object _waterPool;
     public GameObject _player;
+    public SphereCollider _waterSpellCollider;
     private Object _waterHit;
 
 
@@ -26,20 +27,26 @@ public class WaterSpell : MonoBehaviour
         _waterCastingPoint = GameObject.Find("WaterCastingPoint").GetComponent<Transform>();
         gameObject.GetComponent<Rigidbody>().AddForce(_waterCastingPoint.forward * _speed, ForceMode.Impulse);
         gameObject.GetComponent<SphereCollider>();
-        scaleChange = new Vector3(0.003f, -0.0008f, 0);
+        _waterSpellCollider.GetComponent<Rigidbody>().AddForce(_waterCastingPoint.forward * _speed, ForceMode.Impulse);
+        scaleChange = new Vector3(0.002f, 0.02f, 0.002f);
         positionChange = new Vector3(0, -0.0001f, 0);
-        StartCoroutine("DamageFizzle");
+        StartCoroutine(DamageFizzle());
         _waterPool = Resources.Load("Prefabs/GroundWater");
         _waterHit = Resources.Load("Prefabs/OnHitwater");
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         Object.Destroy(gameObject, 5.0f);
-        
-        gameObject.transform.localScale += scaleChange;
-        gameObject.transform.position += positionChange;
+        if (Time.timeScale == 1)
+        {
+            if (_waterSpellCollider != null)
+            {
+                _waterSpellCollider.transform.localScale += scaleChange;
+            }
+        }
+
     }
 
     private void OnCollisionEnter(Collision other)
@@ -82,10 +89,13 @@ public class WaterSpell : MonoBehaviour
 
     IEnumerator DamageFizzle()
     {
-        yield return new WaitForSeconds(0.1f);
-        if (_damageAmount > 0)
+        while (_damageAmount > 5 && Time.timeScale == 1)
         {
-            _damageAmount -= 0.3f;
+            yield return new WaitForSeconds(0.5f);
+            if (_damageAmount > 10)
+            {
+                _damageAmount -= 1f;
+            }
         }
     }
 }

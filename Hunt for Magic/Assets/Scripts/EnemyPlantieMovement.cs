@@ -11,12 +11,16 @@ public class EnemyPlantieMovement : MonoBehaviour
     private bool _meleeAttack;
     private GameObject _poisonCloud;
     private GameObject _vine;
+    private GameObject _HAMissile;
     public GameObject _meleeHit;
     public Transform _poisonPos1;
     public Transform _poisonPos2;
     public Transform _vinePos1;
     public Transform _vinePos2;
     public Transform _vinePos3;
+    public Transform _HAPos1;
+    public Transform _HAPos2;
+    public Transform _HAPos3;
     public bool _attack1;
     public bool _attack2;
     public bool _attack3;
@@ -29,6 +33,7 @@ public class EnemyPlantieMovement : MonoBehaviour
         _player = GameObject.FindWithTag("Player");
         _poisonCloud = Resources.Load<GameObject>("Prefabs/PoisonCloud");
         _vine = Resources.Load<GameObject>("Prefabs/PlantieVine");
+        _HAMissile = Resources.Load<GameObject>("Prefabs/PlantieHAPrefab"); ;
         _meleeHit.SetActive(false);
     }
 
@@ -57,7 +62,7 @@ public class EnemyPlantieMovement : MonoBehaviour
             {
                 _cooldown = true;
                 _attack3 = true;
-                Attack3();
+                StartCoroutine(Attack3());
             }
 
             if (_attackRoll == 4)
@@ -95,30 +100,39 @@ public class EnemyPlantieMovement : MonoBehaviour
 
     IEnumerator Attack2()
     {
-        yield return new WaitForSeconds(0.5f);
-        GameObject vine1 = Instantiate(_vine, _vinePos1.position, _vinePos1.rotation);
-        yield return new WaitForSeconds(0.2f);
-        GameObject vine2 = Instantiate(_vine, _vinePos2.position, _vinePos2.rotation);
-        yield return new WaitForSeconds(0.2f);
-        GameObject vine3 = Instantiate(_vine, _vinePos3.position, _vinePos3.rotation);
+        if (_vinePos1 != null && _vinePos2 != null && _vinePos3 != null)
+        {
+            yield return new WaitForSeconds(0.5f);
+            GameObject vine1 = Instantiate(_vine, _vinePos1.position, _vinePos1.rotation);
+            yield return new WaitForSeconds(1f);
+            GameObject vine2 = Instantiate(_vine, _vinePos2.position, _vinePos2.rotation);
+            yield return new WaitForSeconds(1f);
+            GameObject vine3 = Instantiate(_vine, _vinePos3.position, _vinePos3.rotation);
 
-        Destroy(vine1, 5f);
-        Destroy(vine2, 5f);
-        Destroy(vine3, 5f);
+            Destroy(vine1, 5f);
+            Destroy(vine2, 5.5f);
+            Destroy(vine3, 6f);
 
-        _cooldownLength = 4f;
-        StartCoroutine(Cooldown());
+            _cooldownLength = 4f;
+            StartCoroutine(Cooldown());
+        }
     }
 
-    void Attack3()
+    IEnumerator Attack3()
     {
+        yield return new WaitForSeconds(0.8f);
+        GameObject HAAttack1 = Instantiate(_HAMissile, _HAPos1.position, _HAPos1.rotation);
+        yield return new WaitForSeconds(0.5f);
+        GameObject HAAttack2 = Instantiate(_HAMissile, _HAPos2.position, _HAPos2.rotation);
+        yield return new WaitForSeconds(0.2f);
+        GameObject HAAttack3 = Instantiate(_HAMissile, _HAPos3.position, _HAPos3.rotation);
         _cooldownLength = 5f;
         StartCoroutine(Cooldown());
     }
 
     IEnumerator Attack4()
     {
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(2.5f);
         _meleeHit.SetActive(true);
         yield return new WaitForSeconds(0.1f);
         _meleeHit.SetActive(false);
@@ -126,7 +140,7 @@ public class EnemyPlantieMovement : MonoBehaviour
         yield return new WaitForSeconds(0.4f);
         _meleeAttack = false;
 
-        _cooldownLength = 3f;
+        _cooldownLength = 2f;
         StartCoroutine(Cooldown());
     }
 
