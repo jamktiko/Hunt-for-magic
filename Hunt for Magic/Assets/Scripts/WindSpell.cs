@@ -59,6 +59,8 @@ public class WindSpell : MonoBehaviour  //Tämä scripti liitetään WindEffect-
 
         if (enemy != null && enemy.tag == "Monster")
         {
+            enemyHealth.AddDamage(_damageAmount);
+
             if (other.GetComponent<Debuffs>()._wet == true)
             {
                 other.GetComponent<Debuffs>()._chilled = true;
@@ -68,8 +70,6 @@ public class WindSpell : MonoBehaviour  //Tämä scripti liitetään WindEffect-
             {
                 other.GetComponent<Debuffs>()._stunned = true;
             }
-
-            enemyHealth.AddDamage(_damageAmount);
 
             enemy.AddForce(_forward * (20f - Vector3.Distance(enemy.position, _castingPoint.position)), ForceMode.Impulse);
 

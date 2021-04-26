@@ -74,7 +74,7 @@ GameObject:
   - component: {fileID: 4101883751701636650}
   m_Layer: 0
   m_Name: Waterwave
-  m_TagString: Untagged
+  m_TagString: Spell
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5064,7 +5064,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _damageAmount: 0
   _player: {fileID: 0}
-  _waterSpellCollider: {fileID: 0}
+  _waterSpellCollider: {fileID: 7728665807198763594}
 --- !u!1 &8057938975784365771
 GameObject:
   m_ObjectHideFlags: 0

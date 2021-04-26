@@ -40,16 +40,22 @@ public class LightingSpell : MonoBehaviour
 
         var enemyHealth = other.gameObject.GetComponent<HealthSystem>();
 
-        if (enemy != null)
+        if (enemy != null && enemy.tag == "Monster")
         {
-            if (other.GetComponent<Debuffs>()._wet == true)
+            if (!other.name.Contains("Vine"))
             {
-                _damageAmount *= 1.5f;
+                if (other.GetComponent<Debuffs>()._wet == true)
+                {
+                    _damageAmount *= 1.5f;
+                }
+
+                enemyHealth.AddDamage(_damageAmount);
+                other.GetComponent<Debuffs>()._shocked = true;
             }
-
-            enemyHealth.AddDamage(_damageAmount);
-            other.GetComponent<Debuffs>()._shocked = true;
-
+            else
+            {
+                enemyHealth.AddDamage(_damageAmount);
+            }
             Object onHitElec = Instantiate(_elecHit, transform.position, Quaternion.identity);
             Destroy(onHitElec, 1f);
 

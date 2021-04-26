@@ -30,7 +30,7 @@ public class MeleeTrigger : MonoBehaviour
     {
         if (gameObject.name == "MeleeTrigger")
         {
-            if (other != null && other.gameObject.tag != "Player")
+            if (other != null && other.gameObject.tag == "Monster")
             {
                 other.GetComponent<HealthSystem>().AddDamage(_playerDamage);
 
