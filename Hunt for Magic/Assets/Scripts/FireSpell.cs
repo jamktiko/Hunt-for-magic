@@ -37,13 +37,20 @@ public class FireSpell : MonoBehaviour
 
         if (enemy != null && enemy.tag == "Monster")
         {
-            if (enemy.GetComponent<Debuffs>()._wet == true)
+            if (!enemy.name.Contains("Vine"))
             {
-                _damageAmount = _wetDamageAmount;
-            }
+                if (enemy.GetComponent<Debuffs>()._wet == true)
+                {
+                    _damageAmount = _wetDamageAmount;
+                }
 
-            enemyHealth.AddDamage(_damageAmount);
-            other.GetComponent<Debuffs>()._onFire = true;
+                enemyHealth.AddDamage(_damageAmount);
+                other.GetComponent<Debuffs>()._onFire = true;
+            }
+            else
+            {
+                enemyHealth.AddDamage(_damageAmount);
+            }
         }
     }
 }

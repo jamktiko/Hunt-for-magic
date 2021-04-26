@@ -14,5 +14,12 @@ public class Explosion : MonoBehaviour
         {
             other.GetComponent<HealthSystem>().AddDamage(_explosionDamage);
         }
+        if (gameObject.tag == "Hazard")
+        {
+            if (other.tag == "Player")
+            {
+                other.GetComponent<HealthSystem>().AddDamage(_explosionDamage);
+            }
+        }
     }
 }

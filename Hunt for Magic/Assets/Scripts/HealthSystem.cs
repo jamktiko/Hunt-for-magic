@@ -70,13 +70,22 @@ public class HealthSystem : MonoBehaviour
                 }
             }
 
-            if (gameObject.tag != "Player")
+            if (gameObject.name.Contains("Vine"))
+            {
+                Destroy(gameObject);
+            }
+
+            if (gameObject.tag == "Monster")
             {
                 Destroy(gameObject, 2f);   //2 sekuntia aikaa kuolinanimaatiolle
             }
-            else
+            else if (gameObject.tag == "Player")
             {
                 GameObject.Find("Panel").GetComponent<GameOverScript>()._gameoverPanel.SetActive(true);
+            }
+            else
+            {
+                Destroy(gameObject);
             }
         }
     }
