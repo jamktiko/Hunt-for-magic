@@ -4915,7 +4915,7 @@ GameObject:
   - component: {fileID: 455744079767392535}
   - component: {fileID: 8544567427799769742}
   - component: {fileID: 7685974720019626082}
-  - component: {fileID: 6562855586110310723}
+  - component: {fileID: 1453465800178493998}
   m_Layer: 0
   m_Name: AudioSource
   m_TagString: Untagged
@@ -5050,7 +5050,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &6562855586110310723
+--- !u!114 &1453465800178493998
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5064,7 +5064,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _damageAmount: 0
   _player: {fileID: 0}
-  _waterSpellCollider: {fileID: 0}
+  _waterSpellCollider: {fileID: 7728665807198763594}
 --- !u!1 &8057938975784365771
 GameObject:
   m_ObjectHideFlags: 0

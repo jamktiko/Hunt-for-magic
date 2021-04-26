@@ -5,8 +5,8 @@ using UnityEngine;
 public class WaterSpell : MonoBehaviour
 {
     [SerializeField]
-    public float _damageAmount;
-    private float _baseDamage = 8f;
+    private float _damageAmount;
+    private float _baseDamage = 15f;
     private float WaterBonus;
     private float _speed = 5f;
 
@@ -28,9 +28,9 @@ public class WaterSpell : MonoBehaviour
         gameObject.GetComponent<Rigidbody>().AddForce(_waterCastingPoint.forward * _speed, ForceMode.Impulse);
         gameObject.GetComponent<SphereCollider>();
         _waterSpellCollider.GetComponent<Rigidbody>().AddForce(_waterCastingPoint.forward * _speed, ForceMode.Impulse);
-        scaleChange = new Vector3(0.003f, -0.001f, 0);
+        scaleChange = new Vector3(0.002f, 0.02f, 0.002f);
         positionChange = new Vector3(0, -0.0001f, 0);
-        StartCoroutine("DamageFizzle");
+        StartCoroutine(DamageFizzle());
         _waterPool = Resources.Load("Prefabs/GroundWater");
         _waterHit = Resources.Load("Prefabs/OnHitwater");
     }
@@ -43,11 +43,8 @@ public class WaterSpell : MonoBehaviour
         {
             if (_waterSpellCollider != null)
             {
-                _waterSpellCollider.radius += 0.002f;
+                _waterSpellCollider.transform.localScale += scaleChange;
             }
-            StartCoroutine(DamageFizzle());
-
-            
         }
 
     }
@@ -92,10 +89,17 @@ public class WaterSpell : MonoBehaviour
 
     IEnumerator DamageFizzle()
     {
-        yield return new WaitForSeconds(1f);
-        if (_damageAmount > 10)
+        if (Time.timeScale == 1)
         {
-            _damageAmount -= 1f;
+            while (_damageAmount > 10)
+            {
+                yield return new WaitForSeconds(0.5f);
+                if (_damageAmount > 10)
+                {
+                    _damageAmount -= 1f;
+                }
+            }
         }
+
     }
 }
