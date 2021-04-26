@@ -89,17 +89,13 @@ public class WaterSpell : MonoBehaviour
 
     IEnumerator DamageFizzle()
     {
-        if (Time.timeScale == 1)
+        while (_damageAmount > 5 && Time.timeScale == 1)
         {
-            while (_damageAmount > 10)
+            yield return new WaitForSeconds(0.5f);
+            if (_damageAmount > 10)
             {
-                yield return new WaitForSeconds(0.5f);
-                if (_damageAmount > 10)
-                {
-                    _damageAmount -= 1f;
-                }
+                _damageAmount -= 1f;
             }
         }
-
     }
 }
