@@ -1522,7 +1522,7 @@ Terrain:
   m_TreeCrossFadeLength: 70
   m_TreeMaximumFullLODCount: 50
   m_DetailObjectDistance: 105
-  m_DetailObjectDensity: 0
+  m_DetailObjectDensity: 0.108
   m_HeightmapPixelError: 5
   m_SplatMapDistance: 1000
   m_HeightmapMaximumLOD: 0
@@ -1534,7 +1534,7 @@ Terrain:
   m_MaterialTemplate: {fileID: 2100000, guid: 594ea882c5a793440b60ff72d896021e, type: 2}
   m_BakeLightProbesForTrees: 1
   m_PreserveTreePrototypeLayers: 0
-  m_DeringLightProbesForTrees: 1
+  m_DeringLightProbesForTrees: 0
   m_ScaleInLightmap: 0.8
   m_LightmapParameters: {fileID: 15203, guid: 0000000000000000f000000000000000, type: 0}
   m_GroupingID: 0
@@ -4092,6 +4092,31 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 897236492082955053, guid: b2c6bd30e72a11e4784d6e9ec3031517,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 7b47fa864a0a9624c943d2de66d437f5, type: 2}
+    - target: {fileID: 2224125461024223547, guid: b2c6bd30e72a11e4784d6e9ec3031517,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 7b47fa864a0a9624c943d2de66d437f5, type: 2}
+    - target: {fileID: 3370955320869560831, guid: b2c6bd30e72a11e4784d6e9ec3031517,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 7b47fa864a0a9624c943d2de66d437f5, type: 2}
+    - target: {fileID: 4071024708017033826, guid: b2c6bd30e72a11e4784d6e9ec3031517,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 7b47fa864a0a9624c943d2de66d437f5, type: 2}
+    - target: {fileID: 5328330893706165265, guid: b2c6bd30e72a11e4784d6e9ec3031517,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 7b47fa864a0a9624c943d2de66d437f5, type: 2}
     - target: {fileID: 8847437920214665488, guid: b2c6bd30e72a11e4784d6e9ec3031517,
         type: 3}
       propertyPath: m_RootOrder
