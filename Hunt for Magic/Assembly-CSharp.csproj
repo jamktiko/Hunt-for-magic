@@ -732,6 +732,18 @@
     <Reference Include="UnityEditor.UI">
       <HintPath>C:/Users/tomsk/Desktop/koulutyö/TC8/Hunt-for-magic/Hunt for Magic/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.ProBuilder">
+      <HintPath>C:/Users/tomsk/Desktop/koulutyö/TC8/Hunt-for-magic/Hunt for Magic/Library/ScriptAssemblies/Unity.ProBuilder.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.ProBuilder.Editor">
+      <HintPath>C:/Users/tomsk/Desktop/koulutyö/TC8/Hunt-for-magic/Hunt for Magic/Library/ScriptAssemblies/Unity.ProBuilder.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.ProBuilder.AssetIdRemapUtility">
+      <HintPath>C:/Users/tomsk/Desktop/koulutyö/TC8/Hunt-for-magic/Hunt for Magic/Library/ScriptAssemblies/Unity.ProBuilder.AssetIdRemapUtility.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.ProBuilder.AddOns.Editor">
+      <HintPath>C:/Users/tomsk/Desktop/koulutyö/TC8/Hunt-for-magic/Hunt for Magic/Library/ScriptAssemblies/Unity.ProBuilder.AddOns.Editor.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup></ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -7,12 +7,12 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Wood_ToonShader
+  m_Name: DumbWood
   m_Shader: {fileID: -6465566751694194690, guid: 3229e42383ff23148bd600b30c99722c,
     type: 3}
   m_ShaderKeywords: BOOLEAN_B682DFDA_ON
   m_LightmapFlags: 4
-  m_EnableInstancingVariants: 1
+  m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
   stringTagMap: {}
@@ -21,11 +21,11 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - Texture2D_66BE9769:
-        m_Texture: {fileID: 2800000, guid: af589e7d29df7f8429f5269ac234e1ed, type: 3}
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - Texture2D_87732B:
-        m_Texture: {fileID: 2800000, guid: 1542248f11577e7499d832ba7dc51505, type: 3}
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - Texture2D_E3C19672:
@@ -34,7 +34,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - BOOLEAN_B682DFDA: 1
-    - Vector1_788BE359: 0.001
-    - Vector1_8A32494C: 45.37
+    - Vector1_788BE359: 0.25
+    - Vector1_8A32494C: 0.5
     m_Colors:
-    - Color_3ED642A3: {r: 1, g: 1, b: 1, a: 0}
+    - Color_3ED642A3: {r: 0.5019608, g: 0.30980393, b: 0.23921569, a: 0}
