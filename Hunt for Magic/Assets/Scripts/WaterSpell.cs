@@ -15,6 +15,7 @@ public class WaterSpell : MonoBehaviour
 
     private Object _waterPool;
     public GameObject _player;
+    public SphereCollider _waterSpellCollider;
     private Object _waterHit;
 
 
@@ -34,18 +35,17 @@ public class WaterSpell : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         Object.Destroy(gameObject, 5.0f);
         if (Time.timeScale == 1)
         {
-            gameObject.transform.localScale += scaleChange;
-            gameObject.transform.position += positionChange;
-            while (_damageAmount > 0)
-            {
-                _damageAmount -= 0.05f;
+            _waterSpellCollider.transform.localScale += scaleChange;
+            _waterSpellCollider.transform.position += positionChange;
 
-            }
+            StartCoroutine(DamageFizzle());
+
+            
         }
 
     }
@@ -90,10 +90,10 @@ public class WaterSpell : MonoBehaviour
 
     IEnumerator DamageFizzle()
     {
-        yield return new WaitForSeconds(0.1f);
-        if (_damageAmount > 0)
+        yield return new WaitForSeconds(1f);
+        if (_damageAmount > 10)
         {
-            _damageAmount -= 0.3f;
+            _damageAmount -= 1f;
         }
     }
 }
