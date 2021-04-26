@@ -4894,7 +4894,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.3
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &7569344102864780618
 MonoBehaviour:
@@ -4909,6 +4909,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damageAmount: 15
+  _player: {fileID: 0}
+  _speed: 30
 --- !u!54 &6077064684457909644
 Rigidbody:
   m_ObjectHideFlags: 0
