@@ -14,6 +14,7 @@ public class MainSpellImage : MonoBehaviour
     public GameObject _lightningbolt;
     public GameObject _chainlightning;
     public GameObject _icewall;
+    public GameObject _oil;
     public GameObject _weaponArea;
     public GameObject _activity;
 
@@ -138,6 +139,15 @@ public class MainSpellImage : MonoBehaviour
         else
         {
             _icewall.SetActive(false);
+        }
+
+        if (_currentSpell.name == "OilSpell")
+        {
+            _oil.SetActive(true);
+        }
+        else
+        {
+            _oil.SetActive(false);
         }
     }
 }

@@ -58,7 +58,7 @@ public class FireSpell : MonoBehaviour
             }
         }
 
-        if (other.name.Contains("ExplodingBarrel"))
+        if (other.name.Contains("Barrel"))
         {
             Instantiate(_barrelExplosion, other.transform.position, Quaternion.identity);
             Instantiate(_groundFire, other.transform.position, Quaternion.Euler(90, 0, 0));

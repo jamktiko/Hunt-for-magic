@@ -18,6 +18,7 @@ public class SpellPickup : MonoBehaviour
     private Object _lightningboltPickup;
     private Object _waterPickup;
     private Object _icePickup;
+    private Object _oilPickup;
     private Object _staffPickupWater;
     private Object _staffPickupWind;
     private Object _staffPickupLightning;
@@ -43,6 +44,7 @@ public class SpellPickup : MonoBehaviour
         _lightningboltPickup = Resources.Load("Prefabs/Lightningbolt_pickup");
         _waterPickup = Resources.Load("Prefabs/Water_pickup");
         _icePickup = Resources.Load("Prefabs/Icewall_pickup");
+        _oilPickup = Resources.Load("Prefabs/Oil_pickup");
         _staffPickupWater = Resources.Load("Prefabs/TearUpgrade_pickup");
         _staffPickupWind = Resources.Load("Prefabs/NorthUpgrade_pickup");
         _staffPickupLightning = Resources.Load("Prefabs/MagnetUpgrade_pickup");
@@ -167,6 +169,15 @@ public class SpellPickup : MonoBehaviour
                     _weaponArea.GetComponent<SpellBehaviour>()._newSpell = Resources.Load("Prefabs/IceWallSpell");
                     Destroy(gameObject);
                 }
+
+                if (gameObject.name.Contains("Oil"))
+                {
+                    RemoveObject(gameObject);
+                    _weaponArea.GetComponent<SpellBehaviour>()._count++;
+                    Spawner();
+                    _weaponArea.GetComponent<SpellBehaviour>()._newSpell = Resources.Load("Prefabs/OilSpell");
+                    Destroy(gameObject);
+                }
             }
         }
     }
@@ -206,6 +217,10 @@ public class SpellPickup : MonoBehaviour
             if (_weaponArea.GetComponent<SpellBehaviour>()._newSpell.name == "IceWallSpell")
             {
                 Instantiate(_icePickup, _spawnPoint.position, Quaternion.identity);
+            }
+            if (_weaponArea.GetComponent<SpellBehaviour>()._newSpell.name == "OilSpell")
+            {
+                Instantiate(_oilPickup, _spawnPoint.position, Quaternion.identity);
             }
         }
     }

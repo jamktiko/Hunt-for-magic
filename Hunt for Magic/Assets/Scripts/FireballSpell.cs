@@ -70,11 +70,12 @@ public class FireballSpell : MonoBehaviour
             Destroy(transform.parent.gameObject);
         }
 
-        if (other.name.Contains("ExplodingBarrel"))
+        if (other.name.Contains("Barrel"))
         {
             Instantiate(_barrelExplosion, other.transform.position, Quaternion.identity);
             Instantiate(_groundFire, other.transform.position, Quaternion.Euler(90, 0, 0));
             Destroy(other.gameObject);
+            Destroy(transform.parent.gameObject);
         }
     }
 }
