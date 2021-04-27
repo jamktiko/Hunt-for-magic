@@ -14,6 +14,9 @@ public class LightingBoltSpell : MonoBehaviour
     private Object onHitElec;
     private Object _elecHit;
 
+    private GameObject _barrelExplosion;
+    private GameObject _groundFire;
+
 
     // Start is called before the first frame update
     void Start()
@@ -24,6 +27,8 @@ public class LightingBoltSpell : MonoBehaviour
         _castingPoint = GameObject.Find("CastingPoint").GetComponent<Transform>();
         gameObject.GetComponent<Rigidbody>().AddForce(_castingPoint.forward * speed, ForceMode.Impulse);
         _boostAmount = player.GetComponent<CrystalScript>().lightningBonus;
+        _barrelExplosion = Resources.Load<GameObject>("Prefabs/BarrelExplosion");
+        _groundFire = Resources.Load<GameObject>("Prefabs/ground_on_fire");
     }
 
     // Update is called once per frame
@@ -52,11 +57,18 @@ public class LightingBoltSpell : MonoBehaviour
                 onHitElec = Instantiate(_elecHit, transform.position, Quaternion.identity);
                 Destroy(onHitElec, 1f);
             }
+        }
 
-            if (other.tag == "Wall")
-            {
-                Destroy(gameObject);
-            }
+        if (other.tag == "Wall")
+        {
+            Destroy(gameObject);
+        }
+
+        if (other.name.Contains("Barrel"))
+        {
+            Instantiate(_barrelExplosion, other.transform.position, Quaternion.identity);
+            Instantiate(_groundFire, other.transform.position, Quaternion.Euler(90, 0, 0));
+            Destroy(other.gameObject);
         }
     }
 

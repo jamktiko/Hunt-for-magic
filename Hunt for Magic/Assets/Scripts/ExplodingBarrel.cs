@@ -14,7 +14,7 @@ public class ExplodingBarrel : MonoBehaviour
     }
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.transform.parent.tag == "Spell")
+        if (collision.transform.parent.tag == "Spell" || collision.gameObject.tag == "Spell")
         {
             Instantiate(_barrelExplosion, transform.position, Quaternion.identity);
             Instantiate(_groundFire, transform.position, Quaternion.Euler(90, 0, 0));
