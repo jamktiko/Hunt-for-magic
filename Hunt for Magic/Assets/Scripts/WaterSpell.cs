@@ -8,6 +8,7 @@ public class WaterSpell : MonoBehaviour
     private float _damageAmount;
     private float _baseDamage = 15f;
     private float WaterBonus;
+    [SerializeField]
     private float _speed = 5f;
 
     private Transform _waterCastingPoint;
