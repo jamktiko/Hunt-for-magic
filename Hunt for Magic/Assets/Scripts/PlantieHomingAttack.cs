@@ -7,7 +7,7 @@ public class PlantieHomingAttack : MonoBehaviour
     private GameObject _player;
     private Transform _target;
     private float _addDamage = 7f;
-    private float _speed = 0.5f;
+    public float _speed = 0.2f;
     private float _weight;
 
     // Start is called before the first frame update
@@ -19,7 +19,7 @@ public class PlantieHomingAttack : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         gameObject.transform.position = Vector3.MoveTowards(transform.position, _target.transform.position, _speed);
     }

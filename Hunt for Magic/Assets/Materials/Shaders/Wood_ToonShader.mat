@@ -34,7 +34,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - BOOLEAN_B682DFDA: 1
-    - Vector1_788BE359: 0.378
+    - Vector1_788BE359: 0.001
     - Vector1_8A32494C: 45.37
     m_Colors:
     - Color_3ED642A3: {r: 1, g: 1, b: 1, a: 0}

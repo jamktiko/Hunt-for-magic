@@ -43,12 +43,15 @@ public class FireballSpell : MonoBehaviour
 
         var enemyHealth = other.gameObject.GetComponent<HealthSystem>();
 
-        if (enemy != null && enemy.name != "PlayerCharacter")
+        if (enemy != null && enemy.tag == "Monster")
         {
             enemyHealth.AddDamage(_damageAmount);
             Instantiate(_explosion, transform.position, Quaternion.identity);
-            Instantiate(_groundFire, transform.position, Quaternion.Euler(90, 0, 0));
             Destroy(transform.parent.gameObject);
+            if (!enemy.gameObject.name.Contains("Plantie"))
+            {
+                Instantiate(_groundFire, transform.position, Quaternion.Euler(90, 0, 0));
+            }
         }
 
         if (other.gameObject.tag == "Ground" || other.gameObject.tag == "Wood")
