@@ -84,7 +84,7 @@ public class WindSpell : MonoBehaviour  //Tämä scripti liitetään WindEffect-
             
         }
 
-        if (other.tag == "Wall")
+        if (other.tag == "Wall" || other.name.Contains("Barrel"))
         {
             Destroy(gameObject.GetComponentInParent<ParticleSystem>());
             Destroy(gameObject);

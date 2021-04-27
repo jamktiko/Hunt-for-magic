@@ -92,6 +92,16 @@ public class Cooldown : MonoBehaviour
             Slot();
         }
 
+        if (_player.GetComponent<SpellCasting>()._oilCooldown)
+        {
+            if (_player.GetComponent<SpellCasting>()._spellPrefab.name == "OilSpell")
+            {
+                _slot = SpellBehaviour._activeSlot;
+            }
+
+            Slot();
+        }
+
         if (_player.GetComponent<EnergySystem>()._currentEnergy < 100)
         {
             if (_player.GetComponent<SpellCasting>()._spellPrefab.name == "Flamethrower_particle")

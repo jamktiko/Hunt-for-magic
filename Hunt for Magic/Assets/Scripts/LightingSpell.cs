@@ -62,7 +62,7 @@ public class LightingSpell : MonoBehaviour
             Destroy(gameObject);
         }
 
-        if (other.tag == "Wall")
+        if (other.tag == "Wall" || other.name.Contains("Barrel"))
         {
             Destroy(gameObject.GetComponentInParent<ParticleSystem>());
             Destroy(gameObject);
