@@ -83,6 +83,17 @@ public class CooldownImage : MonoBehaviour
             }
         }
 
+        else if (_cooldown.enabled && (_player.GetComponent<SpellCasting>()._spellPrefab.name == "OilSpell" | _player.GetComponent<SpellCasting>()._oilCooldown))
+        {
+            _cooldown.fillAmount -= 1 / 2f * Time.deltaTime;
+
+            if (_player.GetComponent<SpellCasting>()._oilCooldown == false)
+            {
+                _cooldown.fillAmount = 1f;
+                _cooldown.enabled = false;
+            }
+        }
+
         else if (_cooldown.enabled && (_player.GetComponent<SpellCasting>()._spellPrefab.name == "Fireball" | _player.GetComponent<SpellCasting>()._fireballCooldown))
         {
             _cooldown.fillAmount -= 1 / 3f * Time.deltaTime;

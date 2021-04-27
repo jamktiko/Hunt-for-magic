@@ -80,7 +80,7 @@ public class WaterSpell : MonoBehaviour
             }
         }
 
-        if (other.tag == "Wall")
+        if (other.tag == "Wall" || other.name.Contains("Barrel"))
         {
             Destroy(gameObject.GetComponentInParent<ParticleSystem>());
             Destroy(gameObject);
