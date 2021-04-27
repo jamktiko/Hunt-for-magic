@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8265137351833475637}
   - component: {fileID: 7728665807198763594}
   - component: {fileID: 1640279418692638959}
+  - component: {fileID: 5193993338767314977}
   m_Layer: 0
   m_Name: WaterSphereTrigger
   m_TagString: Untagged
@@ -61,6 +62,21 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &5193993338767314977
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1481578532903338666}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ecb27dcfcdb14e94a93e6814215514c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _damageAmount: 0
+  _player: {fileID: 0}
+  _waterSpellCollider: {fileID: 7728665807198763594}
 --- !u!1 &3317623580478994671
 GameObject:
   m_ObjectHideFlags: 0

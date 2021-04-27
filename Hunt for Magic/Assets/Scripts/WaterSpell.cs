@@ -27,8 +27,7 @@ public class WaterSpell : MonoBehaviour
         _waterCastingPoint = GameObject.Find("WaterCastingPoint").GetComponent<Transform>();
         gameObject.GetComponent<Rigidbody>().AddForce(_waterCastingPoint.forward * _speed, ForceMode.Impulse);
         gameObject.GetComponent<SphereCollider>();
-        _waterSpellCollider.GetComponent<Rigidbody>().AddForce(_waterCastingPoint.forward * _speed, ForceMode.Impulse);
-        scaleChange = new Vector3(0.002f, 0.02f, 0.002f);
+        scaleChange = new Vector3(-0.01f, 0.02f, 0);
         positionChange = new Vector3(0, -0.0001f, 0);
         StartCoroutine(DamageFizzle());
         _waterPool = Resources.Load("Prefabs/GroundWater");
@@ -38,7 +37,7 @@ public class WaterSpell : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        Object.Destroy(gameObject, 5.0f);
+        Object.Destroy(gameObject, 6.0f);
         if (Time.timeScale == 1)
         {
             if (_waterSpellCollider != null)
