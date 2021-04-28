@@ -18,6 +18,8 @@ public class FireballSpell : MonoBehaviour
     [SerializeField]
     private float _speed = 30f;
 
+    private GameObject _barrelExplosion;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -26,6 +28,7 @@ public class FireballSpell : MonoBehaviour
         _damageAmount = _baseDamage + FireBonus;
         _explosion = Resources.Load<GameObject>("Prefabs/Explosion");
         _groundFire = Resources.Load<GameObject>("Prefabs/ground_on_fire");
+        _barrelExplosion = Resources.Load<GameObject>("Prefabs/BarrelExplosion");
 
         _castingPoint = GameObject.Find("CastingPoint").GetComponent<Transform>();
         gameObject.GetComponent<Rigidbody>().AddForce(_castingPoint.forward * _speed, ForceMode.Impulse);
@@ -64,6 +67,14 @@ public class FireballSpell : MonoBehaviour
         if (other.gameObject.tag == "Wall")
         {
             Instantiate(_explosion, transform.position, Quaternion.identity);
+            Destroy(transform.parent.gameObject);
+        }
+
+        if (other.name.Contains("Barrel"))
+        {
+            Instantiate(_barrelExplosion, other.transform.position, Quaternion.identity);
+            Instantiate(_groundFire, other.transform.position, Quaternion.Euler(90, 0, 0));
+            Destroy(other.gameObject);
             Destroy(transform.parent.gameObject);
         }
     }

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 47039fb7c33f2084983bcdd6b0061398
+guid: 137d26d18c43a3544971ab79f96f9821
 ModelImporter:
   serializedVersion: 19301
   internalIDToNameTable:
@@ -7,7 +7,7 @@ ModelImporter:
       74: 4781951162920444690
     second: PlayerAllAnimations
   - first:
-      74: -1246731831762816583
+      74: 6734961036158436024
     second: PlayerIdle
   - first:
       74: -8508480600623505474
@@ -47,22 +47,22 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Material
-    second: {fileID: 2100000, guid: a18206b85cb56e3499d31bf3e11daa78, type: 2}
+    second: {fileID: 2100000, guid: 5b7c9b5cafc49ca49a9b8396e82bb282, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Material.001
-    second: {fileID: 2100000, guid: 4aed374e0ad2d684db6cbe810db01e97, type: 2}
+    second: {fileID: 2100000, guid: e3698f245e0c4e54e94fe3190b3b53c9, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Material.002
-    second: {fileID: 2100000, guid: d9a97b978c996a04296ac4bcbe1d167d, type: 2}
+    second: {fileID: 2100000, guid: 1a4e6bd3ac8e0574c9dafaa29e559f63, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: diamondo
-    second: {fileID: 2100000, guid: dfe65f66d92dfb14e81d6236e648d7ea, type: 2}
+    second: {fileID: 2100000, guid: 178ac19fba52dad4a82a129f5d818738, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0
@@ -176,7 +176,7 @@ ModelImporter:
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 7
+      additiveReferencePoseFrame: 0
     - serializedVersion: 16
       name: PlayerJumpTakeoff
       takeName: Armature|ArmatureAction
@@ -205,7 +205,7 @@ ModelImporter:
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 7
+      additiveReferencePoseFrame: 0
     - serializedVersion: 16
       name: PlayerJumpAirtime
       takeName: Armature|ArmatureAction
@@ -234,7 +234,7 @@ ModelImporter:
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 7
+      additiveReferencePoseFrame: 0
     - serializedVersion: 16
       name: PlayerJumpLanding
       takeName: Armature|ArmatureAction
@@ -263,7 +263,7 @@ ModelImporter:
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 7
+      additiveReferencePoseFrame: 0
     - serializedVersion: 16
       name: PlayerCastingStart
       takeName: Armature|ArmatureAction
@@ -292,7 +292,7 @@ ModelImporter:
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 7
+      additiveReferencePoseFrame: 0
     - serializedVersion: 16
       name: PlayerCasting
       takeName: Armature|ArmatureAction
@@ -321,7 +321,7 @@ ModelImporter:
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 7
+      additiveReferencePoseFrame: 0
     - serializedVersion: 16
       name: PlayerCastingEnd
       takeName: Armature|ArmatureAction
@@ -350,7 +350,7 @@ ModelImporter:
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 7
+      additiveReferencePoseFrame: 0
     - serializedVersion: 16
       name: PlayerMelee
       takeName: Armature|ArmatureAction
@@ -379,7 +379,7 @@ ModelImporter:
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 7
+      additiveReferencePoseFrame: 0
     - serializedVersion: 16
       name: PlayerDodgedash
       takeName: Armature|ArmatureAction
@@ -408,7 +408,7 @@ ModelImporter:
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 7
+      additiveReferencePoseFrame: 0
     - serializedVersion: 16
       name: PlayerStaffDiscard
       takeName: Armature|ArmatureAction
@@ -437,7 +437,7 @@ ModelImporter:
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 7
+      additiveReferencePoseFrame: 0
     - serializedVersion: 16
       name: PlayerStaffPickUp
       takeName: Armature|ArmatureAction
@@ -466,7 +466,7 @@ ModelImporter:
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 7
+      additiveReferencePoseFrame: 0
     isReadable: 0
   meshes:
     lODScreenPercentages: []

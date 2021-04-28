@@ -14,10 +14,15 @@ public class MeleeTrigger : MonoBehaviour
 
     public AudioClip _hitSlime;
 
+    private GameObject _barrelExplosion;
+    private GameObject _groundFire;
+
     // Start is called before the first frame update
     void Start()
     {
         _player = GameObject.Find("PlayerCharacter");
+        _barrelExplosion = Resources.Load<GameObject>("Prefabs/BarrelExplosion");
+        _groundFire = Resources.Load<GameObject>("Prefabs/ground_on_fire");
     }
 
     // Update is called once per frame
@@ -35,6 +40,12 @@ public class MeleeTrigger : MonoBehaviour
                 other.GetComponent<HealthSystem>().AddDamage(_playerDamage);
 
                 _player.GetComponent<PlayerSounds>()._meleeSrc.PlayOneShot(_hitSlime);
+            }
+            else if (other != null && other.gameObject.name.Contains("Barrel"))
+            {
+                Instantiate(_barrelExplosion, other.transform.position, Quaternion.identity);
+                Instantiate(_groundFire, other.transform.position, Quaternion.Euler(90, 0, 0));
+                Destroy(other);
             }
         }
 

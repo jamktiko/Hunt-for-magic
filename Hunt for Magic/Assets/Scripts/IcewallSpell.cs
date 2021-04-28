@@ -20,6 +20,9 @@ public class IcewallSpell : MonoBehaviour
     public GameObject _player;
     private Object _iceTrigger;
 
+    private GameObject _barrelExplosion;
+    private GameObject _groundFire;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -31,6 +34,8 @@ public class IcewallSpell : MonoBehaviour
         gameObject.GetComponent<Rigidbody>().AddForce(_castingPoint.forward * _speed, ForceMode.Impulse);
         _iceTrigger = Resources.Load("Prefabs/Icewall_Trigger");
         _iceWall = Resources.Load("Prefabs/IcyWall");
+        _barrelExplosion = Resources.Load<GameObject>("Prefabs/BarrelExplosion");
+        _groundFire = Resources.Load<GameObject>("Prefabs/ground_on_fire");
     }
 
     // Update is called once per frame
@@ -56,6 +61,14 @@ public class IcewallSpell : MonoBehaviour
         if (other.tag == "Wall")
         {
             Destroy(gameObject.GetComponentInParent<ParticleSystem>());
+            Destroy(gameObject);
+        }
+
+        if (other.name.Contains("Barrel"))
+        {
+            Instantiate(_barrelExplosion, other.transform.position, Quaternion.identity);
+            Instantiate(_groundFire, other.transform.position, Quaternion.Euler(90, 0, 0));
+            Destroy(other.gameObject);
             Destroy(gameObject);
         }
     }

@@ -12,6 +12,9 @@ public class FireSpell : MonoBehaviour
 
     private float _wetDamageAmount;
 
+    private GameObject _barrelExplosion;
+    private GameObject _groundFire;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -19,6 +22,8 @@ public class FireSpell : MonoBehaviour
         FireBonus = _player.GetComponent<CrystalScript>().fireDamage;
         _damageAmount = FireBonus;
         _wetDamageAmount = _damageAmount * 0.5f;
+        _barrelExplosion = Resources.Load<GameObject>("Prefabs/BarrelExplosion");
+        _groundFire = Resources.Load<GameObject>("Prefabs/ground_on_fire");
     }
 
     // Update is called once per frame
@@ -51,6 +56,13 @@ public class FireSpell : MonoBehaviour
             {
                 enemyHealth.AddDamage(_damageAmount);
             }
+        }
+
+        if (other.name.Contains("Barrel"))
+        {
+            Instantiate(_barrelExplosion, other.transform.position, Quaternion.identity);
+            Instantiate(_groundFire, other.transform.position, Quaternion.Euler(90, 0, 0));
+            Destroy(other);
         }
     }
 }

@@ -18,6 +18,7 @@ public class SpellCasting : MonoBehaviour  // Tämä scripti liitetään pelaaja
     public bool _lightningboltCooldown;
     public bool _chainlightningCooldown;
     public bool _icewallCooldown;
+    public bool _oilCooldown;
 
     [SerializeField]
     public float _spellInterval = 1f;
@@ -193,6 +194,20 @@ public class SpellCasting : MonoBehaviour  // Tämä scripti liitetään pelaaja
 
                 StartCoroutine(EndIcewallCooldown());
             }
+
+            if (_spellPrefab.name == "OilSpell")
+            {
+                if (_oilCooldown)
+                {
+                    return;
+                }
+
+                Instantiate(_spellPrefab, _castingPoint.position, _castingPoint.rotation);
+
+                _oilCooldown = true;
+
+                StartCoroutine(EndOilCooldown());
+            }
         }
         if (Input.GetButtonUp("Fire1") || chargeCounter == 6)
         {
@@ -294,6 +309,13 @@ public class SpellCasting : MonoBehaviour  // Tämä scripti liitetään pelaaja
         yield return new WaitForSeconds(8f);
 
         _icewallCooldown = false;
+    }
+
+    IEnumerator EndOilCooldown()
+    {
+        yield return new WaitForSeconds(2f);
+
+        _oilCooldown = false;
     }
 
     IEnumerator ammoChangerInitiate()
