@@ -19,6 +19,7 @@ public class MainMenu : MonoBehaviour
     private Button _logbook;
 
     public GameObject _settingsMenu;
+    public GameObject _logBook;
 
     public AudioSource _menuSrc;
     public AudioClip _menuClick;
@@ -47,6 +48,9 @@ public class MainMenu : MonoBehaviour
     private void LogBook()
     {
         _menuSrc.PlayOneShot(_menuClick);
+        gameObject.SetActive(false);
+        _logBook.SetActive(true);
+
     }
 
     private void Setting()
