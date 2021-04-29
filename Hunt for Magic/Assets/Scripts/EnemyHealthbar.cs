@@ -22,6 +22,9 @@ public class EnemyHealthbar : MonoBehaviour
     [SerializeField]
     private Image _chill;
 
+    [SerializeField]
+    private Image _oil;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -68,6 +71,16 @@ public class EnemyHealthbar : MonoBehaviour
             {
                 _chill.enabled = false;
             }
+
+            if (gameObject.GetComponentInParent<Debuffs>()._oily)
+            {
+                _oil.enabled = true;
+            }
+
+            else
+            {
+                _oil.enabled = false;
+            }
         }
 
         else
@@ -77,6 +90,7 @@ public class EnemyHealthbar : MonoBehaviour
             _wet.enabled = false;
             _fire.enabled = false;
             _chill.enabled = false;
+            _oil.enabled = false;
         }
 
         _healthBarImage.fillAmount = _enemy.health / 100;

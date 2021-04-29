@@ -46,6 +46,7 @@ public class OilSpell : MonoBehaviour
         if (enemy != null && enemy.tag == "Monster")
         {
             enemyHealth.AddDamage(_damage);
+            other.gameObject.GetComponent<Debuffs>()._oily = true;
 
             if (!enemy.gameObject.name.Contains("Plantie"))
             {
