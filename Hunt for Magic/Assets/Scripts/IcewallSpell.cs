@@ -49,12 +49,13 @@ public class IcewallSpell : MonoBehaviour
     {
         if (other.tag == "Ground" || other.tag == "Wood")
         {
-            Object damageTrigger = Instantiate(_iceTrigger, transform.position, Quaternion.identity);
-            Object icewall = Instantiate(_iceWall, transform.TransformPoint(0, -1, 0), _waterCastingPoint.rotation);
+            Object damageTrigger = Instantiate(_iceTrigger, transform.position, Quaternion.Euler(0, _player.transform.rotation.eulerAngles.y, 0));
+            Object icewall = Instantiate(_iceWall, transform.TransformPoint(0, -1, 0), Quaternion.Euler(0, _player.transform.rotation.eulerAngles.y + 270, 0));
 
             Destroy(damageTrigger, 1f);
             Destroy(icewall, 8f);
 
+            Destroy(gameObject.GetComponentInParent<ParticleSystem>());
             Destroy(gameObject);
         }
 
@@ -69,6 +70,7 @@ public class IcewallSpell : MonoBehaviour
             Instantiate(_barrelExplosion, other.transform.position, Quaternion.identity);
             Instantiate(_groundFire, other.transform.position, Quaternion.Euler(90, 0, 0));
             Destroy(other.gameObject);
+            Destroy(gameObject.GetComponentInParent<ParticleSystem>());
             Destroy(gameObject);
         }
     }

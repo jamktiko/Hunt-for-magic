@@ -9,6 +9,9 @@ public class FireballSpell : MonoBehaviour
     private float _baseDamage = 5f;
     private float FireBonus;
 
+    private float _wetDamageAmount;
+    private float _oilyDamageAmount;
+
     private GameObject _explosion;
     public GameObject _player;
     private GameObject _groundFire;
@@ -26,6 +29,8 @@ public class FireballSpell : MonoBehaviour
         _player = GameObject.Find("PlayerCharacter");
         FireBonus = _player.GetComponent<CrystalScript>().fireBonus;
         _damageAmount = _baseDamage + FireBonus;
+        _wetDamageAmount = _damageAmount * 0.5f;
+        _oilyDamageAmount = _damageAmount * 1.25f;
         _explosion = Resources.Load<GameObject>("Prefabs/Explosion");
         _groundFire = Resources.Load<GameObject>("Prefabs/ground_on_fire");
         _barrelExplosion = Resources.Load<GameObject>("Prefabs/BarrelExplosion");
@@ -48,6 +53,19 @@ public class FireballSpell : MonoBehaviour
 
         if (enemy != null && enemy.tag == "Monster")
         {
+            if (!enemy.name.Contains("Vine"))
+            {
+                if (enemy.gameObject.GetComponent<Debuffs>()._oily == true)
+                {
+                    _damageAmount = _oilyDamageAmount;
+                }
+
+                else if (enemy.gameObject.GetComponent<Debuffs>()._wet == true)
+                {
+                    _damageAmount = _wetDamageAmount;
+                }
+            }
+
             enemyHealth.AddDamage(_damageAmount);
             Instantiate(_explosion, transform.position, Quaternion.identity);
             Destroy(transform.parent.gameObject);
