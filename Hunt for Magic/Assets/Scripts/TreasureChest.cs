@@ -41,18 +41,41 @@ public class TreasureChest : MonoBehaviour
         if (!_chestOpen)
         {
             _chestOpen = true;
-            int randomIndex = Random.Range(0, _spawnManager.GetComponent<SpawnManager>()._spellList.Count);
-            GameObject powerUp = _spawnManager.GetComponent<SpawnManager>()._spellList[randomIndex];
-            Debug.Log(powerUp.name);
-            if (_spawnManager.GetComponent<SpawnManager>()._spellList != null)
+            int pickupDropType = Random.Range(0, 101);
+
+            if (pickupDropType <= 15)
             {
-                Instantiate(powerUp, _treasureSpawnPoint.position, Quaternion.identity);
+                int randomIndex = Random.Range(0, _spawnManager.GetComponent<SpawnManager>()._powerupList.Count);
+                GameObject powerUp = _spawnManager.GetComponent<SpawnManager>()._powerupList[randomIndex];
+                if (_spawnManager.GetComponent<SpawnManager>()._powerupList != null)
+                {
+                    Instantiate(powerUp, _treasureSpawnPoint.position, Quaternion.identity);
+                }
+                else
+                {
+                    Instantiate(_healthUp, _treasureSpawnPoint.position, Quaternion.identity);
+                }
             }
-            else
+            else if (pickupDropType > 16 && pickupDropType <= 58)
+            {
+                int randomIndex = Random.Range(0, _spawnManager.GetComponent<SpawnManager>()._spellList.Count);
+                GameObject powerUp = _spawnManager.GetComponent<SpawnManager>()._spellList[randomIndex];
+                Debug.Log(powerUp.name);
+                if (_spawnManager.GetComponent<SpawnManager>()._spellList != null)
+                {
+                    Instantiate(powerUp, _treasureSpawnPoint.position, Quaternion.identity);
+                }
+                else
+                {
+                    Instantiate(_healthUp, _treasureSpawnPoint.position, Quaternion.identity);
+                }
+
+            }
+            else if (pickupDropType > 58)
             {
                 Instantiate(_healthUp, _treasureSpawnPoint.position, Quaternion.identity);
             }
-            
+
         }
 
     }
