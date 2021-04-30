@@ -36,8 +36,7 @@ public class EnemyArcherMovement : MonoBehaviour
 
     // Start is called before the first frame update
     void Start()
-    {
-        _arrowStartPoint = transform.Find("ArrowSpawnPoint");
+    {      
         step = speed * Time.deltaTime;
         runStep = runSpeed * Time.deltaTime;
         clHit = false;
@@ -46,11 +45,13 @@ public class EnemyArcherMovement : MonoBehaviour
         running = false;
         enemyRB = GetComponent<Rigidbody>(); // make Archer rigid
         player = GameObject.Find("PlayerCharacter"); // find player character
+        _arrowStartPoint = transform.Find("ArrowSpawnPoint");
         lookDirectionNode = transform.Find("LookDirectionNode");
         transform.LookAt(lookDirectionNode.transform.position);
+
         if(_arrowType == null)
         {
-            ATRoll = Random.Range(0, 6);
+            ATRoll = Random.Range(1, 6);
             if(ATRoll == 1)
             {
                 _arrowType = Resources.Load("Prefabs/FireArrow");
@@ -76,10 +77,10 @@ public class EnemyArcherMovement : MonoBehaviour
 
     // Update is called once per frame
     void FixedUpdate()
-    {      
-
+    {
         if (player != null)
-        {
+        {         
+
             if (Vector3.Distance(player.transform.position, enemyRB.transform.position) <= 17 && Vector3.Distance(player.transform.position, enemyRB.transform.position) > 9) // attack range checker
             {
                 attackRange = true;
@@ -94,7 +95,7 @@ public class EnemyArcherMovement : MonoBehaviour
                 patrol = true;
             }
 
-            if (Vector3.Distance(player.transform.position, enemyRB.transform.position) <= 5) // run away spotter
+            if (Vector3.Distance(player.transform.position, enemyRB.transform.position) <= 9) // run away spotter
             {
                 runRange = true;
             }
@@ -151,11 +152,14 @@ public class EnemyArcherMovement : MonoBehaviour
 
             if (attackRange)
             {
-                if (!isAttacking)
+                if (!isAttacking && !attackCommence)
                 {
                     isAttacking = true;
+
                     Instantiate(_arrowType, _arrowStartPoint.position, _arrowStartPoint.rotation);
+
                     attackCommence = true;
+
                     StartCoroutine(AttackCooldown());                 
                 }
                 else if (attackCommence)
@@ -252,12 +256,6 @@ public class EnemyArcherMovement : MonoBehaviour
         else if (!collision.gameObject.CompareTag("Ground") || !collision.gameObject.CompareTag("Wood"))
         {
             touchGround = false;
-        }
-
-
-        if (collision.gameObject.name.Contains("ChainLightning"))
-        {
-            StartCoroutine(CLcooldown());
         }
     }
 }

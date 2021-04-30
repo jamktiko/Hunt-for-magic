@@ -4,59 +4,66 @@ using UnityEngine;
 
 public class ArrowFireScript : MonoBehaviour
 {
-    private float speed = 8f;
-    private float _damageAmount = 10;
-    private GameObject hud;
+    private float speed = 4;
+    private float _damageAmount = 5f;
+
+
 
 
     // Start is called before the first frame update
     void Start()
     {
         gameObject.GetComponent<Rigidbody>().AddForce(gameObject.transform.forward * speed, ForceMode.Impulse);
-        hud = GameObject.Find("HUD");
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        Destroy(gameObject, 4f);
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        var player = other.gameObject.GetComponent<HealthSystem>();
+        var health = other.gameObject.GetComponent<HealthSystem>();
+        //var debuffs = other.gameObject.GetComponent<>();
 
-        if (player != null && player.tag == "Player")
+        if (health != null && health.CompareTag("Player"))
         {
-            player.AddDamage(_damageAmount);
-            Destroy(gameObject);
+            health.AddDamage(_damageAmount);
 
-            if (gameObject.name == "FireArrow")
+            if (gameObject.name.Contains("FireArrow"))
             {
-                hud.GetComponentInChildren<PlayerDebuffs>()._onFire = true;
+                GameObject.Find("HUD").GetComponentInChildren<PlayerDebuffs>()._onFire = true;
+                Destroy(gameObject);
             }
-            else if (gameObject.name == "IceArrow")
+            if (gameObject.name.Contains("IceArrow"))
             {
-                hud.GetComponentInChildren<PlayerDebuffs>()._chilled = true;
+                GameObject.Find("HUD").GetComponentInChildren<PlayerDebuffs>()._chilled = true;
+                Destroy(gameObject);
             }
-            else if (gameObject.name == "WindArrow")
+            if (gameObject.name.Contains("WindArrow"))
             {
-                if (hud.GetComponentInChildren<PlayerDebuffs>()._isWet == true)
+                if (GameObject.Find("HUD").GetComponentInChildren<PlayerDebuffs>()._isWet == true)
                 {
-                    hud.GetComponentInChildren<PlayerDebuffs>()._chilled = true;
+                    GameObject.Find("HUD").GetComponentInChildren<PlayerDebuffs>()._chilled = true;
+                    Destroy(gameObject);
                 }
             }
-            else if (gameObject.name == "WaterArrow")
+            if (gameObject.name.Contains("WaterArrow"))
             {
-                hud.GetComponentInChildren<PlayerDebuffs>()._isWet = true;
+                GameObject.Find("HUD").GetComponentInChildren<PlayerDebuffs>()._isWet = true;
+                Destroy(gameObject);
             }
-            else if (gameObject.name == "ThunderArrow")
+            if (gameObject.name.Contains("ThunderArrow"))
             {
-                if(hud.GetComponentInChildren<PlayerDebuffs>()._isWet == true)
+                if (GameObject.Find("HUD").GetComponentInChildren<PlayerDebuffs>()._isWet == true)
                 {
-                    player.AddDamage(_damageAmount / 2f);
+                    health.AddDamage(_damageAmount / 2f);
+                    Destroy(gameObject);
                 }
             }
+
         }
+        
     }
 }
