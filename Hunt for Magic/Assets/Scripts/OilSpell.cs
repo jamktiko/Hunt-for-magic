@@ -8,7 +8,7 @@ public class OilSpell : MonoBehaviour
     private float _damage = 5f;
 
     [SerializeField]
-    private float _speed = 10f;
+    private float _speed = 20f;
 
     private Transform _castingPoint;
     private GameObject _oilPool;
@@ -24,16 +24,16 @@ public class OilSpell : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        Destroy(GetComponentInParent<Transform>().gameObject, 2f);
     }
 
     private void OnCollisionEnter(Collision collision)
     {
         var enemy = collision.gameObject.GetComponent<Rigidbody>();
 
-        if (enemy != null && enemy.tag == "Monster")
+        if (enemy != null && enemy.tag == "Monster" || collision.gameObject.tag == "Ground")
         {
-            Destroy(gameObject);
+            Destroy(GetComponentInParent<Transform>().gameObject);
         }
     }
 
@@ -53,18 +53,18 @@ public class OilSpell : MonoBehaviour
                 Instantiate(_oilPool, new Vector3(other.transform.position.x, 0f, other.transform.position.z), Quaternion.Euler(0, 0, 0));
             }
 
-            Destroy(gameObject);
+            Destroy(GetComponentInParent<Transform>().gameObject);
         }
 
         if (other.CompareTag("Ground"))
         {
             Instantiate(_oilPool, new Vector3(transform.position.x, 0f, transform.position.z), Quaternion.Euler(0, 0, 0));
-            Destroy(gameObject);
+            Destroy(GetComponentInParent<Transform>().gameObject);
         }
 
         if (other.CompareTag("Wall") || other.name.Contains("Barrel"))
         {
-            Destroy(gameObject);
+            Destroy(GetComponentInParent<Transform>().gameObject);
         }
     }
 }
