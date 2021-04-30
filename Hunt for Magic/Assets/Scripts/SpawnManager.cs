@@ -5,6 +5,7 @@ using UnityEngine;
 public class SpawnManager : MonoBehaviour
 {
     public List<GameObject> _spellList;
+    public List<GameObject> _powerupList;
     // Start is called before the first frame update
     void Start()
     {

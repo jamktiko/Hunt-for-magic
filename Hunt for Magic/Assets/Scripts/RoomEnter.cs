@@ -77,9 +77,22 @@ public class RoomEnter : MonoBehaviour
     private void SpawnRandomPickup()
     {
 
-        int pickupDropType = Random.Range(0, 3);
-        if (pickupDropType == 0)
+        int pickupDropType = Random.Range(0, 101);
+
+        if (pickupDropType <= 15)
         {
+            int randomIndex = Random.Range(0, _spawnManager.GetComponent<SpawnManager>()._powerupList.Count);
+            GameObject powerUp = _spawnManager.GetComponent<SpawnManager>()._powerupList[randomIndex];
+            if (_spawnManager.GetComponent<SpawnManager>()._powerupList != null)
+            {
+                Instantiate(powerUp, _powerUpSpawnLocation.position, Quaternion.identity);
+            }
+            else
+            {
+                Instantiate(healthPickup, _powerUpSpawnLocation.position, Quaternion.identity);
+            }
+        }
+        else if (pickupDropType > 16 && pickupDropType <= 58) {
             int randomIndex = Random.Range(0, _spawnManager.GetComponent<SpawnManager>()._spellList.Count);
             GameObject powerUp = _spawnManager.GetComponent<SpawnManager>()._spellList[randomIndex];
             Debug.Log(powerUp.name);
@@ -92,7 +105,7 @@ public class RoomEnter : MonoBehaviour
                 Instantiate(healthPickup, _powerUpSpawnLocation.position, Quaternion.identity);
             }
 
-        } else if (pickupDropType == 1)
+        } else if (pickupDropType > 58)
         {
             Instantiate(healthPickup, _powerUpSpawnLocation.position, Quaternion.identity);
         }
