@@ -7785,6 +7785,7 @@ GameObject:
   - component: {fileID: 3051654565396382990}
   - component: {fileID: 4480515804790070442}
   - component: {fileID: 6668292302074280174}
+  - component: {fileID: 1924474183201614640}
   m_Layer: 5
   m_Name: StaffUpgrades
   m_TagString: Untagged
@@ -7879,6 +7880,23 @@ MonoBehaviour:
   m_ChildControlHeight: 0
   m_ChildScaleWidth: 1
   m_ChildScaleHeight: 0
+--- !u!114 &1924474183201614640
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7531134371327375796}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7b720b0d04d83e4689ec700b5335ab7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _mountain: {fileID: 7626023239874366183}
+  _ember: {fileID: 6361336978573501899}
+  _north: {fileID: 7908372835947112698}
+  _tear: {fileID: 8577686254054201534}
+  _magnet: {fileID: 698920006082067008}
 --- !u!1 &7626023239874366183
 GameObject:
   m_ObjectHideFlags: 0
@@ -7911,9 +7929,9 @@ RectTransform:
   m_Father: {fileID: 4342925155792262986}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 567, y: -1097}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 13.75, y: 3.8}
 --- !u!222 &4222221735736475402
