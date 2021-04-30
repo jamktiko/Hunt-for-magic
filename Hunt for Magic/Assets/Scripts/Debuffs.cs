@@ -16,6 +16,9 @@ public class Debuffs : MonoBehaviour
     [SerializeField]
     public bool _shocked;
 
+    [SerializeField]
+    public bool _oily;
+
     public float _debuffDamage = 0.01f;
 
     private HealthSystem _healthSystem;
@@ -65,6 +68,11 @@ public class Debuffs : MonoBehaviour
         if (_stunned)
         {
             StartCoroutine("StunStopper");
+        }
+
+        if (_oily)
+        {
+            StartCoroutine("OilStopper");
         }
     }
 
@@ -140,5 +148,18 @@ public class Debuffs : MonoBehaviour
         }
 
         _stunned = false;
+    }
+
+    IEnumerator OilStopper()
+    {
+        int i = 0;
+
+        while (i < 8 && _oily == true)
+        {
+            yield return new WaitForSeconds(1f);
+            i++;
+        }
+
+        _oily = false;
     }
 }
