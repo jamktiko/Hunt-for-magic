@@ -74,7 +74,7 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2273545175396070879}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.5
@@ -110,6 +110,7 @@ MonoBehaviour:
   _damageAmount: 30
   chargeCounter: 0
   targetFound: 0
+  enemyRB: {fileID: 0}
   firstHit: 0
   enemyFinder: {fileID: 0}
   target: {fileID: 0}

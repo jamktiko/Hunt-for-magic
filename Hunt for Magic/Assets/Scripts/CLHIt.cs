@@ -8,12 +8,14 @@ public class CLHIt : MonoBehaviour
     public bool clHit;
     private Vector3 scaleChange, positionChange;
     public GameObject Target;
+    public GameObject _CLobject;
     private Rigidbody thisRB;
 
 
     // Start is called before the first frame update
     void Start()
     {
+        _CLobject = GameObject.Find("ChainLightning");
         firstHit = true;
         clHit = false;
         gameObject.GetComponent<SphereCollider>();
@@ -34,14 +36,7 @@ public class CLHIt : MonoBehaviour
     {
         if (other.CompareTag("Monster"))
         {
-            if (other.name.Contains("Slime"))
-            {
-                clHit = other.gameObject.GetComponent<EnemySlimeMovement>().clHit;
-            }
-            if (other.name.Contains("Archer"))
-            {
-                clHit = other.gameObject.GetComponent<EnemyArcherMovement>().clHit;
-            }
+            clHit = other.gameObject.GetComponent<EnemySlimeMovement>().clHit;
 
             if (clHit || firstHit)
                 {
@@ -55,6 +50,7 @@ public class CLHIt : MonoBehaviour
                 if (Target != null)
                 {
                     firstHit = true;
+                    _CLobject.GetComponent<ChainLightingSpell>().target = Target;
                 }
             }          
         }      

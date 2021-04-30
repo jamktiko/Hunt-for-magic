@@ -10,11 +10,12 @@ public class ChainLightingSpell : MonoBehaviour
     private float speed = 20f;
     public float chargeCounter;
     public bool targetFound;
-    private Rigidbody enemyRB;
+    public Rigidbody enemyRB;
     public bool firstHit;
     public Object enemyFinder;
     public GameObject target;
     private Rigidbody thisRB;
+    private Object _elecHit;
 
 
     // Start is called before the first frame update
@@ -23,6 +24,7 @@ public class ChainLightingSpell : MonoBehaviour
         targetFound = false;
         enemyFinder = Resources.Load("Prefabs/EnemyFinder");
         firstHit = false;
+        _elecHit = Resources.Load("Prefabs/OnHitElec");
         GameObject player = GameObject.Find("PlayerCharacter");        
         chargeCounter = player.GetComponent<SpellCasting>().spellCharge;
         _castingPoint = GameObject.Find("CastingPoint").GetComponent<Transform>();
@@ -46,24 +48,35 @@ public class ChainLightingSpell : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Monster"))
         {
+            other.gameObject.GetComponent<EnemySlimeMovement>().clHit = true;
+
+            Instantiate(enemyFinder, thisRB.transform.position, thisRB.transform.rotation);
+
             var enemy = other.gameObject.GetComponent<Rigidbody>();
 
             var enemyHealth = other.gameObject.GetComponent<HealthSystem>();
 
-            if (!firstHit && enemy != null)
+            if (!firstHit)
             {
                 firstHit = true;
             }
 
-            if (chargeCounter > 0 && enemy != null)
+            if (chargeCounter > 0 && enemy.CompareTag("Monster"))
             {
                 thisRB.velocity = Vector3.zero;
 
-                Instantiate(enemyFinder, thisRB.transform.position, thisRB.transform.rotation);
+                chargeCounter--;
+
+                if (other.GetComponent<Debuffs>()._wet == true)
+                {
+                    _damageAmount *= 1.5f;
+                }
 
                 enemyHealth.AddDamage(_damageAmount);
+                other.GetComponent<Debuffs>()._shocked = true;
 
-                chargeCounter--;
+                Object onHitElec = Instantiate(_elecHit, transform.position, Quaternion.identity);
+                Destroy(onHitElec, 1f);
             }
         }  
     }
