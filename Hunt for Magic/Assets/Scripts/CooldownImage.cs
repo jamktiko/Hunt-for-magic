@@ -42,17 +42,8 @@ public class CooldownImage : MonoBehaviour
                 }
             }
 
-            if (_player.GetComponent<SpellCasting>()._waterCooldown)
-            {
-                _cooldown.fillAmount -= 1 / 2f * Time.deltaTime;
-            }
-
-            if (_player.GetComponent<SpellCasting>()._chainlightningCooldown)
-            {
-                _cooldown.fillAmount -= 1 / 2f * Time.deltaTime;
-            }
-
-            if (_player.GetComponent<SpellCasting>()._oilCooldown)
+            if (_player.GetComponent<SpellCasting>()._waterCooldown | _player.GetComponent<SpellCasting>()._chainlightningCooldown 
+                | _player.GetComponent<SpellCasting>()._oilCooldown)
             {
                 _cooldown.fillAmount -= 1 / 2f * Time.deltaTime;
             }
@@ -66,6 +57,7 @@ public class CooldownImage : MonoBehaviour
             {
                 _cooldown.fillAmount -= 1 / 8f * Time.deltaTime;
             }
+
             // if (_player.GetComponent<EnergySystem>()._currentEnergy != 100f && _sc._spellPrefab.name == "Flamethrower_particle")
             // {
             //     _cooldown.fillAmount = 0 + _player.GetComponent<EnergySystem>()._currentEnergy / _player.GetComponent<EnergySystem>()._maxEnergy;
