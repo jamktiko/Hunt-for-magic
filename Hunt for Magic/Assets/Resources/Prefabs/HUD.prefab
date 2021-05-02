@@ -5675,6 +5675,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _pausePanel: {fileID: 1193411608761262481}
   _settingsPanel: {fileID: 4217016106653265493}
+  _gameoverPanel: {fileID: 860382569057693742}
   _resume: {fileID: 433224917278306300}
   _settings: {fileID: 677973668975624556}
   _mainMenu: {fileID: 1824311508650295448}
@@ -5714,6 +5715,7 @@ MonoBehaviour:
   cooldown1: {fileID: 5840078070383493609}
   cooldown2: {fileID: 5557340132425723885}
   _weaponArea: {fileID: 7446581160752635753}
+  _slot: 0
 --- !u!114 &8293776719528256474
 MonoBehaviour:
   m_ObjectHideFlags: 0

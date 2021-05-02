@@ -11,7 +11,7 @@ public class Cooldown : MonoBehaviour
     private GameObject _player;
     public GameObject _weaponArea;
     private Image cooldown;
-    private int _slot;
+    public int _slot;
 
     // Start is called before the first frame update
     void Start()
@@ -102,7 +102,7 @@ public class Cooldown : MonoBehaviour
             Slot();
         }
 
-        if (_player.GetComponent<EnergySystem>()._currentEnergy < 100)
+        if (_player.GetComponent<EnergySystem>()._currentEnergy < 5f)
         {
             if (_player.GetComponent<SpellCasting>()._spellPrefab.name == "Flamethrower_particle")
             {
@@ -117,23 +117,14 @@ public class Cooldown : MonoBehaviour
     {
         if (_slot == 0)
         {
-            if (cooldown0.enabled)
-                return;
-
             cooldown0.enabled = true;
         }
         else if (_slot == 1)
         {
-            if (cooldown1.enabled)
-                return;
-
             cooldown1.enabled = true;
         }
         else if (_slot == 2)
         {
-            if (cooldown2.enabled)
-                return;
-
             cooldown2.enabled = true;
         }
     }

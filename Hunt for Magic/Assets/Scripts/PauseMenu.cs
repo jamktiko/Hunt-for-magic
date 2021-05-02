@@ -13,6 +13,9 @@ public class PauseMenu : MonoBehaviour
     private GameObject _settingsPanel;
 
     [SerializeField]
+    private GameObject _gameoverPanel;
+
+    [SerializeField]
     private Button _resume;
 
     [SerializeField]
@@ -48,7 +51,7 @@ public class PauseMenu : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if (!_pausePanel.activeSelf && !_settingsPanel.activeSelf)
+            if (!_pausePanel.activeSelf && !_settingsPanel.activeSelf && !_gameoverPanel.activeSelf)
             {
                 PauseGame();
             }
