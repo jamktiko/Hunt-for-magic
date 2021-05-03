@@ -52,13 +52,11 @@ public class RoomEnter : MonoBehaviour
 
         if (other.gameObject.tag == "Player" && !_roomActive && !_roomClear)
         {
-
+            int i = 0;
             foreach (Transform spawnpoint in _spawnPoints)
             {
-                if (spawnpoint.gameObject.GetInstanceID() != GetInstanceID())
-                {
-                    SpawnRandomEnemy(spawnpoint, spawnpoint.gameObject.GetInstanceID());
-                }
+                SpawnRandomEnemy(spawnpoint, i);
+                i++;
             }
             foreach (GameObject door in _doors)
             {
@@ -70,9 +68,12 @@ public class RoomEnter : MonoBehaviour
 
     private void SpawnRandomEnemy(Transform spawnpoint, int instanceId)
     {
+        if (instanceId >= 0)
+        {
+            Object enemy = _enemies[instanceId];
+            Instantiate(enemy, spawnpoint.position, Quaternion.identity, _room);
+        }
 
-        Object enemy = _enemies[instanceId];
-        Instantiate(enemy, spawnpoint.position, Quaternion.identity, _room);
     }
     private void SpawnRandomPickup()
     {
