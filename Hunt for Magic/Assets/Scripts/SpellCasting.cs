@@ -151,14 +151,12 @@ public class SpellCasting : MonoBehaviour  // Tämä scripti liitetään pelaaja
                     {
                         return;
                     }
-                    _spellInterval = 2f;
+                    
 
                     canChargeSpell = true;
 
                     ammoCount--;
                     chargeCounter++;
-
-                    _chainlightningCooldown = true;
                 }
             }
 
@@ -170,14 +168,11 @@ public class SpellCasting : MonoBehaviour  // Tämä scripti liitetään pelaaja
                     {
                         return;
                     }
-                    _spellInterval = 1.7f;
 
                     canChargeSpell = true;
 
                     ammoCount--;
-                    chargeCounter++;
-
-                    _lightningboltCooldown = true;
+                    chargeCounter++;                 
                 }
             }
 
@@ -215,6 +210,8 @@ public class SpellCasting : MonoBehaviour  // Tämä scripti liitetään pelaaja
             {
                 if (_spellPrefab.name == "ChainLightning")
                 {
+                    _spellInterval = 2f;
+                    _chainlightningCooldown = true;
                     spellCharge = chargeCounter;
                     canChargeSpell = false;
                     Instantiate(_spellPrefab, _castingPoint.position, _castingPoint.rotation);
@@ -226,6 +223,8 @@ public class SpellCasting : MonoBehaviour  // Tämä scripti liitetään pelaaja
 
                 if (_spellPrefab.name == "LightningBolt")
                 {
+                    _spellInterval = 1.7f;
+                    _lightningboltCooldown = true;
                     spellCharge = chargeCounter;
                     canChargeSpell = false;
                     Instantiate(_spellPrefab, _castingPoint.position, _castingPoint.rotation);
