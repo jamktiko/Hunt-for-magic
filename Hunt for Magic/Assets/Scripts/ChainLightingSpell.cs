@@ -14,7 +14,7 @@ public class ChainLightingSpell : MonoBehaviour
     public bool firstHit;
     public Object enemyFinder;
     public Transform target;
-    public Transform enemyFinUpdate;
+    public GameObject enemyFinUpdate;
     private Rigidbody thisRB;
     private Object _elecHit;
 
@@ -38,11 +38,8 @@ public class ChainLightingSpell : MonoBehaviour
     {      
         if (firstHit)
         {
-            spellCharger();
             if (enemyFinUpdate.name.Contains("Fin"))
             {
-                target = enemyFinUpdate;
-
                 Vector3 Target = (target.transform.position - transform.position).normalized;
                 thisRB.AddForce(Target * speed, ForceMode.Impulse);
             }
@@ -65,6 +62,7 @@ public class ChainLightingSpell : MonoBehaviour
             if (!firstHit)
             {
                 Instantiate(enemyFinder, thisRB.transform.position, thisRB.transform.rotation);
+                enemyFinUpdate = GameObject.Find("EnemyFinder");
                 firstHit = true;
             }
 
@@ -103,11 +101,6 @@ public class ChainLightingSpell : MonoBehaviour
                 Destroy(gameObject);
             }
         }
-    }
-
-    private void spellCharger()
-    {
-        enemyFinUpdate = GameObject.Find("EnemyFinder").GetComponent<Transform>();
     }
 
     IEnumerator Cooldown()

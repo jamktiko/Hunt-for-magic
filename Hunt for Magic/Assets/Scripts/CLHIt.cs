@@ -37,6 +37,8 @@ public class CLHIt : MonoBehaviour
             if (!clHit)
             {
                 Target = other.gameObject.GetComponent<Transform>();
+                GameObject.Find("ChainLightning").GetComponent<ChainLightingSpell>().target = Target;
+
             }
             else if (clHit)
             {
