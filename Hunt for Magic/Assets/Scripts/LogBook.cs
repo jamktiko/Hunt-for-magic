@@ -27,7 +27,10 @@ public class LogBook : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        _itemGrid.gameObject.SetActive(true);
         _backButton.onClick.AddListener(Back);
+        _itemsButton.onClick.AddListener(Items);
+        _challengesButton.onClick.AddListener(Challenges);
     }
 
     // Update is called once per frame
@@ -43,6 +46,10 @@ public class LogBook : MonoBehaviour
     }
     private void Items()
     {
-
+        _itemGrid.gameObject.SetActive(true);
+    }
+    private void Challenges()
+    {
+        _itemGrid.gameObject.SetActive(false);
     }
 }

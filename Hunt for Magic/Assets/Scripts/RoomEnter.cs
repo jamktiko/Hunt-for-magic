@@ -6,7 +6,7 @@ using System.Linq;
 public class RoomEnter : MonoBehaviour
 {
     public bool _roomActive;
-    public GameObject[] _enemies;
+    public Object[] _enemies;
     public GameObject healthPickup;
     private GameObject _spawnManager;
     [SerializeField]
@@ -52,13 +52,11 @@ public class RoomEnter : MonoBehaviour
 
         if (other.gameObject.tag == "Player" && !_roomActive && !_roomClear)
         {
-
+            int i = 0;
             foreach (Transform spawnpoint in _spawnPoints)
             {
-                if (spawnpoint.gameObject.GetInstanceID() != GetInstanceID())
-                {
-                    SpawnRandomEnemy(spawnpoint);
-                }
+                SpawnRandomEnemy(spawnpoint, i);
+                i++;
             }
             foreach (GameObject door in _doors)
             {
@@ -68,11 +66,14 @@ public class RoomEnter : MonoBehaviour
         }
     }
 
-    private void SpawnRandomEnemy(Transform spawnpoint)
+    private void SpawnRandomEnemy(Transform spawnpoint, int instanceId)
     {
-        
-        Object enemy = Resources.Load("Prefabs/EnemySlimePrefab");
-        Instantiate(enemy, spawnpoint.position, Quaternion.identity, _room);
+        if (instanceId >= 0)
+        {
+            Object enemy = _enemies[instanceId];
+            Instantiate(enemy, spawnpoint.position, Quaternion.identity, _room);
+        }
+
     }
     private void SpawnRandomPickup()
     {
