@@ -13,7 +13,8 @@ public class ChainLightingSpell : MonoBehaviour
     public Rigidbody enemyRB;
     public bool firstHit;
     public Object enemyFinder;
-    public GameObject target;
+    public Transform target;
+    public Transform enemyFinUpdate;
     private Rigidbody thisRB;
     private Object _elecHit;
 
@@ -38,6 +39,13 @@ public class ChainLightingSpell : MonoBehaviour
         if (firstHit)
         {
             spellCharger();
+            if (enemyFinUpdate.name.Contains("Fin"))
+            {
+                target = enemyFinUpdate;
+
+                Vector3 Target = (target.transform.position - transform.position).normalized;
+                thisRB.AddForce(Target * speed, ForceMode.Impulse);
+            }
         }
 
         Destroy(gameObject, 4f);
@@ -49,15 +57,14 @@ public class ChainLightingSpell : MonoBehaviour
         if (other.gameObject.CompareTag("Monster"))
         {
             other.gameObject.GetComponent<EnemySlimeMovement>().clHit = true;
-
-            Instantiate(enemyFinder, thisRB.transform.position, thisRB.transform.rotation);
-
+           
             var enemy = other.gameObject.GetComponent<Rigidbody>();
 
             var enemyHealth = other.gameObject.GetComponent<HealthSystem>();
 
             if (!firstHit)
             {
+                Instantiate(enemyFinder, thisRB.transform.position, thisRB.transform.rotation);
                 firstHit = true;
             }
 
@@ -83,15 +90,15 @@ public class ChainLightingSpell : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        var enemy = other.gameObject.GetComponent<Rigidbody>();
+        var enemy = other.gameObject.GetComponent<Transform>();
 
         var enemyHealth = other.gameObject.GetComponent<HealthSystem>();
 
-        if (enemy != null)
+        if (enemy.tag == "Monster")
         {
             enemyHealth.AddDamage(_damageAmount);
 
-            if(chargeCounter == 0)
+            if(chargeCounter < 1)
             {
                 Destroy(gameObject);
             }
@@ -100,15 +107,7 @@ public class ChainLightingSpell : MonoBehaviour
 
     private void spellCharger()
     {
-        var enemyFinUpdate = GameObject.Find("EnemyFinder");
-
-        if (enemyFinUpdate != null)
-        {
-            target = enemyFinUpdate.GetComponent<CLHIt>().Target;
-
-            Vector3 Target = (target.transform.position - transform.position).normalized;
-            thisRB.AddForce(Target * speed, ForceMode.Impulse);
-        }
+        enemyFinUpdate = GameObject.Find("EnemyFinder").GetComponent<Transform>();
     }
 
     IEnumerator Cooldown()
