@@ -6,7 +6,7 @@ public class ArrowFireScript : MonoBehaviour
 {
     private float speed = 4;
     private float _damageAmount = 5f;
-    private GameObject thisGO;
+    private Transform thisGO;
 
 
 
@@ -14,7 +14,7 @@ public class ArrowFireScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        thisGO = gameObject.GetComponent<GameObject>();
+        thisGO = gameObject.GetComponent<Transform>();
         gameObject.GetComponent<Rigidbody>().AddForce(gameObject.transform.forward * speed, ForceMode.Impulse);
     }
 
@@ -38,12 +38,12 @@ public class ArrowFireScript : MonoBehaviour
                 GameObject.Find("HUD").GetComponentInChildren<PlayerDebuffs>()._onFire = true;
                 Destroy(gameObject);
             }
-            if (gameObject.name.Contains("IceArrow"))
+            if (thisGO.name.Contains("IceArrow"))
             {
                 GameObject.Find("HUD").GetComponentInChildren<PlayerDebuffs>()._chilled = true;
                 Destroy(gameObject);
             }
-            if (gameObject.name.Contains("WindArrow"))
+            if (thisGO.name.Contains("WindArrow"))
             {
                 if (GameObject.Find("HUD").GetComponentInChildren<PlayerDebuffs>()._isWet == true)
                 {
@@ -51,12 +51,12 @@ public class ArrowFireScript : MonoBehaviour
                     Destroy(gameObject);
                 }
             }
-            if (gameObject.name.Contains("WaterArrow"))
+            if (thisGO.name.Contains("WaterArrow"))
             {
                 GameObject.Find("HUD").GetComponentInChildren<PlayerDebuffs>()._isWet = true;
                 Destroy(gameObject);
             }
-            if (gameObject.name.Contains("ThunderArrow"))
+            if (thisGO.name.Contains("ThunderArrow"))
             {
                 if (GameObject.Find("HUD").GetComponentInChildren<PlayerDebuffs>()._isWet == true)
                 {

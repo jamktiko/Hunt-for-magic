@@ -78,7 +78,7 @@ public class LightingBoltSpell : MonoBehaviour
 
         var enemyHealth = other.gameObject.GetComponent<HealthSystem>();
 
-        if (enemy != null)
+        if (enemy.tag.Contains("Monster"))
         {
             enemyHealth.AddDamage(_damageAmount);
 

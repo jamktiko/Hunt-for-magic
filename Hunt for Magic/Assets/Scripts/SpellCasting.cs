@@ -228,17 +228,11 @@ public class SpellCasting : MonoBehaviour  // Tämä scripti liitetään pelaaja
                     spellCharge = chargeCounter;
                     canChargeSpell = false;
                     Instantiate(_spellPrefab, _castingPoint.position, _castingPoint.rotation);
-                    alreadyCast = true;
                     chargeChancerCooldown = false;
                     StartCoroutine(EndLightningboltCooldown());
                     chargeCounter = 0;
                 }
             }
-            else if (alreadyCast)
-            {
-                alreadyCast = false;
-            }
-
         }
     }
 
