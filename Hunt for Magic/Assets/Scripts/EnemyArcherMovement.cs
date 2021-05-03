@@ -146,7 +146,9 @@ public class EnemyArcherMovement : MonoBehaviour
             if (inRange && !running)
             {
                 transform.LookAt(player.transform.position);
+
                 _arrowStartPoint.localPosition = new Vector3(0f, 0f, 1f);
+                _arrowStartPoint.LookAt(player.transform.position);
             }
 
 

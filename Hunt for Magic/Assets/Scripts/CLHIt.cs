@@ -4,19 +4,15 @@ using UnityEngine;
 
 public class CLHIt : MonoBehaviour
 {
-    public bool firstHit;
     public bool clHit;
     private Vector3 scaleChange, positionChange;
-    public GameObject Target;
-    public GameObject _CLobject;
+    public Transform Target;
     private Rigidbody thisRB;
 
 
     // Start is called before the first frame update
     void Start()
     {
-        _CLobject = GameObject.Find("ChainLightning");
-        firstHit = true;
         clHit = false;
         gameObject.GetComponent<SphereCollider>();
         scaleChange = new Vector3(0.38f, 0.38f, 0.38f);
@@ -28,7 +24,7 @@ public class CLHIt : MonoBehaviour
     {
         gameObject.transform.localScale += scaleChange;
         gameObject.transform.position += positionChange;
-        Destroy(gameObject, 1.8f);
+        Destroy(gameObject, 2.8f);
     }
 
     //Find target
@@ -36,23 +32,17 @@ public class CLHIt : MonoBehaviour
     {
         if (other.CompareTag("Monster"))
         {
-            clHit = other.gameObject.GetComponent<EnemySlimeMovement>().clHit;
+            clHit = other.gameObject.GetComponent<EnemySlimeMovement>().clHit;          
 
-            if (clHit || firstHit)
-                {
-
-                }
-
-            if (!clHit && !firstHit)
+            if (!clHit)
             {
-                Target = other.gameObject.GetComponent<GameObject>();
-
-                if (Target != null)
-                {
-                    firstHit = true;
-                    _CLobject.GetComponent<ChainLightingSpell>().target = Target;
-                }
-            }          
+                Target = other.gameObject.GetComponent<Transform>();
+            }
+            else if (clHit)
+            {
+            
+            }
+            else clHit = false;
         }      
     }
 }
