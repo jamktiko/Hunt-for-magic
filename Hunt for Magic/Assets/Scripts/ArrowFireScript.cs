@@ -6,6 +6,7 @@ public class ArrowFireScript : MonoBehaviour
 {
     private float speed = 4;
     private float _damageAmount = 5f;
+    private GameObject thisGO;
 
 
 
@@ -13,6 +14,7 @@ public class ArrowFireScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        thisGO = gameObject.GetComponent<GameObject>();
         gameObject.GetComponent<Rigidbody>().AddForce(gameObject.transform.forward * speed, ForceMode.Impulse);
     }
 
@@ -31,7 +33,7 @@ public class ArrowFireScript : MonoBehaviour
         {
             health.AddDamage(_damageAmount);
 
-            if (gameObject.name.Contains("FireArrow"))
+            if (thisGO.name.Contains("FireArrow"))
             {
                 GameObject.Find("HUD").GetComponentInChildren<PlayerDebuffs>()._onFire = true;
                 Destroy(gameObject);
