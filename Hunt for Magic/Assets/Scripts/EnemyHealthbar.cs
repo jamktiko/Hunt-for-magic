@@ -93,7 +93,7 @@ public class EnemyHealthbar : MonoBehaviour
             _oil.enabled = false;
         }
 
-        _healthBarImage.fillAmount = _enemy.health / 100;
+        _healthBarImage.fillAmount = _enemy.health / _enemy._maxHealth;
 
         if (_enemy.health == 0)
         {
