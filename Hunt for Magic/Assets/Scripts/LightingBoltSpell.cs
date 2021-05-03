@@ -42,7 +42,7 @@ public class LightingBoltSpell : MonoBehaviour
 
     {
         _damageBoost = _boostAmount * chargeCounter;
-        _damageAmount = 25 + _damageBoost;
+        _damageAmount = 2 + _damageBoost;
 
         var enemy = other.gameObject.GetComponent<Rigidbody>();
 
@@ -74,11 +74,11 @@ public class LightingBoltSpell : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        var enemy = other.gameObject.GetComponent<Rigidbody>();
+        var enemy = other.gameObject.GetComponent<Transform>();
 
         var enemyHealth = other.gameObject.GetComponent<HealthSystem>();
 
-        if (enemy != null)
+        if (enemy.tag.Contains("Monster"))
         {
             enemyHealth.AddDamage(_damageAmount);
 
@@ -87,6 +87,7 @@ public class LightingBoltSpell : MonoBehaviour
                 Destroy(gameObject);
             }
         }
+        else
 
         if (other.tag == "Wall")
         {

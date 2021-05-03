@@ -6,7 +6,7 @@ public class WindSpell : MonoBehaviour  //Tämä scripti liitetään WindEffect-
 {
     [SerializeField]
     public float _damageAmount;
-    private float _baseDamage = 15f;
+    private float _baseDamage = 5f;
 
     [SerializeField]
     private float _speed = 10f;
