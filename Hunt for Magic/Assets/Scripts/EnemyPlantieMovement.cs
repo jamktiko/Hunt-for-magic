@@ -25,6 +25,8 @@ public class EnemyPlantieMovement : MonoBehaviour
     public bool _attack2;
     public bool _attack3;
     public bool _attack4;
+    private bool CLcooldownActive;
+    public bool clHit;
 
 
     // Start is called before the first frame update
@@ -40,6 +42,16 @@ public class EnemyPlantieMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(_player != null)
+        {
+            if (clHit && !CLcooldownActive)
+            {
+                CLcooldownActive = true;
+                StartCoroutine(CLcooldown());
+            }
+            
+        }
+
         if (!_cooldown)
         {
             _attackRoll = Random.Range(1, 5);
@@ -154,5 +166,12 @@ public class EnemyPlantieMovement : MonoBehaviour
         _attack2 = false;
         _attack3 = false;
         _attack4 = false;
+    }
+
+    IEnumerator CLcooldown()
+    {
+        yield return new WaitForSeconds(2.6f);
+        clHit = false;
+        CLcooldownActive = false;
     }
 }

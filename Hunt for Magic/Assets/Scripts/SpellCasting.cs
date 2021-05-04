@@ -206,7 +206,7 @@ public class SpellCasting : MonoBehaviour  // Tämä scripti liitetään pelaaja
         }
         if (Input.GetButtonUp("Fire1") || chargeCounter == 6)
         {
-            if (!alreadyCast && chargeCounter != 0)
+            if (chargeCounter != 0)
             {
                 if (_spellPrefab.name == "ChainLightning")
                 {
@@ -215,7 +215,6 @@ public class SpellCasting : MonoBehaviour  // Tämä scripti liitetään pelaaja
                     spellCharge = chargeCounter;
                     canChargeSpell = false;
                     Instantiate(_spellPrefab, _castingPoint.position, _castingPoint.rotation);
-                    alreadyCast = true;
                     chargeChancerCooldown = false;
                     StartCoroutine(EndChainlightningCooldown());
                     chargeCounter = 0;
@@ -330,7 +329,7 @@ public class SpellCasting : MonoBehaviour  // Tämä scripti liitetään pelaaja
 
     IEnumerator ChargeCooldown()
     {
-        yield return new WaitForSeconds(2.2f);
+        yield return new WaitForSeconds(1.5f);
         if (canChargeSpell)
         {
             if (chargeChancerCooldown)

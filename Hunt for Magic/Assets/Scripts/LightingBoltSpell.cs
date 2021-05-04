@@ -42,7 +42,7 @@ public class LightingBoltSpell : MonoBehaviour
 
     {
         _damageBoost = _boostAmount * chargeCounter;
-        _damageAmount = 2 + _damageBoost;
+        _damageAmount = 20 + _damageBoost;
 
         var enemy = other.gameObject.GetComponent<Rigidbody>();
 
