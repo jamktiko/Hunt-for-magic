@@ -20,7 +20,7 @@ public class CLHIt : MonoBehaviour
         gameObject.GetComponent<SphereCollider>();
         scaleChange = new Vector3(0.32f, 0.32f, 0.32f);
         positionChange = new Vector3(0, -0.078f, 0);
-        Destroy(gameObject, 1.5f);
+        Destroy(gameObject, 2.6f);
         
     }
 
