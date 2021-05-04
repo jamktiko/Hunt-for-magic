@@ -45,7 +45,7 @@ public class MeleeTrigger : MonoBehaviour
             {
                 Instantiate(_barrelExplosion, other.transform.position, Quaternion.identity);
                 Instantiate(_groundFire, other.transform.position, Quaternion.Euler(90, 0, 0));
-                Destroy(other);
+                Destroy(other.gameObject);
             }
         }
 
