@@ -6,6 +6,8 @@ public class ChainLightingSpell : MonoBehaviour
 {
     [SerializeField]
     private float _damageAmount;
+    public float _damageBoost;
+    public float _boostAmount;
     private Transform _castingPoint;
     private float speed = 20f;
     public float chargeCounter;
@@ -14,10 +16,9 @@ public class ChainLightingSpell : MonoBehaviour
     public bool firstHit;
     public Object enemyFinder;
     public Transform target;
-    public GameObject CL;
     private Rigidbody thisRB;
     private Object _elecHit;
-
+    private Object CLAnimation;
     private GameObject _barrelExplosion;
     private GameObject _groundFire;
 
@@ -25,8 +26,10 @@ public class ChainLightingSpell : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Destroy(gameObject, 2f);
         targetFound = false;
         enemyFinder = Resources.Load("Prefabs/EnemyFinder");
+        CLAnimation = Resources.Load("Prefabs/ChainLightningAnimation");
         firstHit = false;
         _elecHit = Resources.Load("Prefabs/OnHitElec");
         GameObject player = GameObject.Find("PlayerCharacter");        
@@ -36,6 +39,7 @@ public class ChainLightingSpell : MonoBehaviour
         thisRB = GetComponent<Rigidbody>();
         _barrelExplosion = Resources.Load<GameObject>("Prefabs/BarrelExplosion");
         _groundFire = Resources.Load<GameObject>("Prefabs/ground_on_fire");
+        _boostAmount = player.GetComponent<CrystalScript>().lightningBonus;
     }
 
     // Update is called once per frame
@@ -56,12 +60,15 @@ public class ChainLightingSpell : MonoBehaviour
             }
         }
 
-        Destroy(gameObject, 4f);
+        
     }
 
     private void OnTriggerEnter(Collider other)
 
     {
+        _damageBoost = _boostAmount * chargeCounter;
+        _damageAmount = 22 + _damageBoost;
+
         if (other.name.Contains("Barrel"))
         {
             Instantiate(_barrelExplosion, other.transform.position, Quaternion.identity);
@@ -90,8 +97,7 @@ public class ChainLightingSpell : MonoBehaviour
 
             if (!firstHit)
             {
-                firstHit = true;
-                                           
+                firstHit = true;                                           
             }
 
             if (chargeCounter > 0 && enemy.CompareTag("Monster"))
@@ -125,7 +131,6 @@ public class ChainLightingSpell : MonoBehaviour
 
         if (enemy.tag == "Monster")
         {
-            enemyHealth.AddDamage(_damageAmount);
 
             if(chargeCounter < 1)
             {
