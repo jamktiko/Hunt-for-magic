@@ -39,7 +39,6 @@ public class SpellCasting : MonoBehaviour  // Tämä scripti liitetään pelaaja
     public bool canCharge = false;
     public bool canChargeSpell = false;
     public bool chargeChancerCooldown = false;
-    private bool alreadyCast = false;
 
     // Start is called before the first frame update
     void Start()

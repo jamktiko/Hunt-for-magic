@@ -28,6 +28,7 @@ public class EnemySlimeMovement : MonoBehaviour
     public float _maxRange = 25f;
     public float _range;
     public bool _inFog;
+    private bool CLcooldownActive;
 
     // Start is called before the first frame update
     void Start()
@@ -66,6 +67,12 @@ public class EnemySlimeMovement : MonoBehaviour
                 inRange = true;
             }
             else inRange = false;
+
+            if (clHit && !CLcooldownActive)
+            {
+                CLcooldownActive = true;
+                StartCoroutine(CLcooldown());
+            }
         }
 
         if (chargeTrigger)
@@ -197,5 +204,6 @@ public class EnemySlimeMovement : MonoBehaviour
     {
         yield return new WaitForSeconds(2.6f);
         clHit = false;
+        CLcooldownActive = false;
     }
 }

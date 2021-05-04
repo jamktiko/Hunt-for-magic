@@ -18,33 +18,53 @@ public class CLHIt : MonoBehaviour
         gameObject.GetComponent<SphereCollider>();
         scaleChange = new Vector3(0.32f, 0.32f, 0.32f);
         positionChange = new Vector3(0, -0.078f, 0);
+        Destroy(gameObject, 2f);
+        
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         
         gameObject.transform.localScale += scaleChange;
         gameObject.transform.position += positionChange;
-        Destroy(gameObject, 3.8f);
+        
     }
 
     //Find target
-    void OnTriggerEnter(Collider other)
+    void OnTriggerStay(Collider other)
     {
         if (other.CompareTag("Monster"))
         {
-            clHit = other.gameObject.GetComponent<EnemySlimeMovement>().clHit;          
+            if (other.gameObject.name.Contains("Slime"))
+            {
+                clHit = other.gameObject.GetComponent<EnemySlimeMovement>().clHit;
+            }
+            else if (other.gameObject.name.Contains("Archer"))
+            {
+                clHit = other.gameObject.GetComponent<EnemyArcherMovement>().clHit;
+            }
+            else if (other.gameObject.name.Contains("Plantie"))
+            {
+                clHit = other.gameObject.GetComponent<EnemyPlantieMovement>().clHit;
+            }
 
             if (!clHit)
             {
                 Target = other.gameObject.GetComponent<Transform>();
+
+                if (Target != null)
+                {
+                    GameObject.FindWithTag("ChainLightning").GetComponent<ChainLightingSpell>().target = Target;
+                    Destroy(gameObject);
+                }
             }
             else if (clHit)
             {
             
             }
             else clHit = false;
+            
         }      
     }
 }
