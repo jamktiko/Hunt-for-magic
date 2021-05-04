@@ -31,6 +31,7 @@ public class EnemyArcherMovement : MonoBehaviour
     private float LD2;
     private float step;
     private float runStep;
+    private bool CLcooldownActive;
     public Object _arrowType;
     public float ATRoll;
 
@@ -79,7 +80,12 @@ public class EnemyArcherMovement : MonoBehaviour
     void FixedUpdate()
     {
         if (player != null)
-        {         
+        {
+            if (clHit && !CLcooldownActive)
+            {
+                CLcooldownActive = true;
+                StartCoroutine(CLcooldown());
+            }
 
             if (Vector3.Distance(player.transform.position, enemyRB.transform.position) <= 17 && Vector3.Distance(player.transform.position, enemyRB.transform.position) > 9) // attack range checker
             {

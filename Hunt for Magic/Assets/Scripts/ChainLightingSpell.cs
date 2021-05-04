@@ -14,7 +14,7 @@ public class ChainLightingSpell : MonoBehaviour
     public bool firstHit;
     public Object enemyFinder;
     public Transform target;
-    public GameObject enemyFinUpdate;
+    public GameObject CL;
     private Rigidbody thisRB;
     private Object _elecHit;
 
@@ -35,14 +35,19 @@ public class ChainLightingSpell : MonoBehaviour
 
     // Update is called once per frame
     void FixedUpdate()
-    {      
+    {
         if (firstHit)
         {
-            if (enemyFinUpdate.name.Contains("Fin"))
+            if (!targetFound) 
             {
-                Vector3 Target = (target.transform.position - transform.position).normalized;
-                thisRB.AddForce(Target * speed, ForceMode.Impulse);
+                CL = GameObject.Find("EnemyFinder");
+                target = CL.GetComponent<CLHIt>().Target.GetComponent<Transform>();
+                if (target != null)
+                {
+                    targetFound = true;
+                }
             }
+            transform.position = Vector3.MoveTowards(gameObject.transform.position, target.transform.position, speed);
         }
 
         Destroy(gameObject, 4f);
@@ -53,7 +58,12 @@ public class ChainLightingSpell : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Monster"))
         {
-            other.gameObject.GetComponent<EnemySlimeMovement>().clHit = true;
+            if (other.gameObject.name.Contains("Slime"))
+                other.gameObject.GetComponent<EnemySlimeMovement>().clHit = true;
+            else if (other.gameObject.name.Contains("Archer"))
+                other.gameObject.GetComponent<EnemyArcherMovement>().clHit = true;
+            else if (other.gameObject.name.Contains("Plantie"))
+                other.gameObject.GetComponent<EnemyPlantieMovement>().clHit = true;
            
             var enemy = other.gameObject.GetComponent<Rigidbody>();
 
@@ -61,9 +71,8 @@ public class ChainLightingSpell : MonoBehaviour
 
             if (!firstHit)
             {
-                Instantiate(enemyFinder, thisRB.transform.position, thisRB.transform.rotation);
-                enemyFinUpdate = GameObject.Find("EnemyFinder");
                 firstHit = true;
+                Instantiate(enemyFinder, thisRB.transform.position, thisRB.transform.rotation);                           
             }
 
             if (chargeCounter > 0 && enemy.CompareTag("Monster"))
@@ -77,6 +86,7 @@ public class ChainLightingSpell : MonoBehaviour
                     _damageAmount *= 1.5f;
                 }
 
+                targetFound = false;
                 enemyHealth.AddDamage(_damageAmount);
                 other.GetComponent<Debuffs>()._shocked = true;
 

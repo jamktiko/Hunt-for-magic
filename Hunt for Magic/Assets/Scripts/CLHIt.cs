@@ -7,24 +7,26 @@ public class CLHIt : MonoBehaviour
     public bool clHit;
     private Vector3 scaleChange, positionChange;
     public Transform Target;
-    private Rigidbody thisRB;
+    public Transform thisRB;
 
 
     // Start is called before the first frame update
     void Start()
     {
+        thisRB = gameObject.GetComponent<Transform>();
         clHit = false;
         gameObject.GetComponent<SphereCollider>();
-        scaleChange = new Vector3(0.38f, 0.38f, 0.38f);
-        positionChange = new Vector3(0, -0.082f, 0);
+        scaleChange = new Vector3(0.32f, 0.32f, 0.32f);
+        positionChange = new Vector3(0, -0.078f, 0);
     }
 
     // Update is called once per frame
     void Update()
     {
+        
         gameObject.transform.localScale += scaleChange;
         gameObject.transform.position += positionChange;
-        Destroy(gameObject, 2.8f);
+        Destroy(gameObject, 3.8f);
     }
 
     //Find target
@@ -37,8 +39,6 @@ public class CLHIt : MonoBehaviour
             if (!clHit)
             {
                 Target = other.gameObject.GetComponent<Transform>();
-                GameObject.Find("ChainLightning").GetComponent<ChainLightingSpell>().target = Target;
-
             }
             else if (clHit)
             {
