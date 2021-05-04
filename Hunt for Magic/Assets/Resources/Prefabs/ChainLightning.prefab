@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: -6118427046737886458}
   m_Layer: 0
   m_Name: ChainLightning
-  m_TagString: Spell
+  m_TagString: ChainLightning
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -83,6 +83,7 @@ MonoBehaviour:
   firstHit: 0
   enemyFinder: {fileID: 0}
   target: {fileID: 0}
+  CL: {fileID: 0}
 --- !u!82 &-6118427046737886458
 AudioSource:
   m_ObjectHideFlags: 0

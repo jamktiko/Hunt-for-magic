@@ -5,7 +5,7 @@ using UnityEngine;
 public class ChainLightingSpell : MonoBehaviour
 {
     [SerializeField]
-    private float _damageAmount = 30f;
+    private float _damageAmount;
     private Transform _castingPoint;
     private float speed = 20f;
     public float chargeCounter;
@@ -38,16 +38,17 @@ public class ChainLightingSpell : MonoBehaviour
     {
         if (firstHit)
         {
-            if (!targetFound) 
+            if (!targetFound)
             {
-                CL = GameObject.Find("EnemyFinder");
-                target = CL.GetComponent<CLHIt>().Target.GetComponent<Transform>();
                 if (target != null)
                 {
                     targetFound = true;
                 }
             }
-            transform.position = Vector3.MoveTowards(gameObject.transform.position, target.transform.position, speed);
+            else if (targetFound)
+            {
+                transform.position = Vector3.MoveTowards(gameObject.transform.position, target.transform.position, speed);
+            }
         }
 
         Destroy(gameObject, 4f);
@@ -59,11 +60,17 @@ public class ChainLightingSpell : MonoBehaviour
         if (other.gameObject.CompareTag("Monster"))
         {
             if (other.gameObject.name.Contains("Slime"))
+            {
                 other.gameObject.GetComponent<EnemySlimeMovement>().clHit = true;
+            }
             else if (other.gameObject.name.Contains("Archer"))
+            {
                 other.gameObject.GetComponent<EnemyArcherMovement>().clHit = true;
+            }
             else if (other.gameObject.name.Contains("Plantie"))
+            {
                 other.gameObject.GetComponent<EnemyPlantieMovement>().clHit = true;
+            }
            
             var enemy = other.gameObject.GetComponent<Rigidbody>();
 
