@@ -18,7 +18,7 @@ public class CLHIt : MonoBehaviour
         gameObject.GetComponent<SphereCollider>();
         scaleChange = new Vector3(0.32f, 0.32f, 0.32f);
         positionChange = new Vector3(0, -0.078f, 0);
-        Destroy(gameObject, 3.8f);
+        Destroy(gameObject, 2f);
         
     }
 
@@ -56,6 +56,7 @@ public class CLHIt : MonoBehaviour
                 if (Target != null)
                 {
                     GameObject.FindWithTag("ChainLightning").GetComponent<ChainLightingSpell>().target = Target;
+                    Destroy(gameObject);
                 }
             }
             else if (clHit)
@@ -63,6 +64,7 @@ public class CLHIt : MonoBehaviour
             
             }
             else clHit = false;
+            
         }      
     }
 }

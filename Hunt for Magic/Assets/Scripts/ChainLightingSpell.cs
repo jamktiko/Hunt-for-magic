@@ -18,6 +18,9 @@ public class ChainLightingSpell : MonoBehaviour
     private Rigidbody thisRB;
     private Object _elecHit;
 
+    private GameObject _barrelExplosion;
+    private GameObject _groundFire;
+
 
     // Start is called before the first frame update
     void Start()
@@ -31,6 +34,8 @@ public class ChainLightingSpell : MonoBehaviour
         _castingPoint = GameObject.Find("CastingPoint").GetComponent<Transform>();
         gameObject.GetComponent<Rigidbody>().AddForce(_castingPoint.forward * speed, ForceMode.Impulse);
         thisRB = GetComponent<Rigidbody>();
+        _barrelExplosion = Resources.Load<GameObject>("Prefabs/BarrelExplosion");
+        _groundFire = Resources.Load<GameObject>("Prefabs/ground_on_fire");
     }
 
     // Update is called once per frame
@@ -57,6 +62,13 @@ public class ChainLightingSpell : MonoBehaviour
     private void OnTriggerEnter(Collider other)
 
     {
+        if (other.name.Contains("Barrel"))
+        {
+            Instantiate(_barrelExplosion, other.transform.position, Quaternion.identity);
+            Instantiate(_groundFire, other.transform.position, Quaternion.Euler(90, 0, 0));
+            Destroy(other.gameObject);
+        }
+
         if (other.gameObject.CompareTag("Monster"))
         {
             if (other.gameObject.name.Contains("Slime"))
@@ -79,12 +91,14 @@ public class ChainLightingSpell : MonoBehaviour
             if (!firstHit)
             {
                 firstHit = true;
-                Instantiate(enemyFinder, thisRB.transform.position, thisRB.transform.rotation);                           
+                                           
             }
 
             if (chargeCounter > 0 && enemy.CompareTag("Monster"))
             {
                 thisRB.velocity = Vector3.zero;
+
+                Instantiate(enemyFinder, thisRB.transform.position, thisRB.transform.rotation);
 
                 chargeCounter--;
 
