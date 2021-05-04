@@ -26,7 +26,7 @@ public class ChainLightingSpell : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Destroy(gameObject, 2f);
+        Destroy(gameObject, 2.6f);
         targetFound = false;
         enemyFinder = Resources.Load("Prefabs/EnemyFinder");
         CLAnimation = Resources.Load("Prefabs/ChainLightningAnimation");
