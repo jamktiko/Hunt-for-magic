@@ -209,7 +209,6 @@ public class SpellCasting : MonoBehaviour  // Tämä scripti liitetään pelaaja
             {
                 if (_spellPrefab.name == "ChainLightning")
                 {
-                    _spellInterval = 2f;
                     _chainlightningCooldown = true;
                     spellCharge = chargeCounter;
                     canChargeSpell = false;
@@ -221,7 +220,6 @@ public class SpellCasting : MonoBehaviour  // Tämä scripti liitetään pelaaja
 
                 if (_spellPrefab.name == "LightningBolt")
                 {
-                    _spellInterval = 1.7f;
                     _lightningboltCooldown = true;
                     spellCharge = chargeCounter;
                     canChargeSpell = false;
@@ -290,7 +288,7 @@ public class SpellCasting : MonoBehaviour  // Tämä scripti liitetään pelaaja
 
     IEnumerator EndChainlightningCooldown()
     {
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(2.7f);
 
         _chainlightningCooldown = false;
     }
