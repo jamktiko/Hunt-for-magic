@@ -42,7 +42,7 @@ public class IcewallSpell : MonoBehaviour
     void Update()
     {
         
-        Destroy(gameObject, 1f);
+        Destroy(gameObject, 2f);
     }
 
     private void OnTriggerEnter(Collider other)

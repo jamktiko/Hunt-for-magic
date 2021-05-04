@@ -248,6 +248,7 @@ GameObject:
   - component: {fileID: 5314433747902338918}
   - component: {fileID: 7081557418186435993}
   - component: {fileID: -2731506178729978359}
+  - component: {fileID: 8491610907975918188}
   m_Layer: 0
   m_Name: Electricity
   m_TagString: Spell
@@ -5068,6 +5069,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &8491610907975918188
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6573517803292875161}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ec56a0a546e4f84baa579200c4aabaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _timer: 0.7
 --- !u!1001 &8196730828711132722
 PrefabInstance:
   m_ObjectHideFlags: 0
