@@ -20,7 +20,7 @@ public class Cooldown : MonoBehaviour
     private float _lightningbolt = 1.7f;
     private float _water = 2f;
     private float _oil = 2f;
-    private float _chainLightning = 2f;
+    private float _chainLightning = 2.7f;
     private float _fireball = 3f;
     private float _iceWall = 8f;
 
