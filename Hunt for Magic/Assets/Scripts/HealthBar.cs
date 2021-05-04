@@ -46,7 +46,7 @@ public class HealthBar : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        SetHealthBarValue(player.GetComponent<HealthSystem>().health / 100);
+        SetHealthBarValue(player.GetComponent<HealthSystem>().health / player.GetComponent<HealthSystem>()._maxHealth);
 
         if (player.GetComponent<HealthSystem>()._damageTaken)
         {

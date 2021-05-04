@@ -89,6 +89,7 @@ GameObject:
   - component: {fileID: 6747618785120715228}
   - component: {fileID: 2641080873757944564}
   - component: {fileID: 4101883751701636650}
+  - component: {fileID: 2468546348913305095}
   m_Layer: 0
   m_Name: Waterwave
   m_TagString: Spell
@@ -4921,6 +4922,19 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
+--- !u!114 &2468546348913305095
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3317623580478994671}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ec56a0a546e4f84baa579200c4aabaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _timer: 5
 --- !u!1 &6492064243278191980
 GameObject:
   m_ObjectHideFlags: 0
