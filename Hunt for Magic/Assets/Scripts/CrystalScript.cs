@@ -18,6 +18,7 @@ public class CrystalScript : MonoBehaviour
     public float oilBonus = 0f;
     public float meleeDamage = 5f;
     public float maxHp = 100f;
+    public float duration = 5f;
     private bool swapStats;
 
     // Start is called before the first frame update
@@ -72,11 +73,13 @@ public class CrystalScript : MonoBehaviour
             {
                 crystalFloat.GetComponent<Renderer>().material.SetColor("_EmissionColor", Color.blue);
                 waterBonus = 5f;
+                duration = 7f;
             }
 
             if (!crystalUpgradeSlot.name.Contains("Tear"))
             {
                 waterBonus = 0f;
+                duration = 5f;
             }
 
             if (crystalUpgradeSlot.name.Contains("North"))

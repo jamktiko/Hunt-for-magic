@@ -4,11 +4,18 @@ using UnityEngine;
 
 public class OilPool : MonoBehaviour
 {
+    public float duration = 5f;
+
+    void start()
+    {
+        GameObject _player = GameObject.Find("PlayerCharacter");
+        duration = _player.GetComponent<CrystalScript>().duration;
+    }
 
     // Update is called once per frame
     void Update()
     {
-        Destroy(gameObject, 5f);
+        Destroy(gameObject, duration);
     }
 
     private void OnTriggerEnter(Collider other)
