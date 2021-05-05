@@ -227,8 +227,13 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5391184964194958914, guid: e2ddc4a52acf7234686631fe66ebe6f7,
         type: 3}
-      propertyPath: InitialModule.startSpeed.scalar
-      value: 15
+      propertyPath: looping
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5391184964194958914, guid: e2ddc4a52acf7234686631fe66ebe6f7,
+        type: 3}
+      propertyPath: lengthInSec
+      value: 2.6
       objectReference: {fileID: 0}
     - target: {fileID: 6352376625168855229, guid: e2ddc4a52acf7234686631fe66ebe6f7,
         type: 3}
