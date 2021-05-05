@@ -15,6 +15,7 @@ public class CrystalScript : MonoBehaviour
     public float lightningBonus = 3f;
     public float chargeCount = 3f;
     public float fireDamage = 0.01f;
+    public float oilBonus = 0f;
     public float meleeDamage = 5f;
     public float maxHp = 100f;
     private bool swapStats;
@@ -44,12 +45,14 @@ public class CrystalScript : MonoBehaviour
                 crystalFloat.GetComponent<Renderer>().material.SetColor("_EmissionColor", Color.yellow);
                 fireBonus = 5f;
                 fireDamage = 0.0115f;
+                oilBonus = 5f;
             }
 
             if (!crystalUpgradeSlot.name.Contains("Ember"))
             {
                 fireBonus = 0f;
                 fireDamage = 0.01f;
+                oilBonus = 0f;
             }
 
             if (crystalUpgradeSlot.name.Contains("Magnet"))
