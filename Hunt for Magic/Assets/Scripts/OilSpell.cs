@@ -6,6 +6,7 @@ public class OilSpell : MonoBehaviour
 {
     [SerializeField]
     private float _damage = 5f;
+    public float oilBonus = 0f;
 
     [SerializeField]
     private float _speed = 40f;
@@ -16,6 +17,8 @@ public class OilSpell : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        GameObject _player = GameObject.Find("PlayerCharacter");
+        oilBonus = _player.GetComponent<CrystalScript>().oilBonus; ;
         _oilPool = Resources.Load<GameObject>("Prefabs/OilPool");
         _castingPoint = GameObject.Find("CastingPoint").GetComponent<Transform>();
         gameObject.GetComponent<Rigidbody>().AddForce(_castingPoint.forward * _speed, ForceMode.Impulse);
@@ -39,13 +42,15 @@ public class OilSpell : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        var _addDamage = _damage + oilBonus;
+
         var enemy = other.gameObject.GetComponent<Rigidbody>();
 
         var enemyHealth = other.gameObject.GetComponent<HealthSystem>();
 
         if (enemy != null && enemy.tag == "Monster")
         {
-            enemyHealth.AddDamage(_damage);
+            enemyHealth.AddDamage(_addDamage);
             other.gameObject.GetComponent<Debuffs>()._oily = true;
 
             if (!enemy.gameObject.name.Contains("Plantie"))

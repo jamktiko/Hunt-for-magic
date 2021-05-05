@@ -30,9 +30,13 @@ public class SpellCasting : MonoBehaviour  // Tämä scripti liitetään pelaaja
 
     public GameObject _weaponArea;
 
-    public float ammoCount = 1;
+    public float CLammoCount = 1;
+    public float LSammoCount = 1;
+    public float LBammoCount = 1;
     public float ammoChanger = 1;
-    public float maxAmmo = 3;
+    public float CLmaxAmmo = 3;
+    public float LSmaxAmmo = 3;
+    public float LBmaxAmmo = 3;
     public float chargeCounter = 0;
     public float spellCharge = 0;
     public bool ammoChangerCooldown = false;
@@ -55,8 +59,22 @@ public class SpellCasting : MonoBehaviour  // Tämä scripti liitetään pelaaja
 
         if (!ammoChangerCooldown)
         {
-            maxAmmo = gameObject.GetComponent<CrystalScript>().chargeCount;
-            if (ammoCount < maxAmmo)
+            CLmaxAmmo = gameObject.GetComponent<CrystalScript>().chargeCount;
+            LBmaxAmmo = gameObject.GetComponent<CrystalScript>().chargeCount;
+            LSmaxAmmo = gameObject.GetComponent<CrystalScript>().chargeCount;
+            if (CLammoCount < CLmaxAmmo)
+            {
+                canCharge = true;
+                ammoChangerCooldown = true;
+                StartCoroutine(ammoChangerInitiate());
+            }
+            if (LBammoCount < LBmaxAmmo)
+            {
+                canCharge = true;
+                ammoChangerCooldown = true;
+                StartCoroutine(ammoChangerInitiate());
+            }
+            if (LSammoCount < LSmaxAmmo)
             {
                 canCharge = true;
                 ammoChangerCooldown = true;
@@ -68,7 +86,12 @@ public class SpellCasting : MonoBehaviour  // Tämä scripti liitetään pelaaja
         {
             if (!chargeChancerCooldown)
             {
-                if (ammoCount > 0)
+                if (LBammoCount > 0)
+                {
+                    chargeChancerCooldown = true;
+                    StartCoroutine(ChargeCooldown());
+                }
+                if (CLammoCount > 0)
                 {
                     chargeChancerCooldown = true;
                     StartCoroutine(ChargeCooldown());
@@ -117,9 +140,9 @@ public class SpellCasting : MonoBehaviour  // Tämä scripti liitetään pelaaja
                     return;
                 }
 
-                if (ammoCount >= 1)
+                if (LSammoCount >= 1)
                 {
-                    ammoCount = ammoCount - ammoChanger;
+                    LSammoCount = LSammoCount - ammoChanger;
                     Instantiate(_spellPrefab, _castingPoint.position, _castingPoint.rotation);
                 }
 
@@ -144,7 +167,7 @@ public class SpellCasting : MonoBehaviour  // Tämä scripti liitetään pelaaja
 
             if (_spellPrefab.name == "ChainLightning")
             {
-                if (ammoCount > 0)
+                if (CLammoCount > 0)
                 {
                     if (_chainlightningCooldown)
                     {
@@ -154,14 +177,14 @@ public class SpellCasting : MonoBehaviour  // Tämä scripti liitetään pelaaja
 
                     canChargeSpell = true;
 
-                    ammoCount--;
+                    CLammoCount--;
                     chargeCounter++;
                 }
             }
 
             if (_spellPrefab.name == "LightningBolt")
             {
-                if (ammoCount > 0)
+                if (LBammoCount > 0)
                 {
                     if (_lightningboltCooldown)
                     {
@@ -170,7 +193,7 @@ public class SpellCasting : MonoBehaviour  // Tämä scripti liitetään pelaaja
 
                     canChargeSpell = true;
 
-                    ammoCount--;
+                    LBammoCount--;
                     chargeCounter++;                 
                 }
             }
@@ -316,9 +339,17 @@ public class SpellCasting : MonoBehaviour  // Tämä scripti liitetään pelaaja
             {
                 ammoChangerCooldown = false;
 
-                if (ammoCount < maxAmmo)
+                if (CLammoCount < CLmaxAmmo)
                 {
-                    ammoCount = ammoCount + ammoChanger;
+                    CLammoCount = CLammoCount + ammoChanger;
+                }
+                if (LBammoCount < LBmaxAmmo)
+                {
+                    LBammoCount = LBammoCount + ammoChanger;
+                }
+                if (LSammoCount < LSmaxAmmo)
+                {
+                    LSammoCount = LSammoCount + ammoChanger;
                 }
             }
         }
@@ -334,10 +365,20 @@ public class SpellCasting : MonoBehaviour  // Tämä scripti liitetään pelaaja
 
                 chargeChancerCooldown = false;
 
-                if (chargeCounter < 6)
+                if (chargeCounter < 6 && _spellPrefab.name.Contains("Spell"))
                 {
                     chargeCounter++;
-                    ammoCount--;
+                    LSammoCount--;
+                }
+                if (chargeCounter < 6 && _spellPrefab.name.Contains("Bolt"))
+                {
+                    chargeCounter++;
+                    LBammoCount--;
+                }
+                if (chargeCounter < 6 && _spellPrefab.name.Contains("Chain"))
+                {
+                    chargeCounter++;
+                    CLammoCount--;
                 }
             }
         }
