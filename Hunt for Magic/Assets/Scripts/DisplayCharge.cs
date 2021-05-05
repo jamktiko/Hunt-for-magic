@@ -59,7 +59,7 @@ public class DisplayCharge : MonoBehaviour
         {
             _chargeText.enabled = true;
             _chargeText.color = Color.black;
-            _chargeText.text = _player.GetComponent<SpellCasting>().ammoCount.ToString();
+            _chargeText.text = _player.GetComponent<SpellCasting>().LSammoCount.ToString();
         }
         else if (_player.GetComponent<SpellCasting>()._spellPrefab.name == "LightningBolt")
         {
@@ -71,7 +71,8 @@ public class DisplayCharge : MonoBehaviour
         {
             _chargeText.enabled = true;
             _chargeText.color = Color.black;
-            
+            _chargeText.text = _player.GetComponent<SpellCasting>().chargeCounter.ToString();
+
         }
         else
         {
