@@ -74,8 +74,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bbcb22bd6cf7e4b45bb3ae9ee47ef87a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _damage: 10
-  _speed: 0.2
+  _damage: 0
+  _speed: 0.4
 --- !u!1 &8453210469645151612
 GameObject:
   m_ObjectHideFlags: 0
@@ -184,7 +184,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damage: 10
-  _speed: 20
+  _speed: 40
 --- !u!54 &3208522007091135210
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -210,6 +210,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8453210471068573301}
+  - component: {fileID: 373000771497153079}
   m_Layer: 0
   m_Name: OilSpell
   m_TagString: Spell
@@ -233,3 +234,16 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &373000771497153079
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8453210471068573300}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ec56a0a546e4f84baa579200c4aabaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _timer: 2

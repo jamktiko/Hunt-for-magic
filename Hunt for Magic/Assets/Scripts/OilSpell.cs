@@ -8,7 +8,7 @@ public class OilSpell : MonoBehaviour
     private float _damage = 5f;
 
     [SerializeField]
-    private float _speed = 20f;
+    private float _speed = 40f;
 
     private Transform _castingPoint;
     private GameObject _oilPool;

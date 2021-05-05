@@ -168,6 +168,7 @@ GameObject:
   - component: {fileID: 135058507269698838}
   - component: {fileID: 3298055590590067699}
   - component: {fileID: 660850423790900995}
+  - component: {fileID: 3539348676471881911}
   m_Layer: 0
   m_Name: WindEffect
   m_TagString: Spell
@@ -4973,6 +4974,19 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
+--- !u!114 &3539348676471881911
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4798670307819067638}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ec56a0a546e4f84baa579200c4aabaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _timer: 1
 --- !u!1 &4840704735818064084
 GameObject:
   m_ObjectHideFlags: 0

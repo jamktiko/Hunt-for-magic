@@ -67,7 +67,12 @@ public class DisplayCharge : MonoBehaviour
             _chargeText.color = Color.black;
             _chargeText.text = _player.GetComponent<SpellCasting>().chargeCounter.ToString();
         }
-
+        else if (_player.GetComponent<SpellCasting>()._spellPrefab.name == "ChainLightning")
+        {
+            _chargeText.enabled = true;
+            _chargeText.color = Color.black;
+            
+        }
         else
         {
             _chargeText.enabled = false;
