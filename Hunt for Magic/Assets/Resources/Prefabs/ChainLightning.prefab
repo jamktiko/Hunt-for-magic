@@ -77,13 +77,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damageAmount: 30
+  _damageBoost: 0
+  _boostAmount: 0
   chargeCounter: 0
   targetFound: 0
   enemyRB: {fileID: 0}
   firstHit: 0
   enemyFinder: {fileID: 0}
   target: {fileID: 0}
-  CL: {fileID: 0}
 --- !u!82 &-6118427046737886458
 AudioSource:
   m_ObjectHideFlags: 0
@@ -224,6 +225,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 507812650164477704}
     m_Modifications:
+    - target: {fileID: 5391184964194958914, guid: e2ddc4a52acf7234686631fe66ebe6f7,
+        type: 3}
+      propertyPath: looping
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5391184964194958914, guid: e2ddc4a52acf7234686631fe66ebe6f7,
+        type: 3}
+      propertyPath: lengthInSec
+      value: 2.6
+      objectReference: {fileID: 0}
     - target: {fileID: 6352376625168855229, guid: e2ddc4a52acf7234686631fe66ebe6f7,
         type: 3}
       propertyPath: m_Name

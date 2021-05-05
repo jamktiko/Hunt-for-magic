@@ -52,6 +52,8 @@ public class ChainLightingSpell : MonoBehaviour
                 if (target != null)
                 {
                     targetFound = true;
+                    
+                    Instantiate(CLAnimation, thisRB.position, thisRB.rotation);
                 }
             }
             else if (targetFound)
