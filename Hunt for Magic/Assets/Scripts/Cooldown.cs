@@ -319,17 +319,17 @@ public class Cooldown : MonoBehaviour
             if (_spell0 != null && _spell0.name == "Flamethrower_particle")
             {
                 cooldown0.enabled = true;
-                cooldown0.fillAmount = 0 + _player.GetComponent<EnergySystem>()._currentEnergy / _player.GetComponent<EnergySystem>()._maxEnergy;
+                cooldown0.fillAmount = 1 - _player.GetComponent<EnergySystem>()._currentEnergy / _player.GetComponent<EnergySystem>()._maxEnergy;
             }
             else if (_spell1 != null && _spell1.name == "Flamethrower_particle")
             {
                 cooldown1.enabled = true;
-                cooldown1.fillAmount = 0 + _player.GetComponent<EnergySystem>()._currentEnergy / _player.GetComponent<EnergySystem>()._maxEnergy;
+                cooldown1.fillAmount = 1 - _player.GetComponent<EnergySystem>()._currentEnergy / _player.GetComponent<EnergySystem>()._maxEnergy;
             }
             else if (_spell2 != null && _spell2.name == "Flamethrower_particle")
             {
                 cooldown2.enabled = true;
-                cooldown2.fillAmount = 0 + _player.GetComponent<EnergySystem>()._currentEnergy / _player.GetComponent<EnergySystem>()._maxEnergy;
+                cooldown2.fillAmount = 1 - _player.GetComponent<EnergySystem>()._currentEnergy / _player.GetComponent<EnergySystem>()._maxEnergy;
             }
         }
         else
