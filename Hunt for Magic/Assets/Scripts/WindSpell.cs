@@ -71,7 +71,7 @@ public class WindSpell : MonoBehaviour  //Tämä scripti liitetään WindEffect-
                 other.GetComponent<Debuffs>()._stunned = true;
             }
 
-            enemy.AddForce(_forward * (20f - Vector3.Distance(enemy.position, _waterCastingPoint.position)), ForceMode.Impulse);
+            enemy.AddForce(_forward * (10f - Vector3.Distance(enemy.position, _waterCastingPoint.position) / 2), ForceMode.Impulse);
 
             Object onHitwind = Instantiate(_windHit, transform.position, Quaternion.identity);
             Destroy(onHitwind, 1f);
