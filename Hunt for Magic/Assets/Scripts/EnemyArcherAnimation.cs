@@ -50,7 +50,7 @@ public class EnemyArcherAnimation : MonoBehaviour
         {
             _anim.SetBool("Shooting", true);
         }
-        else if (!_movement.isAttacking && _movement.attackRange)
+        else if (_movement.attackRange && !_movement.isAttacking && !_movement.attackCommence)
         {
             _anim.SetBool("RepeatShooting", true);
         }
