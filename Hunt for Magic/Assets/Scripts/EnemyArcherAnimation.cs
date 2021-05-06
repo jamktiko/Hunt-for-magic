@@ -46,7 +46,7 @@ public class EnemyArcherAnimation : MonoBehaviour
             _anim.SetBool("Falling", false);
         }
 
-        if (_movement.isAttacking && !_movement.strafe)
+        if (_movement.isAttacking && !_movement.strafe && !_movement.running)
         {
             _anim.SetBool("Shooting", true);
         }
