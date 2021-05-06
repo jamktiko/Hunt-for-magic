@@ -87,7 +87,7 @@ public class EnemyArcherMovement : MonoBehaviour
                 StartCoroutine(CLcooldown());
             }
 
-            if (Vector3.Distance(player.transform.position, enemyRB.transform.position) <= 17 && Vector3.Distance(player.transform.position, enemyRB.transform.position) > 6.1f) // attack range checker
+            if (Vector3.Distance(player.transform.position, enemyRB.transform.position) <= 17 && Vector3.Distance(player.transform.position, enemyRB.transform.position) > 6f) // attack range checker
             {
                 attackRange = true;
             }
