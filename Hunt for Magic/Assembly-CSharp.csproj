@@ -76,6 +76,7 @@
     <Compile Include="Assets\Scripts\DisplayCharge.cs" />
     <Compile Include="Assets\Scripts\DodgeCooldown.cs" />
     <Compile Include="Assets\Scripts\Dodgedash.cs" />
+    <Compile Include="Assets\Scripts\EnemyArcherAnimation.cs" />
     <Compile Include="Assets\Scripts\EnemyArcherMovement.cs" />
     <Compile Include="Assets\Scripts\EnemyHealthbar.cs" />
     <Compile Include="Assets\Scripts\EnemyPlantieMovement.cs" />
