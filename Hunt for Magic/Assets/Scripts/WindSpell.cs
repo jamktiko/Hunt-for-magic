@@ -12,7 +12,7 @@ public class WindSpell : MonoBehaviour  //Tämä scripti liitetään WindEffect-
     private float _speed = 10f;
     private float _AirBonus;
 
-    private Transform _castingPoint;
+    private Transform _waterCastingPoint;
 
     [SerializeField]
     private Object _rocketjumpTrigger;
@@ -28,9 +28,9 @@ public class WindSpell : MonoBehaviour  //Tämä scripti liitetään WindEffect-
     {
         _player = GameObject.Find("PlayerCharacter");
         _AirBonus = _player.GetComponent<CrystalScript>().airBonus;
-        _castingPoint = GameObject.Find("CastingPoint").GetComponent<Transform>();
-        gameObject.GetComponent<Rigidbody>().AddForce(_castingPoint.forward * _speed, ForceMode.Impulse);
-        _forward = new Vector3(_castingPoint.forward.x, 0.1f, _castingPoint.forward.z);
+        _waterCastingPoint = GameObject.Find("WaterCastingPoint").GetComponent<Transform>();
+        gameObject.GetComponent<Rigidbody>().AddForce(_waterCastingPoint.forward * _speed, ForceMode.Impulse);
+        _forward = _waterCastingPoint.forward;
         _damageAmount = _AirBonus + _baseDamage;
         _windHit = Resources.Load("Prefabs/OnHitwind");
     }
@@ -71,7 +71,7 @@ public class WindSpell : MonoBehaviour  //Tämä scripti liitetään WindEffect-
                 other.GetComponent<Debuffs>()._stunned = true;
             }
 
-            enemy.AddForce(_forward * (20f - Vector3.Distance(enemy.position, _castingPoint.position)), ForceMode.Impulse);
+            enemy.AddForce(_forward * (20f - Vector3.Distance(enemy.position, _waterCastingPoint.position)), ForceMode.Impulse);
 
             Object onHitwind = Instantiate(_windHit, transform.position, Quaternion.identity);
             Destroy(onHitwind, 1f);

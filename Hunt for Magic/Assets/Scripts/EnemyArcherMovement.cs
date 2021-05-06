@@ -14,13 +14,13 @@ public class EnemyArcherMovement : MonoBehaviour
     private bool isChargeAttacking = false;
     public bool isAttacking = false;
     public bool animationReady = false;
-    private bool inRange;
+    public bool inRange;
     private bool runRange;
-    private bool attackRange;
-    private bool strafe;
+    public bool attackRange;
+    public bool strafe;
     public bool attackCommence;
     public bool patrol;
-    private bool running;
+    public bool running;
     private bool rollDice;
     private bool looking;
     public bool clHit;
