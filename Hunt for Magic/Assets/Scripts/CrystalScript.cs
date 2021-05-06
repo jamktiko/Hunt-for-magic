@@ -43,6 +43,7 @@ public class CrystalScript : MonoBehaviour
         {
             if (crystalUpgradeSlot.name.Contains("Ember"))
             {
+                crystalFloat.GetComponent<Renderer>().material.EnableKeyword("_EMISSION");
                 crystalFloat.GetComponent<Renderer>().material.SetColor("_EmissionColor", Color.yellow);
                 fireBonus = 5f;
                 fireDamage = 0.0115f;
@@ -58,6 +59,7 @@ public class CrystalScript : MonoBehaviour
 
             if (crystalUpgradeSlot.name.Contains("Magnet"))
             {
+                crystalFloat.GetComponent<Renderer>().material.EnableKeyword("_EMISSION");
                 crystalFloat.GetComponent<Renderer>().material.SetColor("_EmissionColor", Color.white);
                 lightningBonus = 5f;
                 chargeCount = 5f;
@@ -71,6 +73,7 @@ public class CrystalScript : MonoBehaviour
 
             if (crystalUpgradeSlot.name.Contains("Tear"))
             {
+                crystalFloat.GetComponent<Renderer>().material.EnableKeyword("_EMISSION");
                 crystalFloat.GetComponent<Renderer>().material.SetColor("_EmissionColor", Color.blue);
                 waterBonus = 5f;
                 duration = 7f;
@@ -84,6 +87,7 @@ public class CrystalScript : MonoBehaviour
 
             if (crystalUpgradeSlot.name.Contains("North"))
             {
+                crystalFloat.GetComponent<Renderer>().material.EnableKeyword("_EMISSION");
                 crystalFloat.GetComponent<Renderer>().material.SetColor("_EmissionColor", Color.green);
                 airBonus = 5f;
             }
@@ -95,6 +99,7 @@ public class CrystalScript : MonoBehaviour
 
             if (crystalUpgradeSlot.name.Contains("Mountain"))
             {
+                crystalFloat.GetComponent<Renderer>().material.EnableKeyword("_EMISSION");
                 crystalFloat.GetComponent<Renderer>().material.SetColor("_EmissionColor", Color.red);
                 meleeDamage = 25f;
                 maxHp = 125;
