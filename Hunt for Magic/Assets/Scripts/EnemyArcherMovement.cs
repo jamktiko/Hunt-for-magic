@@ -87,7 +87,7 @@ public class EnemyArcherMovement : MonoBehaviour
                 StartCoroutine(CLcooldown());
             }
 
-            if (Vector3.Distance(player.transform.position, enemyRB.transform.position) <= 17 && Vector3.Distance(player.transform.position, enemyRB.transform.position) > 6) // attack range checker
+            if (Vector3.Distance(player.transform.position, enemyRB.transform.position) <= 17 && Vector3.Distance(player.transform.position, enemyRB.transform.position) > 6.1f) // attack range checker
             {
                 attackRange = true;
             }
@@ -112,7 +112,7 @@ public class EnemyArcherMovement : MonoBehaviour
                 inRange = true;
             }
 
-            if (inRange && !attackRange) // move closer command line
+            if (inRange && !attackRange && !runRange) // move closer command line
             {
                 if(patrol)
                 {
@@ -147,8 +147,8 @@ public class EnemyArcherMovement : MonoBehaviour
                     transform.position = Vector3.MoveTowards(transform.position, lookDirectionNode.transform.position, step);
                 }
             }
-            
-            if (inRange && !running)
+
+            if (inRange && !runRange)
             {
                 if (!strafe && !running)
                 {
@@ -160,11 +160,19 @@ public class EnemyArcherMovement : MonoBehaviour
             }
 
 
-            if (attackRange)
+            if (attackRange && !running)
             {
                 if (!isAttacking && !attackCommence)
                 {
                     StartCoroutine(AttackTrigger());
+
+                    if (!strafe && !running)
+                    {
+                        transform.LookAt(player.transform.position);
+                    }
+
+                    _arrowStartPoint.localPosition = new Vector3(0f, 0f, 1f);
+                    _arrowStartPoint.LookAt(player.transform.position);
 
                     Instantiate(_arrowType, _arrowStartPoint.position, _arrowStartPoint.rotation);
 
@@ -177,7 +185,6 @@ public class EnemyArcherMovement : MonoBehaviour
                     float LD3 = Random.Range(1,3);
                     if (!strafe)
                     {
-                        strafe = true;
                         StartCoroutine(StrafePhaser());
                         if (LD3 == 1)
                         {
@@ -202,7 +209,10 @@ public class EnemyArcherMovement : MonoBehaviour
             {
                 if (!running)
                 {
-                    running = true;
+                    if (isAttacking)
+                    {
+                        running = true;
+                    }
                 }            
                 if (runRange && running)
                 {
@@ -231,6 +241,8 @@ public class EnemyArcherMovement : MonoBehaviour
 
     IEnumerator StrafePhaser()
     {
+        yield return new WaitForSeconds(0.2f);
+        strafe = true;
         yield return new WaitForSeconds(1.5f);
         strafe = false;
         attackCommence = false;
@@ -245,13 +257,13 @@ public class EnemyArcherMovement : MonoBehaviour
 
     IEnumerator AttackCooldown()
     {
-        yield return new WaitForSeconds(4.2f);       
+        yield return new WaitForSeconds(3.8f);       
         isAttacking = false;
     }
 
     IEnumerator AttackTrigger()
     {
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(0.5f);
         isAttacking = true;
     }
 
