@@ -70,6 +70,11 @@ public class HealthSystem : MonoBehaviour
                 }
             }
 
+            if (gameObject.name.Contains("EnemyArcher"))
+            {
+                gameObject.GetComponent<EnemyArcherMovement>().enabled = false;
+            }
+
             if (gameObject.name.Contains("Vine"))
             {
                 Destroy(gameObject);
