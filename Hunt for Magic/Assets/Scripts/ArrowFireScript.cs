@@ -79,5 +79,10 @@ public class ArrowFireScript : MonoBehaviour
             Destroy(gameObject);
         }
         
+        if (other.gameObject.tag == "Wall")
+        {
+            Destroy(gameObject);
+        }
+
     }
 }

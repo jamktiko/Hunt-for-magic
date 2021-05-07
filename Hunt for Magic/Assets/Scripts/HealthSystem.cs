@@ -80,9 +80,13 @@ public class HealthSystem : MonoBehaviour
                 Destroy(gameObject);
             }
 
-            if (gameObject.tag == "Monster")
+            if (gameObject.tag == "Monster" && gameObject.name != "Plantie")
             {
                 Destroy(gameObject, 2f);   //2 sekuntia aikaa kuolinanimaatiolle
+            }
+            else if (gameObject.name == "Plantie")
+            {
+                Destroy(gameObject, 10f);
             }
             else if (gameObject.tag == "Player")
             {
