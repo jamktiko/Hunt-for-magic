@@ -50,6 +50,7 @@ public class EnemySlimeMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        gameObject.transform.rotation = Quaternion.Euler(0, 0, 0);
 
         if (_inFog || _hud.GetComponentInChildren<PlayerDebuffs>()._inFog)
         {

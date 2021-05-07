@@ -87,7 +87,7 @@ public class EnemyArcherMovement : MonoBehaviour
                 StartCoroutine(CLcooldown());
             }
 
-            if (Vector3.Distance(player.transform.position, enemyRB.transform.position) <= 17 && Vector3.Distance(player.transform.position, enemyRB.transform.position) > 9) // attack range checker
+            if (Vector3.Distance(player.transform.position, enemyRB.transform.position) <= 17 && Vector3.Distance(player.transform.position, enemyRB.transform.position) > 6f) // attack range checker
             {
                 attackRange = true;
             }
@@ -101,7 +101,7 @@ public class EnemyArcherMovement : MonoBehaviour
                 patrol = true;
             }
 
-            if (Vector3.Distance(player.transform.position, enemyRB.transform.position) <= 9) // run away spotter
+            if (Vector3.Distance(player.transform.position, enemyRB.transform.position) <= 6) // run away spotter
             {
                 runRange = true;
             }
@@ -112,7 +112,7 @@ public class EnemyArcherMovement : MonoBehaviour
                 inRange = true;
             }
 
-            if (inRange && !attackRange) // move closer command line
+            if (inRange && !attackRange && !runRange) // move closer command line
             {
                 if(patrol)
                 {
@@ -141,28 +141,38 @@ public class EnemyArcherMovement : MonoBehaviour
                         LD1 = Random.Range(-1f, 1f);
                         LD2 = Random.Range(-1f, 1f);
                         StartCoroutine(PatrolPhaser());
-                        lookDirectionNode.localPosition = new Vector3(LD1, 0, LD2);
-                        transform.LookAt(lookDirectionNode.transform.position);               
-                        
+                        lookDirectionNode.localPosition = new Vector3(LD1, 0, LD2);                                                           
                     }
+                    transform.LookAt(lookDirectionNode.transform.position);
                     transform.position = Vector3.MoveTowards(transform.position, lookDirectionNode.transform.position, step);
                 }
             }
-            
-            if (inRange && !running)
+
+            if (inRange && !runRange)
             {
-                transform.LookAt(player.transform.position);
+                if (!strafe && !running)
+                {
+                    transform.LookAt(player.transform.position);
+                }
 
                 _arrowStartPoint.localPosition = new Vector3(0f, 0f, 1f);
                 _arrowStartPoint.LookAt(player.transform.position);
             }
 
 
-            if (attackRange)
+            if (attackRange && !running)
             {
                 if (!isAttacking && !attackCommence)
                 {
-                    isAttacking = true;
+                    StartCoroutine(AttackTrigger());
+
+                    if (!strafe && !running)
+                    {
+                        transform.LookAt(player.transform.position);
+                    }
+
+                    _arrowStartPoint.localPosition = new Vector3(0f, 0f, 1f);
+                    _arrowStartPoint.LookAt(player.transform.position);
 
                     Instantiate(_arrowType, _arrowStartPoint.position, _arrowStartPoint.rotation);
 
@@ -172,20 +182,20 @@ public class EnemyArcherMovement : MonoBehaviour
                 }
                 else if (attackCommence)
                 {
-                    float LD3 = Random.Range(0,3);
+                    float LD3 = Random.Range(1,3);
                     if (!strafe)
                     {
-                        strafe = true;
                         StartCoroutine(StrafePhaser());
                         if (LD3 == 1)
                         {
-                            lookDirectionNode.localPosition = new Vector3(1f, 0, 0);
+                            lookDirectionNode.localPosition = new Vector3(2, 0, 0);
                         }
                         if (LD3 == 2)
                         {
-                            lookDirectionNode.localPosition = new Vector3(-1f, 0, 0);
+                            lookDirectionNode.localPosition = new Vector3(-2, 0, 0);
                         }
                         transform.LookAt(lookDirectionNode.transform.position);
+                        lookDirectionNode.localPosition = new Vector3(0, 0, 1);
                     }
                     else if (strafe)
                     {
@@ -199,11 +209,16 @@ public class EnemyArcherMovement : MonoBehaviour
             {
                 if (!running)
                 {
-                    running = true;
+                    if (isAttacking)
+                    {
+                        running = true;
+                    }
                 }            
                 if (runRange && running)
                 {
-                    transform.LookAt(-player.transform.position);
+                    lookDirectionNode.localPosition = new Vector3(0, 0, -1);
+                    transform.LookAt(lookDirectionNode.transform.position);
+                    lookDirectionNode.localPosition = new Vector3(0, 0, 1);
                     transform.position = Vector3.MoveTowards(transform.position, player.transform.position, -1 * runStep);
                 }
             }
@@ -212,7 +227,7 @@ public class EnemyArcherMovement : MonoBehaviour
                 running = false;
             }
 
-            if(attackRange && chargeTrigger)
+            if(chargeTrigger)
             {
                 //special attack comes here
             }
@@ -226,6 +241,8 @@ public class EnemyArcherMovement : MonoBehaviour
 
     IEnumerator StrafePhaser()
     {
+        yield return new WaitForSeconds(0.2f);
+        strafe = true;
         yield return new WaitForSeconds(1.5f);
         strafe = false;
         attackCommence = false;
@@ -240,11 +257,17 @@ public class EnemyArcherMovement : MonoBehaviour
 
     IEnumerator AttackCooldown()
     {
-        yield return new WaitForSeconds(4.3f);       
+        yield return new WaitForSeconds(3.8f);       
         isAttacking = false;
     }
 
-    void OnCollisionEnter(Collision collision)
+    IEnumerator AttackTrigger()
+    {
+        yield return new WaitForSeconds(0.5f);
+        isAttacking = true;
+    }
+
+    void OnCollisionStay(Collision collision)
     {
         if (collision.gameObject.CompareTag("Ground"))
         {
