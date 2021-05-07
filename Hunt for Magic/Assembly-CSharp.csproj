@@ -76,6 +76,7 @@
     <Compile Include="Assets\Scripts\DisplayCharge.cs" />
     <Compile Include="Assets\Scripts\DodgeCooldown.cs" />
     <Compile Include="Assets\Scripts\Dodgedash.cs" />
+    <Compile Include="Assets\Scripts\EnemyArcherAnimation.cs" />
     <Compile Include="Assets\Scripts\EnemyArcherMovement.cs" />
     <Compile Include="Assets\Scripts\EnemyHealthbar.cs" />
     <Compile Include="Assets\Scripts\EnemyPlantieMovement.cs" />
@@ -125,6 +126,7 @@
     <Compile Include="Assets\Scripts\SpellCasting.cs" />
     <Compile Include="Assets\Scripts\SpellPickup.cs" />
     <Compile Include="Assets\Scripts\StartSpells.cs" />
+    <Compile Include="Assets\Scripts\TrapActivated.cs" />
     <Compile Include="Assets\Scripts\TreasureChest.cs" />
     <Compile Include="Assets\Scripts\TreasureRoom.cs" />
     <Compile Include="Assets\Scripts\WaterSpell.cs" />

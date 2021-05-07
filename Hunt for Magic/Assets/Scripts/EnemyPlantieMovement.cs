@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class EnemyPlantieMovement : MonoBehaviour
 {
@@ -27,6 +28,8 @@ public class EnemyPlantieMovement : MonoBehaviour
     public bool _attack4;
     private bool CLcooldownActive;
     public bool clHit;
+    public GameObject _spawnManager;
+    public GameObject _victoryPanel;
 
 
     // Start is called before the first frame update
@@ -173,5 +176,16 @@ public class EnemyPlantieMovement : MonoBehaviour
         yield return new WaitForSeconds(2.6f);
         clHit = false;
         CLcooldownActive = false;
+    }
+    private void OnDestroy()
+    {
+        Time.timeScale = 0;
+        _victoryPanel.SetActive(true);
+        _player.GetComponent<PlayerCharacterController>().enabled = false;
+        _player.GetComponentInChildren<PlayerAnimation>().enabled = false;
+        _player.GetComponent<SpellCasting>().enabled = false;
+        _player.GetComponent<PlayerSounds>().enabled = false;
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
     }
 }
