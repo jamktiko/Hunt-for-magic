@@ -43,11 +43,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9df0dc776e27e3b4fa513bd2916ef140, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _startingSpells:
-  - {fileID: 118648667148364991, guid: 6dd525fbf6a79b844a15b6bdcf0d50d1, type: 3}
-  - {fileID: 6597692506983219370, guid: 39f92e4bfa011e943914bb221e80c349, type: 3}
-  - {fileID: 2026757433774082842, guid: 829cf4e012ccb7f48b6f3139181434e5, type: 3}
-  - {fileID: 7170643759427645203, guid: 5180c8493451a7849962c973bca6d47f, type: 3}
   _spellList:
   - {fileID: 118648667148364991, guid: 6dd525fbf6a79b844a15b6bdcf0d50d1, type: 3}
   - {fileID: 6597692506983219370, guid: 39f92e4bfa011e943914bb221e80c349, type: 3}
@@ -56,3 +51,11 @@ MonoBehaviour:
   - {fileID: 1270565694640996697, guid: 6ec91e1e3cff95e4593693a424ab6103, type: 3}
   - {fileID: 7266799211990475546, guid: 7e2230d69c4b7d040b30fb212c8de3c6, type: 3}
   - {fileID: 7170643759427645203, guid: 5180c8493451a7849962c973bca6d47f, type: 3}
+  - {fileID: 7460174459539723216, guid: 16fb00be2432d9549b5b16b167e935b2, type: 3}
+  - {fileID: 8741600171597432230, guid: dcafc901df9ed704aa18a73584ec4296, type: 3}
+  _powerupList:
+  - {fileID: 3735004061607409102, guid: ab3b0d4a66517414cad4457db7fb7212, type: 3}
+  - {fileID: 7538641921515423772, guid: 821f5d0bb97bf414696edfb5bc4bb366, type: 3}
+  - {fileID: 6933693857740441165, guid: 14dbbdf7459edc54e806b5797ecb993d, type: 3}
+  - {fileID: 6694890646963355419, guid: 8b66220199d9df34b9ecfc43ec37302b, type: 3}
+  - {fileID: 4749215107813880857, guid: 2cb6fd941cec507478b8322525555c6e, type: 3}
