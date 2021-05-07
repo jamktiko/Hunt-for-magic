@@ -5,7 +5,7 @@ using UnityEngine;
 public class MeleeTrigger : MonoBehaviour
 {
     [SerializeField]
-    private float _playerDamage = 5f;
+    private float _playerDamage;
 
     [SerializeField]
     private float _plantieDamage = 10f;
@@ -28,7 +28,7 @@ public class MeleeTrigger : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        _playerDamage = _player.GetComponent<CrystalScript>().meleeDamage;
     }
 
     private void OnTriggerEnter(Collider other)

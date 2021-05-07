@@ -215,7 +215,7 @@ public class EnemyArcherMovement : MonoBehaviour
                 if (runRange && running)
                 {
                     lookDirectionNode.localPosition = new Vector3(0, 0, -1);
-                    transform.LookAt(lookDirectionNode.transform.position);
+                    transform.LookAt(transform.position - (player.transform.position - transform.position));
                     lookDirectionNode.localPosition = new Vector3(0, 0, 1);
                     transform.position = Vector3.MoveTowards(transform.position, player.transform.position, -1 * runStep);
                 }
