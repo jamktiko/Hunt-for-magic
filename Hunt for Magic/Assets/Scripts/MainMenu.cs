@@ -41,8 +41,19 @@ public class MainMenu : MonoBehaviour
 
     private void NewGame()
     {
+        int rnd = Random.Range(1, 3);
+
         _menuSrc.PlayOneShot(_menuClick);
-        SceneManager.LoadScene(1);
+
+        if (rnd == 1)
+        {
+            SceneManager.LoadScene(1);
+        }
+
+        else if (rnd == 2)
+        {
+            SceneManager.LoadScene(2);
+        }
     }
 
     private void LogBook()
