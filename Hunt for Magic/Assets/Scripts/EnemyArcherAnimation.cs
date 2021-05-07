@@ -26,7 +26,7 @@ public class EnemyArcherAnimation : MonoBehaviour
             _anim.SetBool("Running", true);
             _anim.SetFloat("RunSpeed", 1.3f);
         }
-        else if (_movement.patrol || _movement.strafe || (_movement.inRange && !_movement.attackRange))
+        else if (_movement.strafe || (_movement.inRange && !_movement.attackRange))
         {
             _anim.SetBool("Running", true);
             _anim.SetFloat("RunSpeed", 1.0f);
@@ -50,7 +50,7 @@ public class EnemyArcherAnimation : MonoBehaviour
         {
             _anim.SetBool("Shooting", true);
         }
-        else if (_movement.attackRange && !_movement.isAttacking && !_movement.attackCommence)
+        else if (_movement.attackRange && !_movement.isAttacking)
         {
             _anim.SetBool("RepeatShooting", true);
         }
