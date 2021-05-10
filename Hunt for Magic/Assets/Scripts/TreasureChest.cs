@@ -27,7 +27,6 @@ public class TreasureChest : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.E) && !_chestOpen)
         {
-            _chestOpen = true;
             _anim.SetBool("Open", true);
             _chestAudioSource.PlayOneShot(_chestAudioClip);
             StartCoroutine(WaitOneSecond());
