@@ -14,6 +14,7 @@ public class EnemyPlantieMovement : MonoBehaviour
     private GameObject _vine;
     private GameObject _HAMissile;
     public GameObject _meleeHit;
+    public GameObject _meleeIndicator;
     public Transform _poisonPos1;
     public Transform _poisonPos2;
     public Transform _vinePos1;
@@ -40,6 +41,7 @@ public class EnemyPlantieMovement : MonoBehaviour
         _vine = Resources.Load<GameObject>("Prefabs/PlantieVine");
         _HAMissile = Resources.Load<GameObject>("Prefabs/PlantieHAPrefab"); ;
         _meleeHit.SetActive(false);
+        _meleeIndicator.SetActive(false);
     }
 
     // Update is called once per frame
@@ -147,12 +149,13 @@ public class EnemyPlantieMovement : MonoBehaviour
 
     IEnumerator Attack4()
     {
+        _meleeIndicator.SetActive(true);
         yield return new WaitForSeconds(2.5f);
         _meleeHit.SetActive(true);
         yield return new WaitForSeconds(0.1f);
         _meleeHit.SetActive(false);
-
         yield return new WaitForSeconds(0.4f);
+        _meleeIndicator.SetActive(false);
         _meleeAttack = false;
 
         _cooldownLength = 2f;
