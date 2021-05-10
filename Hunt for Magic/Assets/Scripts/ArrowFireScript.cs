@@ -5,8 +5,7 @@ using UnityEngine;
 public class ArrowFireScript : MonoBehaviour
 {
     private float speed = 4;
-    private float _damageAmount = 5f;
-    private Transform thisGO;
+    private float _damageAmount = 2.5f;
 
     private GameObject _barrelExplosion;
     private GameObject _groundFire;
@@ -15,7 +14,6 @@ public class ArrowFireScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        thisGO = gameObject.GetComponent<Transform>();
         gameObject.GetComponent<Rigidbody>().AddForce(gameObject.transform.forward * speed, ForceMode.Impulse);
 
         _barrelExplosion = Resources.Load<GameObject>("Prefabs/BarrelExplosion");
@@ -25,46 +23,47 @@ public class ArrowFireScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Destroy(gameObject, 4f);
+        Destroy(gameObject.transform.parent.gameObject, 4f);
     }
 
     private void OnTriggerEnter(Collider other)
     {
         var health = other.gameObject.GetComponent<HealthSystem>();
-        //var debuffs = other.gameObject.GetComponent<>();
+        var debuffs = GameObject.FindWithTag("HUD").GetComponent<PlayerDebuffs>();
 
         if (health != null && health.CompareTag("Player"))
         {
             health.AddDamage(_damageAmount);
 
-            if (thisGO.name.Contains("FireArrow"))
-            {
-                GameObject.Find("HUD").GetComponentInChildren<PlayerDebuffs>()._onFire = true;
+            if (gameObject.transform.parent.name.Contains("Fire"))
+            {               
+                debuffs._onFire = true;
                 Destroy(gameObject);
             }
-            if (thisGO.name.Contains("IceArrow"))
+            if (gameObject.transform.parent.name.Contains("Ice"))
             {
-                GameObject.Find("HUD").GetComponentInChildren<PlayerDebuffs>()._chilled = true;
+                debuffs._chilled = true;
                 Destroy(gameObject);
             }
-            if (thisGO.name.Contains("WindArrow"))
+            if (gameObject.transform.parent.name.Contains("Wind"))
             {
-                if (GameObject.Find("HUD").GetComponentInChildren<PlayerDebuffs>()._isWet == true)
+
+                if (debuffs._isWet == true)
                 {
-                    GameObject.Find("HUD").GetComponentInChildren<PlayerDebuffs>()._chilled = true;
+                    debuffs._chilled = true;
                     Destroy(gameObject);
                 }
             }
-            if (thisGO.name.Contains("WaterArrow"))
+            if (gameObject.transform.parent.name.Contains("Water"))
             {
-                GameObject.Find("HUD").GetComponentInChildren<PlayerDebuffs>()._isWet = true;
+                debuffs._isWet = true;
                 Destroy(gameObject);
             }
-            if (thisGO.name.Contains("ThunderArrow"))
+            if (gameObject.transform.parent.name.Contains("Thunder"))
             {
-                if (GameObject.Find("HUD").GetComponentInChildren<PlayerDebuffs>()._isWet == true)
+                if (debuffs._isWet == true)
                 {
-                    health.AddDamage(_damageAmount / 2f);
+                    health.AddDamage(_damageAmount);
                     Destroy(gameObject);
                 }
             }
