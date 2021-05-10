@@ -15,6 +15,7 @@ TagManager:
   - ChainLightning
   - Wall
   - Spell
+  - HUD
   layers:
   - Default
   - TransparentFX
