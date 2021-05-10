@@ -51,6 +51,7 @@ public class EnemyPlantieMovement : MonoBehaviour
         if (GetComponent<HealthSystem>().health == 0)
         {
             _anim.SetTrigger("Death");
+            gameObject.GetComponent<EnemyPlantieMovement>().enabled = false;
         }
 
         if (_player != null)
@@ -71,7 +72,7 @@ public class EnemyPlantieMovement : MonoBehaviour
             {
                 _cooldown = true;
                 _attack1 = true;
-                Attack1();
+                StartCoroutine(Attack1());
             }
 
             if (_attackRoll == 2)
@@ -103,9 +104,11 @@ public class EnemyPlantieMovement : MonoBehaviour
         }
     }
 
-    void Attack1()
+    IEnumerator Attack1()
     {
         _anim.SetTrigger("Poison");
+
+        yield return new WaitForSeconds(0.5f);
 
         int rand = Random.Range(1, 3);
         if (rand == 1)
@@ -119,7 +122,7 @@ public class EnemyPlantieMovement : MonoBehaviour
             Destroy(poison, 6f);
         }
 
-        _cooldownLength = 5f;
+        _cooldownLength = 4f;
         StartCoroutine(Cooldown());
     }
 
@@ -129,9 +132,9 @@ public class EnemyPlantieMovement : MonoBehaviour
 
         yield return new WaitForSeconds(0.5f);
         GameObject vine1 = Instantiate(_vine, _vinePos1.position, _vinePos1.rotation);
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.5f);
         GameObject vine2 = Instantiate(_vine, _vinePos2.position, _vinePos2.rotation);
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.5f);
         GameObject vine3 = Instantiate(_vine, _vinePos3.position, _vinePos3.rotation);
 
         yield return new WaitForSeconds(4f);
