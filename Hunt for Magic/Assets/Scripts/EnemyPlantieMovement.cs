@@ -30,7 +30,8 @@ public class EnemyPlantieMovement : MonoBehaviour
     private bool CLcooldownActive;
     public bool clHit;
     public GameObject _spawnManager;
-    public GameObject _victoryPanel;
+    private GameObject _hud;
+    private GameObject _victoryPanel;
     public Animator _anim;
 
 
@@ -43,6 +44,8 @@ public class EnemyPlantieMovement : MonoBehaviour
         _HAMissile = Resources.Load<GameObject>("Prefabs/PlantieHAPrefab"); ;
         _meleeHit.SetActive(false);
         _meleeIndicator.SetActive(false);
+        _hud = GameObject.Find("HUD");
+        _victoryPanel = _hud.transform.Find("Victory").gameObject;
     }
 
     // Update is called once per frame

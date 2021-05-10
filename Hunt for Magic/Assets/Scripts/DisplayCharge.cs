@@ -63,16 +63,33 @@ public class DisplayCharge : MonoBehaviour
         }
         else if (_player.GetComponent<SpellCasting>()._spellPrefab.name == "LightningBolt")
         {
-            _chargeText.enabled = true;
-            _chargeText.color = Color.black;
-            _chargeText.text = _player.GetComponent<SpellCasting>().chargeCounter.ToString();
+            if (Input.GetButton("Fire1") | _player.GetComponent<SpellCasting>().LBammoCount < 0)
+            {
+                _chargeText.enabled = true;
+                _chargeText.color = Color.red;
+                _chargeText.text = _player.GetComponent<SpellCasting>().chargeCounter.ToString();
+            }
+            else
+            {
+                _chargeText.enabled = true;
+                _chargeText.color = Color.black;
+                _chargeText.text = _player.GetComponent<SpellCasting>().LBammoCount.ToString();
+            }
         }
         else if (_player.GetComponent<SpellCasting>()._spellPrefab.name == "ChainLightning")
         {
-            _chargeText.enabled = true;
-            _chargeText.color = Color.black;
-            _chargeText.text = _player.GetComponent<SpellCasting>().chargeCounter.ToString();
-
+            if (Input.GetButton("Fire1") | _player.GetComponent<SpellCasting>().CLammoCount < 0)
+            {
+                _chargeText.enabled = true;
+                _chargeText.color = Color.red;
+                _chargeText.text = _player.GetComponent<SpellCasting>().chargeCounter.ToString();
+            }
+            else
+            {
+                _chargeText.enabled = true;
+                _chargeText.color = Color.black;
+                _chargeText.text = _player.GetComponent<SpellCasting>().CLammoCount.ToString();
+            }
         }
         else
         {
