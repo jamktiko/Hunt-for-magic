@@ -9,6 +9,8 @@ public class TreasureChest : MonoBehaviour
     public Transform _treasureSpawnPoint;
     public GameObject _healthUp;
     private bool _chestOpen;
+    public AudioSource _chestAudioSource;
+    public AudioClip _chestAudioClip;
 
     // Start is called before the first frame update
     void Start()
@@ -27,6 +29,7 @@ public class TreasureChest : MonoBehaviour
         {
 
             _anim.SetBool("Open", true);
+            _chestAudioSource.PlayOneShot(_chestAudioClip);
             StartCoroutine(WaitOneSecond());
         }
     }

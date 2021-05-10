@@ -49,31 +49,6 @@ public class EnemyArcherMovement : MonoBehaviour
         _arrowStartPoint = transform.Find("ArrowSpawnPoint");
         lookDirectionNode = transform.Find("LookDirectionNode");
         transform.LookAt(lookDirectionNode.transform.position);
-
-        if(_arrowType == null)
-        {
-            ATRoll = Random.Range(1, 6);
-            if(ATRoll == 1)
-            {
-                _arrowType = Resources.Load("Prefabs/FireArrow");
-            }
-            else if (ATRoll == 2)
-            {
-                _arrowType = Resources.Load("Prefabs/ThunderArrow");
-            }
-            else if (ATRoll == 3)
-            {
-                _arrowType = Resources.Load("Prefabs/WaterArrow");
-            }
-            else if (ATRoll == 4)
-            {
-                _arrowType = Resources.Load("Prefabs/WindArrow");
-            }
-            else if (ATRoll == 5)
-            {
-                _arrowType = Resources.Load("Prefabs/IceArrow");
-            }
-        }
     }
 
     // Update is called once per frame
@@ -135,16 +110,16 @@ public class EnemyArcherMovement : MonoBehaviour
 
                 if (patrol)
                 {                            
-                    if (!looking)
-                    {
-                        looking = true;
-                        LD1 = Random.Range(-1f, 1f);
-                        LD2 = Random.Range(-1f, 1f);
-                        StartCoroutine(PatrolPhaser());
-                        lookDirectionNode.localPosition = new Vector3(LD1, 0, LD2);                                                           
-                    }
-                    transform.LookAt(lookDirectionNode.transform.position);
-                    transform.position = Vector3.MoveTowards(transform.position, lookDirectionNode.transform.position, step);
+//                    if (!looking)
+//                    {
+//                        looking = true;
+//                        LD1 = Random.Range(-1f, 1f);
+//                        LD2 = Random.Range(-1f, 1f);
+//                        StartCoroutine(PatrolPhaser());
+//                        lookDirectionNode.localPosition = new Vector3(LD1, 0, LD2);                                                           
+//                    }
+//                    transform.LookAt(lookDirectionNode.transform.position);
+//                    transform.position = Vector3.MoveTowards(transform.position, lookDirectionNode.transform.position, step);
                 }
             }
 
@@ -173,6 +148,29 @@ public class EnemyArcherMovement : MonoBehaviour
 
                     _arrowStartPoint.localPosition = new Vector3(0f, 0f, 1f);
                     _arrowStartPoint.LookAt(player.transform.position);
+
+                    ATRoll = Random.Range(1, 6);
+
+                    if (ATRoll == 1)
+                    {
+                        _arrowType = Resources.Load("Prefabs/FireArrow");
+                    }
+                    else if (ATRoll == 2)
+                    {
+                        _arrowType = Resources.Load("Prefabs/ThunderArrow");
+                    }
+                    else if (ATRoll == 3)
+                    {
+                        _arrowType = Resources.Load("Prefabs/WaterArrow");
+                    }
+                    else if (ATRoll == 4)
+                    {
+                        _arrowType = Resources.Load("Prefabs/WindArrow");
+                    }
+                    else if (ATRoll == 5)
+                    {
+                        _arrowType = Resources.Load("Prefabs/IceArrow");
+                    }
 
                     Instantiate(_arrowType, _arrowStartPoint.position, _arrowStartPoint.rotation);
 
@@ -217,7 +215,7 @@ public class EnemyArcherMovement : MonoBehaviour
                 if (runRange && running)
                 {
                     lookDirectionNode.localPosition = new Vector3(0, 0, -1);
-                    transform.LookAt(lookDirectionNode.transform.position);
+                    transform.LookAt(transform.position - (player.transform.position - transform.position));
                     lookDirectionNode.localPosition = new Vector3(0, 0, 1);
                     transform.position = Vector3.MoveTowards(transform.position, player.transform.position, -1 * runStep);
                 }
@@ -241,7 +239,6 @@ public class EnemyArcherMovement : MonoBehaviour
 
     IEnumerator StrafePhaser()
     {
-        yield return new WaitForSeconds(0.2f);
         strafe = true;
         yield return new WaitForSeconds(1.5f);
         strafe = false;

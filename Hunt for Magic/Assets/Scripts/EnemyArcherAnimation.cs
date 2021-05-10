@@ -26,7 +26,7 @@ public class EnemyArcherAnimation : MonoBehaviour
             _anim.SetBool("Running", true);
             _anim.SetFloat("RunSpeed", 1.3f);
         }
-        else if (_movement.patrol || _movement.strafe || (_movement.inRange && !_movement.attackRange))
+        else if (_movement.strafe || (_movement.inRange && !_movement.attackRange))
         {
             _anim.SetBool("Running", true);
             _anim.SetFloat("RunSpeed", 1.0f);
@@ -46,18 +46,16 @@ public class EnemyArcherAnimation : MonoBehaviour
             _anim.SetBool("Falling", false);
         }
 
-        if (_movement.isAttacking && !_movement.strafe && !_movement.running)
+        if (_movement.attackRange && !_movement.running && !_movement.attackCommence)
         {
-            _anim.SetBool("Shooting", true);
-        }
-        else if (_movement.attackRange && !_movement.isAttacking && !_movement.attackCommence)
-        {
-            _anim.SetBool("RepeatShooting", true);
+            if (_movement.isAttacking)
+            {
+                _anim.SetBool("Shooting", true);
+            }
         }
         else
         {
             _anim.SetBool("Shooting", false);
-            _anim.SetBool("RepeatShooting", false);
         }
 
         if (_hs.health == 0)
