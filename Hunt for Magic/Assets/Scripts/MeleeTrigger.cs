@@ -25,14 +25,10 @@ public class MeleeTrigger : MonoBehaviour
         _groundFire = Resources.Load<GameObject>("Prefabs/ground_on_fire");
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        _playerDamage = _player.GetComponent<CrystalScript>().meleeDamage;
-    }
-
     private void OnTriggerEnter(Collider other)
     {
+        _playerDamage = _player.GetComponent<CrystalScript>().meleeDamage;
+
         if (gameObject.name == "MeleeTrigger")
         {
             if (other != null && other.gameObject.tag == "Monster")
