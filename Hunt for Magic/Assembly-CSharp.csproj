@@ -129,6 +129,7 @@
     <Compile Include="Assets\Scripts\TrapActivated.cs" />
     <Compile Include="Assets\Scripts\TreasureChest.cs" />
     <Compile Include="Assets\Scripts\TreasureRoom.cs" />
+    <Compile Include="Assets\Scripts\Victory.cs" />
     <Compile Include="Assets\Scripts\WaterSpell.cs" />
     <Compile Include="Assets\Scripts\WindSpell.cs" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

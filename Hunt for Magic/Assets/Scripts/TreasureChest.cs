@@ -25,9 +25,8 @@ public class TreasureChest : MonoBehaviour
     }
     private void OnTriggerStay(Collider other)
     {
-        if (Input.GetKey(KeyCode.E))
+        if (Input.GetKey(KeyCode.E) && !_chestOpen)
         {
-
             _anim.SetBool("Open", true);
             _chestAudioSource.PlayOneShot(_chestAudioClip);
             StartCoroutine(WaitOneSecond());
