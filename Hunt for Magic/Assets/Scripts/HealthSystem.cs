@@ -42,7 +42,10 @@ public class HealthSystem : MonoBehaviour
 
         if (gameObject.tag == "Player" && !gameObject.GetComponent<Dodgedash>()._dodgeDash)
         {
-            _damageTaken = true;
+            if (!GameObject.FindWithTag("HUD").GetComponent<PlayerDebuffs>()._onFire)
+            {
+                _damageTaken = true;
+            }
 
             _playerDamageTaken.SetActive(true);
 
