@@ -22,6 +22,7 @@ public class PlantieHomingAttack : MonoBehaviour
     void FixedUpdate()
     {
         gameObject.transform.position = Vector3.MoveTowards(transform.position, _target.transform.position, _speed);
+        gameObject.transform.LookAt(_player.transform.position);
     }
 
     void OnTriggerEnter(Collider other)
