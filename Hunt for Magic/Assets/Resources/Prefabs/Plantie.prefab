@@ -158,6 +158,7 @@ MonoBehaviour:
   _meleeIndicator: {fileID: 374067107502796469}
   _poisonPos1: {fileID: 3352949455837656660}
   _poisonPos2: {fileID: 6105127345526878316}
+  _vinePositions: {fileID: 0}
   _vinePos1: {fileID: 0}
   _vinePos2: {fileID: 0}
   _vinePos3: {fileID: 0}
