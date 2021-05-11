@@ -95,7 +95,7 @@ public class HealthSystem : MonoBehaviour
                 Destroy(gameObject);
             }
 
-            if (gameObject.tag == "Monster" && gameObject.name != "Plantie")
+            if (gameObject.tag == "Monster" && !gameObject.name.Contains("Plantie"))
             {
                 Destroy(gameObject, 2f);   //2 sekuntia aikaa kuolinanimaatiolle
             }
