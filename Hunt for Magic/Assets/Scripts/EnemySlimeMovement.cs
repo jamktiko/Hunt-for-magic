@@ -151,11 +151,6 @@ public class EnemySlimeMovement : MonoBehaviour
                 attackTrigger1 = false;
                 attackTrigger2 = false;
                 chargeTrigger = true;
-                gameObject.GetComponentInChildren<SlimeAnimation>()._chargeAttack = true;
-                if (!_slimeSounds.isPlaying)
-                {
-                    _slimeSounds.PlayOneShot(_slimeAoe);
-                }
             }
         }
 
@@ -188,7 +183,11 @@ public class EnemySlimeMovement : MonoBehaviour
     {
         enemyRB.velocity = Vector3.zero;
         yield return new WaitForSeconds(0.8f);
-        animationReady = true;
+        gameObject.GetComponentInChildren<SlimeAnimation>()._chargeAttack = true;
+        if (!_slimeSounds.isPlaying)
+        {
+            _slimeSounds.PlayOneShot(_slimeAoe);
+        }
         yield return new WaitForSeconds(1.2f);
         chargeTrigger = false;
         isChargeAttacking = false;
