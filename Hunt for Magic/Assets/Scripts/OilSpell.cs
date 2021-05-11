@@ -57,7 +57,7 @@ public class OilSpell : MonoBehaviour
 
             if (!enemy.gameObject.name.Contains("Plantie"))
             {
-                Instantiate(_oilPool, new Vector3(other.transform.position.x, 0f, other.transform.position.z), Quaternion.Euler(0, 0, 0));
+                Instantiate(_oilPool, new Vector3(other.transform.position.x, 0.01f, other.transform.position.z), Quaternion.Euler(0, 0, 0));
             }
 
             GameObject onHitOil = Instantiate(_oilHit, transform.position, Quaternion.identity);
@@ -68,7 +68,7 @@ public class OilSpell : MonoBehaviour
 
         if (other.CompareTag("Ground"))
         {
-            Instantiate(_oilPool, new Vector3(transform.position.x, 0f, transform.position.z), Quaternion.Euler(0, 0, 0));
+            Instantiate(_oilPool, new Vector3(transform.position.x, 0.01f, transform.position.z), Quaternion.Euler(0, 0, 0));
             Destroy(GetComponentInParent<Transform>().gameObject);
         }
 
