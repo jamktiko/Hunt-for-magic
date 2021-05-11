@@ -76,7 +76,7 @@ public class EnemySlimeMovement : MonoBehaviour
             }
         }
 
-        if (chargeTrigger)
+        if (chargeTrigger && !isChargeAttacking)
         {
             isChargeAttacking = true;
             StartCoroutine(chargeTimer());
