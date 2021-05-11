@@ -34,6 +34,8 @@ public class EnemyArcherMovement : MonoBehaviour
     private bool CLcooldownActive;
     public Object _arrowType;
     public float ATRoll;
+    public AudioSource _archerSounds;
+    public AudioClip _crossbow;
 
     // Start is called before the first frame update
     void Start()
@@ -171,6 +173,8 @@ public class EnemyArcherMovement : MonoBehaviour
                     {
                         _arrowType = Resources.Load("Prefabs/IceArrow");
                     }
+
+                    _archerSounds.PlayOneShot(_crossbow);
 
                     Instantiate(_arrowType, _arrowStartPoint.position, _arrowStartPoint.rotation);
 
