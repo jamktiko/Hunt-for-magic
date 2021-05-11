@@ -8,6 +8,7 @@ public class IcewallSpell : MonoBehaviour
     public float _damageAmount;
     private float _baseDamage = 20f;
     private float WaterBonus;
+    private float WindBonus;
 
     [SerializeField]
     private float _speed = 35f;
@@ -28,7 +29,8 @@ public class IcewallSpell : MonoBehaviour
     {
         _player = GameObject.Find("PlayerCharacter");
         WaterBonus = _player.GetComponent<CrystalScript>().waterBonus;
-        _damageAmount = _baseDamage = WaterBonus;
+        WindBonus = _player.GetComponent<CrystalScript>().airBonus;
+        _damageAmount = _baseDamage + WaterBonus + WindBonus;
         _castingPoint = GameObject.Find("CastingPoint").GetComponent<Transform>();
         _waterCastingPoint = GameObject.Find("WaterCastingPoint").GetComponent<Transform>();
         gameObject.GetComponent<Rigidbody>().AddForce(_castingPoint.forward * _speed, ForceMode.Impulse);
