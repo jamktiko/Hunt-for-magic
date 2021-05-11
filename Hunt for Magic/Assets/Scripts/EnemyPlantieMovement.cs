@@ -17,6 +17,7 @@ public class EnemyPlantieMovement : MonoBehaviour
     public GameObject _meleeIndicator;
     public Transform _poisonPos1;
     public Transform _poisonPos2;
+    public GameObject _vinePositions;
     public Transform _vinePos1;
     public Transform _vinePos2;
     public Transform _vinePos3;
@@ -31,7 +32,7 @@ public class EnemyPlantieMovement : MonoBehaviour
     public bool clHit;
     public GameObject _spawnManager;
     private GameObject _hud;
-    private GameObject _victoryPanel;
+    public GameObject _victoryPanel;
     public Animator _anim;
 
 
@@ -46,6 +47,10 @@ public class EnemyPlantieMovement : MonoBehaviour
         _meleeIndicator.SetActive(false);
         _hud = GameObject.Find("HUD");
         _victoryPanel = _hud.transform.Find("Victory").gameObject;
+        _vinePositions = GameObject.Find("VinePositions");
+        _vinePos1 = _vinePositions.transform.Find("VinePos1");
+        _vinePos2 = _vinePositions.transform.Find("VinePos2");
+        _vinePos3 = _vinePositions.transform.Find("VinePos3");
     }
 
     // Update is called once per frame

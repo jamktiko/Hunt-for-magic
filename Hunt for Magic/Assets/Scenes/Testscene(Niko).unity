@@ -380,16 +380,6 @@ PrefabInstance:
       propertyPath: _vinePos3
       value: 
       objectReference: {fileID: 1732544271}
-    - target: {fileID: 3215401070520018380, guid: 1a2cae7fee690eb49844ddb11ab46b7d,
-        type: 3}
-      propertyPath: _victoryPanel
-      value: 
-      objectReference: {fileID: 1094499114}
-    - target: {fileID: 7048922107300960475, guid: 1a2cae7fee690eb49844ddb11ab46b7d,
-        type: 3}
-      propertyPath: m_Name
-      value: plantie2.0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1a2cae7fee690eb49844ddb11ab46b7d, type: 3}
 --- !u!1 &362527319 stripped
@@ -1205,12 +1195,6 @@ PrefabInstance:
 --- !u!1 &1091066308 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2225223471056074277, guid: 9d596df91270fb244949a371da133a7c,
-    type: 3}
-  m_PrefabInstance: {fileID: 1003931985}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1094499114 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5649860139994212504, guid: 9d596df91270fb244949a371da133a7c,
     type: 3}
   m_PrefabInstance: {fileID: 1003931985}
   m_PrefabAsset: {fileID: 0}
