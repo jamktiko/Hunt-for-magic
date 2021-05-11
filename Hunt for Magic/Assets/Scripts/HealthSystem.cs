@@ -99,7 +99,7 @@ public class HealthSystem : MonoBehaviour
             {
                 Destroy(gameObject, 2f);   //2 sekuntia aikaa kuolinanimaatiolle
             }
-            else if (gameObject.name == "Plantie")
+            else if (gameObject.name.Contains("Plantie"))
             {
                 Destroy(gameObject, 10f);
             }
