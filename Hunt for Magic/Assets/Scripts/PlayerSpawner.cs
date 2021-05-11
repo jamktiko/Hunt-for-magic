@@ -20,7 +20,7 @@ public class PlayerSpawner : MonoBehaviour
 
     private void Update()
     {
-        if (_player.transform.position.x < 10)
+        if (_player.transform.position.x < 20)
         {
             _player.transform.position = gameObject.transform.position;
         }
