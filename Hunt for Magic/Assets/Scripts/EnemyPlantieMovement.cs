@@ -34,6 +34,12 @@ public class EnemyPlantieMovement : MonoBehaviour
     private GameObject _hud;
     public GameObject _victoryPanel;
     public Animator _anim;
+    public AudioSource _plantieAudio;
+    public AudioClip _poisonSound;
+    public AudioClip _vineSound;
+    public AudioClip _homingSound;
+    public AudioClip _meleeSound;
+    public AudioClip _deathSound;
 
 
     // Start is called before the first frame update
@@ -59,6 +65,7 @@ public class EnemyPlantieMovement : MonoBehaviour
         if (GetComponent<HealthSystem>().health == 0)
         {
             _anim.SetTrigger("Death");
+            _plantieAudio.PlayOneShot(_deathSound);
             gameObject.GetComponent<EnemyPlantieMovement>().enabled = false;
         }
 
@@ -118,6 +125,8 @@ public class EnemyPlantieMovement : MonoBehaviour
 
         yield return new WaitForSeconds(0.5f);
 
+        _plantieAudio.PlayOneShot(_poisonSound);
+
         int rand = Random.Range(1, 3);
         if (rand == 1)
         {
@@ -139,6 +148,7 @@ public class EnemyPlantieMovement : MonoBehaviour
         _anim.SetTrigger("Vine");
 
         yield return new WaitForSeconds(0.5f);
+        _plantieAudio.PlayOneShot(_vineSound);
         GameObject vine1 = Instantiate(_vine, _vinePos1.position, _vinePos1.rotation);
         yield return new WaitForSeconds(0.5f);
         GameObject vine2 = Instantiate(_vine, _vinePos2.position, _vinePos2.rotation);
@@ -182,7 +192,9 @@ public class EnemyPlantieMovement : MonoBehaviour
     {
         _anim.SetTrigger("Homing");
 
-        yield return new WaitForSeconds(1.0f);
+        _plantieAudio.PlayOneShot(_homingSound);
+
+        yield return new WaitForSeconds(1.5f);
         GameObject HAAttack1 = Instantiate(_HAMissile, _HAPos1.position, _HAPos1.rotation);
         yield return new WaitForSeconds(0.7f);
         GameObject HAAttack2 = Instantiate(_HAMissile, _HAPos2.position, _HAPos2.rotation);
@@ -196,9 +208,11 @@ public class EnemyPlantieMovement : MonoBehaviour
     {
         _meleeIndicator.SetActive(true);
 
+
         _anim.SetTrigger("Melee");
 
-        yield return new WaitForSeconds(2.5f);
+        yield return new WaitForSeconds(2.6f);
+        _plantieAudio.PlayOneShot(_meleeSound);
         _meleeHit.SetActive(true);
         yield return new WaitForSeconds(0.1f);
         _meleeHit.SetActive(false);

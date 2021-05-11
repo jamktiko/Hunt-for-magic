@@ -17,12 +17,13 @@ public class HealthSystem : MonoBehaviour
     public bool _deadSlime;
 
     public AudioSource _slimeSounds;
-
     public AudioSource _slimeAnim;
-
     public AudioClip _slimeDeath;
-
     public AudioClip _slimeDamage;
+
+    public AudioSource _archerSounds;
+    public AudioClip _archerDamage;
+    public AudioClip _archerDeath;
 
     private bool _soundPlaying;
 
@@ -57,6 +58,11 @@ public class HealthSystem : MonoBehaviour
             _slimeAnim.PlayOneShot(_slimeDamage);
         }
 
+        if (gameObject.name.Contains("EnemyArcher") && !_archerSounds.isPlaying && !gameObject.GetComponent<Debuffs>()._onFire)
+        {
+            _archerSounds.PlayOneShot(_archerDamage);
+        }
+
         if (_health <= 0)
         {
             _health = 0;
@@ -76,6 +82,12 @@ public class HealthSystem : MonoBehaviour
             if (gameObject.name.Contains("EnemyArcher"))
             {
                 gameObject.GetComponent<EnemyArcherMovement>().enabled = false;
+
+                if (!_soundPlaying)
+                {
+                    _archerSounds.PlayOneShot(_archerDeath);
+                    _soundPlaying = true;
+                }
             }
 
             if (gameObject.name.Contains("Vine"))

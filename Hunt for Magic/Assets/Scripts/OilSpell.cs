@@ -13,6 +13,7 @@ public class OilSpell : MonoBehaviour
 
     private Transform _castingPoint;
     private GameObject _oilPool;
+    private GameObject _oilHit;
 
     // Start is called before the first frame update
     void Start()
@@ -22,6 +23,7 @@ public class OilSpell : MonoBehaviour
         _oilPool = Resources.Load<GameObject>("Prefabs/OilPool");
         _castingPoint = GameObject.Find("CastingPoint").GetComponent<Transform>();
         gameObject.GetComponent<Rigidbody>().AddForce(_castingPoint.forward * _speed, ForceMode.Impulse);
+        _oilHit = Resources.Load<GameObject>("Prefabs/OnHitOil");
     }
 
     // Update is called once per frame
@@ -57,6 +59,9 @@ public class OilSpell : MonoBehaviour
             {
                 Instantiate(_oilPool, new Vector3(other.transform.position.x, 0f, other.transform.position.z), Quaternion.Euler(0, 0, 0));
             }
+
+            GameObject onHitOil = Instantiate(_oilHit, transform.position, Quaternion.identity);
+            Destroy(onHitOil, 1f);
 
             Destroy(GetComponentInParent<Transform>().gameObject);
         }
