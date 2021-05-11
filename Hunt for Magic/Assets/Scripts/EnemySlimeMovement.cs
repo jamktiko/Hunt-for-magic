@@ -76,7 +76,7 @@ public class EnemySlimeMovement : MonoBehaviour
             }
         }
 
-        if (chargeTrigger)
+        if (chargeTrigger && !isChargeAttacking)
         {
             isChargeAttacking = true;
             StartCoroutine(chargeTimer());
@@ -151,11 +151,6 @@ public class EnemySlimeMovement : MonoBehaviour
                 attackTrigger1 = false;
                 attackTrigger2 = false;
                 chargeTrigger = true;
-                gameObject.GetComponentInChildren<SlimeAnimation>()._chargeAttack = true;
-                if (!_slimeSounds.isPlaying)
-                {
-                    _slimeSounds.PlayOneShot(_slimeAoe);
-                }
             }
         }
 
@@ -186,7 +181,9 @@ public class EnemySlimeMovement : MonoBehaviour
 
     IEnumerator chargeTimer()
     {
-        enemyRB.velocity = Vector3.zero;
+        enemyRB.velocity = Vector3.zero;      
+        gameObject.GetComponentInChildren<SlimeAnimation>()._chargeAttack = true;
+        _slimeSounds.PlayOneShot(_slimeAoe);
         yield return new WaitForSeconds(0.8f);
         animationReady = true;
         yield return new WaitForSeconds(1.2f);
