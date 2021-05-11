@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class EnemyPlantieMovement : MonoBehaviour
 {
@@ -40,6 +41,7 @@ public class EnemyPlantieMovement : MonoBehaviour
     public AudioClip _homingSound;
     public AudioClip _meleeSound;
     public AudioClip _deathSound;
+    public Image _hpImage;
 
 
     // Start is called before the first frame update
@@ -62,6 +64,8 @@ public class EnemyPlantieMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        _hpImage.fillAmount = GetComponent<HealthSystem>().health / GetComponent<HealthSystem>()._maxHealth;
+
         if (GetComponent<HealthSystem>().health == 0)
         {
             _anim.SetTrigger("Death");
