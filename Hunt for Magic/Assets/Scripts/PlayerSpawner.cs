@@ -13,9 +13,16 @@ public class PlayerSpawner : MonoBehaviour
     {
         _hud = GameObject.Find("HUD");
         _player = GameObject.FindWithTag("Player");
-        _player.transform.position = gameObject.transform.position;
 
         SceneManager.MoveGameObjectToScene(_player, SceneManager.GetActiveScene());
         SceneManager.MoveGameObjectToScene(_hud, SceneManager.GetActiveScene());
+    }
+
+    private void Update()
+    {
+        if (_player.transform.position.x < 10)
+        {
+            _player.transform.position = gameObject.transform.position;
+        }
     }
 }
