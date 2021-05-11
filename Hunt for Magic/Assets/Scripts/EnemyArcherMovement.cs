@@ -56,6 +56,11 @@ public class EnemyArcherMovement : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        if (transform.position.y < -200)
+        {
+            Destroy(gameObject);
+        }
+
         if (player != null)
         {
             if (clHit && !CLcooldownActive)
