@@ -181,11 +181,11 @@ public class EnemySlimeMovement : MonoBehaviour
 
     IEnumerator chargeTimer()
     {
-        enemyRB.velocity = Vector3.zero;
-        yield return new WaitForSeconds(0.8f);
-        animationReady = true;
+        enemyRB.velocity = Vector3.zero;      
         gameObject.GetComponentInChildren<SlimeAnimation>()._chargeAttack = true;
         _slimeSounds.PlayOneShot(_slimeAoe);
+        yield return new WaitForSeconds(0.8f);
+        animationReady = true;
         yield return new WaitForSeconds(1.2f);
         chargeTrigger = false;
         isChargeAttacking = false;
