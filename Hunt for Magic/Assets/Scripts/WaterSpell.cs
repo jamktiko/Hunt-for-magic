@@ -72,7 +72,7 @@ public class WaterSpell : MonoBehaviour
                 enemyHealth.AddDamage(_damageAmount);
                 other.gameObject.GetComponent<Debuffs>()._wet = true;
 
-                Object groundWater = Instantiate(_waterPool, new Vector3(transform.position.x, 0.005f, transform.position.z), Quaternion.identity);
+                Object groundWater = Instantiate(_waterPool, new Vector3(transform.position.x, 0.12f, transform.position.z), Quaternion.identity);
                 Destroy(groundWater, 5f);
 
                 Object onHitwater = Instantiate(_waterHit, transform.position, Quaternion.identity);

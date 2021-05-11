@@ -34,7 +34,7 @@ public class SlimeDrop : MonoBehaviour
         {
             _dropChargeCooldown = true;
 
-            Instantiate(_ChargeSlime, new Vector3(transform.position.x, 0f, transform.position.z), Quaternion.identity);
+            Instantiate(_ChargeSlime, new Vector3(transform.position.x, 0.11f, transform.position.z), Quaternion.identity);
 
             Invoke("ChargeCooldown", 3f);
         }
@@ -46,7 +46,7 @@ public class SlimeDrop : MonoBehaviour
         {
             _dropCooldown = true;
 
-            Instantiate(_slowingSlime, new Vector3(transform.position.x, 0f, transform.position.z), Quaternion.identity);
+            Instantiate(_slowingSlime, new Vector3(transform.position.x, 0.11f, transform.position.z), Quaternion.identity);
 
             Invoke("Cooldown", 6f);
         }
